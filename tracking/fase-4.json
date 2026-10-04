@@ -4973,6 +4973,587 @@
         "no_corregido": true
       },
       "alcance": "Únicamente tamaño y peso de navegación en cuatro CSS y tamaño móvil en breakpoints existentes; sin nuevos !important ni cambios HTML, line-height, dimensiones, padding, distribución, scripts, imágenes, Supabase o contadores."
+    },
+    {
+      "id": "capacitaciones.navigation.typography",
+      "repositorio": "crebeucayali/capacitaciones",
+      "hallazgo": "Inconsistencia tipográfica de navegación en tres páginas",
+      "estado": "CORREGIDO_VERIFICADO",
+      "pr": 2,
+      "pr_url": "https://github.com/crebeucayali/capacitaciones/pull/2",
+      "commit_corregido": "2bbf856fe8343b1a6383f8b9a7bebbfa538081c9",
+      "commit_merge": "3b8dbba6c62250b88677732fd89e4184131d82ed",
+      "fecha_correccion": "2026-10-04T23:12:16Z",
+      "fecha_verificacion_publicada": "2026-10-04T23:14:16.616Z",
+      "archivos": [
+        "estilos.css"
+      ],
+      "selector_anadido": ".navegacion .enlace-cabecera",
+      "valores_anteriores": {
+        "font_size": "1rem",
+        "computado_px": 16,
+        "font_weight": 800
+      },
+      "valores_finales": {
+        "escritorio": {
+          "font_size": "0.9375rem",
+          "computado_px": 15,
+          "font_weight": 600
+        },
+        "movil": {
+          "font_size": "0.875rem",
+          "computado_px": 14,
+          "font_weight": 600
+        }
+      },
+      "breakpoint_existente_px": 760,
+      "paginas_verificadas": [
+        "index.html",
+        "primera-jornada.html",
+        "segunda-jornada.html"
+      ],
+      "aprobacion": "Autorización expresa. GitHub rechazó aprobación formal con 422 por tratarse de la cuenta autora. Merge normal sin auto-merge.",
+      "validacion": {
+        "mediciones": 18,
+        "anchos_px": [
+          320,
+          360,
+          390,
+          414,
+          768,
+          1440
+        ],
+        "resultados": [
+          {
+            "page": "index.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 742,
+            "headerAfter": 742,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 639.203125,
+            "headerAfter": 639.203125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 615.875,
+            "headerAfter": 615.875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 618.875,
+            "headerAfter": 618.875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 442.515625,
+            "headerAfter": 442.515625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 365.8125,
+            "headerAfter": 365.8125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "primera-jornada.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 3,
+            "rowsAfter": 3,
+            "headerBefore": 986.5625,
+            "headerAfter": 986.5625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "primera-jornada.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 851.578125,
+            "headerAfter": 851.578125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "primera-jornada.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 828.25,
+            "headerAfter": 828.25,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "primera-jornada.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 810.609375,
+            "headerAfter": 810.609375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "primera-jornada.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 601.703125,
+            "headerAfter": 601.703125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "primera-jornada.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 525,
+            "headerAfter": 525,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "segunda-jornada.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 3,
+            "rowsAfter": 3,
+            "headerBefore": 890,
+            "headerAfter": 890,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "segunda-jornada.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 787.203125,
+            "headerAfter": 787.203125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "segunda-jornada.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 796.0625,
+            "headerAfter": 796.0625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "segunda-jornada.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 746.234375,
+            "headerAfter": 746.234375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "segunda-jornada.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 569.515625,
+            "headerAfter": 569.515625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "segunda-jornada.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 492.8125,
+            "headerAfter": 492.8125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          }
+        ],
+        "comprobaciones_aumento_texto": 6,
+        "controles": [
+          {
+            "page": "index.html",
+            "width": 390,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          },
+          {
+            "page": "index.html",
+            "width": 1440,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          },
+          {
+            "page": "primera-jornada.html",
+            "width": 390,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/capacitaciones/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          },
+          {
+            "page": "primera-jornada.html",
+            "width": 1440,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/capacitaciones/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          },
+          {
+            "page": "segunda-jornada.html",
+            "width": 390,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/capacitaciones/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          },
+          {
+            "page": "segunda-jornada.html",
+            "width": 1440,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/capacitaciones/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          }
+        ],
+        "overflow_cero_en_18_escenarios": true,
+        "overflow_cero_con_aumento_texto": true,
+        "sin_variaciones_filas_altura": true,
+        "sin_superposicion": true,
+        "hover_destinos_contenido_intactos": true,
+        "enlaces_ajenos_sin_cambios": true,
+        "regla_agrupada_enlace_cabecera_enlaces_a_intacta": true,
+        "metodo": "Chromium/Playwright: recursos públicos posteriores al merge, CSS publicado idéntico al aprobado y comparación completa con snapshots aceptados.",
+        "limites": "Solicitudes externas/Supabase, sockets y service workers bloqueados; destinos de navegación interceptados."
+      }
     }
   ]
 }
