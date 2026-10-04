@@ -59,13 +59,22 @@ OVERFLOW_MEASURE = r'''() => {
   };
   return [...document.body.querySelectorAll('*')].map(el => {
     const s=getComputedStyle(el),r=el.getBoundingClientRect();
+    const ranges = [...el.childNodes].filter(n=>n.nodeType===Node.TEXT_NODE && n.textContent.trim()).flatMap(n=>{
+      const range=document.createRange();range.selectNodeContents(n);return [...range.getClientRects()];
+    });
+    const textRight=Math.max(r.right,...ranges.map(x=>x.right));
+    const textLeft=Math.min(r.left,...ranges.map(x=>x.left));
+    const contentRight=s.overflowX==='visible' && el.clientWidth>0 && el.scrollWidth>el.clientWidth ? r.left+el.scrollWidth : r.right;
+    const effectiveRight=Math.max(r.right,textRight,contentRight)+scrollX;
+    const effectiveLeft=Math.min(r.left,textLeft)+scrollX;
     return {selector:selector(el),className:typeof el.className==='string'?el.className:'',text:el.innerText?.trim().slice(0,110),
       left:r.left,right:r.right,width:r.width,display:s.display,visibility:s.visibility,
       minWidth:s.minWidth,maxWidth:s.maxWidth,whiteSpace:s.whiteSpace,overflowX:s.overflowX,
       fontSize:s.fontSize,flexShrink:s.flexShrink,paddingLeft:s.paddingLeft,paddingRight:s.paddingRight,
-      excess:Math.max(r.right-innerWidth,-r.left,0)};
-  }).filter(x=>x.width>0&&x.display!=='none'&&x.visibility!=='hidden'&&x.excess>1)
-    .sort((a,b)=>b.excess-a.excess).slice(0,30);
+      textRight,contentRight,scrollX,clientWidth:el.clientWidth,scrollWidth:el.scrollWidth,
+      excess:Math.max(effectiveRight-innerWidth,-effectiveLeft,0)};
+  }).filter(x=>x.width>0&&x.display!=='none'&&x.excess>1)
+    .sort((a,b)=>b.excess-a.excess||a.width-b.width).slice(0,30);
 }'''
 
 TRIAL = r'''({selector, properties}) => {
