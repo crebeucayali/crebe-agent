@@ -72,6 +72,106 @@
         "limites": "Solicitudes externas/Supabase, service workers y sockets bloqueados, como en la Fase 3. No se prueban datos del backend ni acciones de compartir, contadores o administración."
       },
       "alcance": "Un único archivo y una declaración CSS. Los demás hallazgos permanecen sin intervención."
+    },
+    {
+      "id": "DUA-3.0.share_label",
+      "repositorio": "crebeucayali/DUA-3.0",
+      "hallazgo": "Etiqueta visible Compartir en Facebook en tres páginas de DUA-3.0",
+      "estado_anterior": "PENDIENTE_DE_APROBACION",
+      "estado": "CORREGIDO_VERIFICADO",
+      "pr": 1,
+      "pr_url": "https://github.com/crebeucayali/DUA-3.0/pull/1",
+      "commit_corregido": "969330db63f50a42c5c2269ff88392b7b45dd5ff",
+      "commit_merge": "903b338b509c4dc368986a3fb8a741a44cee1e85",
+      "fecha_correccion": "2026-10-04T14:41:47.000-05:00",
+      "fecha_verificacion_publicada": "2026-10-04T14:44:21.752-05:00",
+      "aprobacion": "Autorización expresa del propietario. La misma cuenta autora no admite aprobación formal de su propio PR. Merge normal, sin auto-merge.",
+      "archivos": [
+        "index.html",
+        "evolucion.html",
+        "recursos.html"
+      ],
+      "texto_anterior": "Compartir en Facebook",
+      "texto_nuevo": "Compartir",
+      "texto_descriptivo_conservado": "Comparte este contenido desde tu cuenta de Facebook.",
+      "validacion": {
+        "motor": "Chromium 151.0.7922.34 / Playwright",
+        "metodo": "HTML, scripts y estilos leídos de las tres páginas publicadas después del merge, sin sustitución de fuentes corregidas; comparación con la versión original fijada al commit b3c7f4c45cca33d42c89fe07497d7211b0486f4f. HTML publicado idéntico al corregido.",
+        "resultados": [
+          {
+            "archivo": "index.html",
+            "perfil": "desktop",
+            "ancho_px": 1440,
+            "etiqueta": "Compartir",
+            "atributos_intactos": true,
+            "helper_detecta_enlace": true,
+            "web_share_simulado_correcto": true,
+            "fallback_correcto": true,
+            "overflow_px": 0
+          },
+          {
+            "archivo": "evolucion.html",
+            "perfil": "desktop",
+            "ancho_px": 1440,
+            "etiqueta": "Compartir",
+            "atributos_intactos": true,
+            "helper_detecta_enlace": true,
+            "web_share_simulado_correcto": true,
+            "fallback_correcto": true,
+            "overflow_px": 0
+          },
+          {
+            "archivo": "recursos.html",
+            "perfil": "desktop",
+            "ancho_px": 1440,
+            "etiqueta": "Compartir",
+            "atributos_intactos": true,
+            "helper_detecta_enlace": true,
+            "web_share_simulado_correcto": true,
+            "fallback_correcto": true,
+            "overflow_px": 0
+          },
+          {
+            "archivo": "index.html",
+            "perfil": "mobile",
+            "ancho_px": 390,
+            "etiqueta": "Compartir",
+            "atributos_intactos": true,
+            "helper_detecta_enlace": true,
+            "web_share_simulado_correcto": true,
+            "fallback_correcto": true,
+            "overflow_px": 0
+          },
+          {
+            "archivo": "evolucion.html",
+            "perfil": "mobile",
+            "ancho_px": 390,
+            "etiqueta": "Compartir",
+            "atributos_intactos": true,
+            "helper_detecta_enlace": true,
+            "web_share_simulado_correcto": true,
+            "fallback_correcto": true,
+            "overflow_px": 0
+          },
+          {
+            "archivo": "recursos.html",
+            "perfil": "mobile",
+            "ancho_px": 390,
+            "etiqueta": "Compartir",
+            "atributos_intactos": true,
+            "helper_detecta_enlace": true,
+            "web_share_simulado_correcto": true,
+            "fallback_correcto": true,
+            "overflow_px": 0
+          }
+        ],
+        "datos_title_text_url_conservados": true,
+        "scripts_estilos_y_navegacion_sin_cambios": true,
+        "revision_visual_escritorio_y_movil_correcta": true,
+        "sin_nuevos_desbordamientos": true,
+        "limites": "Web Share API instrumentada con navigator.share simulado; navegación fallback interceptada localmente sin publicar ni enviar a Facebook. Solicitudes externas/Supabase bloqueadas. No prueba nativa del selector de compartir del sistema ni integración con contadores o Supabase."
+      },
+      "alcance": "Solo tres sustituciones de texto visible; atributos, scripts, estilos, Web Share API, fallback, contadores y Supabase intactos. Ningún otro hallazgo intervenido."
     }
   ]
 }
