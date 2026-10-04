@@ -9042,6 +9042,337 @@
       "causa_preliminar": "Los diez archivos WebP solicitados por index.html no existen en las rutas declaradas ni con el mismo nombre en el árbol de main. La carpeta solo contiene cuatro WebP distintos; causa observable común: referencias a recursos ausentes. Pendiente determinar si faltan archivos por subir o si las referencias deben apuntar a otros recursos.",
       "justificacion_agrupacion": "Misma página solicitante, misma carpeta, mismo estado HTTP 404 y ausencia de los diez archivos en el árbol.",
       "alcance": "Hallazgo independiente del PR tipográfico. Sin corrección de imágenes, referencias o rutas."
+    },
+    {
+      "id": "repositorio-accesible.navigation.typography",
+      "repositorio": "crebeucayali/repositorio-accesible",
+      "hallazgo": "Inconsistencia tipográfica de navegación",
+      "estado": "CORREGIDO_VERIFICADO",
+      "pr": 3,
+      "pr_url": "https://github.com/crebeucayali/repositorio-accesible/pull/3",
+      "commit_corregido": "121677db73fae6894b71bcfd17ea9c7eb3a6d3d1",
+      "commit_merge": "d0424d850c5ca67638c556995f21b1ef654a010c",
+      "fecha_correccion": "2026-10-04T23:53:26Z",
+      "fecha_verificacion_publicada": "2026-10-04T23:55:00.338Z",
+      "archivos": [
+        "estilos.css"
+      ],
+      "selector": "body .enlace-cabecera",
+      "valores_anteriores": {
+        "font_size": "1rem!important",
+        "computado_px": 16,
+        "font_weight": "800!important"
+      },
+      "valores_finales": {
+        "escritorio": {
+          "font_size": "0.9375rem!important",
+          "computado_px": 15,
+          "font_weight": 600
+        },
+        "movil": {
+          "font_size": "0.875rem!important",
+          "computado_px": 14,
+          "font_weight": 600
+        }
+      },
+      "breakpoint_existente_px": 700,
+      "regla_base_normal_intacta": true,
+      "aprobacion": "Autorización expresa. GitHub rechazó APPROVE con 422 por tratarse de la cuenta autora. Merge normal sin auto-merge.",
+      "validacion": {
+        "mediciones": 6,
+        "anchos_px": [
+          320,
+          360,
+          390,
+          414,
+          768,
+          1440
+        ],
+        "resultados": [
+          {
+            "page": "index.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 796.8125,
+            "headerAfter": 796.8125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 693.5625,
+            "headerAfter": 693.5625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 646.640625,
+            "headerAfter": 646.640625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 648.640625,
+            "headerAfter": 648.640625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 569.515625,
+            "headerAfter": 569.515625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 492.8125,
+            "headerAfter": 492.8125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          }
+        ],
+        "comprobaciones_aumento_texto": 2,
+        "controles": [
+          {
+            "page": "index.html",
+            "width": 390,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "20px",
+                    "20px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "15.75px",
+                    "15.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "17.5px",
+                    "17.5px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "index.html",
+            "width": 1440,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "20px",
+                    "20px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "16.875px",
+                    "16.875px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "18.75px",
+                    "18.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          }
+        ],
+        "escalado_rem": {
+          "movil_px": [
+            14,
+            15.75,
+            17.5
+          ],
+          "escritorio_px": [
+            15,
+            16.875,
+            18.75
+          ],
+          "peso": 600,
+          "retorno_normal": true
+        },
+        "filas_y_alturas_sin_variacion": true,
+        "overflow_cero_seis_escenarios_y_texto_aumentado": true,
+        "sin_superposicion": true,
+        "hover_destinos_contenido_tipografia_ajena_intactos": true,
+        "tarjetas": {
+          "cantidad": 3,
+          "selector": ".tarjeta-recurso:before",
+          "right": "0px",
+          "visible": true,
+          "contenido_estilos_geometria_absoluta_y_relativa_intactos": true,
+          "todas_propiedades_computadas_pseudo_intactas": true
+        },
+        "metodo": "Chromium/Playwright. Recursos publicados leídos nuevamente y comparación con diagnóstico; CSS publicado idéntico al aprobado, sin sustituciones. Aleatoriedad de ejercicios fijada únicamente en contextos de prueba para comparar contenido. Solicitudes externas/Supabase, sockets y service workers bloqueados; destinos interceptados."
+      },
+      "hallazgos_separados_sin_modificar": [
+        "repositorio-accesible.layout.overflow",
+        "repositorio-accesible.assets.materiales-elaborados.404"
+      ]
     }
   ]
 }
