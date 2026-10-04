@@ -8948,6 +8948,100 @@
         "no_corregido": true
       },
       "alcance": "Exclusivamente font-size/font-weight de navegación en nueve CSS y declaraciones móviles necesarias en breakpoints existentes. Sin cambios HTML, dimensiones, padding, line-height, distribución, scripts, contenido o backend."
+    },
+    {
+      "id": "repositorio-accesible.assets.materiales-elaborados.404",
+      "repositorio": "crebeucayali/repositorio-accesible",
+      "hallazgo": "Diez imágenes de materiales elaborados referenciadas por index.html y ausentes del repositorio",
+      "estado": "PENDIENTE_DE_DIAGNOSTICO",
+      "fecha_registro": "2026-10-04T23:46:23.414Z",
+      "commit_main_diagnosticado": "55d091f9ed0d09f5e2604d18b718d76bfafe0a0d",
+      "pagina_solicitante": "index.html",
+      "recursos": [
+        {
+          "ruta": "assets/imagenes/materiales-elaborados/tablero-de-la-concentracion.webp",
+          "url": "https://crebeucayali.github.io/repositorio-accesible/assets/imagenes/materiales-elaborados/tablero-de-la-concentracion.webp",
+          "pagina_solicitante": "index.html",
+          "estado_http": 404,
+          "existe_en_main": false,
+          "archivo_con_mismo_nombre_en_arbol": false
+        },
+        {
+          "ruta": "assets/imagenes/materiales-elaborados/mis-rutinas.webp",
+          "url": "https://crebeucayali.github.io/repositorio-accesible/assets/imagenes/materiales-elaborados/mis-rutinas.webp",
+          "pagina_solicitante": "index.html",
+          "estado_http": 404,
+          "existe_en_main": false,
+          "archivo_con_mismo_nombre_en_arbol": false
+        },
+        {
+          "ruta": "assets/imagenes/materiales-elaborados/inclumate-dobles-y-triples.webp",
+          "url": "https://crebeucayali.github.io/repositorio-accesible/assets/imagenes/materiales-elaborados/inclumate-dobles-y-triples.webp",
+          "pagina_solicitante": "index.html",
+          "estado_http": 404,
+          "existe_en_main": false,
+          "archivo_con_mismo_nombre_en_arbol": false
+        },
+        {
+          "ruta": "assets/imagenes/materiales-elaborados/libro-de-texturas.webp",
+          "url": "https://crebeucayali.github.io/repositorio-accesible/assets/imagenes/materiales-elaborados/libro-de-texturas.webp",
+          "pagina_solicitante": "index.html",
+          "estado_http": 404,
+          "existe_en_main": false,
+          "archivo_con_mismo_nombre_en_arbol": false
+        },
+        {
+          "ruta": "assets/imagenes/materiales-elaborados/babanasum.webp",
+          "url": "https://crebeucayali.github.io/repositorio-accesible/assets/imagenes/materiales-elaborados/babanasum.webp",
+          "pagina_solicitante": "index.html",
+          "estado_http": 404,
+          "existe_en_main": false,
+          "archivo_con_mismo_nombre_en_arbol": false
+        },
+        {
+          "ruta": "assets/imagenes/materiales-elaborados/sapo-de-los-colores-inclusivos.webp",
+          "url": "https://crebeucayali.github.io/repositorio-accesible/assets/imagenes/materiales-elaborados/sapo-de-los-colores-inclusivos.webp",
+          "pagina_solicitante": "index.html",
+          "estado_http": 404,
+          "existe_en_main": false,
+          "archivo_con_mismo_nombre_en_arbol": false
+        },
+        {
+          "ruta": "assets/imagenes/materiales-elaborados/termometro-de-las-emociones.webp",
+          "url": "https://crebeucayali.github.io/repositorio-accesible/assets/imagenes/materiales-elaborados/termometro-de-las-emociones.webp",
+          "pagina_solicitante": "index.html",
+          "estado_http": 404,
+          "existe_en_main": false,
+          "archivo_con_mismo_nombre_en_arbol": false
+        },
+        {
+          "ruta": "assets/imagenes/materiales-elaborados/asociacion-colores-coordinacion-bimanual.webp",
+          "url": "https://crebeucayali.github.io/repositorio-accesible/assets/imagenes/materiales-elaborados/asociacion-colores-coordinacion-bimanual.webp",
+          "pagina_solicitante": "index.html",
+          "estado_http": 404,
+          "existe_en_main": false,
+          "archivo_con_mismo_nombre_en_arbol": false
+        },
+        {
+          "ruta": "assets/imagenes/materiales-elaborados/elige-tu-saludo.webp",
+          "url": "https://crebeucayali.github.io/repositorio-accesible/assets/imagenes/materiales-elaborados/elige-tu-saludo.webp",
+          "pagina_solicitante": "index.html",
+          "estado_http": 404,
+          "existe_en_main": false,
+          "archivo_con_mismo_nombre_en_arbol": false
+        },
+        {
+          "ruta": "assets/imagenes/materiales-elaborados/reloj-de-las-rutinas-inclusivas.webp",
+          "url": "https://crebeucayali.github.io/repositorio-accesible/assets/imagenes/materiales-elaborados/reloj-de-las-rutinas-inclusivas.webp",
+          "pagina_solicitante": "index.html",
+          "estado_http": 404,
+          "existe_en_main": false,
+          "archivo_con_mismo_nombre_en_arbol": false
+        }
+      ],
+      "causa_preliminar": "Los diez archivos WebP solicitados por index.html no existen en las rutas declaradas ni con el mismo nombre en el árbol de main. La carpeta solo contiene cuatro WebP distintos; causa observable común: referencias a recursos ausentes. Pendiente determinar si faltan archivos por subir o si las referencias deben apuntar a otros recursos.",
+      "justificacion_agrupacion": "Misma página solicitante, misma carpeta, mismo estado HTTP 404 y ausencia de los diez archivos en el árbol.",
+      "alcance": "Hallazgo independiente del PR tipográfico. Sin corrección de imágenes, referencias o rutas."
     }
   ]
 }
