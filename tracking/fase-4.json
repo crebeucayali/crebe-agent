@@ -5554,6 +5554,47 @@
         "metodo": "Chromium/Playwright: recursos públicos posteriores al merge, CSS publicado idéntico al aprobado y comparación completa con snapshots aceptados.",
         "limites": "Solicitudes externas/Supabase, sockets y service workers bloqueados; destinos de navegación interceptados."
       }
+    },
+    {
+      "id": "materiales-educativos-accesibles.generador-braille.layout.overflow",
+      "repositorio": "crebeucayali/materiales-educativos-accesibles",
+      "hallazgo": "Desbordamiento horizontal preexistente del contenido del generador Braille",
+      "estado": "PENDIENTE_DE_DIAGNOSTICO",
+      "archivo": "generador/generador.html",
+      "fecha_registro": "2026-10-04T23:24:27.660Z",
+      "commit_main_diagnosticado": "c300e233a936a61242d9e64dfddfcdca821fff1b",
+      "mediciones_preexistentes": [
+        {
+          "ancho_px": 320,
+          "overflow_px": 255
+        },
+        {
+          "ancho_px": 360,
+          "overflow_px": 215
+        },
+        {
+          "ancho_px": 390,
+          "overflow_px": 185
+        },
+        {
+          "ancho_px": 414,
+          "overflow_px": 161
+        },
+        {
+          "ancho_px": 768,
+          "overflow_px": 0
+        },
+        {
+          "ancho_px": 1440,
+          "overflow_px": 0
+        }
+      ],
+      "aumento_texto_390_px": {
+        "grande_overflow_px": 200,
+        "muy_grande_overflow_px": 215
+      },
+      "causa_preliminar": "Contenido del generador y distribución .contenedor-generador con grid-template-columns:1fr 320px. Pendiente de diagnóstico completo.",
+      "alcance": "Hallazgo independiente, fuera del PR de normalización tipográfica. No se corrige ni se declara resuelto."
     }
   ]
 }
