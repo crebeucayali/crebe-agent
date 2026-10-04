@@ -35,4 +35,12 @@ Ejecutar las comprobaciones:
 python -m unittest discover -s tests
 ```
 
-Esta entrega no configura auditorías periódicas, GitHub Actions, ramas, PR ni un repositorio remoto. El siguiente paso es definir reglas de consistencia por tipo de página y contrastarlas con el resultado visual.
+## Ejecutar en GitHub Actions
+
+Abrir Actions, seleccionar "Inventario CREBE - Fase 1" y pulsar "Run workflow" sobre la rama main. Al terminar, el resumen muestra el informe y la sección Artifacts permite descargar el inventario completo.
+
+La primera ejecución se inicia al incorporar la configuración. También se verifica cuando cambia únicamente el archivo del workflow. No hay ejecución periódica ni activación por cambios en los ocho repositorios de EVA.
+
+El workflow utiliza el token temporal de GitHub con contents: read. No guarda credenciales, realiza commits, cambia páginas ni consulta Supabase. Cada ejecución lee los ocho repositorios públicos y conserva sus resultados como artefactos durante 30 días. El inventario inicial en inventory/ permanece como referencia histórica; los informes nuevos se generan en reports/inventory/ dentro de la ejecución.
+
+El siguiente paso es definir reglas de consistencia por tipo de página y contrastarlas con el resultado visual.
