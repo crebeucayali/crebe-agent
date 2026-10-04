@@ -172,6 +172,68 @@
         "limites": "Web Share API instrumentada con navigator.share simulado; navegación fallback interceptada localmente sin publicar ni enviar a Facebook. Solicitudes externas/Supabase bloqueadas. No prueba nativa del selector de compartir del sistema ni integración con contadores o Supabase."
       },
       "alcance": "Solo tres sustituciones de texto visible; atributos, scripts, estilos, Web Share API, fallback, contadores y Supabase intactos. Ningún otro hallazgo intervenido."
+    },
+    {
+      "repositorio": "crebeucayali/accesos-complementarios",
+      "estado": "PENDIENTE_DE_DIAGNOSTICO",
+      "fecha_deteccion": "2026-10-04T14:55:22.874-05:00",
+      "fecha_registro": "2026-10-04T15:08:17.124-05:00",
+      "commit_base_verificado": "cae93ad44109d896f20ef2305ba61abcc35a42fe",
+      "pr_contexto": "https://github.com/crebeucayali/accesos-complementarios/pull/1",
+      "incluido_en_correccion_tipografica": false,
+      "preexistente": true,
+      "resultado": "Mismo overflow antes y después del cambio tipográfico. Excepción expresamente aceptada para crear el PR de navegación.",
+      "siguiente_accion": "Diagnosticar por separado antes de proponer una corrección. No corregido en el PR tipográfico.",
+      "limites": "Medición en Chromium con fuentes públicas fijadas, sin sesión; solicitudes externas/Supabase bloqueadas.",
+      "id": "accesos-complementarios.politica-cookies.layout.overflow",
+      "hallazgo": "Overflow horizontal del contenido de política de cookies a 320 px",
+      "archivo": "paginas/politica-cookies.html",
+      "causa_preliminar": "Texto largo eva_firma_visita_ultimo_envio_v1 dentro de un elemento code.",
+      "evidencia_preliminar": {
+        "elemento": "code",
+        "texto": "eva_firma_visita_ultimo_envio_v1"
+      },
+      "validaciones": [
+        {
+          "ancho_px": 320,
+          "antes_px": 18,
+          "despues_px": 18
+        }
+      ]
+    },
+    {
+      "repositorio": "crebeucayali/accesos-complementarios",
+      "estado": "PENDIENTE_DE_DIAGNOSTICO",
+      "fecha_deteccion": "2026-10-04T14:55:22.874-05:00",
+      "fecha_registro": "2026-10-04T15:08:17.124-05:00",
+      "commit_base_verificado": "cae93ad44109d896f20ef2305ba61abcc35a42fe",
+      "pr_contexto": "https://github.com/crebeucayali/accesos-complementarios/pull/1",
+      "incluido_en_correccion_tipografica": false,
+      "preexistente": true,
+      "resultado": "Mismo overflow antes y después del cambio tipográfico. Excepción expresamente aceptada para crear el PR de navegación.",
+      "siguiente_accion": "Diagnosticar por separado antes de proponer una corrección. No corregido en el PR tipográfico.",
+      "limites": "Medición en Chromium con fuentes públicas fijadas, sin sesión; solicitudes externas/Supabase bloqueadas.",
+      "id": "accesos-complementarios.politica-privacidad.layout.overflow",
+      "hallazgo": "Overflow horizontal del contenido de política de privacidad a 320 y 360 px",
+      "archivo": "paginas/politica-privacidad.html",
+      "causa_preliminar": "Enlace de correo dentro del contenido.",
+      "evidencia_preliminar": {
+        "elemento": "a",
+        "texto": "senordelosmilagroscrebe@gmail.com",
+        "href": "mailto:senordelosmilagroscrebe@gmail.com"
+      },
+      "validaciones": [
+        {
+          "ancho_px": 320,
+          "antes_px": 42,
+          "despues_px": 42
+        },
+        {
+          "ancho_px": 360,
+          "antes_px": 2,
+          "despues_px": 2
+        }
+      ]
     }
   ]
 }
