@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "hallazgos": [
+    {
+      "id": "repositorio-accesible.layout.overflow",
+      "repositorio": "crebeucayali/repositorio-accesible",
+      "hallazgo": "Desbordamiento horizontal móvil causado por .tarjeta-recurso:before",
+      "estado_anterior": "PENDIENTE_DE_APROBACION",
+      "estado": "CORREGIDO_VERIFICADO",
+      "pr": 2,
+      "pr_url": "https://github.com/crebeucayali/repositorio-accesible/pull/2",
+      "commit_corregido": "d58ecf44951363025287f31b37645bc7c895d177",
+      "commit_merge": "55d091f9ed0d09f5e2604d18b718d76bfafe0a0d",
+      "fecha_correccion": "2026-10-04T14:27:29-05:00",
+      "fecha_verificacion_publicada": "2026-10-04T14:30:08-05:00",
+      "aprobacion": "Aprobación expresa del propietario; GitHub impide la revisión APPROVE de la propia cuenta autora. Merge normal, sin auto-merge.",
+      "archivo": "estilos.css",
+      "selector": ".tarjeta-recurso:before",
+      "cambio": {
+        "propiedad": "right",
+        "antes": "-48px",
+        "despues": "0"
+      },
+      "overflow_antes_px": 10,
+      "overflow_despues_px": 0,
+      "pagina_publicada": "https://crebeucayali.github.io/repositorio-accesible/",
+      "validacion": {
+        "motor": "Chromium 151.0.7922.34 / Playwright",
+        "metodo": "Recursos leídos nuevamente de GitHub Pages tras el merge; CSS publicado idéntico al corregido, sin sustitución de estilos. Medición de document.documentElement.scrollWidth - window.innerWidth.",
+        "altura_px": 900,
+        "anchos": [
+          {
+            "ancho_px": 320,
+            "antes_px": 10,
+            "despues_px": 0
+          },
+          {
+            "ancho_px": 360,
+            "antes_px": 10,
+            "despues_px": 0
+          },
+          {
+            "ancho_px": 390,
+            "antes_px": 10,
+            "despues_px": 0
+          },
+          {
+            "ancho_px": 414,
+            "antes_px": 10,
+            "despues_px": 0
+          },
+          {
+            "ancho_px": 768,
+            "antes_px": 0,
+            "despues_px": 0
+          },
+          {
+            "ancho_px": 1440,
+            "antes_px": 0,
+            "despues_px": 0
+          }
+        ],
+        "tarjetas_visibles": true,
+        "pseudo_elemento_visible": true,
+        "contenido_y_enlaces_identicos": true,
+        "geometria_y_estilos_tarjetas_identicos": true,
+        "sin_nuevos_desbordamientos_en_escenarios_probados": true,
+        "revision_visual_anchos_px": [
+          390,
+          1440
+        ],
+        "limites": "Solicitudes externas/Supabase, service workers y sockets bloqueados, como en la Fase 3. No se prueban datos del backend ni acciones de compartir, contadores o administración."
+      },
+      "alcance": "Un único archivo y una declaración CSS. Los demás hallazgos permanecen sin intervención."
+    }
+  ]
+}
