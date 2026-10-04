@@ -745,6 +745,57 @@
         ]
       },
       "alcance": "Solo estilos.css: tamaño y peso de navegación y tamaño móvil dentro del breakpoint existente. HTML, padding, dimensiones, colores, hover, scripts, contadores y Supabase sin cambios."
+    },
+    {
+      "repositorio": "crebeucayali/banco-digital-accesible",
+      "estado": "PENDIENTE_DE_DIAGNOSTICO",
+      "preexistente": true,
+      "commit_base_verificado": "a695ec2abf7fc974d33be3f59e7498a4667321af",
+      "fecha_registro": "2026-10-04T15:29:47.182-05:00",
+      "incluido_en_correccion_tipografica": false,
+      "alcance": "Hallazgo independiente fuera de la corrección tipográfica. No se aplica ninguna corrección de este hallazgo.",
+      "id": "banco-digital-accesible.braille-teoria.layout.overflow",
+      "hallazgo": "Overflow horizontal preexistente del contenido de teoría Braille en móvil",
+      "archivo": "braille/teoria.html",
+      "validaciones": [
+        {
+          "ancho_px": 320,
+          "overflow_px": 51
+        },
+        {
+          "ancho_px": 360,
+          "overflow_px": 11
+        }
+      ],
+      "evidencia_preliminar": "Tarjetas del contenido alcanzan aproximadamente 371 px desde el borde izquierdo en ambos anchos. Causa exacta pendiente de diagnóstico.",
+      "siguiente_accion": "Diagnosticar por separado el contenido de teoría. No declarar corregido por una reducción incidental tras el cambio tipográfico."
+    },
+    {
+      "repositorio": "crebeucayali/banco-digital-accesible",
+      "estado": "PENDIENTE_DE_DIAGNOSTICO",
+      "preexistente": true,
+      "commit_base_verificado": "a695ec2abf7fc974d33be3f59e7498a4667321af",
+      "fecha_registro": "2026-10-04T15:29:47.182-05:00",
+      "incluido_en_correccion_tipografica": false,
+      "alcance": "Hallazgo independiente fuera de la corrección tipográfica. No se aplica ninguna corrección de este hallazgo.",
+      "id": "banco-digital-accesible.lsp.assets.404",
+      "hallazgo": "Dos imágenes LSP responden HTTP 404",
+      "pagina": "lsp/index.html",
+      "recursos": [
+        {
+          "archivo": "lsp/imagenes/adverbios_y_preposiciones/con.png",
+          "url": "https://crebeucayali.github.io/banco-digital-accesible/lsp/imagenes/adverbios_y_preposiciones/con.png",
+          "status_http": 404,
+          "presente_en_arbol_main": false
+        },
+        {
+          "archivo": "lsp/imagenes/naturaleza/fresco.png",
+          "url": "https://crebeucayali.github.io/banco-digital-accesible/lsp/imagenes/naturaleza/fresco.png",
+          "status_http": 404,
+          "presente_en_arbol_main": false
+        }
+      ],
+      "siguiente_accion": "Diagnosticar por separado referencias y archivos faltantes, sin modificar imágenes ni scripts en el PR tipográfico."
     }
   ]
 }
