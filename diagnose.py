@@ -25,14 +25,15 @@ def source_links(repo, path, commit):
     return 'https://github.com/crebeucayali/' + repo + '/blob/' + commit + '/' + path
 
 
-async def matched_rules(session, selector, stylesheets, sources, properties):
+async def matched_rules(session, selector, stylesheets, sources, properties, pseudo=None):
     root = await session.send('DOM.getDocument')
     node = await session.send('DOM.querySelector', {'nodeId': root['root']['nodeId'], 'selector': selector})
     if not node.get('nodeId'):
         return []
     result = await session.send('CSS.getMatchedStylesForNode', {'nodeId': node['nodeId']})
     evidence = []
-    for entry in result.get('matchedCSSRules', []):
+    entries = result.get('matchedCSSRules', []) if pseudo is None else [entry for group in result.get('pseudoElements', []) if group.get('pseudoType') == pseudo for entry in group.get('matches', [])]
+    for entry in entries:
         rule = entry['rule']
         props = [p for p in rule['style'].get('cssProperties', []) if p['name'] in properties and not p.get('disabled')]
         if not props:
@@ -135,6 +136,39 @@ async def browser_case(browser, record, rules, sources, visual_findings):
                     await page.evaluate(RESTORE)
                     restored = await page.evaluate(DOM_MEASURE, selectors)
                     trials.append({'element': offender, 'applicable_css_rules': css, 'properties': properties, 'before_px': before['horizontal_overflow'], 'after_px': after['horizontal_overflow'], 'restored_px': restored['horizontal_overflow'], 'verified': after['horizontal_overflow'] <= 2 and restored['horizontal_overflow'] == before['horizontal_overflow']})
+            # Un adorno ::before/::after puede ampliar el área desplazable sin
+            # ampliar el rectángulo de su elemento. Probar su posición sin
+            # recortar la tarjeta ni afectar ventanas de detalle.
+            frame = await session.send('Page.getFrameTree')
+            sheet = await session.send('CSS.createStyleSheet', {'frameId': frame['frameTree']['frame']['id'], 'force': True})
+            checked = set()
+            for offender in offenders[:8]:
+                for class_name in offender['className'].split():
+                    if not re.fullmatch(r'[a-zA-Z_][a-zA-Z0-9_-]*', class_name) or class_name in checked:
+                        continue
+                    checked.add(class_name)
+                    selector = '.' + class_name
+                    for pseudo in ['before', 'after']:
+                        pseudo_style = await page.evaluate('({selector,pseudo})=>{const el=document.querySelector(selector);const s=getComputedStyle(el,"::"+pseudo);return {content:s.content,right:s.right,left:s.left,width:s.width,position:s.position};}', {'selector': selector, 'pseudo': pseudo})
+                        if pseudo_style['content'] in {'none', 'normal'}:
+                            continue
+                        negative = next((name for name in ['right', 'left'] if pseudo_style[name].endswith('px') and float(pseudo_style[name][:-2]) < 0), None)
+                        if not negative:
+                            continue
+                        evidence = await matched_rules(session, selector, sheets, sources, {'content', 'position', 'right', 'left', 'top', 'width', 'height'}, pseudo=pseudo)
+                        css_text = selector + '::' + pseudo + '{' + negative + ':0px!important;}'
+                        multi = []
+                        for width in [320, 360, 390, 414, 768, 1440]:
+                            await page.set_viewport_size({'width': width, 'height': 844})
+                            b = await page.evaluate(DOM_MEASURE, selectors)
+                            await session.send('CSS.setStyleSheetText', {'styleSheetId': sheet['styleSheetId'], 'text': css_text})
+                            a = await page.evaluate(DOM_MEASURE, selectors)
+                            await session.send('CSS.setStyleSheetText', {'styleSheetId': sheet['styleSheetId'], 'text': ''})
+                            restored = await page.evaluate(DOM_MEASURE, selectors)
+                            multi.append({'width': width, 'before_px': b['horizontal_overflow'], 'after_px': a['horizontal_overflow'], 'restored_px': restored['horizontal_overflow']})
+                        await page.set_viewport_size(VIEWPORTS[record['viewport']])
+                        target = next(m for m in multi if m['width'] == VIEWPORTS[record['viewport']]['width'])
+                        trials.append({'element': dict(offender, selector=selector + '::' + pseudo), 'applicable_css_rules': evidence, 'properties': {negative: '0px'}, 'pseudo_style_before': pseudo_style, 'proposal_css': css_text, 'before_px': target['before_px'], 'after_px': target['after_px'], 'restored_px': target['restored_px'], 'multi_width_trials': multi, 'verified': target['before_px'] > 2 and all(m['after_px'] <= 2 and m['restored_px'] == m['before_px'] for m in multi), 'cause': 'El desplazamiento negativo del adorno genera contenido fuera de la tarjeta. El ensayo cambia únicamente su posición y no recorta el contenido.'})
             result['overflow'] = {'before_px': before['horizontal_overflow'], 'offenders': offenders, 'trials': trials, 'verified_candidates': [t for t in trials if t['verified']], 'interpretation': 'Un candidato que elimina el desbordamiento es evidencia experimental, no prueba de que sea el único elemento implicado. Debe validarse en todos los tamaños antes de aplicar.'}
     except Exception as exc:
         result['error'] = type(exc).__name__
@@ -183,6 +217,10 @@ def report(result, output):
             element = candidate['element']
             locations = sorted({(r.get('repo') or '?') + '/' + (r.get('path') or '?') + ':' + str(r['line']) for r in candidate['applicable_css_rules']})
             lines.extend(['', '- Elemento: `' + element['selector'] + '`, clases `' + element['className'] + '`.', '- Reglas aplicables: ' + ', '.join(locations) + '.', '- Propuesta temporal: `' + json.dumps(candidate['properties'], ensure_ascii=False) + '`.', '- Resultado: ' + str(candidate['after_px']) + ' px. Al revertir: ' + str(candidate['restored_px']) + ' px.'])
+            if candidate.get('cause'):
+                lines.append('- Causa comprobada por ensayo: ' + candidate['cause'])
+            if candidate.get('multi_width_trials'):
+                lines.append('- Anchos comprobados: ' + ', '.join(str(m['width']) for m in candidate['multi_width_trials']) + ' px; sin desbordamiento durante el ensayo y con restauración comprobada.')
         if not overflow['verified_candidates']:
             lines.append('No se confirmó una corrección con las hipótesis ensayadas. Revisar los elementos y sus reglas registrados en diagnosis.json.')
     lines.extend(['', '## Tipografía de navegación', '', '| Repositorio | Vista | Antes | Propuesta | Prueba y restauración |', '|---|---|---|---|---|'])
