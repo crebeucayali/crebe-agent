@@ -2844,6 +2844,28 @@
         "registros_originales_sin_modificar": true
       },
       "alcance": "Diez CSS, solo font-size/font-weight de navegación y sus reglas en breakpoints existentes. Sin cambios HTML, dimensiones, distribución, hover, scripts, imágenes, controles, Supabase ni contadores."
+    },
+    {
+      "id": "noti-inclusivos.assets.sindrome-down.404",
+      "repositorio": "crebeucayali/noti-inclusivos",
+      "hallazgo": "Imagen de portada de síndrome de Down, ciencia y bioética responde HTTP 404",
+      "estado": "PENDIENTE_DE_DIAGNOSTICO",
+      "preexistente": true,
+      "commit_base_verificado": "365eda0ccde8d46df3895fcb344038c95984c4ec",
+      "fecha_registro": "2026-10-04T21:18:22.812Z",
+      "archivo": "assets/img/sindrome-down-ciencia-bioetica.jpeg",
+      "url": "https://crebeucayali.github.io/noti-inclusivos/assets/img/sindrome-down-ciencia-bioetica.jpeg",
+      "paginas": [
+        "index.html",
+        "articulos/index.html",
+        "articulos/sindrome-down-y-bioetica/index.html"
+      ],
+      "status_http": 404,
+      "presente_en_arbol_main": false,
+      "causa_preliminar": "La ruta referenciada no corresponde a un archivo presente en main. Pendiente determinar si falta el archivo o la referencia utiliza un nombre incorrecto.",
+      "incluido_en_correccion_tipografica": false,
+      "alcance": "Hallazgo independiente; no se corrigen imágenes, rutas ni HTML en el PR tipográfico.",
+      "siguiente_accion": "Diagnosticar por separado y proponer corrección después de autorización."
     }
   ]
 }
