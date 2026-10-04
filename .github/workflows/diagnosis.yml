@@ -1,0 +1,64 @@
+name: Diagnostico CREBE - Fase 3
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/diagnosis.yml'
+      - 'diagnose.py'
+      - 'inventory.py'
+      - 'tests/test_diagnose.py'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: crebe-diagnosis
+  cancel-in-progress: false
+
+jobs:
+  inventory:
+    name: Diagnosticar hallazgos
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Obtener programa
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Preparar Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Ejecutar pruebas
+        run: python -m unittest discover -s tests -v
+      - name: Generar inventario actual
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python inventory.py --output reports/inventory --save-snapshot /tmp/crebe-source-snapshot.json
+      - name: Auditar componentes y scripts
+        run: python audit.py --inventory reports/inventory --output reports/consistency
+      - name: Instalar revisión visual
+        run: |
+          python -m pip install -r requirements-audit.txt
+          python -m playwright install --with-deps chromium
+      - name: Medir portadas en escritorio y móvil
+        run: python visual_audit.py --inventory reports/inventory --output reports/consistency
+      - name: Diagnosticar causas y ensayar propuestas
+        run: python diagnose.py --snapshot /tmp/crebe-source-snapshot.json --consistency reports/consistency --output reports/diagnosis
+      - name: Mostrar informe
+        if: always()
+        shell: bash
+        run: |
+          if [ -f reports/diagnosis/Informe_fase_3.md ]; then
+            cat reports/consistency/Informe_fase_2.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Guardar resultados
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: crebe-diagnostico-fase-3-${{ github.run_id }}
+          path: reports/
+          if-no-files-found: warn
+          retention-days: 30

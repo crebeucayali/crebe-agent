@@ -68,3 +68,25 @@ python visual_audit.py --inventory inventory --output reports/consistency
 ```
 
 La fase 2 solo informa. No modifica los ocho repositorios ni genera correcciones, commits o PR en ellos.
+
+
+## Fase 3: diagnóstico de hallazgos
+
+En Actions, seleccionar "Diagnostico CREBE - Fase 3" y pulsar "Run workflow". También se verifica cuando cambia su programa o configuración. No hay ejecución periódica ni acciones automáticas sobre EVA.
+
+La ejecución actualiza el inventario, repite la auditoría de consistencia y contrasta los hallazgos con fuentes Git y reglas CSS aplicables obtenidas desde Chromium. Prueba hipótesis con estilos temporales únicamente en un contexto de navegador aislado y restaura cada ensayo. No publica esas modificaciones.
+
+Los resultados se guardan en `diagnosis/Informe_fase_3.md` y `diagnosis/diagnosis.json`, junto al inventario, auditoría y capturas. Incluyen elementos que sobresalen del viewport, reglas CSS con archivo/línea/huella, medidas antes/después/restauradas, causas de etiquetas y accesibilidad, y características de las variantes de Compartir.
+
+Un ensayo exitoso confirma la propuesta en el viewport probado. No acredita que sea la única solución ni valida todos los tamaños. Las reglas CDP son reglas aplicables; no se presupone que la última regla registrada sea la ganadora de la cascada. Los casos no comprobados permanecen como hipótesis.
+
+La captura de fuentes públicas se guarda temporalmente fuera de los artefactos. El token no se guarda. No se modifican datos, sesiones, MFA, permisos ni los ocho repositorios, y no se crean ramas o PR en ellos.
+
+Ejecución local, después de preparar Chromium:
+
+```bash
+python inventory.py --output reports/inventory --save-snapshot /tmp/crebe-source-snapshot.json
+python audit.py --inventory reports/inventory --output reports/consistency
+python visual_audit.py --inventory reports/inventory --output reports/consistency
+python diagnose.py --snapshot /tmp/crebe-source-snapshot.json --consistency reports/consistency --output reports/diagnosis
+```

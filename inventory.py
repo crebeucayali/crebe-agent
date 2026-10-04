@@ -173,8 +173,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--snapshot', type=Path, help='Reprocesar captura local sin red')
     parser.add_argument('--output', type=Path, default=Path('inventory'))
+    parser.add_argument('--save-snapshot', type=Path, help='Guardar fuentes públicas para diagnóstico local; no contiene el token')
     args = parser.parse_args()
     snapshot = json.loads(args.snapshot.read_text(encoding='utf-8')) if args.snapshot else collect()
+    if args.save_snapshot:
+        args.save_snapshot.write_text(json.dumps(snapshot, ensure_ascii=False), encoding='utf-8')
     status = build(snapshot, args.output)
     print('Inventario ' + status + ': ' + str(args.output.resolve()))
     raise SystemExit(0 if status == 'completo' else 1)
