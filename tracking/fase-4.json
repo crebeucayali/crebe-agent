@@ -234,6 +234,517 @@
           "despues_px": 2
         }
       ]
+    },
+    {
+      "id": "accesos-complementarios.navigation.typography",
+      "repositorio": "crebeucayali/accesos-complementarios",
+      "hallazgo": "Inconsistencia tipográfica de enlaces de navegación",
+      "estado_anterior": "PENDIENTE_DE_APROBACION",
+      "estado": "CORREGIDO_VERIFICADO",
+      "pr": 1,
+      "pr_url": "https://github.com/crebeucayali/accesos-complementarios/pull/1",
+      "commit_corregido": "040075828377bb7c9c11142d6fc43f847644881a",
+      "commit_merge": "ad2997def265bc219ec8729fa26b58488198258a",
+      "fecha_correccion": "2026-10-04T15:13:54.000-05:00",
+      "fecha_verificacion_publicada": "2026-10-04T15:17:16.131-05:00",
+      "archivo": "estilos.css",
+      "selector": ".enlace-cabecera,.enlace-inicio",
+      "valores_anteriores": {
+        "font_size": "1rem (16 px computados)",
+        "font_weight": 800
+      },
+      "valores_nuevos": {
+        "base": {
+          "font_size": "15px",
+          "font_weight": 600
+        },
+        "movil": {
+          "media_query": "@media(max-width:720px)",
+          "font_size": "14px",
+          "font_weight": 600
+        }
+      },
+      "paginas_verificadas": [
+        "index.html",
+        "paginas/aviso-legal.html",
+        "paginas/guia-de-uso.html",
+        "paginas/politica-cookies.html",
+        "paginas/politica-privacidad.html"
+      ],
+      "aprobacion": "Autorización expresa del propietario. GitHub rechazó APPROVE con 422: Can not approve your own pull request. Merge normal con SHA de cabecera esperado, sin auto-merge.",
+      "validacion": {
+        "motor": "Chromium 151.0.7922.34 / Playwright",
+        "metodo": "Páginas y CSS publicados, cacheados durante esta ejecución sin sustituir estilos.",
+        "resultados": [
+          {
+            "archivo": "index.html",
+            "ancho_px": 320,
+            "font_size": "14px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 829,
+            "altura_header_despues_px": 829,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": []
+          },
+          {
+            "archivo": "index.html",
+            "ancho_px": 360,
+            "font_size": "14px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 707.53125,
+            "altura_header_despues_px": 707.53125,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": []
+          },
+          {
+            "archivo": "index.html",
+            "ancho_px": 390,
+            "font_size": "14px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 678.828125,
+            "altura_header_despues_px": 678.828125,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": [
+              "https://crebeucayali.github.io/",
+              "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html"
+            ]
+          },
+          {
+            "archivo": "index.html",
+            "ancho_px": 414,
+            "font_size": "14px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 680.828125,
+            "altura_header_despues_px": 680.828125,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": []
+          },
+          {
+            "archivo": "index.html",
+            "ancho_px": 768,
+            "font_size": "15px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 569.515625,
+            "altura_header_despues_px": 569.515625,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": []
+          },
+          {
+            "archivo": "index.html",
+            "ancho_px": 1440,
+            "font_size": "15px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 492.8125,
+            "altura_header_despues_px": 492.8125,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": [
+              "https://crebeucayali.github.io/",
+              "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html"
+            ]
+          },
+          {
+            "archivo": "paginas/aviso-legal.html",
+            "ancho_px": 320,
+            "font_size": "14px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 819.625,
+            "altura_header_despues_px": 819.625,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": []
+          },
+          {
+            "archivo": "paginas/aviso-legal.html",
+            "ancho_px": 360,
+            "font_size": "14px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 729.890625,
+            "altura_header_despues_px": 729.890625,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": []
+          },
+          {
+            "archivo": "paginas/aviso-legal.html",
+            "ancho_px": 390,
+            "font_size": "14px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 698.234375,
+            "altura_header_despues_px": 698.234375,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": [
+              "https://crebeucayali.github.io/accesos-complementarios/index.html",
+              "https://crebeucayali.github.io/",
+              "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html"
+            ]
+          },
+          {
+            "archivo": "paginas/aviso-legal.html",
+            "ancho_px": 414,
+            "font_size": "14px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 667.046875,
+            "altura_header_despues_px": 667.046875,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": []
+          },
+          {
+            "archivo": "paginas/aviso-legal.html",
+            "ancho_px": 768,
+            "font_size": "15px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 569.515625,
+            "altura_header_despues_px": 569.515625,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": []
+          },
+          {
+            "archivo": "paginas/aviso-legal.html",
+            "ancho_px": 1440,
+            "font_size": "15px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 492.8125,
+            "altura_header_despues_px": 492.8125,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": [
+              "https://crebeucayali.github.io/accesos-complementarios/index.html",
+              "https://crebeucayali.github.io/",
+              "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html"
+            ]
+          },
+          {
+            "archivo": "paginas/guia-de-uso.html",
+            "ancho_px": 320,
+            "font_size": "14px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 787.4375,
+            "altura_header_despues_px": 787.4375,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": []
+          },
+          {
+            "archivo": "paginas/guia-de-uso.html",
+            "ancho_px": 360,
+            "font_size": "14px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 697.703125,
+            "altura_header_despues_px": 697.703125,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": []
+          },
+          {
+            "archivo": "paginas/guia-de-uso.html",
+            "ancho_px": 390,
+            "font_size": "14px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 666.046875,
+            "altura_header_despues_px": 666.046875,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": [
+              "https://crebeucayali.github.io/accesos-complementarios/index.html",
+              "https://crebeucayali.github.io/",
+              "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html"
+            ]
+          },
+          {
+            "archivo": "paginas/guia-de-uso.html",
+            "ancho_px": 414,
+            "font_size": "14px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 634.859375,
+            "altura_header_despues_px": 634.859375,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": []
+          },
+          {
+            "archivo": "paginas/guia-de-uso.html",
+            "ancho_px": 768,
+            "font_size": "15px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 537.328125,
+            "altura_header_despues_px": 537.328125,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": []
+          },
+          {
+            "archivo": "paginas/guia-de-uso.html",
+            "ancho_px": 1440,
+            "font_size": "15px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 492.8125,
+            "altura_header_despues_px": 492.8125,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": [
+              "https://crebeucayali.github.io/accesos-complementarios/index.html",
+              "https://crebeucayali.github.io/",
+              "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html"
+            ]
+          },
+          {
+            "archivo": "paginas/politica-cookies.html",
+            "ancho_px": 320,
+            "font_size": "14px",
+            "font_weight": 600,
+            "overflow_px": 18,
+            "altura_header_antes_px": 925.1875,
+            "altura_header_despues_px": 925.1875,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": []
+          },
+          {
+            "archivo": "paginas/politica-cookies.html",
+            "ancho_px": 360,
+            "font_size": "14px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 833.359375,
+            "altura_header_despues_px": 833.359375,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": []
+          },
+          {
+            "archivo": "paginas/politica-cookies.html",
+            "ancho_px": 390,
+            "font_size": "14px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 775.421875,
+            "altura_header_despues_px": 775.421875,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": [
+              "https://crebeucayali.github.io/accesos-complementarios/index.html",
+              "https://crebeucayali.github.io/",
+              "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html"
+            ]
+          },
+          {
+            "archivo": "paginas/politica-cookies.html",
+            "ancho_px": 414,
+            "font_size": "14px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 746.234375,
+            "altura_header_despues_px": 746.234375,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": []
+          },
+          {
+            "archivo": "paginas/politica-cookies.html",
+            "ancho_px": 768,
+            "font_size": "15px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 569.515625,
+            "altura_header_despues_px": 569.515625,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": []
+          },
+          {
+            "archivo": "paginas/politica-cookies.html",
+            "ancho_px": 1440,
+            "font_size": "15px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 545.609375,
+            "altura_header_despues_px": 545.609375,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": [
+              "https://crebeucayali.github.io/accesos-complementarios/index.html",
+              "https://crebeucayali.github.io/",
+              "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html"
+            ]
+          },
+          {
+            "archivo": "paginas/politica-privacidad.html",
+            "ancho_px": 320,
+            "font_size": "14px",
+            "font_weight": 600,
+            "overflow_px": 42,
+            "altura_header_antes_px": 854.8125,
+            "altura_header_despues_px": 854.8125,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": []
+          },
+          {
+            "archivo": "paginas/politica-privacidad.html",
+            "ancho_px": 360,
+            "font_size": "14px",
+            "font_weight": 600,
+            "overflow_px": 2,
+            "altura_header_antes_px": 765.53125,
+            "altura_header_despues_px": 765.53125,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": []
+          },
+          {
+            "archivo": "paginas/politica-privacidad.html",
+            "ancho_px": 390,
+            "font_size": "14px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 704.640625,
+            "altura_header_despues_px": 704.640625,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": [
+              "https://crebeucayali.github.io/accesos-complementarios/index.html",
+              "https://crebeucayali.github.io/",
+              "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html"
+            ]
+          },
+          {
+            "archivo": "paginas/politica-privacidad.html",
+            "ancho_px": 414,
+            "font_size": "14px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 706.640625,
+            "altura_header_despues_px": 706.640625,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": []
+          },
+          {
+            "archivo": "paginas/politica-privacidad.html",
+            "ancho_px": 768,
+            "font_size": "15px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 569.515625,
+            "altura_header_despues_px": 569.515625,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": []
+          },
+          {
+            "archivo": "paginas/politica-privacidad.html",
+            "ancho_px": 1440,
+            "font_size": "15px",
+            "font_weight": 600,
+            "overflow_px": 0,
+            "altura_header_antes_px": 492.8125,
+            "altura_header_despues_px": 492.8125,
+            "sin_superposicion": true,
+            "hover_intacto": true,
+            "enlaces_intactos": true,
+            "destinos_probados": [
+              "https://crebeucayali.github.io/accesos-complementarios/index.html",
+              "https://crebeucayali.github.io/",
+              "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html"
+            ]
+          }
+        ],
+        "altura_header_conservada": true,
+        "botones_conservados": true,
+        "hover_intacto": true,
+        "sin_nuevos_desbordamientos": true,
+        "revision_visual_anchos_px": [
+          390,
+          1440
+        ],
+        "nota_360_px": "En los subaccesos, Inicio principal puede pasar a la primera fila, conservando dos filas y la altura de cabecera.",
+        "limites": "Contextos sin sesión; solo GET/HEAD públicos, Supabase y otros hosts bloqueados. Clics verifican el destino solicitado interceptando la navegación final."
+      },
+      "excepciones_preexistentes": {
+        "sin_cambios": true,
+        "fuera_del_alcance": true,
+        "hallazgos_separados": [
+          "accesos-complementarios.politica-cookies.layout.overflow",
+          "accesos-complementarios.politica-privacidad.layout.overflow"
+        ],
+        "mediciones": [
+          {
+            "archivo": "paginas/politica-cookies.html",
+            "ancho_px": 320,
+            "antes_px": 18,
+            "despues_px": 18
+          },
+          {
+            "archivo": "paginas/politica-privacidad.html",
+            "ancho_px": 320,
+            "antes_px": 42,
+            "despues_px": 42
+          },
+          {
+            "archivo": "paginas/politica-privacidad.html",
+            "ancho_px": 360,
+            "antes_px": 2,
+            "despues_px": 2
+          }
+        ]
+      },
+      "alcance": "Solo estilos.css: tamaño y peso de navegación y tamaño móvil dentro del breakpoint existente. HTML, padding, dimensiones, colores, hover, scripts, contadores y Supabase sin cambios."
     }
   ]
 }
