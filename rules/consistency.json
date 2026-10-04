@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "reference_repo": "crebeucayali.github.io",
+  "scope": "Auditoría de lectura; no correcciones en EVA",
+  "auxiliary_path_patterns": ["(^|/)google[^/]*\\.html$", "^docs/", "^pruebas/"],
+  "auxiliary_title_patterns": ["redirigiendo", "trasladado"],
+  "auxiliary_pages": {"accesos-complementarios": ["paginas/mapa-web.html"]},
+  "home_required_components": ["header", "footer", "navegacion", "accesibilidad", "contador_visitas", "privacidad", "cookies"],
+  "public_required_components": ["header", "footer", "accesibilidad"],
+  "shared_scripts": ["accesibilidad.js", "visitas-eva.js", "compartir-facebook.js"],
+  "navigation_font_px": {"desktop": 15, "mobile": 14},
+  "navigation_weight_range": [500, 700],
+  "navigation_font_tolerance_px": 0.6,
+  "header_height_reference_px": 74,
+  "header_height_check": "Registrar la altura de la franja de navegación; no exigir 74 px en móvil ni confundirla con la portada completa",
+  "share_label": "Compartir",
+  "legal_links": ["politica-privacidad.html", "politica-cookies.html"],
+  "visual_scope": "Ocho portadas, en escritorio y móvil; subaccesos con análisis estático",
+  "selectors": {
+    "crebeucayali.github.io": {"nav": ".cabecera-interior", "links": ".pestanas-crebe > a", "footer": "footer"},
+    "default": {"nav": "header .navegacion", "links": "header .enlaces-cabecera > a, header .enlaces-superiores > a", "footer": "footer"},
+    "DUA-3.0": {"nav": ".dua-site-nav", "links": ".dua-site-nav a", "footer": "footer"}
+  },
+  "limits": [
+    "Los componentes administrativos no tienen obligación de replicar toda la portada",
+    "Los colores, contenidos, tarjetas y navegación particular no se igualan automáticamente",
+    "Las versiones de caché diferentes se registran; la diferencia de código requiere revisión",
+    "No se prueba compartir, iniciar sesión, subir archivos, calendarios ni consultas de datos",
+    "No es una certificación de accesibilidad"
+  ]
+}

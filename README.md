@@ -44,3 +44,27 @@ La primera ejecución se inicia al incorporar la configuración. También se ver
 El workflow utiliza el token temporal de GitHub con contents: read. No guarda credenciales, realiza commits, cambia páginas ni consulta Supabase. Cada ejecución lee los ocho repositorios públicos y conserva sus resultados como artefactos durante 30 días. El inventario inicial en inventory/ permanece como referencia histórica; los informes nuevos se generan en reports/inventory/ dentro de la ejecución.
 
 El siguiente paso es definir reglas de consistencia por tipo de página y contrastarlas con el resultado visual.
+
+
+## Fase 2: auditoría de consistencia
+
+El workflow "Consistencia CREBE - Fase 2" genera un inventario nuevo, ejecuta las reglas estáticas y mide las ocho portadas en Chromium a 1440 × 900 y 390 × 844 px. Las páginas auxiliares y administrativas tienen reglas distintas. No se igualan contenidos, colores ni módulos.
+
+Abrir Actions, seleccionar "Consistencia CREBE - Fase 2" y pulsar "Run workflow". También se verifica al cambiar sus reglas, programa, pruebas o configuración. Los cambios en los ocho repositorios de EVA no lo activan automáticamente.
+
+Los artefactos contienen el inventario, `consistency/Informe_fase_2.md`, `consistency/consistency.json`, `consistency/visual.json` y 16 capturas de pantalla. Los resultados nuevos se conservan 30 días. Un workflow exitoso indica que terminó la auditoría; el informe puede contener inconsistencias.
+
+Reglas en `rules/consistency.json`: tipografía NAV 15 px en escritorio / 14 px en móvil, franja de peso 500–700, referencia de 74 px para la navegación, etiqueta Compartir, componentes comunes y exclusiones por tipo de página. La altura total del hero no se compara con 74 px. Las variaciones del footer y de código compartido requieren revisión contextual.
+
+La revisión visual usa contextos nuevos sin sesión. Solo permite GET/HEAD a crebeucayali.github.io y bloquea servicios externos, Supabase, sockets y service workers. No pulsa Compartir, inicia sesión, rellena formularios ni prueba cargas. El contenido dependiente del backend puede estar incompleto. La versión publicada puede diferir del commit inventariado. Se revisan portadas visualmente y todos los HTML de forma estática; no es una certificación de accesibilidad.
+
+Ejecución local:
+
+```bash
+python audit.py --inventory inventory --output reports/consistency
+python -m pip install -r requirements-audit.txt
+python -m playwright install chromium
+python visual_audit.py --inventory inventory --output reports/consistency
+```
+
+La fase 2 solo informa. No modifica los ocho repositorios ni genera correcciones, commits o PR en ellos.
