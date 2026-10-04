@@ -19,7 +19,7 @@
   "selectors": {
     "crebeucayali.github.io": {"nav": ".cabecera-interior", "links": ".pestanas-crebe > a", "footer": "footer"},
     "default": {"nav": "header .navegacion", "links": "header .enlaces-cabecera > a, header .enlaces-superiores > a", "footer": "footer"},
-    "DUA-3.0": {"nav": ".dua-site-nav", "links": ".dua-site-nav a", "footer": "footer"}
+    "DUA-3.0": {"nav": ".crebe-identity", "links": ".crebe-identity-links > a", "footer": "footer"}
   },
   "limits": [
     "Los componentes administrativos no tienen obligación de replicar toda la portada",
