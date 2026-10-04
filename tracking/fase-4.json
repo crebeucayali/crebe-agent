@@ -5595,6 +5595,3359 @@
       },
       "causa_preliminar": "Contenido del generador y distribución .contenedor-generador con grid-template-columns:1fr 320px. Pendiente de diagnóstico completo.",
       "alcance": "Hallazgo independiente, fuera del PR de normalización tipográfica. No se corrige ni se declara resuelto."
+    },
+    {
+      "id": "materiales-educativos-accesibles.navigation.typography",
+      "repositorio": "crebeucayali/materiales-educativos-accesibles",
+      "hallazgo": "Inconsistencia tipográfica de navegación en once páginas",
+      "estado": "CORREGIDO_VERIFICADO",
+      "pr": 2,
+      "pr_url": "https://github.com/crebeucayali/materiales-educativos-accesibles/pull/2",
+      "commit_corregido": "3667527d108eafdf21b7a75ab44d451172cd07cc",
+      "commit_merge": "a143e6d2d70d948fa9088ac030e4f69d7a1061f1",
+      "fecha_correccion": "2026-10-04T23:34:05Z",
+      "fecha_verificacion_publicada": "2026-10-04T23:40:03.595Z",
+      "archivos": [
+        "rutinas/estilos.css",
+        "pictogramas/estilos.css",
+        "generador-lsp/generador-senas.css",
+        "index-csp.css",
+        "estilos.css",
+        "apoyos-lsp/generador-lsp.css",
+        "conciencia-fonologica/estilos.css",
+        "practica-braille-opciones/opciones.css",
+        "generador/estilos.css"
+      ],
+      "selectores": [
+        ".enlace-cabecera",
+        "body .enlace-cabecera"
+      ],
+      "valores_anteriores": {
+        "siete_paginas": {
+          "movil_px": 16,
+          "escritorio_px": 16,
+          "peso": 800
+        },
+        "cuatro_paginas_braille": {
+          "movil_px": 13.44,
+          "escritorio_px": 16,
+          "peso": 800
+        }
+      },
+      "valores_finales": {
+        "escritorio": {
+          "font_size": "0.9375rem",
+          "computado_px": 15,
+          "font_weight": 600
+        },
+        "movil": {
+          "font_size": "0.875rem",
+          "computado_px": 14,
+          "font_weight": 600
+        }
+      },
+      "breakpoint_existente_px": 700,
+      "cascada": "Se conservan !important base en cinco hojas CSP. La declaración móvil usa !important exclusivamente en esas hojas para vencer la propia base. En opciones.css cambia únicamente font-weight, sin duplicar font-size. Reglas ::after intactas.",
+      "paginas_verificadas": [
+        "conciencia-fonologica/conciencia-fonologica.html",
+        "generador/generador.html",
+        "generador-lsp/index.html",
+        "apoyos-lsp/generador-lsp.html",
+        "index.html",
+        "practica-braille-opciones/index.html",
+        "paginas/privacidad-seguimiento-braille.html",
+        "practica-braille/index.html",
+        "pictogramas/pictogramas.html",
+        "practica-braille-v2/index.html",
+        "rutinas/rutinas.html"
+      ],
+      "aprobacion": "Autorización expresa. GitHub rechazó APPROVE con 422 por tratarse de la cuenta autora. Merge normal sin auto-merge.",
+      "validacion": {
+        "motor": "Chromium/Playwright",
+        "metodo": "Recursos públicos leídos nuevamente tras el despliegue, sin sustitución de CSS. Los nueve CSS coinciden con los aprobados. Comparación completa de snapshots y estados de aumento de texto.",
+        "mediciones": 66,
+        "anchos_px": [
+          320,
+          360,
+          390,
+          414,
+          768,
+          1440
+        ],
+        "resultados": [
+          {
+            "page": "conciencia-fonologica/conciencia-fonologica.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 3,
+            "rowsAfter": 3,
+            "headerBefore": 830.3125,
+            "headerAfter": 830.3125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "conciencia-fonologica/conciencia-fonologica.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 759.703125,
+            "headerAfter": 759.703125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "conciencia-fonologica/conciencia-fonologica.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 720.375,
+            "headerAfter": 720.375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "conciencia-fonologica/conciencia-fonologica.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 723.375,
+            "headerAfter": 723.375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "conciencia-fonologica/conciencia-fonologica.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 532.6875,
+            "headerAfter": 532.6875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "conciencia-fonologica/conciencia-fonologica.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 488.171875,
+            "headerAfter": 488.171875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "generador/generador.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 255,
+            "overflowAfter": 255,
+            "rowsBefore": 3,
+            "rowsAfter": 3,
+            "headerBefore": 830.3125,
+            "headerAfter": 830.3125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "generador/generador.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 215,
+            "overflowAfter": 215,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 759.703125,
+            "headerAfter": 759.703125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "generador/generador.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 185,
+            "overflowAfter": 185,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 720.375,
+            "headerAfter": 720.375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "generador/generador.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 161,
+            "overflowAfter": 161,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 723.375,
+            "headerAfter": 723.375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "generador/generador.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 532.6875,
+            "headerAfter": 532.6875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "generador/generador.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 488.171875,
+            "headerAfter": 488.171875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "generador-lsp/index.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 3,
+            "rowsAfter": 2,
+            "headerBefore": 891.03125,
+            "headerAfter": 827.859375,
+            "headerDelta": -63.171875,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "generador-lsp/index.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 813.953125,
+            "headerAfter": 809.171875,
+            "headerDelta": -4.78125,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "generador-lsp/index.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 822.8125,
+            "headerAfter": 818.03125,
+            "headerDelta": -4.78125,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "generador-lsp/index.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 771.96875,
+            "headerAfter": 767.1875,
+            "headerDelta": -4.78125,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "generador-lsp/index.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 564.90625,
+            "headerAfter": 563.265625,
+            "headerDelta": -1.640625,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "generador-lsp/index.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 535.78125,
+            "headerAfter": 535.78125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "apoyos-lsp/generador-lsp.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 3,
+            "rowsAfter": 2,
+            "headerBefore": 922.171875,
+            "headerAfter": 859,
+            "headerDelta": -63.171875,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "apoyos-lsp/generador-lsp.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 845.09375,
+            "headerAfter": 840.3125,
+            "headerDelta": -4.78125,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "apoyos-lsp/generador-lsp.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 822.8125,
+            "headerAfter": 818.03125,
+            "headerDelta": -4.78125,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "apoyos-lsp/generador-lsp.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 794.671875,
+            "headerAfter": 789.890625,
+            "headerDelta": -4.78125,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "apoyos-lsp/generador-lsp.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 564.90625,
+            "headerAfter": 563.265625,
+            "headerDelta": -1.640625,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "apoyos-lsp/generador-lsp.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 535.78125,
+            "headerAfter": 535.78125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 791.53125,
+            "headerAfter": 791.53125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 719.5625,
+            "headerAfter": 719.5625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 671.375,
+            "headerAfter": 671.375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 671.375,
+            "headerAfter": 671.375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 590.15625,
+            "headerAfter": 590.15625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 573.5,
+            "headerAfter": 573.5,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "practica-braille-opciones/index.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 628.9375,
+            "headerAfter": 628.9375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "practica-braille-opciones/index.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 599.390625,
+            "headerAfter": 599.390625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "practica-braille-opciones/index.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 602.34375,
+            "headerAfter": 602.34375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "practica-braille-opciones/index.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 603.34375,
+            "headerAfter": 603.34375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "practica-braille-opciones/index.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 532.5625,
+            "headerAfter": 532.5625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "practica-braille-opciones/index.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 488.171875,
+            "headerAfter": 488.171875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "paginas/privacidad-seguimiento-braille.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 2538.3125,
+            "headerAfter": 2538.3125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "paginas/privacidad-seguimiento-braille.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 2539.671875,
+            "headerAfter": 2539.671875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "paginas/privacidad-seguimiento-braille.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 2532.53125,
+            "headerAfter": 2532.53125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "paginas/privacidad-seguimiento-braille.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 2495.9375,
+            "headerAfter": 2495.9375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "paginas/privacidad-seguimiento-braille.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 2449.5625,
+            "headerAfter": 2449.5625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "paginas/privacidad-seguimiento-braille.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 2467.171875,
+            "headerAfter": 2467.171875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "practica-braille/index.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 671.125,
+            "headerAfter": 671.125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "practica-braille/index.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 625.875,
+            "headerAfter": 625.875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "practica-braille/index.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 615.78125,
+            "headerAfter": 615.78125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "practica-braille/index.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 617.78125,
+            "headerAfter": 617.78125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "practica-braille/index.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 532.6875,
+            "headerAfter": 532.6875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "practica-braille/index.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 488.171875,
+            "headerAfter": 488.171875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "pictogramas/pictogramas.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 3,
+            "rowsAfter": 3,
+            "headerBefore": 830.3125,
+            "headerAfter": 830.3125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "pictogramas/pictogramas.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 759.703125,
+            "headerAfter": 759.703125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "pictogramas/pictogramas.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 720.375,
+            "headerAfter": 720.375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "pictogramas/pictogramas.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 723.375,
+            "headerAfter": 723.375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "pictogramas/pictogramas.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 532.6875,
+            "headerAfter": 532.6875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "pictogramas/pictogramas.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 488.171875,
+            "headerAfter": 488.171875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "practica-braille-v2/index.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 687.3125,
+            "headerAfter": 687.3125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "practica-braille-v2/index.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 606.421875,
+            "headerAfter": 606.421875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "practica-braille-v2/index.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 577.1875,
+            "headerAfter": 577.1875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "practica-braille-v2/index.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 578.1875,
+            "headerAfter": 578.1875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "practica-braille-v2/index.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 532.6875,
+            "headerAfter": 532.6875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "practica-braille-v2/index.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 488.171875,
+            "headerAfter": 488.171875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "rutinas/rutinas.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 3,
+            "rowsAfter": 3,
+            "headerBefore": 830.3125,
+            "headerAfter": 830.3125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "rutinas/rutinas.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 759.703125,
+            "headerAfter": 759.703125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "rutinas/rutinas.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 720.375,
+            "headerAfter": 720.375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "rutinas/rutinas.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 723.375,
+            "headerAfter": 723.375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "rutinas/rutinas.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 532.6875,
+            "headerAfter": 532.6875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "rutinas/rutinas.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 488.171875,
+            "headerAfter": 488.171875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          }
+        ],
+        "comprobaciones_aumento_texto": 22,
+        "controles": [
+          {
+            "page": "conciencia-fonologica/conciencia-fonologica.html",
+            "width": 390,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "18px",
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "20px",
+                    "20px",
+                    "20px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "15.75px",
+                    "15.75px",
+                    "15.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "17.5px",
+                    "17.5px",
+                    "17.5px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/index.html",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "conciencia-fonologica/conciencia-fonologica.html",
+            "width": 1440,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "18px",
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "20px",
+                    "20px",
+                    "20px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "16.875px",
+                    "16.875px",
+                    "16.875px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "18.75px",
+                    "18.75px",
+                    "18.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/index.html",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "generador/generador.html",
+            "width": 390,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "18px",
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 200,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "20px",
+                    "20px",
+                    "20px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 215,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "15.75px",
+                    "15.75px",
+                    "15.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 200,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "17.5px",
+                    "17.5px",
+                    "17.5px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 215,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/index.html",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "generador/generador.html",
+            "width": 1440,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "18px",
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "20px",
+                    "20px",
+                    "20px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "16.875px",
+                    "16.875px",
+                    "16.875px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "18.75px",
+                    "18.75px",
+                    "18.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/index.html",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "generador-lsp/index.html",
+            "width": 390,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "18px",
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "20px",
+                    "20px",
+                    "20px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "15.75px",
+                    "15.75px",
+                    "15.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "17.5px",
+                    "17.5px",
+                    "17.5px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/index.html",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "generador-lsp/index.html",
+            "width": 1440,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "18px",
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "20px",
+                    "20px",
+                    "20px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "16.875px",
+                    "16.875px",
+                    "16.875px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "18.75px",
+                    "18.75px",
+                    "18.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/index.html",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "apoyos-lsp/generador-lsp.html",
+            "width": 390,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "18px",
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "20px",
+                    "20px",
+                    "20px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "15.75px",
+                    "15.75px",
+                    "15.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "17.5px",
+                    "17.5px",
+                    "17.5px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/index.html",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "apoyos-lsp/generador-lsp.html",
+            "width": 1440,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "18px",
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "20px",
+                    "20px",
+                    "20px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "16.875px",
+                    "16.875px",
+                    "16.875px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "18.75px",
+                    "18.75px",
+                    "18.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/index.html",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "index.html",
+            "width": 390,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "20px",
+                    "20px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "15.75px",
+                    "15.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "17.5px",
+                    "17.5px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "index.html",
+            "width": 1440,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "20px",
+                    "20px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "16.875px",
+                    "16.875px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "18.75px",
+                    "18.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "practica-braille-opciones/index.html",
+            "width": 390,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "15.12px",
+                    "15.12px",
+                    "15.12px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "16.8px",
+                    "16.8px",
+                    "16.8px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "15.75px",
+                    "15.75px",
+                    "15.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "17.5px",
+                    "17.5px",
+                    "17.5px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/index.html",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "practica-braille-opciones/index.html",
+            "width": 1440,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "18px",
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "20px",
+                    "20px",
+                    "20px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "16.875px",
+                    "16.875px",
+                    "16.875px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "18.75px",
+                    "18.75px",
+                    "18.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/index.html",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "paginas/privacidad-seguimiento-braille.html",
+            "width": 390,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "15.12px",
+                    "15.12px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "16.8px",
+                    "16.8px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "15.75px",
+                    "15.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "17.5px",
+                    "17.5px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/index.html",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "paginas/privacidad-seguimiento-braille.html",
+            "width": 1440,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "20px",
+                    "20px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "16.875px",
+                    "16.875px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "18.75px",
+                    "18.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/index.html",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "practica-braille/index.html",
+            "width": 390,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "15.12px",
+                    "15.12px",
+                    "15.12px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "16.8px",
+                    "16.8px",
+                    "16.8px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "15.75px",
+                    "15.75px",
+                    "15.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "17.5px",
+                    "17.5px",
+                    "17.5px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/index.html",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "practica-braille/index.html",
+            "width": 1440,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "18px",
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "20px",
+                    "20px",
+                    "20px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "16.875px",
+                    "16.875px",
+                    "16.875px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "18.75px",
+                    "18.75px",
+                    "18.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/index.html",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "pictogramas/pictogramas.html",
+            "width": 390,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "18px",
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "20px",
+                    "20px",
+                    "20px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "15.75px",
+                    "15.75px",
+                    "15.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "17.5px",
+                    "17.5px",
+                    "17.5px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/index.html",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "pictogramas/pictogramas.html",
+            "width": 1440,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "18px",
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "20px",
+                    "20px",
+                    "20px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "16.875px",
+                    "16.875px",
+                    "16.875px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "18.75px",
+                    "18.75px",
+                    "18.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/index.html",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "practica-braille-v2/index.html",
+            "width": 390,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "15.12px",
+                    "15.12px",
+                    "15.12px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "16.8px",
+                    "16.8px",
+                    "16.8px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "15.75px",
+                    "15.75px",
+                    "15.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "17.5px",
+                    "17.5px",
+                    "17.5px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/index.html",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/practica-braille/index.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "practica-braille-v2/index.html",
+            "width": 1440,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "18px",
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "20px",
+                    "20px",
+                    "20px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "16.875px",
+                    "16.875px",
+                    "16.875px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "18.75px",
+                    "18.75px",
+                    "18.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/index.html",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/practica-braille/index.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "rutinas/rutinas.html",
+            "width": 390,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "18px",
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "20px",
+                    "20px",
+                    "20px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "15.75px",
+                    "15.75px",
+                    "15.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "17.5px",
+                    "17.5px",
+                    "17.5px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/index.html",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "rutinas/rutinas.html",
+            "width": 1440,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "18px",
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "20px",
+                    "20px",
+                    "20px"
+                  ],
+                  "weights": [
+                    "800",
+                    "800",
+                    "800"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "16.875px",
+                    "16.875px",
+                    "16.875px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "18.75px",
+                    "18.75px",
+                    "18.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/index.html",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+                "checked": true
+              }
+            ]
+          }
+        ],
+        "escalado_rem": {
+          "movil_px": [
+            14,
+            15.75,
+            17.5
+          ],
+          "escritorio_px": [
+            15,
+            16.875,
+            18.75
+          ],
+          "peso": 600,
+          "retorno_normal": true
+        },
+        "reducciones_naturales_altura": [
+          {
+            "pagina": "generador-lsp/index.html",
+            "ancho_px": 320,
+            "antes_px": 891.03125,
+            "despues_px": 827.859375,
+            "diferencia_px": -63.171875,
+            "filas_antes": 3,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "generador-lsp/index.html",
+            "ancho_px": 360,
+            "antes_px": 813.953125,
+            "despues_px": 809.171875,
+            "diferencia_px": -4.78125,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "generador-lsp/index.html",
+            "ancho_px": 390,
+            "antes_px": 822.8125,
+            "despues_px": 818.03125,
+            "diferencia_px": -4.78125,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "generador-lsp/index.html",
+            "ancho_px": 414,
+            "antes_px": 771.96875,
+            "despues_px": 767.1875,
+            "diferencia_px": -4.78125,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "generador-lsp/index.html",
+            "ancho_px": 768,
+            "antes_px": 564.90625,
+            "despues_px": 563.265625,
+            "diferencia_px": -1.640625,
+            "filas_antes": 1,
+            "filas_despues": 1
+          },
+          {
+            "pagina": "apoyos-lsp/generador-lsp.html",
+            "ancho_px": 320,
+            "antes_px": 922.171875,
+            "despues_px": 859,
+            "diferencia_px": -63.171875,
+            "filas_antes": 3,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "apoyos-lsp/generador-lsp.html",
+            "ancho_px": 360,
+            "antes_px": 845.09375,
+            "despues_px": 840.3125,
+            "diferencia_px": -4.78125,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "apoyos-lsp/generador-lsp.html",
+            "ancho_px": 390,
+            "antes_px": 822.8125,
+            "despues_px": 818.03125,
+            "diferencia_px": -4.78125,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "apoyos-lsp/generador-lsp.html",
+            "ancho_px": 414,
+            "antes_px": 794.671875,
+            "despues_px": 789.890625,
+            "diferencia_px": -4.78125,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "apoyos-lsp/generador-lsp.html",
+            "ancho_px": 768,
+            "antes_px": 564.90625,
+            "despues_px": 563.265625,
+            "diferencia_px": -1.640625,
+            "filas_antes": 1,
+            "filas_despues": 1
+          }
+        ],
+        "total_reducciones_altura": 10,
+        "cambios_agrupacion": [
+          {
+            "page": "conciencia-fonologica/conciencia-fonologica.html",
+            "width": 390,
+            "before": [
+              [
+                "Volver a MEA"
+              ],
+              [
+                "Inicio principal",
+                "Contacto"
+              ]
+            ],
+            "after": [
+              [
+                "Volver a MEA",
+                "Inicio principal"
+              ],
+              [
+                "Contacto"
+              ]
+            ]
+          },
+          {
+            "page": "generador/generador.html",
+            "width": 390,
+            "before": [
+              [
+                "Volver a MEA"
+              ],
+              [
+                "Inicio principal",
+                "Contacto"
+              ]
+            ],
+            "after": [
+              [
+                "Volver a MEA",
+                "Inicio principal"
+              ],
+              [
+                "Contacto"
+              ]
+            ]
+          },
+          {
+            "page": "generador-lsp/index.html",
+            "width": 320,
+            "before": [
+              [
+                "Volver a MEA"
+              ],
+              [
+                "Inicio principal"
+              ],
+              [
+                "Contacto"
+              ]
+            ],
+            "after": [
+              [
+                "Volver a MEA"
+              ],
+              [
+                "Inicio principal",
+                "Contacto"
+              ]
+            ]
+          },
+          {
+            "page": "generador-lsp/index.html",
+            "width": 360,
+            "before": [
+              [
+                "Volver a MEA"
+              ],
+              [
+                "Inicio principal",
+                "Contacto"
+              ]
+            ],
+            "after": [
+              [
+                "Volver a MEA",
+                "Inicio principal"
+              ],
+              [
+                "Contacto"
+              ]
+            ]
+          },
+          {
+            "page": "apoyos-lsp/generador-lsp.html",
+            "width": 320,
+            "before": [
+              [
+                "Volver a MEA"
+              ],
+              [
+                "Inicio principal"
+              ],
+              [
+                "Contacto"
+              ]
+            ],
+            "after": [
+              [
+                "Volver a MEA"
+              ],
+              [
+                "Inicio principal",
+                "Contacto"
+              ]
+            ]
+          },
+          {
+            "page": "apoyos-lsp/generador-lsp.html",
+            "width": 360,
+            "before": [
+              [
+                "Volver a MEA"
+              ],
+              [
+                "Inicio principal",
+                "Contacto"
+              ]
+            ],
+            "after": [
+              [
+                "Volver a MEA",
+                "Inicio principal"
+              ],
+              [
+                "Contacto"
+              ]
+            ]
+          },
+          {
+            "page": "pictogramas/pictogramas.html",
+            "width": 390,
+            "before": [
+              [
+                "Volver a MEA"
+              ],
+              [
+                "Inicio principal",
+                "Contacto"
+              ]
+            ],
+            "after": [
+              [
+                "Volver a MEA",
+                "Inicio principal"
+              ],
+              [
+                "Contacto"
+              ]
+            ]
+          },
+          {
+            "page": "rutinas/rutinas.html",
+            "width": 390,
+            "before": [
+              [
+                "Volver a MEA"
+              ],
+              [
+                "Inicio principal",
+                "Contacto"
+              ]
+            ],
+            "after": [
+              [
+                "Volver a MEA",
+                "Inicio principal"
+              ],
+              [
+                "Contacto"
+              ]
+            ]
+          }
+        ],
+        "total_cambios_agrupacion": 8,
+        "casos_menos_filas": 2,
+        "casos_agrupacion_distinta_con_dos_filas": 6,
+        "sin_variaciones_adicionales": true,
+        "escenarios_overflow_cero": 62,
+        "overflow_generador_sin_variacion": [
+          {
+            "ancho_px": 320,
+            "antes_px": 255,
+            "despues_px": 255
+          },
+          {
+            "ancho_px": 360,
+            "antes_px": 215,
+            "despues_px": 215
+          },
+          {
+            "ancho_px": 390,
+            "antes_px": 185,
+            "despues_px": 185
+          },
+          {
+            "ancho_px": 414,
+            "antes_px": 161,
+            "despues_px": 161
+          },
+          {
+            "ancho_px": 768,
+            "antes_px": 0,
+            "despues_px": 0
+          },
+          {
+            "ancho_px": 1440,
+            "antes_px": 0,
+            "despues_px": 0
+          }
+        ],
+        "overflow_generador_aumento_texto_390_px": {
+          "grande": {
+            "antes_px": 200,
+            "despues_px": 200
+          },
+          "muy_grande": {
+            "antes_px": 215,
+            "despues_px": 215
+          }
+        },
+        "sin_superposicion": true,
+        "hover_atributos_destinos_contenido_intactos": true,
+        "html_scripts_controles_generadores_sin_cambios": true,
+        "reglas_after_y_tipografia_ajena_intactas": true,
+        "sin_nuevos_desbordamientos_de_navegacion": true,
+        "limites": "Primera lectura durante el despliegue sin CSS actualizado; se repitió la validación completa cuando el CSS publicado coincidió. Contextos sin sesión, aleatoriedad de ejercicios fijada solo durante pruebas, solicitudes externas/Supabase, sockets y service workers bloqueados; destinos interceptados."
+      },
+      "excepcion_preexistente": {
+        "id": "materiales-educativos-accesibles.generador-braille.layout.overflow",
+        "registro_original_sin_modificar": true,
+        "no_corregido": true
+      },
+      "alcance": "Exclusivamente font-size/font-weight de navegación en nueve CSS y declaraciones móviles necesarias en breakpoints existentes. Sin cambios HTML, dimensiones, padding, line-height, distribución, scripts, contenido o backend."
     }
   ]
 }
