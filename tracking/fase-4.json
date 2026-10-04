@@ -2866,6 +2866,2113 @@
       "incluido_en_correccion_tipografica": false,
       "alcance": "Hallazgo independiente; no se corrigen imágenes, rutas ni HTML en el PR tipográfico.",
       "siguiente_accion": "Diagnosticar por separado y proponer corrección después de autorización."
+    },
+    {
+      "id": "noti-inclusivos.navigation.typography",
+      "repositorio": "crebeucayali/noti-inclusivos",
+      "hallazgo": "Inconsistencia tipográfica de navegación en nueve páginas",
+      "estado_anterior": "PENDIENTE_DE_APROBACION",
+      "estado": "CORREGIDO_VERIFICADO",
+      "pr": 2,
+      "pr_url": "https://github.com/crebeucayali/noti-inclusivos/pull/2",
+      "commit_corregido": "78d6e8efcfbc05dee8aa607415f2a27214c7c631",
+      "commit_merge": "96f58b6fdd456388e861f856534dfed199a75551",
+      "fecha_correccion": "2026-10-04T21:55:20Z",
+      "fecha_verificacion_publicada": "2026-10-04T22:00:48.078Z",
+      "archivos": [
+        "estilos.css",
+        "articulos/estilos.css",
+        "articulos/estilos-articulo.css",
+        "articulos/sindrome-down-y-bioetica/estilos.css"
+      ],
+      "selectores": [
+        ".enlaces-cabecera a",
+        ".nav a"
+      ],
+      "valores_anteriores": [
+        {
+          "archivo": "estilos.css",
+          "movil_px": 15.5,
+          "escritorio_px": 16,
+          "peso": 800
+        },
+        {
+          "archivo": "articulos/estilos.css",
+          "movil_px": 16,
+          "escritorio_px": 16,
+          "peso": 800
+        },
+        {
+          "archivo": "articulos/estilos-articulo.css",
+          "movil_px": 15.5,
+          "escritorio_px": 16,
+          "peso": 800
+        },
+        {
+          "archivo": "articulos/sindrome-down-y-bioetica/estilos.css",
+          "movil_px": 16,
+          "escritorio_px": 17,
+          "peso": 800
+        }
+      ],
+      "valores_finales": {
+        "escritorio": {
+          "font_size": "0.9375rem",
+          "font_weight": 600,
+          "computado_px": 15
+        },
+        "movil": {
+          "font_size": "0.875rem",
+          "font_weight": 600,
+          "computado_px": 14
+        }
+      },
+      "breakpoints_conservados_px": {
+        "estilos.css": 650,
+        "articulos/estilos.css": 700,
+        "articulos/estilos-articulo.css": 760,
+        "articulos/sindrome-down-y-bioetica/estilos.css": 720
+      },
+      "paginas_verificadas": [
+        "articulos/cuentos-inclusion-discapacidad/index.html",
+        "articulos/index.html",
+        "articulos/lanzamiento-eva/index.html",
+        "articulos/natacion-inclusiva-sin-barreras/index.html",
+        "articulos/neurodiversidad-del-reconocimiento-a-los-apoyos/index.html",
+        "articulos/salud-emergencias-inclusion/index.html",
+        "articulos/sindrome-down-y-bioetica/index.html",
+        "articulos/transicion-vida-adulta/index.html",
+        "index.html"
+      ],
+      "aprobacion": "Autorización expresa del propietario. GitHub rechazó APPROVE con 422 porque la cuenta autora no puede aprobar su propio PR. Merge normal, sin auto-merge. Las 46 variaciones naturales de altura fueron autorizadas expresamente.",
+      "validacion": {
+        "motor": "Chromium / Playwright",
+        "metodo": "Recursos públicos leídos nuevamente tras el merge sin sustituir CSS. Los cuatro CSS publicados coinciden exactamente con los aprobados. Comparación completa con snapshots antes/después aceptados.",
+        "mediciones": 54,
+        "anchos_px": [
+          320,
+          360,
+          390,
+          414,
+          768,
+          1440
+        ],
+        "resultados": [
+          {
+            "page": "articulos/cuentos-inclusion-discapacidad/index.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 3,
+            "rowsAfter": 3,
+            "headerBefore": 1156.015625,
+            "headerAfter": 1145.515625,
+            "headerDelta": -10.5,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/cuentos-inclusion-discapacidad/index.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 1003.4375,
+            "headerAfter": 996.4375,
+            "headerDelta": -7,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/cuentos-inclusion-discapacidad/index.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 959.984375,
+            "headerAfter": 952.984375,
+            "headerDelta": -7,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/cuentos-inclusion-discapacidad/index.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 891.0625,
+            "headerAfter": 884.0625,
+            "headerDelta": -7,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/cuentos-inclusion-discapacidad/index.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 657.453125,
+            "headerAfter": 653.953125,
+            "headerDelta": -3.5,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/cuentos-inclusion-discapacidad/index.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 673.71875,
+            "headerAfter": 673.71875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/index.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 447.78125,
+            "headerAfter": 441.1875,
+            "headerDelta": -6.59375,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/index.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 1,
+            "headerBefore": 448.234375,
+            "headerAfter": 404.546875,
+            "headerDelta": -43.6875,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/index.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 1,
+            "headerBefore": 451.1875,
+            "headerAfter": 407.5,
+            "headerDelta": -43.6875,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/index.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 382.234375,
+            "headerAfter": 378.9375,
+            "headerDelta": -3.296875,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/index.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 318.703125,
+            "headerAfter": 317.0625,
+            "headerDelta": -1.640625,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/index.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 336.3125,
+            "headerAfter": 334.671875,
+            "headerDelta": -1.640625,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/lanzamiento-eva/index.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 3,
+            "rowsAfter": 2,
+            "headerBefore": 971.125,
+            "headerAfter": 907.3125,
+            "headerDelta": -63.8125,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/lanzamiento-eva/index.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 857.796875,
+            "headerAfter": 852.640625,
+            "headerDelta": -5.15625,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/lanzamiento-eva/index.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 830.6875,
+            "headerAfter": 825.53125,
+            "headerDelta": -5.15625,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/lanzamiento-eva/index.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 832.6875,
+            "headerAfter": 827.53125,
+            "headerDelta": -5.15625,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/lanzamiento-eva/index.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 584.796875,
+            "headerAfter": 583.078125,
+            "headerDelta": -1.71875,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/lanzamiento-eva/index.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 534.890625,
+            "headerAfter": 534.890625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/natacion-inclusiva-sin-barreras/index.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 3,
+            "rowsAfter": 3,
+            "headerBefore": 1050.453125,
+            "headerAfter": 1039.953125,
+            "headerDelta": -10.5,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/natacion-inclusiva-sin-barreras/index.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 954.171875,
+            "headerAfter": 947.171875,
+            "headerDelta": -7,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/natacion-inclusiva-sin-barreras/index.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 901.859375,
+            "headerAfter": 894.859375,
+            "headerDelta": -7,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/natacion-inclusiva-sin-barreras/index.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 869.53125,
+            "headerAfter": 862.53125,
+            "headerDelta": -7,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/natacion-inclusiva-sin-barreras/index.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 656.40625,
+            "headerAfter": 652.90625,
+            "headerDelta": -3.5,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/natacion-inclusiva-sin-barreras/index.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 620.921875,
+            "headerAfter": 620.921875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/neurodiversidad-del-reconocimiento-a-los-apoyos/index.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 3,
+            "rowsAfter": 3,
+            "headerBefore": 1051.5,
+            "headerAfter": 1041,
+            "headerDelta": -10.5,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/neurodiversidad-del-reconocimiento-a-los-apoyos/index.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 957.171875,
+            "headerAfter": 950.171875,
+            "headerDelta": -7,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/neurodiversidad-del-reconocimiento-a-los-apoyos/index.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 921.390625,
+            "headerAfter": 914.390625,
+            "headerDelta": -7,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/neurodiversidad-del-reconocimiento-a-los-apoyos/index.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 851.46875,
+            "headerAfter": 844.46875,
+            "headerDelta": -7,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/neurodiversidad-del-reconocimiento-a-los-apoyos/index.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 657.453125,
+            "headerAfter": 653.953125,
+            "headerDelta": -3.5,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/neurodiversidad-del-reconocimiento-a-los-apoyos/index.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 620.921875,
+            "headerAfter": 620.921875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/salud-emergencias-inclusion/index.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 3,
+            "rowsAfter": 3,
+            "headerBefore": 1085.640625,
+            "headerAfter": 1075.140625,
+            "headerDelta": -10.5,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/salud-emergencias-inclusion/index.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 991.3125,
+            "headerAfter": 984.3125,
+            "headerDelta": -7,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/salud-emergencias-inclusion/index.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 979.046875,
+            "headerAfter": 972.046875,
+            "headerDelta": -7,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/salud-emergencias-inclusion/index.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 891.0625,
+            "headerAfter": 884.0625,
+            "headerDelta": -7,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/salud-emergencias-inclusion/index.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 691.59375,
+            "headerAfter": 688.09375,
+            "headerDelta": -3.5,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/salud-emergencias-inclusion/index.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 620.921875,
+            "headerAfter": 620.921875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/sindrome-down-y-bioetica/index.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 3,
+            "rowsAfter": 3,
+            "headerBefore": 1084.59375,
+            "headerAfter": 1074.09375,
+            "headerDelta": -10.5,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/sindrome-down-y-bioetica/index.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 966.296875,
+            "headerAfter": 959.296875,
+            "headerDelta": -7,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/sindrome-down-y-bioetica/index.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 916.75,
+            "headerAfter": 909.75,
+            "headerDelta": -7,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/sindrome-down-y-bioetica/index.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 846.015625,
+            "headerAfter": 839.015625,
+            "headerDelta": -7,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/sindrome-down-y-bioetica/index.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 656.40625,
+            "headerAfter": 652.90625,
+            "headerDelta": -3.5,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/sindrome-down-y-bioetica/index.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 655.0625,
+            "headerAfter": 655.0625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/transicion-vida-adulta/index.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 3,
+            "rowsAfter": 2,
+            "headerBefore": 882.53125,
+            "headerAfter": 818.71875,
+            "headerDelta": -63.8125,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/transicion-vida-adulta/index.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 802.21875,
+            "headerAfter": 797.0625,
+            "headerDelta": -5.15625,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/transicion-vida-adulta/index.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 775.109375,
+            "headerAfter": 769.953125,
+            "headerDelta": -5.15625,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/transicion-vida-adulta/index.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 777.109375,
+            "headerAfter": 771.953125,
+            "headerDelta": -5.15625,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/transicion-vida-adulta/index.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 584.796875,
+            "headerAfter": 583.078125,
+            "headerDelta": -1.71875,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "articulos/transicion-vida-adulta/index.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 534.890625,
+            "headerAfter": 534.890625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 742.890625,
+            "headerAfter": 739.765625,
+            "headerDelta": -3.125,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 632.390625,
+            "headerAfter": 630.828125,
+            "headerDelta": -1.5625,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 638.296875,
+            "headerAfter": 636.734375,
+            "headerDelta": -1.5625,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 600.703125,
+            "headerAfter": 599.140625,
+            "headerDelta": -1.5625,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 568,
+            "headerAfter": 566.359375,
+            "headerDelta": -1.640625,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 487.03125,
+            "headerAfter": 487.03125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          }
+        ],
+        "comprobaciones_control_aumento_texto": 16,
+        "pruebas_escalado_raiz_simulado": 2,
+        "controles": [
+          {
+            "page": "articulos/cuentos-inclusion-discapacidad/index.html",
+            "width": 390,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/noti-inclusivos/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/institucional/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          },
+          {
+            "page": "articulos/cuentos-inclusion-discapacidad/index.html",
+            "width": 1440,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/noti-inclusivos/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/institucional/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          },
+          {
+            "page": "articulos/index.html",
+            "width": 390,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/noti-inclusivos/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              }
+            ],
+            "method": "Escalado de raíz simulado: esta página no carga el control de accesibilidad en main"
+          },
+          {
+            "page": "articulos/index.html",
+            "width": 1440,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/noti-inclusivos/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              }
+            ],
+            "method": "Escalado de raíz simulado: esta página no carga el control de accesibilidad en main"
+          },
+          {
+            "page": "articulos/lanzamiento-eva/index.html",
+            "width": 390,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/noti-inclusivos/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/institucional/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          },
+          {
+            "page": "articulos/lanzamiento-eva/index.html",
+            "width": 1440,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/noti-inclusivos/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/institucional/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          },
+          {
+            "page": "articulos/natacion-inclusiva-sin-barreras/index.html",
+            "width": 390,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/noti-inclusivos/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/institucional/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          },
+          {
+            "page": "articulos/natacion-inclusiva-sin-barreras/index.html",
+            "width": 1440,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/noti-inclusivos/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/institucional/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          },
+          {
+            "page": "articulos/neurodiversidad-del-reconocimiento-a-los-apoyos/index.html",
+            "width": 390,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/noti-inclusivos/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/institucional/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          },
+          {
+            "page": "articulos/neurodiversidad-del-reconocimiento-a-los-apoyos/index.html",
+            "width": 1440,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/noti-inclusivos/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/institucional/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          },
+          {
+            "page": "articulos/salud-emergencias-inclusion/index.html",
+            "width": 390,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/noti-inclusivos/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/institucional/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          },
+          {
+            "page": "articulos/salud-emergencias-inclusion/index.html",
+            "width": 1440,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/noti-inclusivos/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/institucional/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          },
+          {
+            "page": "articulos/sindrome-down-y-bioetica/index.html",
+            "width": 390,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/noti-inclusivos/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/institucional/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          },
+          {
+            "page": "articulos/sindrome-down-y-bioetica/index.html",
+            "width": 1440,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/noti-inclusivos/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/institucional/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          },
+          {
+            "page": "articulos/transicion-vida-adulta/index.html",
+            "width": 390,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/noti-inclusivos/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/institucional/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          },
+          {
+            "page": "articulos/transicion-vida-adulta/index.html",
+            "width": 1440,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/noti-inclusivos/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/institucional/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          },
+          {
+            "page": "index.html",
+            "width": 390,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/institucional/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          },
+          {
+            "page": "index.html",
+            "width": 1440,
+            "states": [
+              {
+                "cls": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0
+              },
+              {
+                "cls": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0
+              }
+            ],
+            "reset": true,
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/institucional/contacto.html",
+                "checked": true
+              }
+            ],
+            "method": "Control de aumento de texto existente"
+          }
+        ],
+        "nota_indice": "articulos/index.html no carga el control de accesibilidad en main; se probaron cambios simulados de raíz de 16 a 18 y 20px, sin modificar el repositorio.",
+        "escalado_rem": {
+          "movil_px": [
+            14,
+            15.75,
+            17.5
+          ],
+          "escritorio_px": [
+            15,
+            16.875,
+            18.75
+          ]
+        },
+        "variaciones_naturales_altura_aceptadas": [
+          {
+            "pagina": "articulos/cuentos-inclusion-discapacidad/index.html",
+            "ancho_px": 320,
+            "antes_px": 1156.015625,
+            "despues_px": 1145.515625,
+            "diferencia_px": -10.5,
+            "filas_antes": 3,
+            "filas_despues": 3
+          },
+          {
+            "pagina": "articulos/cuentos-inclusion-discapacidad/index.html",
+            "ancho_px": 360,
+            "antes_px": 1003.4375,
+            "despues_px": 996.4375,
+            "diferencia_px": -7,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/cuentos-inclusion-discapacidad/index.html",
+            "ancho_px": 390,
+            "antes_px": 959.984375,
+            "despues_px": 952.984375,
+            "diferencia_px": -7,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/cuentos-inclusion-discapacidad/index.html",
+            "ancho_px": 414,
+            "antes_px": 891.0625,
+            "despues_px": 884.0625,
+            "diferencia_px": -7,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/cuentos-inclusion-discapacidad/index.html",
+            "ancho_px": 768,
+            "antes_px": 657.453125,
+            "despues_px": 653.953125,
+            "diferencia_px": -3.5,
+            "filas_antes": 1,
+            "filas_despues": 1
+          },
+          {
+            "pagina": "articulos/index.html",
+            "ancho_px": 320,
+            "antes_px": 447.78125,
+            "despues_px": 441.1875,
+            "diferencia_px": -6.59375,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/index.html",
+            "ancho_px": 360,
+            "antes_px": 448.234375,
+            "despues_px": 404.546875,
+            "diferencia_px": -43.6875,
+            "filas_antes": 2,
+            "filas_despues": 1
+          },
+          {
+            "pagina": "articulos/index.html",
+            "ancho_px": 390,
+            "antes_px": 451.1875,
+            "despues_px": 407.5,
+            "diferencia_px": -43.6875,
+            "filas_antes": 2,
+            "filas_despues": 1
+          },
+          {
+            "pagina": "articulos/index.html",
+            "ancho_px": 414,
+            "antes_px": 382.234375,
+            "despues_px": 378.9375,
+            "diferencia_px": -3.296875,
+            "filas_antes": 1,
+            "filas_despues": 1
+          },
+          {
+            "pagina": "articulos/index.html",
+            "ancho_px": 768,
+            "antes_px": 318.703125,
+            "despues_px": 317.0625,
+            "diferencia_px": -1.640625,
+            "filas_antes": 1,
+            "filas_despues": 1
+          },
+          {
+            "pagina": "articulos/index.html",
+            "ancho_px": 1440,
+            "antes_px": 336.3125,
+            "despues_px": 334.671875,
+            "diferencia_px": -1.640625,
+            "filas_antes": 1,
+            "filas_despues": 1
+          },
+          {
+            "pagina": "articulos/lanzamiento-eva/index.html",
+            "ancho_px": 320,
+            "antes_px": 971.125,
+            "despues_px": 907.3125,
+            "diferencia_px": -63.8125,
+            "filas_antes": 3,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/lanzamiento-eva/index.html",
+            "ancho_px": 360,
+            "antes_px": 857.796875,
+            "despues_px": 852.640625,
+            "diferencia_px": -5.15625,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/lanzamiento-eva/index.html",
+            "ancho_px": 390,
+            "antes_px": 830.6875,
+            "despues_px": 825.53125,
+            "diferencia_px": -5.15625,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/lanzamiento-eva/index.html",
+            "ancho_px": 414,
+            "antes_px": 832.6875,
+            "despues_px": 827.53125,
+            "diferencia_px": -5.15625,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/lanzamiento-eva/index.html",
+            "ancho_px": 768,
+            "antes_px": 584.796875,
+            "despues_px": 583.078125,
+            "diferencia_px": -1.71875,
+            "filas_antes": 1,
+            "filas_despues": 1
+          },
+          {
+            "pagina": "articulos/natacion-inclusiva-sin-barreras/index.html",
+            "ancho_px": 320,
+            "antes_px": 1050.453125,
+            "despues_px": 1039.953125,
+            "diferencia_px": -10.5,
+            "filas_antes": 3,
+            "filas_despues": 3
+          },
+          {
+            "pagina": "articulos/natacion-inclusiva-sin-barreras/index.html",
+            "ancho_px": 360,
+            "antes_px": 954.171875,
+            "despues_px": 947.171875,
+            "diferencia_px": -7,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/natacion-inclusiva-sin-barreras/index.html",
+            "ancho_px": 390,
+            "antes_px": 901.859375,
+            "despues_px": 894.859375,
+            "diferencia_px": -7,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/natacion-inclusiva-sin-barreras/index.html",
+            "ancho_px": 414,
+            "antes_px": 869.53125,
+            "despues_px": 862.53125,
+            "diferencia_px": -7,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/natacion-inclusiva-sin-barreras/index.html",
+            "ancho_px": 768,
+            "antes_px": 656.40625,
+            "despues_px": 652.90625,
+            "diferencia_px": -3.5,
+            "filas_antes": 1,
+            "filas_despues": 1
+          },
+          {
+            "pagina": "articulos/neurodiversidad-del-reconocimiento-a-los-apoyos/index.html",
+            "ancho_px": 320,
+            "antes_px": 1051.5,
+            "despues_px": 1041,
+            "diferencia_px": -10.5,
+            "filas_antes": 3,
+            "filas_despues": 3
+          },
+          {
+            "pagina": "articulos/neurodiversidad-del-reconocimiento-a-los-apoyos/index.html",
+            "ancho_px": 360,
+            "antes_px": 957.171875,
+            "despues_px": 950.171875,
+            "diferencia_px": -7,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/neurodiversidad-del-reconocimiento-a-los-apoyos/index.html",
+            "ancho_px": 390,
+            "antes_px": 921.390625,
+            "despues_px": 914.390625,
+            "diferencia_px": -7,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/neurodiversidad-del-reconocimiento-a-los-apoyos/index.html",
+            "ancho_px": 414,
+            "antes_px": 851.46875,
+            "despues_px": 844.46875,
+            "diferencia_px": -7,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/neurodiversidad-del-reconocimiento-a-los-apoyos/index.html",
+            "ancho_px": 768,
+            "antes_px": 657.453125,
+            "despues_px": 653.953125,
+            "diferencia_px": -3.5,
+            "filas_antes": 1,
+            "filas_despues": 1
+          },
+          {
+            "pagina": "articulos/salud-emergencias-inclusion/index.html",
+            "ancho_px": 320,
+            "antes_px": 1085.640625,
+            "despues_px": 1075.140625,
+            "diferencia_px": -10.5,
+            "filas_antes": 3,
+            "filas_despues": 3
+          },
+          {
+            "pagina": "articulos/salud-emergencias-inclusion/index.html",
+            "ancho_px": 360,
+            "antes_px": 991.3125,
+            "despues_px": 984.3125,
+            "diferencia_px": -7,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/salud-emergencias-inclusion/index.html",
+            "ancho_px": 390,
+            "antes_px": 979.046875,
+            "despues_px": 972.046875,
+            "diferencia_px": -7,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/salud-emergencias-inclusion/index.html",
+            "ancho_px": 414,
+            "antes_px": 891.0625,
+            "despues_px": 884.0625,
+            "diferencia_px": -7,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/salud-emergencias-inclusion/index.html",
+            "ancho_px": 768,
+            "antes_px": 691.59375,
+            "despues_px": 688.09375,
+            "diferencia_px": -3.5,
+            "filas_antes": 1,
+            "filas_despues": 1
+          },
+          {
+            "pagina": "articulos/sindrome-down-y-bioetica/index.html",
+            "ancho_px": 320,
+            "antes_px": 1084.59375,
+            "despues_px": 1074.09375,
+            "diferencia_px": -10.5,
+            "filas_antes": 3,
+            "filas_despues": 3
+          },
+          {
+            "pagina": "articulos/sindrome-down-y-bioetica/index.html",
+            "ancho_px": 360,
+            "antes_px": 966.296875,
+            "despues_px": 959.296875,
+            "diferencia_px": -7,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/sindrome-down-y-bioetica/index.html",
+            "ancho_px": 390,
+            "antes_px": 916.75,
+            "despues_px": 909.75,
+            "diferencia_px": -7,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/sindrome-down-y-bioetica/index.html",
+            "ancho_px": 414,
+            "antes_px": 846.015625,
+            "despues_px": 839.015625,
+            "diferencia_px": -7,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/sindrome-down-y-bioetica/index.html",
+            "ancho_px": 768,
+            "antes_px": 656.40625,
+            "despues_px": 652.90625,
+            "diferencia_px": -3.5,
+            "filas_antes": 1,
+            "filas_despues": 1
+          },
+          {
+            "pagina": "articulos/transicion-vida-adulta/index.html",
+            "ancho_px": 320,
+            "antes_px": 882.53125,
+            "despues_px": 818.71875,
+            "diferencia_px": -63.8125,
+            "filas_antes": 3,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/transicion-vida-adulta/index.html",
+            "ancho_px": 360,
+            "antes_px": 802.21875,
+            "despues_px": 797.0625,
+            "diferencia_px": -5.15625,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/transicion-vida-adulta/index.html",
+            "ancho_px": 390,
+            "antes_px": 775.109375,
+            "despues_px": 769.953125,
+            "diferencia_px": -5.15625,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/transicion-vida-adulta/index.html",
+            "ancho_px": 414,
+            "antes_px": 777.109375,
+            "despues_px": 771.953125,
+            "diferencia_px": -5.15625,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "articulos/transicion-vida-adulta/index.html",
+            "ancho_px": 768,
+            "antes_px": 584.796875,
+            "despues_px": 583.078125,
+            "diferencia_px": -1.71875,
+            "filas_antes": 1,
+            "filas_despues": 1
+          },
+          {
+            "pagina": "index.html",
+            "ancho_px": 320,
+            "antes_px": 742.890625,
+            "despues_px": 739.765625,
+            "diferencia_px": -3.125,
+            "filas_antes": 2,
+            "filas_despues": 2
+          },
+          {
+            "pagina": "index.html",
+            "ancho_px": 360,
+            "antes_px": 632.390625,
+            "despues_px": 630.828125,
+            "diferencia_px": -1.5625,
+            "filas_antes": 1,
+            "filas_despues": 1
+          },
+          {
+            "pagina": "index.html",
+            "ancho_px": 390,
+            "antes_px": 638.296875,
+            "despues_px": 636.734375,
+            "diferencia_px": -1.5625,
+            "filas_antes": 1,
+            "filas_despues": 1
+          },
+          {
+            "pagina": "index.html",
+            "ancho_px": 414,
+            "antes_px": 600.703125,
+            "despues_px": 599.140625,
+            "diferencia_px": -1.5625,
+            "filas_antes": 1,
+            "filas_despues": 1
+          },
+          {
+            "pagina": "index.html",
+            "ancho_px": 768,
+            "antes_px": 568,
+            "despues_px": 566.359375,
+            "diferencia_px": -1.640625,
+            "filas_antes": 1,
+            "filas_despues": 1
+          }
+        ],
+        "total_variaciones": 46,
+        "casos_con_menos_filas": 4,
+        "casos_con_mismas_filas": 42,
+        "sin_variaciones_adicionales": true,
+        "overflow_cero_en_54_escenarios": true,
+        "sin_nuevos_desbordamientos_al_aumentar_texto": true,
+        "sin_superposiciones": true,
+        "hover_destinos_atributos_y_contenido_intactos": true,
+        "revision_visual_anchos_px": [
+          390,
+          1440
+        ],
+        "limites": "Contextos sin sesión. Solicitudes externas/Supabase, sockets y service workers bloqueados. Se probaron clics y se interceptó el destino final, sin operaciones reales del backend. La primera lectura durante la publicación no coincidió con los estilos aprobados; se repitió la validación completa una vez publicados los cuatro CSS."
+      },
+      "excepciones_preexistentes": {
+        "hallazgo_separado": "noti-inclusivos.assets.sindrome-down.404",
+        "archivo": "assets/img/sindrome-down-ciencia-bioetica.jpeg",
+        "registro_original_sin_modificar": true,
+        "no_corregido": true
+      },
+      "alcance": "Únicamente tamaño y peso de navegación en cuatro CSS y tamaño móvil en breakpoints existentes; sin nuevos !important ni cambios HTML, line-height, dimensiones, padding, distribución, scripts, imágenes, Supabase o contadores."
     }
   ]
 }
