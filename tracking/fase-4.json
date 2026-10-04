@@ -796,6 +796,2054 @@
         }
       ],
       "siguiente_accion": "Diagnosticar por separado referencias y archivos faltantes, sin modificar imágenes ni scripts en el PR tipográfico."
+    },
+    {
+      "id": "banco-digital-accesible.navigation.typography",
+      "repositorio": "crebeucayali/banco-digital-accesible",
+      "hallazgo": "Inconsistencia tipográfica de navegación en trece páginas",
+      "estado_anterior": "PENDIENTE_DE_APROBACION",
+      "estado": "CORREGIDO_VERIFICADO",
+      "pr": 2,
+      "pr_url": "https://github.com/crebeucayali/banco-digital-accesible/pull/2",
+      "commit_corregido": "2002f7dfea6b98c38a0e977faf283bd6870ddbff",
+      "commit_merge": "d4967f60e1e5ef04ec4bbf6b543ca27eb853e71b",
+      "fecha_correccion": "2026-10-04T21:01:35Z",
+      "fecha_verificacion_publicada": "2026-10-04T21:11:47.090Z",
+      "archivos": [
+        "estilos.css",
+        "biblioteca/index-csp.css",
+        "creditos.css",
+        "braille/index.css",
+        "braille/accesibilidad.css",
+        "braille/faq.css",
+        "braille/teoria.css",
+        "lsp/accesibilidad.css",
+        "lsp/faq.css",
+        "lsp/cabecera-bda.css"
+      ],
+      "selectores": [
+        ".enlace-cabecera",
+        "body .enlace-cabecera"
+      ],
+      "valores_anteriores": {
+        "once_paginas": {
+          "font_size": "16px",
+          "font_weight": 800
+        },
+        "dos_paginas_lsp": {
+          "movil": "15.68px / 900",
+          "ancho_768": "17.28px / 900",
+          "ancho_1440": "19.52px / 900"
+        }
+      },
+      "valores_finales": {
+        "escritorio": {
+          "font_size": "0.9375rem",
+          "font_weight": 600,
+          "computado": "15px"
+        },
+        "movil": {
+          "font_size": "0.875rem",
+          "font_weight": 600,
+          "computado": "14px"
+        }
+      },
+      "breakpoints": {
+        "habituales_max_width_px": 700,
+        "cabecera_lsp_max_width_px": 760,
+        "regla_lsp_1100_px": "Solo font-size ajustado a 0.9375rem para impedir un aumento sobre 15px",
+        "comportamiento_768_px": "15px / 600 en las trece páginas"
+      },
+      "prioridades": "Se conservaron los !important existentes. Las declaraciones móviles en creditos.css y cuatro hojas Braille mantienen la prioridad necesaria para superar sus reglas base existentes; no se agregaron prioridades innecesarias.",
+      "paginas_verificadas": [
+        "biblioteca/criterios.html",
+        "biblioteca/index.html",
+        "biblioteca/recurso.html",
+        "braille/accesibilidad.html",
+        "braille/faq.html",
+        "braille/index.html",
+        "braille/teoria.html",
+        "creditos.html",
+        "index.html",
+        "lsp/accesibilidad.html",
+        "lsp/creditos.html",
+        "lsp/faq.html",
+        "lsp/index.html"
+      ],
+      "aprobacion": "Autorización expresa del propietario. GitHub rechazó APPROVE con 422: no se permite aprobar el PR de la misma cuenta autora. Merge normal, sin auto-merge.",
+      "validacion": {
+        "motor": "Chromium / Playwright",
+        "mediciones_tipograficas": 78,
+        "anchos_px": [
+          320,
+          360,
+          390,
+          414,
+          768,
+          1440
+        ],
+        "resultados": [
+          {
+            "page": "biblioteca/criterios.html",
+            "width": 320,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 800.40625,
+            "headerHeightAfter": 800.40625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "biblioteca/criterios.html",
+            "width": 360,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 780.703125,
+            "headerHeightAfter": 780.703125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "biblioteca/criterios.html",
+            "width": 390,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 751.46875,
+            "headerHeightAfter": 693.46875,
+            "headerDelta": -58,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "biblioteca/criterios.html",
+            "width": 414,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 752.46875,
+            "headerHeightAfter": 694.46875,
+            "headerDelta": -58,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "biblioteca/criterios.html",
+            "width": 768,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 654.5625,
+            "headerHeightAfter": 654.5625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "biblioteca/criterios.html",
+            "width": 1440,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 614.171875,
+            "headerHeightAfter": 614.171875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "biblioteca/index.html",
+            "width": 320,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 1521.953125,
+            "headerHeightAfter": 1521.953125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "biblioteca/index.html",
+            "width": 360,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 1377.375,
+            "headerHeightAfter": 1377.375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "biblioteca/index.html",
+            "width": 390,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 1361.375,
+            "headerHeightAfter": 1361.375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "biblioteca/index.html",
+            "width": 414,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 1337.8125,
+            "headerHeightAfter": 1337.8125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "biblioteca/index.html",
+            "width": 768,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 909.8125,
+            "headerHeightAfter": 909.8125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "biblioteca/index.html",
+            "width": 1440,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 819.625,
+            "headerHeightAfter": 819.625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "biblioteca/recurso.html",
+            "width": 320,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 742.21875,
+            "headerHeightAfter": 742.21875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "biblioteca/recurso.html",
+            "width": 360,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 690.328125,
+            "headerHeightAfter": 690.328125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "biblioteca/recurso.html",
+            "width": 390,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 693.28125,
+            "headerHeightAfter": 635.28125,
+            "headerDelta": -58,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "biblioteca/recurso.html",
+            "width": 414,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 636.28125,
+            "headerHeightAfter": 636.28125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "biblioteca/recurso.html",
+            "width": 768,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 610.375,
+            "headerHeightAfter": 610.375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "biblioteca/recurso.html",
+            "width": 1440,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 569.984375,
+            "headerHeightAfter": 569.984375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/accesibilidad.html",
+            "width": 320,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 935.03125,
+            "headerHeightAfter": 935.03125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/accesibilidad.html",
+            "width": 360,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 789.28125,
+            "headerHeightAfter": 789.28125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/accesibilidad.html",
+            "width": 390,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 768.640625,
+            "headerHeightAfter": 710.640625,
+            "headerDelta": -58,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/accesibilidad.html",
+            "width": 414,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 710.640625,
+            "headerHeightAfter": 710.640625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/accesibilidad.html",
+            "width": 768,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 536.46875,
+            "headerHeightAfter": 536.46875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/accesibilidad.html",
+            "width": 1440,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 559.203125,
+            "headerHeightAfter": 559.203125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/faq.html",
+            "width": 320,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 935.03125,
+            "headerHeightAfter": 935.03125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/faq.html",
+            "width": 360,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 789.28125,
+            "headerHeightAfter": 789.28125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/faq.html",
+            "width": 390,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 768.640625,
+            "headerHeightAfter": 710.640625,
+            "headerDelta": -58,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/faq.html",
+            "width": 414,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 710.640625,
+            "headerHeightAfter": 710.640625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/faq.html",
+            "width": 768,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 536.46875,
+            "headerHeightAfter": 536.46875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/faq.html",
+            "width": 1440,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 559.203125,
+            "headerHeightAfter": 559.203125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/index.html",
+            "width": 320,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 720.640625,
+            "headerHeightAfter": 720.640625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/index.html",
+            "width": 360,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 630.90625,
+            "headerHeightAfter": 630.90625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/index.html",
+            "width": 390,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 633.859375,
+            "headerHeightAfter": 633.859375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/index.html",
+            "width": 414,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 634.859375,
+            "headerHeightAfter": 634.859375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/index.html",
+            "width": 768,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 525.328125,
+            "headerHeightAfter": 525.328125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/index.html",
+            "width": 1440,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 476.9375,
+            "headerHeightAfter": 476.9375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/teoria.html",
+            "width": 320,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 51,
+            "overflowAfter": 51,
+            "headerHeightBefore": 880.625,
+            "headerHeightAfter": 880.625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/teoria.html",
+            "width": 360,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 11,
+            "overflowAfter": 11,
+            "headerHeightBefore": 777.375,
+            "headerHeightAfter": 777.375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/teoria.html",
+            "width": 390,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 762.640625,
+            "headerHeightAfter": 704.640625,
+            "headerDelta": -58,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/teoria.html",
+            "width": 414,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 706.640625,
+            "headerHeightAfter": 706.640625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/teoria.html",
+            "width": 768,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 525.328125,
+            "headerHeightAfter": 525.328125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "braille/teoria.html",
+            "width": 1440,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 542.9375,
+            "headerHeightAfter": 542.9375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "creditos.html",
+            "width": 320,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 867.75,
+            "headerHeightAfter": 867.75,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "creditos.html",
+            "width": 360,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 722,
+            "headerHeightAfter": 722,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "creditos.html",
+            "width": 390,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 706,
+            "headerHeightAfter": 706,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "creditos.html",
+            "width": 414,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 706,
+            "headerHeightAfter": 706,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "creditos.html",
+            "width": 768,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 543.828125,
+            "headerHeightAfter": 543.828125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "creditos.html",
+            "width": 1440,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 504.4375,
+            "headerHeightAfter": 504.4375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "index.html",
+            "width": 320,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 755.34375,
+            "headerHeightAfter": 755.34375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "index.html",
+            "width": 360,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 652.09375,
+            "headerHeightAfter": 652.09375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "index.html",
+            "width": 390,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 642,
+            "headerHeightAfter": 642,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "index.html",
+            "width": 414,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 644,
+            "headerHeightAfter": 644,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "index.html",
+            "width": 768,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 532.6875,
+            "headerHeightAfter": 532.6875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "index.html",
+            "width": 1440,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 488.171875,
+            "headerHeightAfter": 488.171875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/accesibilidad.html",
+            "width": 320,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 867.75,
+            "headerHeightAfter": 867.75,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/accesibilidad.html",
+            "width": 360,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 722,
+            "headerHeightAfter": 722,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/accesibilidad.html",
+            "width": 390,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 706,
+            "headerHeightAfter": 706,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/accesibilidad.html",
+            "width": 414,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 706,
+            "headerHeightAfter": 706,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/accesibilidad.html",
+            "width": 768,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 543.828125,
+            "headerHeightAfter": 543.828125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/accesibilidad.html",
+            "width": 1440,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 504.4375,
+            "headerHeightAfter": 504.4375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/creditos.html",
+            "width": 320,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 891.03125,
+            "headerHeightAfter": 891.03125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/creditos.html",
+            "width": 360,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 803.28125,
+            "headerHeightAfter": 803.28125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/creditos.html",
+            "width": 390,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 782.640625,
+            "headerHeightAfter": 782.640625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/creditos.html",
+            "width": 414,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 782.640625,
+            "headerHeightAfter": 782.640625,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/creditos.html",
+            "width": 768,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 542.46875,
+            "headerHeightAfter": 542.46875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/creditos.html",
+            "width": 1440,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 493.203125,
+            "headerHeightAfter": 493.203125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/faq.html",
+            "width": 320,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 867.75,
+            "headerHeightAfter": 867.75,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/faq.html",
+            "width": 360,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 722,
+            "headerHeightAfter": 722,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/faq.html",
+            "width": 390,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 706,
+            "headerHeightAfter": 706,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/faq.html",
+            "width": 414,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 706,
+            "headerHeightAfter": 706,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/faq.html",
+            "width": 768,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 543.828125,
+            "headerHeightAfter": 543.828125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/faq.html",
+            "width": 1440,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 504.4375,
+            "headerHeightAfter": 504.4375,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/index.html",
+            "width": 320,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 838.203125,
+            "headerHeightAfter": 838.203125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/index.html",
+            "width": 360,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 750.453125,
+            "headerHeightAfter": 750.453125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/index.html",
+            "width": 390,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 750.453125,
+            "headerHeightAfter": 750.453125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/index.html",
+            "width": 414,
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 750.453125,
+            "headerHeightAfter": 750.453125,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/index.html",
+            "width": 768,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 542.46875,
+            "headerHeightAfter": 542.46875,
+            "headerDelta": 0,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          },
+          {
+            "page": "lsp/index.html",
+            "width": 1440,
+            "fontSize": "15px",
+            "fontWeight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "headerHeightBefore": 569.203125,
+            "headerHeightAfter": 493.203125,
+            "headerDelta": -76,
+            "overlap": false,
+            "hoverUnchanged": true,
+            "linksUnchanged": true
+          }
+        ],
+        "comprobaciones_aumento_texto_y_navegacion": 26,
+        "controles": [
+          {
+            "page": "biblioteca/criterios.html",
+            "width": 390,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/biblioteca/index.html"
+          },
+          {
+            "page": "biblioteca/criterios.html",
+            "width": 1440,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/biblioteca/index.html"
+          },
+          {
+            "page": "biblioteca/index.html",
+            "width": 390,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/index.html"
+          },
+          {
+            "page": "biblioteca/index.html",
+            "width": 1440,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/index.html"
+          },
+          {
+            "page": "biblioteca/recurso.html",
+            "width": 390,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/biblioteca/index.html"
+          },
+          {
+            "page": "biblioteca/recurso.html",
+            "width": 1440,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/biblioteca/index.html"
+          },
+          {
+            "page": "braille/accesibilidad.html",
+            "width": 390,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px",
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px",
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/braille/index.html"
+          },
+          {
+            "page": "braille/accesibilidad.html",
+            "width": 1440,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px",
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px",
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/braille/index.html"
+          },
+          {
+            "page": "braille/faq.html",
+            "width": 390,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px",
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px",
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/braille/index.html"
+          },
+          {
+            "page": "braille/faq.html",
+            "width": 1440,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px",
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px",
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/braille/index.html"
+          },
+          {
+            "page": "braille/index.html",
+            "width": 390,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/index.html"
+          },
+          {
+            "page": "braille/index.html",
+            "width": 1440,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/index.html"
+          },
+          {
+            "page": "braille/teoria.html",
+            "width": 390,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px",
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 10,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px",
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 39,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/braille/index.html"
+          },
+          {
+            "page": "braille/teoria.html",
+            "width": 1440,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px",
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px",
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/braille/index.html"
+          },
+          {
+            "page": "creditos.html",
+            "width": 390,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/index.html"
+          },
+          {
+            "page": "creditos.html",
+            "width": 1440,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/index.html"
+          },
+          {
+            "page": "index.html",
+            "width": 390,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/"
+          },
+          {
+            "page": "index.html",
+            "width": 1440,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/"
+          },
+          {
+            "page": "lsp/accesibilidad.html",
+            "width": 390,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/lsp/index.html"
+          },
+          {
+            "page": "lsp/accesibilidad.html",
+            "width": 1440,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/lsp/index.html"
+          },
+          {
+            "page": "lsp/creditos.html",
+            "width": 390,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/lsp/index.html"
+          },
+          {
+            "page": "lsp/creditos.html",
+            "width": 1440,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/lsp/index.html"
+          },
+          {
+            "page": "lsp/faq.html",
+            "width": 390,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/lsp/index.html"
+          },
+          {
+            "page": "lsp/faq.html",
+            "width": 1440,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/lsp/index.html"
+          },
+          {
+            "page": "lsp/index.html",
+            "width": 390,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "15.75px",
+                  "15.75px",
+                  "15.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "17.5px",
+                  "17.5px",
+                  "17.5px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/index.html"
+          },
+          {
+            "page": "lsp/index.html",
+            "width": 1440,
+            "textControlsWork": true,
+            "resetToNormal": true,
+            "states": [
+              {
+                "cssClass": "eva-texto-grande",
+                "fonts": [
+                  "16.875px",
+                  "16.875px",
+                  "16.875px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              },
+              {
+                "cssClass": "eva-texto-muy-grande",
+                "fonts": [
+                  "18.75px",
+                  "18.75px",
+                  "18.75px"
+                ],
+                "overflow": 0,
+                "overlap": []
+              }
+            ],
+            "navigationTarget": "https://crebeucayali.github.io/banco-digital-accesible/index.html"
+          }
+        ],
+        "escalado_rem": {
+          "raiz_normal_px": 16,
+          "raiz_grande_px": 18,
+          "raiz_muy_grande_px": 20,
+          "movil_px": [
+            14,
+            15.75,
+            17.5
+          ],
+          "escritorio_px": [
+            15,
+            16.875,
+            18.75
+          ]
+        },
+        "variaciones_naturales_altura_aceptadas": [
+          {
+            "pagina": "biblioteca/criterios.html",
+            "ancho_px": 390,
+            "antes_px": 751.46875,
+            "despues_px": 693.46875,
+            "diferencia_px": -58
+          },
+          {
+            "pagina": "biblioteca/criterios.html",
+            "ancho_px": 414,
+            "antes_px": 752.46875,
+            "despues_px": 694.46875,
+            "diferencia_px": -58
+          },
+          {
+            "pagina": "biblioteca/recurso.html",
+            "ancho_px": 390,
+            "antes_px": 693.28125,
+            "despues_px": 635.28125,
+            "diferencia_px": -58
+          },
+          {
+            "pagina": "braille/accesibilidad.html",
+            "ancho_px": 390,
+            "antes_px": 768.640625,
+            "despues_px": 710.640625,
+            "diferencia_px": -58
+          },
+          {
+            "pagina": "braille/faq.html",
+            "ancho_px": 390,
+            "antes_px": 768.640625,
+            "despues_px": 710.640625,
+            "diferencia_px": -58
+          },
+          {
+            "pagina": "braille/teoria.html",
+            "ancho_px": 390,
+            "antes_px": 762.640625,
+            "despues_px": 704.640625,
+            "diferencia_px": -58
+          },
+          {
+            "pagina": "lsp/index.html",
+            "ancho_px": 1440,
+            "antes_px": 569.203125,
+            "despues_px": 493.203125,
+            "diferencia_px": -76
+          }
+        ],
+        "sin_variaciones_adicionales": true,
+        "sin_superposiciones": true,
+        "hover_y_enlaces_intactos": true,
+        "sin_nuevos_desbordamientos_en_escenarios_probados": true,
+        "revision_visual_anchos_px": [
+          390,
+          1440
+        ],
+        "css_publicado_identico_al_aprobado": true,
+        "metodo": "HTML y recursos públicos leídos nuevamente tras el merge, sin sustitución de CSS; comparación con los resultados aprobados y snapshots antes/después. Los dos 404 se confirmaron por GET explícito porque el contenido aleatorio de las páginas no los solicitó.",
+        "limites": "Chromium, recursos públicos frescos sin sustitución de CSS; Supabase y otros hosts bloqueados; destinos finales interceptados; semilla fija para contenido aleatorio Braille/LSP."
+      },
+      "excepciones_preexistentes": {
+        "fuera_del_alcance": true,
+        "hallazgos_separados": [
+          "banco-digital-accesible.braille-teoria.layout.overflow",
+          "banco-digital-accesible.lsp.assets.404"
+        ],
+        "overflow_teoria_px": [
+          {
+            "ancho_px": 320,
+            "antes_px": 51,
+            "despues_px": 51
+          },
+          {
+            "ancho_px": 360,
+            "antes_px": 11,
+            "despues_px": 11
+          }
+        ],
+        "recursos_404_confirmados": [
+          "/banco-digital-accesible/lsp/imagenes/adverbios_y_preposiciones/con.png",
+          "/banco-digital-accesible/lsp/imagenes/naturaleza/fresco.png"
+        ],
+        "registros_originales_sin_modificar": true
+      },
+      "alcance": "Diez CSS, solo font-size/font-weight de navegación y sus reglas en breakpoints existentes. Sin cambios HTML, dimensiones, distribución, hover, scripts, imágenes, controles, Supabase ni contadores."
     }
   ]
 }
