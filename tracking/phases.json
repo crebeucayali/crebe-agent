@@ -59,7 +59,8 @@
     "etapa_2_estado": "ETAPA_2_COMPLETADA_CASOS_PRUEBA",
     "etapa_2_workflow_run_id": 37255895169,
     "etapa_3_iniciada": true,
-    "etapa_3_estado": "ETAPA_3_EN_VALIDACION",
+    "etapa_3_estado": "ETAPA_3_COMPLETADA_LINEA_BASE_FUNCIONAL",
+    "etapa_3_workflow_run_id": 37256684229,
     "etapa_4_iniciada": false,
     "repositorios_eva_modificados": false
   }
