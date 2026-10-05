@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "fase": 5,
+  "etapa": 6,
+  "nombre": "Correccion controlada",
+  "estado": "ETAPA_6_COMPLETADA_CORRECCION_CONTROLADA",
+  "fecha_inicio": "2026-10-04",
+  "fecha_cierre": "2026-10-04",
+  "zona_horaria": "America/Lima",
+  "fuente": {
+    "etapa": 5,
+    "hallazgos_diagnosticados": 3,
+    "listos_para_correccion": 2,
+    "requiere_decision_funcional": 1
+  },
+  "resultado": {
+    "hallazgos_intervenidos": 2,
+    "hallazgos_bloqueados": 1,
+    "repositorios_eva_modificados": [
+      "crebeucayali/noti-inclusivos"
+    ],
+    "repositorios_eva_no_modificados": 7,
+    "hallazgos": [
+      {
+        "id": "F5E4-A1AE3BB801",
+        "causa_raiz": "REFERENCIA_OBSOLETA_RUTA_CONTACTO",
+        "estado": "CORREGIDO_PENDIENTE_VERIFICACION",
+        "repositorio": "crebeucayali/noti-inclusivos",
+        "pr": 3,
+        "merge_commit": "b859109e1af623960628b9f1f6ef4a3a4a5d103c",
+        "archivos_modificados": 8,
+        "cambio": "Sustitucion de 16 referencias de /accesos-complementarios/institucional/contacto.html por /accesos-complementarios/paginas/contacto.html."
+      },
+      {
+        "id": "F5E4-E9B33D5047",
+        "causa_raiz": "REFERENCIA_OBSOLETA_INDICE_PUBLICACIONES",
+        "estado": "CORREGIDO_PENDIENTE_VERIFICACION",
+        "repositorio": "crebeucayali/noti-inclusivos",
+        "pr": 4,
+        "merge_commit": "6672b18d459cd73f3761982f68b6dbd90c28ec84",
+        "archivos_creados": 1,
+        "cambio": "Creacion de blog/index.html como ruta de compatibilidad con redireccion y enlace de respaldo hacia /noti-inclusivos/articulos/."
+      },
+      {
+        "id": "F5E4-EAE63AF520",
+        "causa_raiz": "RUTA_HUERFANA_MODULO_NO_PUBLICADO",
+        "estado": "BLOQUEADO_POR_DECISION_FUNCIONAL",
+        "repositorios_afectados": [
+          "crebeucayali/accesos-complementarios",
+          "crebeucayali/banco-digital-accesible",
+          "crebeucayali/materiales-educativos-accesibles",
+          "crebeucayali/repositorio-accesible"
+        ],
+        "decision_pendiente": "Definir si JIA sera restituido/publicado o si sus referencias deben retirarse/reemplazarse por otro modulo vigente.",
+        "intervenido": false
+      }
+    ]
+  },
+  "criterios_cierre": [
+    "Cada hallazgo intervenido tenia causa raiz y solucion suficientemente determinadas.",
+    "Cada problema fue intervenido mediante un PR independiente.",
+    "Los diffs fueron revisados antes del merge.",
+    "Los hallazgos corregidos quedan CORREGIDO_PENDIENTE_VERIFICACION y no CORREGIDO_VERIFICADO.",
+    "El hallazgo JIA permanece sin cambios hasta una decision funcional explicita.",
+    "No se modificaron Supabase, autenticacion, permisos, MFA, panel administrativo ni datos.",
+    "La Etapa 7 permanece sin iniciar."
+  ],
+  "criterios_cierre_cumplidos": true,
+  "etapa_7_iniciada": false
+}
