@@ -219,7 +219,40 @@
     },
     "criterios_cierre_cumplidos": true,
     "repositorios_eva_modificados": false,
-    "correcciones_eva_autorizadas": false,
-    "etapa_6_iniciada": false
+    "correcciones_eva_autorizadas": false
+  },
+  "etapa_6": {
+    "nombre": "Correccion controlada",
+    "estado": "ETAPA_6_COMPLETADA_CORRECCION_CONTROLADA",
+    "fecha_inicio": "2026-10-04",
+    "fecha_cierre": "2026-10-04",
+    "documentacion": "docs/FASE_5_ETAPA_6_CORRECCION_CONTROLADA.md",
+    "tracking": "tracking/fase-5-etapa-6.json",
+    "resultado": {
+      "hallazgos_intervenidos": 2,
+      "hallazgos_bloqueados": 1,
+      "por_estado": {
+        "CORREGIDO_PENDIENTE_VERIFICACION": 2,
+        "BLOQUEADO_POR_DECISION_FUNCIONAL": 1
+      },
+      "repositorios_eva_modificados": [
+        "crebeucayali/noti-inclusivos"
+      ],
+      "prs_eva": [
+        {
+          "repositorio": "crebeucayali/noti-inclusivos",
+          "pr": 3,
+          "merge_commit": "b859109e1af623960628b9f1f6ef4a3a4a5d103c"
+        },
+        {
+          "repositorio": "crebeucayali/noti-inclusivos",
+          "pr": 4,
+          "merge_commit": "6672b18d459cd73f3761982f68b6dbd90c28ec84"
+        }
+      ]
+    },
+    "criterios_cierre_cumplidos": true,
+    "correcciones_eva_autorizadas": true,
+    "etapa_7_iniciada": false
   }
 }
