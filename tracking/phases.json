@@ -56,7 +56,8 @@
     "etapa_1_estado": "ETAPA_1_COMPLETADA_INVENTARIO_FUNCIONAL",
     "etapa_1_workflow_run_id": 37255237798,
     "etapa_2_iniciada": true,
-    "etapa_2_estado": "ETAPA_2_EN_VALIDACION",
+    "etapa_2_estado": "ETAPA_2_COMPLETADA_CASOS_PRUEBA",
+    "etapa_2_workflow_run_id": 37255895169,
     "etapa_3_iniciada": false,
     "repositorios_eva_modificados": false
   }
