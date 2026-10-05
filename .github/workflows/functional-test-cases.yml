@@ -2,6 +2,15 @@ name: Funcionamiento EVA - Fase 5 Etapa 2
 
 on:
   workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'functional_test_cases.py'
+      - 'tests/test_functional_test_cases.py'
+      - '.github/workflows/functional-test-cases.yml'
+      - 'tracking/fase-5.json'
+      - 'tracking/phases.json'
+      - 'docs/FASE_5_ETAPA_2_CASOS_PRUEBA.md'
   push:
     branches: [main]
     paths:
@@ -13,7 +22,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: crebe-functional-test-cases
+  group: crebe-functional-test-cases-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
