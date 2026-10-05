@@ -21,10 +21,11 @@ HIGH_LABELS = re.compile(
 )
 
 
-def stable_id(repo, path, element):
+def stable_id(repo, path, element, ordinal=0):
     raw = "|".join([
         repo,
         path,
+        str(ordinal),
         str(element.get("line", "")),
         element.get("kind", ""),
         element.get("label", ""),
@@ -68,7 +69,6 @@ def execution_policy(scope, element):
 
 def expected_for(page, element):
     kind = element.get("kind", "")
-    target = element.get("expected_behavior", {}).get("resolved_target")
     label = element.get("label") or element.get("id") or element.get("name") or kind
     if kind == "navegacion":
         return {
@@ -146,8 +146,8 @@ def build(inventory, output):
 
     for page in inventory.get("pages", []):
         repo, path, scope = page["repo"], page["path"], page["scope"]
-        for element in page.get("functional_elements", []):
-            case_id = stable_id(repo, path, element)
+        for ordinal, element in enumerate(page.get("functional_elements", []), 1):
+            case_id = stable_id(repo, path, element, ordinal)
             priority = priority_for(scope, element)
             policy = execution_policy(scope, element)
             expected = expected_for(page, element)
@@ -159,6 +159,7 @@ def build(inventory, output):
                 "page_sha": page.get("sha"),
                 "scope": scope,
                 "source_line": element.get("line"),
+                "source_ordinal": ordinal,
                 "kind": element.get("kind"),
                 "label": element.get("label"),
                 "target": element.get("target"),
@@ -214,7 +215,6 @@ def build(inventory, output):
     }
     (output / "functional-test-cases.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-    ordered_priorities = ["P0_CRITICA", "P1_ALTA", "P2_MEDIA", "P3_BAJA"]
     report = [
         "# Fase 5, Etapa 2: casos de prueba y resultados esperados",
         "",
