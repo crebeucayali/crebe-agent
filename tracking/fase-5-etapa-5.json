@@ -3,8 +3,9 @@
   "fase": 5,
   "etapa": 5,
   "nombre": "Diagnostico tecnico de hallazgos funcionales",
-  "estado": "ETAPA_5_EN_VALIDACION",
+  "estado": "ETAPA_5_COMPLETADA_DIAGNOSTICO",
   "fecha_inicio": "2026-10-04",
+  "fecha_cierre": "2026-10-04",
   "zona_horaria": "America/Lima",
   "fuente": {
     "etapa": 4,
@@ -24,6 +25,56 @@
       "reports/functional-diagnosis/Informe_fase_5_etapa_5.md"
     ]
   },
+  "resultado": {
+    "workflow_run_id": 37259224127,
+    "workflow_conclusion": "success",
+    "artifact_id": 11323972462,
+    "hallazgos_fuente": 3,
+    "hallazgos_diagnosticados": 3,
+    "diagnosticos_faltantes": 0,
+    "por_estado": {
+      "DIAGNOSTICADO_LISTO_PARA_CORRECCION": 2,
+      "DIAGNOSTICADO_REQUIERE_DECISION_FUNCIONAL": 1
+    },
+    "hallazgos": [
+      {
+        "id": "F5E4-A1AE3BB801",
+        "causa_raiz": "REFERENCIA_OBSOLETA_RUTA_CONTACTO",
+        "destino_roto": "https://crebeucayali.github.io/accesos-complementarios/institucional/contacto.html",
+        "destino_correcto": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+        "archivos_afectados": 8,
+        "repositorio_afectado": "noti-inclusivos",
+        "confianza": "ALTA",
+        "estado": "DIAGNOSTICADO_LISTO_PARA_CORRECCION"
+      },
+      {
+        "id": "F5E4-EAE63AF520",
+        "causa_raiz": "RUTA_HUERFANA_MODULO_NO_PUBLICADO",
+        "destino_roto": "https://crebeucayali.github.io/juegos-interactivos-accesibles/",
+        "destino_correcto": null,
+        "archivos_afectados": 4,
+        "repositorios_afectados": [
+          "accesos-complementarios",
+          "banco-digital-accesible",
+          "materiales-educativos-accesibles",
+          "repositorio-accesible"
+        ],
+        "decision_pendiente": "Definir si JIA sera restituido/publicado o si las referencias deben retirarse/reemplazarse por otro modulo vigente.",
+        "confianza": "ALTA",
+        "estado": "DIAGNOSTICADO_REQUIERE_DECISION_FUNCIONAL"
+      },
+      {
+        "id": "F5E4-E9B33D5047",
+        "causa_raiz": "REFERENCIA_OBSOLETA_INDICE_PUBLICACIONES",
+        "destino_roto": "https://crebeucayali.github.io/noti-inclusivos/blog/",
+        "destino_correcto": "https://crebeucayali.github.io/noti-inclusivos/articulos/",
+        "archivos_afectados": 1,
+        "repositorio_afectado": "accesos-complementarios",
+        "confianza": "ALTA",
+        "estado": "DIAGNOSTICADO_LISTO_PARA_CORRECCION"
+      }
+    ]
+  },
   "criterios_cierre": [
     "Los tres hallazgos priorizados reciben diagnostico tecnico sin perdida de trazabilidad.",
     "Cada hallazgo identifica causa raiz y archivos afectados.",
@@ -33,6 +84,7 @@
     "No se modifica ninguno de los ocho repositorios EVA.",
     "La Etapa 6 permanece sin iniciar."
   ],
+  "criterios_cierre_cumplidos": true,
   "repositorios_eva_modificados": false,
   "correcciones_eva_autorizadas": false,
   "etapa_6_iniciada": false
