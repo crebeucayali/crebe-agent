@@ -17,7 +17,8 @@
   ],
   "etapa_1": {
     "nombre": "Inventario funcional",
-    "estado": "ETAPA_1_EN_VALIDACION",
+    "estado": "ETAPA_1_COMPLETADA_INVENTARIO_FUNCIONAL",
+    "fecha_cierre": "2026-10-04",
     "objetivo": "Identificar de forma reproducible los elementos de EVA que deben ejecutar una accion antes de iniciar pruebas funcionales.",
     "implementacion": {
       "programa": "functional_inventory.py",
@@ -29,19 +30,23 @@
         "reports/functional-inventory/Informe_fase_5_etapa_1.md"
       ]
     },
-    "elementos_objetivo": [
-      "enlaces",
-      "botones",
-      "formularios",
-      "controles de formulario",
-      "recursos embebidos",
-      "event listeners",
-      "fetch",
-      "Supabase",
-      "Web Share API",
-      "cambios de ubicacion",
-      "almacenamiento del navegador"
-    ],
+    "resultado": {
+      "workflow_run_id": 37255237798,
+      "workflow_conclusion": "success",
+      "repositorios_representados": 8,
+      "paginas_html": 65,
+      "elementos_funcionales": 1297,
+      "botones": 196,
+      "formularios": 18,
+      "controles_formulario": 175,
+      "navegacion": 711,
+      "enlaces_externos": 110,
+      "anclas_internas": 74,
+      "enlaces_correo": 13,
+      "archivos_javascript_con_evidencia_funcional": 54,
+      "fallos_lectura": 0,
+      "artifact_id": 11322785550
+    },
     "criterios_cierre": [
       "Los ocho repositorios estan representados.",
       "No existen fallos de lectura en la captura usada.",
@@ -50,6 +55,7 @@
       "El workflow de la Etapa 1 finaliza correctamente.",
       "No se modifica ninguno de los ocho repositorios EVA."
     ],
+    "criterios_cierre_cumplidos": true,
     "repositorios_eva_modificados": false,
     "correcciones_eva_autorizadas": false,
     "etapa_2_iniciada": false
