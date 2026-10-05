@@ -1,0 +1,57 @@
+name: Funcionamiento EVA - Monitoreo recurrente
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 11 * * *'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'functional_monitor.py'
+      - 'config/functional-monitor-targets.json'
+      - 'tests/test_functional_monitor.py'
+      - '.github/workflows/functional-monitor.yml'
+      - 'docs/FASE_5_ETAPA_8_MONITOREO_FUNCIONAL.md'
+      - 'tracking/fase-5-etapa-8.json'
+
+permissions:
+  contents: read
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Pruebas unitarias
+        run: python -m unittest tests.test_functional_monitor -v
+
+      - name: Monitoreo funcional
+        id: monitor
+        continue-on-error: true
+        run: python functional_monitor.py --output reports/functional-monitor
+
+      - name: Mostrar informe
+        if: always()
+        run: cat reports/functional-monitor/Informe_monitoreo_funcional.md
+
+      - name: Subir evidencia
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crebe-monitoreo-funcional-${{ github.run_id }}
+          path: reports/functional-monitor/
+          retention-days: 30
+
+      - name: Marcar alerta
+        if: steps.monitor.outcome == 'failure'
+        run: |
+          echo 'Se detectó al menos una anomalía funcional. Revise el artefacto del monitoreo.'
+          exit 1
