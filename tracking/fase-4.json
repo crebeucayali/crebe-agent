@@ -10803,6 +10803,154 @@
       },
       "independencia": "La regla de códigos se limita a la lista de Cookies. Los bloques del footer mantienen idéntico borde derecho, dimensiones y estilos antes/después. Sin modificación del footer.",
       "alcance": "Hallazgo separado. No corregido ni incluido en el PR de corte de códigos; no se modifican footer, HTML ni otras páginas."
+    },
+    {
+      "id": "accesos-complementarios.contacto.layout.overflow",
+      "repositorio": "crebeucayali/accesos-complementarios",
+      "pagina": "paginas/contacto.html",
+      "estado": "PENDIENTE_DE_DIAGNOSTICO",
+      "hallazgo": "Overflow horizontal independiente fuera del footer en la página de Contacto",
+      "fecha_registro": "2026-10-05T01:10:55.266Z",
+      "commit_main_diagnosticado": "3648768ecc3b9933339adf6589de6df1c3b16a99",
+      "preexistente": true,
+      "causa_preliminar": "Causa exacta pendiente de diagnóstico. Desbordamiento independiente del correo largo del footer.",
+      "mediciones": [
+        {
+          "ancho_px": 320,
+          "texto": "Normal",
+          "antes_px": 67,
+          "despues_px": 67,
+          "overflow_footer_despues_px": 0
+        },
+        {
+          "ancho_px": 320,
+          "texto": "Grande",
+          "antes_px": 109,
+          "despues_px": 109,
+          "overflow_footer_despues_px": 0
+        },
+        {
+          "ancho_px": 320,
+          "texto": "Muy grande",
+          "antes_px": 151,
+          "despues_px": 151,
+          "overflow_footer_despues_px": 0
+        },
+        {
+          "ancho_px": 360,
+          "texto": "Normal",
+          "antes_px": 27,
+          "despues_px": 27,
+          "overflow_footer_despues_px": 0
+        },
+        {
+          "ancho_px": 360,
+          "texto": "Grande",
+          "antes_px": 69,
+          "despues_px": 69,
+          "overflow_footer_despues_px": 0
+        },
+        {
+          "ancho_px": 360,
+          "texto": "Muy grande",
+          "antes_px": 111,
+          "despues_px": 111,
+          "overflow_footer_despues_px": 0
+        },
+        {
+          "ancho_px": 390,
+          "texto": "Normal",
+          "antes_px": 0,
+          "despues_px": 0,
+          "overflow_footer_despues_px": 0
+        },
+        {
+          "ancho_px": 390,
+          "texto": "Grande",
+          "antes_px": 39,
+          "despues_px": 39,
+          "overflow_footer_despues_px": 0
+        },
+        {
+          "ancho_px": 390,
+          "texto": "Muy grande",
+          "antes_px": 81,
+          "despues_px": 81,
+          "overflow_footer_despues_px": 0
+        },
+        {
+          "ancho_px": 414,
+          "texto": "Normal",
+          "antes_px": 0,
+          "despues_px": 0,
+          "overflow_footer_despues_px": 0
+        },
+        {
+          "ancho_px": 414,
+          "texto": "Grande",
+          "antes_px": 15,
+          "despues_px": 15,
+          "overflow_footer_despues_px": 0
+        },
+        {
+          "ancho_px": 414,
+          "texto": "Muy grande",
+          "antes_px": 57,
+          "despues_px": 57,
+          "overflow_footer_despues_px": 0
+        },
+        {
+          "ancho_px": 768,
+          "texto": "Normal",
+          "antes_px": 0,
+          "despues_px": 0,
+          "overflow_footer_despues_px": 0
+        },
+        {
+          "ancho_px": 768,
+          "texto": "Grande",
+          "antes_px": 0,
+          "despues_px": 0,
+          "overflow_footer_despues_px": 0
+        },
+        {
+          "ancho_px": 768,
+          "texto": "Muy grande",
+          "antes_px": 0,
+          "despues_px": 0,
+          "overflow_footer_despues_px": 0
+        },
+        {
+          "ancho_px": 1440,
+          "texto": "Normal",
+          "antes_px": 0,
+          "despues_px": 0,
+          "overflow_footer_despues_px": 0
+        },
+        {
+          "ancho_px": 1440,
+          "texto": "Grande",
+          "antes_px": 0,
+          "despues_px": 0,
+          "overflow_footer_despues_px": 0
+        },
+        {
+          "ancho_px": 1440,
+          "texto": "Muy grande",
+          "antes_px": 0,
+          "despues_px": 0,
+          "overflow_footer_despues_px": 0
+        }
+      ],
+      "evidencia_principal": {
+        "ancho_px": 320,
+        "texto": "Muy grande",
+        "overflow_total_antes_px": 151,
+        "overflow_total_despues_px": 151,
+        "overflow_footer_despues_px": 0
+      },
+      "alcance": "Registrado por separado durante la validación del footer. No se corrigieron otros elementos ni se modificó su contenido.",
+      "siguiente_accion": "Diagnóstico controlado independiente antes de proponer una corrección."
     }
   ]
 }
