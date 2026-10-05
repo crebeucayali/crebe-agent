@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "fase": 5,
+  "nombre": "Funcionamiento real de EVA",
+  "estado": "EN_CURSO",
+  "fecha_inicio": "2026-10-04",
+  "zona_horaria": "America/Lima",
+  "repositorios_eva": [
+    "crebeucayali/crebeucayali.github.io",
+    "crebeucayali/accesos-complementarios",
+    "crebeucayali/capacitaciones",
+    "crebeucayali/banco-digital-accesible",
+    "crebeucayali/materiales-educativos-accesibles",
+    "crebeucayali/noti-inclusivos",
+    "crebeucayali/repositorio-accesible",
+    "crebeucayali/DUA-3.0"
+  ],
+  "etapa_1": {
+    "nombre": "Inventario funcional",
+    "estado": "ETAPA_1_EN_VALIDACION",
+    "objetivo": "Identificar de forma reproducible los elementos de EVA que deben ejecutar una accion antes de iniciar pruebas funcionales.",
+    "implementacion": {
+      "programa": "functional_inventory.py",
+      "workflow": ".github/workflows/functional-inventory.yml",
+      "pruebas": "tests/test_functional_inventory.py",
+      "documentacion": "docs/FASE_5_ETAPA_1_INVENTARIO_FUNCIONAL.md",
+      "salidas": [
+        "reports/functional-inventory/functional-inventory.json",
+        "reports/functional-inventory/Informe_fase_5_etapa_1.md"
+      ]
+    },
+    "elementos_objetivo": [
+      "enlaces",
+      "botones",
+      "formularios",
+      "controles de formulario",
+      "recursos embebidos",
+      "event listeners",
+      "fetch",
+      "Supabase",
+      "Web Share API",
+      "cambios de ubicacion",
+      "almacenamiento del navegador"
+    ],
+    "criterios_cierre": [
+      "Los ocho repositorios estan representados.",
+      "No existen fallos de lectura en la captura usada.",
+      "El inventario funcional se genera correctamente.",
+      "Las pruebas automatizadas son satisfactorias.",
+      "El workflow de la Etapa 1 finaliza correctamente.",
+      "No se modifica ninguno de los ocho repositorios EVA."
+    ],
+    "repositorios_eva_modificados": false,
+    "correcciones_eva_autorizadas": false,
+    "etapa_2_iniciada": false
+  }
+}
