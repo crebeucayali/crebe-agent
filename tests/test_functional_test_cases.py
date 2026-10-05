@@ -8,7 +8,11 @@ from functional_test_cases import build, execution_policy, priority_for, stable_
 class FunctionalTestCasesTests(unittest.TestCase):
     def test_stable_id_is_deterministic(self):
         e = {"line": 10, "kind": "boton", "label": "Guardar", "target": ""}
-        self.assertEqual(stable_id("repo", "index.html", e), stable_id("repo", "index.html", e))
+        self.assertEqual(stable_id("repo", "index.html", e, 1), stable_id("repo", "index.html", e, 1))
+
+    def test_ordinal_distinguishes_equivalent_elements(self):
+        e = {"line": 10, "kind": "control_formulario", "label": "", "target": ""}
+        self.assertNotEqual(stable_id("repo", "index.html", e, 1), stable_id("repo", "index.html", e, 2))
 
     def test_admin_form_is_critical_and_controlled(self):
         e = {"kind": "formulario", "label": "Guardar noticia"}
@@ -32,14 +36,17 @@ class FunctionalTestCasesTests(unittest.TestCase):
                 "functional_elements": [
                     {"line": 1, "kind": "navegacion", "label": "Inicio", "target": "/", "expected_behavior": {"resolved_target": "https://example.test/"}},
                     {"line": 2, "kind": "boton", "label": "Compartir", "target": "", "expected_behavior": {"resolved_target": None}},
+                    {"line": 3, "kind": "control_formulario", "label": "", "target": "", "expected_behavior": {"resolved_target": None}},
+                    {"line": 3, "kind": "control_formulario", "label": "", "target": "", "expected_behavior": {"resolved_target": None}},
                 ],
             }],
         }
         with tempfile.TemporaryDirectory() as tmp:
             status, result = build(inventory, Path(tmp))
             self.assertEqual(status, "completo")
-            self.assertEqual(len(result["test_cases"]), 2)
+            self.assertEqual(len(result["test_cases"]), 4)
             self.assertEqual(result["manifest"]["duplicate_ids"], 0)
+            self.assertEqual(len({c["id"] for c in result["test_cases"]}), 4)
             self.assertTrue((Path(tmp) / "functional-test-cases.json").exists())
             self.assertTrue((Path(tmp) / "Informe_fase_5_etapa_2.md").exists())
 
