@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "fase": 5,
+  "etapa": 8,
+  "nombre": "Auditoria recurrente y monitoreo funcional",
+  "estado": "MONITOREO_FUNCIONAL_ACTIVO",
+  "fecha_inicio": "2026-10-05",
+  "zona_horaria": "America/Lima",
+  "fuente": {
+    "etapa": 7,
+    "hallazgos_corregidos_verificados": 2,
+    "regresiones_detectadas": 0,
+    "hallazgos_bloqueados_por_decision_funcional": 1
+  },
+  "implementacion": {
+    "programa": "functional_monitor.py",
+    "configuracion": "config/functional-monitor-targets.json",
+    "workflow": ".github/workflows/functional-monitor.yml",
+    "pruebas": "tests/test_functional_monitor.py",
+    "documentacion": "docs/FASE_5_ETAPA_8_MONITOREO_FUNCIONAL.md",
+    "salidas": [
+      "reports/functional-monitor/functional-monitor.json",
+      "reports/functional-monitor/Informe_monitoreo_funcional.md"
+    ],
+    "frecuencia": {
+      "cron_utc": "0 11 * * *",
+      "hora_referencia_america_lima": "06:00",
+      "ejecucion_manual": true
+    }
+  },
+  "alcance_inicial": {
+    "centinelas": 18,
+    "repositorios_principales": 8,
+    "correcciones_etapa_6_monitorizadas": 2,
+    "paginas_noti_con_control_regresion_contacto": 8,
+    "excepciones_conocidas": 1
+  },
+  "primera_validacion": {
+    "workflow_run_id": 37305026803,
+    "workflow_conclusion": "success",
+    "job_id": 111746513220,
+    "artifact_id": 11343077953,
+    "artifact_digest": "sha256:319fbd93a90442945be6eee8a7edb7cf3f8b5c7dd186b61530ec0e67093db6bf",
+    "pruebas_unitarias": 5,
+    "centinelas_total": 18,
+    "centinelas_correctos": 18,
+    "alertas": 0,
+    "excepciones_conocidas": 1
+  },
+  "excepciones_conocidas": [
+    {
+      "id": "F5E4-EAE63AF520",
+      "estado": "BLOQUEADO_POR_DECISION_FUNCIONAL",
+      "motivo": "Juegos Interactivos Accesibles no tiene un destino publicado verificable. Se excluye de alertas recurrentes hasta que exista una decision funcional explicita."
+    }
+  ],
+  "principios": [
+    "Monitoreo de solo lectura.",
+    "No repetir diariamente la auditoria pesada de 1297 casos.",
+    "Una alerta no autoriza una correccion automatica.",
+    "La auditoria completa queda disponible para ejecucion manual ante alertas o cambios relevantes.",
+    "No modificar EVA, Supabase, autenticacion, permisos ni datos desde el monitor."
+  ],
+  "primera_validacion_completada": true,
+  "estado_permanente": true
+}

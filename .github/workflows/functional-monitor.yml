@@ -1,0 +1,69 @@
+name: Funcionamiento EVA - Monitoreo recurrente
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 11 * * *'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'functional_monitor.py'
+      - 'config/functional-monitor-targets.json'
+      - 'tests/test_functional_monitor.py'
+      - '.github/workflows/functional-monitor.yml'
+      - 'docs/FASE_5_ETAPA_8_MONITOREO_FUNCIONAL.md'
+      - 'tracking/fase-5-etapa-8.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: crebe-functional-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    name: Ejecutar monitoreo funcional recurrente
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Preparar Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Ejecutar pruebas
+        run: python -m unittest tests.test_functional_monitor -v
+
+      - name: Ejecutar monitoreo
+        id: monitor
+        continue-on-error: true
+        run: python functional_monitor.py --output reports/functional-monitor
+
+      - name: Mostrar informe
+        if: always()
+        shell: bash
+        run: |
+          if [ -f reports/functional-monitor/Informe_monitoreo_funcional.md ]; then
+            cat reports/functional-monitor/Informe_monitoreo_funcional.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Guardar evidencia
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: crebe-monitoreo-funcional-${{ github.run_id }}
+          path: reports/functional-monitor/
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Marcar alerta
+        if: steps.monitor.outcome == 'failure'
+        run: |
+          echo 'Se detectó al menos una anomalía funcional. Revise el resumen y el artefacto del monitoreo.'
+          exit 1

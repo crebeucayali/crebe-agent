@@ -2,7 +2,7 @@
   "schema_version": 1,
   "fase": 5,
   "nombre": "Funcionamiento real de EVA",
-  "estado": "EN_CURSO",
+  "estado": "MONITOREO_FUNCIONAL_ACTIVO",
   "fecha_inicio": "2026-10-04",
   "zona_horaria": "America/Lima",
   "repositorios_eva": [
@@ -276,6 +276,25 @@
       ]
     },
     "criterios_cierre_cumplidos": true,
-    "etapa_8_iniciada": false
+    "etapa_8_iniciada": true
+  },
+  "etapa_8": {
+    "nombre": "Auditoria recurrente y monitoreo funcional",
+    "estado": "MONITOREO_FUNCIONAL_ACTIVO",
+    "fecha_inicio": "2026-10-05",
+    "documentacion": "docs/FASE_5_ETAPA_8_MONITOREO_FUNCIONAL.md",
+    "tracking": "tracking/fase-5-etapa-8.json",
+    "resultado_inicial": {
+      "workflow_run_id": 37305026803,
+      "workflow_conclusion": "success",
+      "artifact_id": 11343077953,
+      "pruebas_unitarias": 5,
+      "centinelas_total": 18,
+      "centinelas_correctos": 18,
+      "alertas": 0,
+      "excepciones_conocidas": 1
+    },
+    "frecuencia": "DIARIA_06_00_AMERICA_LIMA",
+    "estado_permanente": true
   }
 }
