@@ -64,17 +64,6 @@
     "estado": "ETAPA_3_COMPLETADA_LINEA_BASE_FUNCIONAL",
     "fecha_inicio": "2026-10-04",
     "fecha_cierre": "2026-10-04",
-    "objetivo": "Procesar los 1297 casos de prueba y establecer una linea base funcional mediante verificaciones de lectura seguras, separando fallos confirmados de casos manuales o bloqueados por dependencias.",
-    "implementacion": {
-      "programa": "functional_audit.py",
-      "workflow": ".github/workflows/functional-audit.yml",
-      "pruebas": "tests/test_functional_audit.py",
-      "documentacion": "docs/FASE_5_ETAPA_3_AUDITORIA_FUNCIONAL.md",
-      "salidas": [
-        "reports/functional-audit/functional-audit.json",
-        "reports/functional-audit/Informe_fase_5_etapa_3.md"
-      ]
-    },
     "resultado": {
       "workflow_run_id": 37256684229,
       "workflow_conclusion": "success",
@@ -106,16 +95,78 @@
         }
       ]
     },
-    "estados_resultado": [
-      "CORRECTO",
-      "FALLO_CONFIRMADO",
-      "REQUIERE_VERIFICACION_MANUAL",
-      "NO_APLICA",
-      "BLOQUEADO_POR_DEPENDENCIA"
-    ],
+    "criterios_cierre_cumplidos": true,
+    "repositorios_eva_modificados": false,
+    "correcciones_eva_autorizadas": false
+  },
+  "etapa_4": {
+    "nombre": "Clasificacion y priorizacion de hallazgos funcionales",
+    "estado": "ETAPA_4_COMPLETADA_PRIORIZACION",
+    "fecha_inicio": "2026-10-04",
+    "fecha_cierre": "2026-10-04",
+    "objetivo": "Agrupar los fallos confirmados por causa real y asignar severidad, prioridad y alcance antes del diagnostico tecnico.",
+    "implementacion": {
+      "programa": "functional_prioritization.py",
+      "workflow": ".github/workflows/functional-prioritization.yml",
+      "pruebas": "tests/test_functional_prioritization.py",
+      "documentacion": "docs/FASE_5_ETAPA_4_PRIORIZACION_HALLAZGOS.md",
+      "tracking": "tracking/fase-5-etapa-4.json",
+      "salidas": [
+        "reports/functional-prioritization/functional-prioritization.json",
+        "reports/functional-prioritization/Informe_fase_5_etapa_4.md"
+      ]
+    },
+    "resultado": {
+      "workflow_run_id": 37257954656,
+      "workflow_conclusion": "success",
+      "artifact_id": 11323119358,
+      "casos_fallo_confirmado": 21,
+      "casos_agrupados": 21,
+      "hallazgos_unicos": 3,
+      "por_prioridad": {
+        "P1_ALTA": 2,
+        "P2_MEDIA": 1
+      },
+      "por_severidad": {
+        "ALTO": 2,
+        "MEDIO": 1
+      },
+      "hallazgos": [
+        {
+          "id": "F5E4-A1AE3BB801",
+          "prioridad": "P1_ALTA",
+          "severidad": "ALTO",
+          "casos": 16,
+          "repositorios_afectados": 1,
+          "paginas_afectadas": 8,
+          "destino": "https://crebeucayali.github.io/accesos-complementarios/institucional/contacto.html",
+          "estado": "PRIORIZADO_PENDIENTE_DIAGNOSTICO"
+        },
+        {
+          "id": "F5E4-EAE63AF520",
+          "prioridad": "P1_ALTA",
+          "severidad": "ALTO",
+          "casos": 4,
+          "repositorios_afectados": 4,
+          "paginas_afectadas": 4,
+          "destino": "https://crebeucayali.github.io/juegos-interactivos-accesibles/",
+          "estado": "PRIORIZADO_PENDIENTE_DIAGNOSTICO"
+        },
+        {
+          "id": "F5E4-E9B33D5047",
+          "prioridad": "P2_MEDIA",
+          "severidad": "MEDIO",
+          "casos": 1,
+          "repositorios_afectados": 1,
+          "paginas_afectadas": 1,
+          "destino": "https://crebeucayali.github.io/noti-inclusivos/blog/",
+          "estado": "PRIORIZADO_PENDIENTE_DIAGNOSTICO"
+        }
+      ]
+    },
     "criterios_cierre_cumplidos": true,
     "repositorios_eva_modificados": false,
     "correcciones_eva_autorizadas": false,
-    "etapa_4_iniciada": false
+    "etapa_5_iniciada": false
   }
 }
