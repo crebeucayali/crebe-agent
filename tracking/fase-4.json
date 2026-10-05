@@ -289,15 +289,15 @@
     },
     {
       "repositorio": "crebeucayali/accesos-complementarios",
-      "estado": "PENDIENTE_DE_DIAGNOSTICO",
+      "estado": "CORREGIDO_VERIFICADO",
       "fecha_deteccion": "2026-10-04T14:55:22.874-05:00",
       "fecha_registro": "2026-10-04T15:08:17.124-05:00",
       "commit_base_verificado": "cae93ad44109d896f20ef2305ba61abcc35a42fe",
       "pr_contexto": "https://github.com/crebeucayali/accesos-complementarios/pull/1",
       "incluido_en_correccion_tipografica": false,
       "preexistente": true,
-      "resultado": "Mismo overflow antes y después del cambio tipográfico. Excepción expresamente aceptada para crear el PR de navegación.",
-      "siguiente_accion": "Diagnosticar por separado antes de proponer una corrección. No corregido en el PR tipográfico.",
+      "resultado": "Correo íntegro; 42 → 0 px a 320 y 2 → 0 px a 360. Publicación actual verificada sin sustitución de CSS.",
+      "siguiente_accion": "Corrección cerrada y verificada. Footer pendiente por separado.",
       "limites": "Medición en Chromium con fuentes públicas fijadas, sin sesión; solicitudes externas/Supabase bloqueadas.",
       "id": "accesos-complementarios.politica-privacidad.layout.overflow",
       "hallazgo": "Overflow horizontal del contenido de política de privacidad a 320 y 360 px",
@@ -312,14 +312,114 @@
         {
           "ancho_px": 320,
           "antes_px": 42,
-          "despues_px": 42
+          "despues_px": 0
         },
         {
           "ancho_px": 360,
           "antes_px": 2,
-          "despues_px": 2
+          "despues_px": 0
+        },
+        {
+          "ancho_px": 390,
+          "antes_px": 0,
+          "despues_px": 0
+        },
+        {
+          "ancho_px": 414,
+          "antes_px": 0,
+          "despues_px": 0
+        },
+        {
+          "ancho_px": 768,
+          "antes_px": 0,
+          "despues_px": 0
+        },
+        {
+          "ancho_px": 1440,
+          "antes_px": 0,
+          "despues_px": 0
         }
-      ]
+      ],
+      "estado_anterior": "PENDIENTE_DE_DIAGNOSTICO",
+      "pr": 3,
+      "pr_url": "https://github.com/crebeucayali/accesos-complementarios/pull/3",
+      "commit_corregido": "4cdb96284736c8054766c431bf7b40e2263755d6",
+      "commit_merge": "3648768ecc3b9933339adf6589de6df1c3b16a99",
+      "fecha_correccion": "2026-10-05T00:52:36.163Z",
+      "archivo_modificado": "estilos.css",
+      "selector": "[aria-labelledby=\"titulo-politica-privacidad\"] .bloque-legal a[href^=\"mailto:\"]",
+      "regla": "overflow-wrap:anywhere",
+      "aumento_texto": {
+        "anchos_px": [
+          320,
+          390,
+          1440
+        ],
+        "estados": [
+          "Normal",
+          "Grande",
+          "Muy grande"
+        ],
+        "numero_comprobaciones": 9,
+        "overflow_atribuible_correo_px": 0,
+        "antes_px": {
+          "320": [
+            42,
+            80,
+            117
+          ],
+          "390": [
+            0,
+            10,
+            47
+          ],
+          "1440": [
+            0,
+            0,
+            0
+          ]
+        },
+        "despues_px": {
+          "320": [
+            0,
+            0,
+            28
+          ],
+          "390": [
+            0,
+            0,
+            0
+          ],
+          "1440": [
+            0,
+            0,
+            0
+          ]
+        },
+        "retorno_normal_correcto": true
+      },
+      "correo": "senordelosmilagroscrebe@gmail.com",
+      "href": "mailto:senordelosmilagroscrebe@gmail.com",
+      "correo_y_href_intactos": true,
+      "footer_independiente": {
+        "id": "accesos-complementarios.footer.texto-muy-grande.overflow",
+        "estado": "PENDIENTE_DE_DIAGNOSTICO",
+        "overflow_px": 28,
+        "right_px": 348.484375,
+        "intacto": true
+      },
+      "regresion_cookies": {
+        "ancho_px": 320,
+        "estado_texto": "Normal",
+        "overflow_px": 0,
+        "regla_intacta_y_activa": true
+      },
+      "navegacion": {
+        "correo_contacto_aviso_legal_cookies_principal_verificados": true,
+        "hover_foco_atributos_destinos_intactos": true,
+        "sin_acciones_externas": true
+      },
+      "aprobacion": "GitHub rechazó aprobación de PR propio (422). Merge normal con autorización expresa, sin auto-merge."
     },
     {
       "id": "accesos-complementarios.navigation.typography",
