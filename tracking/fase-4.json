@@ -954,7 +954,10 @@
         }
       ],
       "evidencia_preliminar": "Tarjetas del contenido alcanzan aproximadamente 371 px desde el borde izquierdo en ambos anchos. Causa exacta pendiente de diagnóstico.",
-      "siguiente_accion": "Diagnosticar por separado el contenido de teoría. No declarar corregido por una reducción incidental tras el cambio tipográfico."
+      "siguiente_accion": "Diagnosticar por separado el contenido de teoría. No declarar corregido por una reducción incidental tras el cambio tipográfico.",
+      "categoria_cierre": "BACKLOG_FASE_4",
+      "prioridad_cierre": "DIFERIDA_SUJETA_A_REAPERTURA",
+      "motivo_backlog": "Problema de contenido móvil separado de la normalización tipográfica; requiere diagnóstico propio antes de cualquier cambio."
     },
     {
       "repositorio": "crebeucayali/banco-digital-accesible",
@@ -981,7 +984,10 @@
           "presente_en_arbol_main": false
         }
       ],
-      "siguiente_accion": "Diagnosticar por separado referencias y archivos faltantes, sin modificar imágenes ni scripts en el PR tipográfico."
+      "siguiente_accion": "Diagnosticar por separado referencias y archivos faltantes, sin modificar imágenes ni scripts en el PR tipográfico.",
+      "categoria_cierre": "BACKLOG_FASE_4",
+      "prioridad_cierre": "DIFERIDA_SUJETA_A_REAPERTURA",
+      "motivo_backlog": "Dos recursos ausentes; debe determinarse el archivo o referencia correcta y la relevancia visible antes de corregir."
     },
     {
       "id": "banco-digital-accesible.navigation.typography",
@@ -3051,7 +3057,10 @@
       "causa_preliminar": "La ruta referenciada no corresponde a un archivo presente en main. Pendiente determinar si falta el archivo o la referencia utiliza un nombre incorrecto.",
       "incluido_en_correccion_tipografica": false,
       "alcance": "Hallazgo independiente; no se corrigen imágenes, rutas ni HTML en el PR tipográfico.",
-      "siguiente_accion": "Diagnosticar por separado y proponer corrección después de autorización."
+      "siguiente_accion": "Diagnosticar por separado y proponer corrección después de autorización.",
+      "categoria_cierre": "BACKLOG_FASE_4",
+      "prioridad_cierre": "DIFERIDA_SUJETA_A_REAPERTURA",
+      "motivo_backlog": "Recurso ausente en tres páginas; falta determinar si corresponde incorporar el archivo o ajustar su referencia."
     },
     {
       "id": "noti-inclusivos.navigation.typography",
@@ -5780,7 +5789,10 @@
         "muy_grande_overflow_px": 215
       },
       "causa_preliminar": "Contenido del generador y distribución .contenedor-generador con grid-template-columns:1fr 320px. Pendiente de diagnóstico completo.",
-      "alcance": "Hallazgo independiente, fuera del PR de normalización tipográfica. No se corrige ni se declara resuelto."
+      "alcance": "Hallazgo independiente, fuera del PR de normalización tipográfica. No se corrige ni se declara resuelto.",
+      "categoria_cierre": "BACKLOG_FASE_4",
+      "prioridad_cierre": "DIFERIDA_SUJETA_A_REAPERTURA",
+      "motivo_backlog": "Problema de distribución del generador, independiente de la navegación; requiere diagnóstico y validación funcional propios."
     },
     {
       "id": "materiales-educativos-accesibles.navigation.typography",
@@ -9227,7 +9239,10 @@
       ],
       "causa_preliminar": "Los diez archivos WebP solicitados por index.html no existen en las rutas declaradas ni con el mismo nombre en el árbol de main. La carpeta solo contiene cuatro WebP distintos; causa observable común: referencias a recursos ausentes. Pendiente determinar si faltan archivos por subir o si las referencias deben apuntar a otros recursos.",
       "justificacion_agrupacion": "Misma página solicitante, misma carpeta, mismo estado HTTP 404 y ausencia de los diez archivos en el árbol.",
-      "alcance": "Hallazgo independiente del PR tipográfico. Sin corrección de imágenes, referencias o rutas."
+      "alcance": "Hallazgo independiente del PR tipográfico. Sin corrección de imágenes, referencias o rutas.",
+      "categoria_cierre": "BACKLOG_FASE_4",
+      "prioridad_cierre": "DIFERIDA_SUJETA_A_REAPERTURA",
+      "motivo_backlog": "Diez recursos agrupados por causa observable común; debe determinarse el origen de las ausencias y su impacto visible."
     },
     {
       "id": "repositorio-accesible.navigation.typography",
@@ -11378,7 +11393,10 @@
         "overflow_footer_despues_px": 0
       },
       "alcance": "Registrado por separado durante la validación del footer. No se corrigieron otros elementos ni se modificó su contenido.",
-      "siguiente_accion": "Diagnóstico controlado independiente antes de proponer una corrección."
+      "siguiente_accion": "Diagnóstico controlado independiente antes de proponer una corrección.",
+      "categoria_cierre": "BACKLOG_FASE_4",
+      "prioridad_cierre": "DIFERIDA_SUJETA_A_REAPERTURA",
+      "motivo_backlog": "Desbordamiento independiente del footer, contenido en Contacto. Se conserva pendiente y no se inicia otra corrección en este cierre."
     }
   ]
 }
