@@ -43,7 +43,18 @@
       "requiere_autorizacion_para_intervenir": true
     },
     "repositorios_eva_modificados_en_cierre": false,
-    "fase_5_iniciada": false,
+    "fase_5_iniciada": true,
     "limites": "Cierre con deuda técnica documentada. No declara ausencia de hallazgos, corrección del 100 % ni certificación integral de accesibilidad."
+  },
+  "fase_5": {
+    "estado": "EN_CURSO",
+    "fecha_inicio": "2026-10-04",
+    "zona_horaria": "America/Lima",
+    "nombre": "Funcionamiento real de EVA",
+    "fuente": "tracking/fase-5.json",
+    "etapa_actual": 1,
+    "etapa_1_estado": "ETAPA_1_EN_VALIDACION",
+    "etapa_2_iniciada": false,
+    "repositorios_eva_modificados": false
   }
 }
