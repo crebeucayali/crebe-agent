@@ -1,6 +1,6 @@
 """Fase 5, Etapa 4: clasificacion y priorizacion de hallazgos funcionales.
 
-Consume la auditoria funcional de la Etapa 3. Agrupa los casos FALL0_CONFIRMADO
+Consume la auditoria funcional de la Etapa 3. Agrupa los casos FALLO_CONFIRMADO
 por causa/destino, calcula impacto y prioridad, y no modifica EVA.
 """
 import argparse
@@ -95,14 +95,14 @@ def build(audit, output):
                 "No modifica los ocho repositorios EVA.",
                 "No corrige hallazgos.",
                 "No convierte casos manuales o bloqueados en fallos.",
-                "La severidad se asigna por impacto y alcance, no por cantidad bruta de casos solamente.",
-            ],
+                "La severidad se asigna por impacto y alcance, no por cantidad bruta de casos solamente."
+            ]
         },
         "summary": {
             "by_priority": dict(Counter(f["priority"] for f in findings)),
-            "by_severity": dict(Counter(f["severity"] for f in findings)),
+            "by_severity": dict(Counter(f["severity"] for f in findings))
         },
-        "findings": findings,
+        "findings": findings
     }
     (output / "functional-prioritization.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
@@ -114,13 +114,13 @@ def build(audit, output):
         f"Los {len(failures)} casos `FALLO_CONFIRMADO` de la Etapa 3 se agrupan en {len(findings)} hallazgos causales.",
         "",
         "| Orden | Prioridad | Severidad | Casos | Repositorios | Destino |",
-        "|---:|---|---|---:|---:|---|",
+        "|---:|---|---|---:|---:|---|"
     ]
     for i, f in enumerate(findings, 1):
         lines.append(f"| {i} | {f['priority']} | {f['severity']} | {f['case_count']} | {f['affected_repository_count']} | `{f['target']}` |")
     lines += [
         "",
-        "Esta etapa no autoriza correcciones. Cada hallazgo queda `PRIORIZADO_PENDIENTE_DIAGNOSTICO` para la Etapa 5.",
+        "Esta etapa no autoriza correcciones. Cada hallazgo queda `PRIORIZADO_PENDIENTE_DIAGNOSTICO` para la Etapa 5."
     ]
     (output / "Informe_fase_5_etapa_4.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     return "completo" if complete else "incompleto", result
