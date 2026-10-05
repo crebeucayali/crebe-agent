@@ -1,26 +1,37 @@
-name: Funcionamiento EVA - Fase 5 Etapa 2
+name: Funcionamiento EVA - Fase 5 Etapa 3
 
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - 'functional_audit.py'
+      - 'functional_test_cases.py'
+      - 'functional_inventory.py'
+      - 'tests/test_functional_audit.py'
+      - '.github/workflows/functional-audit.yml'
+      - 'tracking/fase-5.json'
+      - 'tracking/phases.json'
   push:
     branches: [main]
     paths:
+      - 'functional_audit.py'
       - 'functional_test_cases.py'
-      - 'tests/test_functional_test_cases.py'
-      - '.github/workflows/functional-test-cases.yml'
+      - 'functional_inventory.py'
+      - 'tests/test_functional_audit.py'
+      - '.github/workflows/functional-audit.yml'
 
 permissions:
   contents: read
 
 concurrency:
-  group: crebe-functional-test-cases-${{ github.ref }}
+  group: crebe-functional-audit
   cancel-in-progress: false
 
 jobs:
-  test_cases:
-    name: Generar casos de prueba funcionales
+  audit:
+    name: Ejecutar auditoría funcional inicial
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - name: Obtener agente
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -32,29 +43,34 @@ jobs:
           python-version: '3.12'
       - name: Ejecutar pruebas
         run: python -m unittest discover -s tests -v
+      # Las Etapas 1 y 2 ya están cerradas. Sus salidas se reconstruyen aquí en una sola ejecución
+      # para evitar tres lecturas concurrentes e innecesarias de los repositorios EVA.
       - name: Capturar fuentes de EVA en modo lectura
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python inventory.py --output reports/inventory --save-snapshot /tmp/crebe-source-snapshot.json
-      - name: Generar inventario funcional de referencia
+      - name: Generar inventario funcional
         run: python functional_inventory.py --snapshot /tmp/crebe-source-snapshot.json --output reports/functional-inventory
       - name: Generar casos de prueba
         run: python functional_test_cases.py --inventory reports/functional-inventory/functional-inventory.json --output reports/functional-test-cases
+      - name: Ejecutar auditoría funcional inicial
+        run: python functional_audit.py --cases reports/functional-test-cases/functional-test-cases.json --output reports/functional-audit --workers 12
       - name: Mostrar informe
         if: always()
         shell: bash
         run: |
-          if [ -f reports/functional-test-cases/Informe_fase_5_etapa_2.md ]; then
-            cat reports/functional-test-cases/Informe_fase_5_etapa_2.md >> "$GITHUB_STEP_SUMMARY"
+          if [ -f reports/functional-audit/Informe_fase_5_etapa_3.md ]; then
+            cat reports/functional-audit/Informe_fase_5_etapa_3.md >> "$GITHUB_STEP_SUMMARY"
           fi
       - name: Guardar resultados
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: crebe-fase-5-etapa-2-${{ github.run_id }}
+          name: crebe-fase-5-etapa-3-${{ github.run_id }}
           path: |
             reports/inventory/
             reports/functional-inventory/
             reports/functional-test-cases/
+            reports/functional-audit/
           if-no-files-found: warn
           retention-days: 30

@@ -19,58 +19,23 @@
     "nombre": "Inventario funcional",
     "estado": "ETAPA_1_COMPLETADA_INVENTARIO_FUNCIONAL",
     "fecha_cierre": "2026-10-04",
-    "objetivo": "Identificar de forma reproducible los elementos de EVA que deben ejecutar una accion antes de iniciar pruebas funcionales.",
-    "implementacion": {
-      "programa": "functional_inventory.py",
-      "workflow": ".github/workflows/functional-inventory.yml",
-      "pruebas": "tests/test_functional_inventory.py",
-      "documentacion": "docs/FASE_5_ETAPA_1_INVENTARIO_FUNCIONAL.md",
-      "salidas": [
-        "reports/functional-inventory/functional-inventory.json",
-        "reports/functional-inventory/Informe_fase_5_etapa_1.md"
-      ]
-    },
     "resultado": {
       "workflow_run_id": 37255237798,
-      "workflow_conclusion": "success",
       "repositorios_representados": 8,
       "paginas_html": 65,
       "elementos_funcionales": 1297,
-      "botones": 196,
-      "formularios": 18,
-      "controles_formulario": 175,
-      "navegacion": 711,
-      "enlaces_externos": 110,
-      "anclas_internas": 74,
-      "enlaces_correo": 13,
-      "archivos_javascript_con_evidencia_funcional": 54,
-      "fallos_lectura": 0,
-      "artifact_id": 11322785550
+      "fallos_lectura": 0
     },
     "criterios_cierre_cumplidos": true,
-    "repositorios_eva_modificados": false,
-    "correcciones_eva_autorizadas": false
+    "repositorios_eva_modificados": false
   },
   "etapa_2": {
     "nombre": "Casos de prueba y resultados esperados",
     "estado": "ETAPA_2_COMPLETADA_CASOS_PRUEBA",
     "fecha_inicio": "2026-10-04",
     "fecha_cierre": "2026-10-04",
-    "objetivo": "Convertir cada elemento funcional inventariado en un caso de prueba trazable con accion, resultado esperado, evidencia, prioridad y politica de ejecucion.",
-    "implementacion": {
-      "programa": "functional_test_cases.py",
-      "workflow": ".github/workflows/functional-test-cases.yml",
-      "pruebas": "tests/test_functional_test_cases.py",
-      "documentacion": "docs/FASE_5_ETAPA_2_CASOS_PRUEBA.md",
-      "salidas": [
-        "reports/functional-test-cases/functional-test-cases.json",
-        "reports/functional-test-cases/Informe_fase_5_etapa_2.md"
-      ]
-    },
     "resultado": {
       "workflow_run_id": 37255895169,
-      "workflow_conclusion": "success",
-      "artifact_id": 11322895822,
       "casos_fuente": 1297,
       "casos_generados": 1297,
       "ids_duplicados": 0,
@@ -91,27 +56,66 @@
         "MANUAL_O_INSTRUMENTADA": 13
       }
     },
-    "estados_caso": [
-      "DEFINIDO_NO_EJECUTADO"
-    ],
-    "prioridades": [
-      "P0_CRITICA",
-      "P1_ALTA",
-      "P2_MEDIA",
-      "P3_BAJA"
-    ],
-    "criterios_cierre": [
-      "Cada elemento funcional de la Etapa 1 tiene exactamente un caso de prueba.",
-      "No existen identificadores duplicados.",
-      "Los ocho repositorios estan representados.",
-      "Todos los casos tienen accion, resultado esperado, evidencia requerida, prioridad y politica de ejecucion.",
-      "Las pruebas automatizadas son satisfactorias.",
-      "El workflow de la Etapa 2 finaliza correctamente.",
-      "No se modifica ninguno de los ocho repositorios EVA."
+    "criterios_cierre_cumplidos": true,
+    "repositorios_eva_modificados": false
+  },
+  "etapa_3": {
+    "nombre": "Auditoria funcional inicial",
+    "estado": "ETAPA_3_COMPLETADA_LINEA_BASE_FUNCIONAL",
+    "fecha_inicio": "2026-10-04",
+    "fecha_cierre": "2026-10-04",
+    "objetivo": "Procesar los 1297 casos de prueba y establecer una linea base funcional mediante verificaciones de lectura seguras, separando fallos confirmados de casos manuales o bloqueados por dependencias.",
+    "implementacion": {
+      "programa": "functional_audit.py",
+      "workflow": ".github/workflows/functional-audit.yml",
+      "pruebas": "tests/test_functional_audit.py",
+      "documentacion": "docs/FASE_5_ETAPA_3_AUDITORIA_FUNCIONAL.md",
+      "salidas": [
+        "reports/functional-audit/functional-audit.json",
+        "reports/functional-audit/Informe_fase_5_etapa_3.md"
+      ]
+    },
+    "resultado": {
+      "workflow_run_id": 37256684229,
+      "workflow_conclusion": "success",
+      "artifact_id": 11322878003,
+      "casos_procesados": 1297,
+      "solicitudes_red_unicas": 166,
+      "por_estado": {
+        "CORRECTO": 863,
+        "FALLO_CONFIRMADO": 21,
+        "REQUIERE_VERIFICACION_MANUAL": 280,
+        "NO_APLICA": 0,
+        "BLOQUEADO_POR_DEPENDENCIA": 133
+      },
+      "fallos_confirmados_agrupados": [
+        {
+          "destino": "https://crebeucayali.github.io/accesos-complementarios/institucional/contacto.html",
+          "casos": 16,
+          "evidencia": "HTTP 404"
+        },
+        {
+          "destino": "https://crebeucayali.github.io/juegos-interactivos-accesibles/",
+          "casos": 4,
+          "evidencia": "HTTP 404"
+        },
+        {
+          "destino": "https://crebeucayali.github.io/noti-inclusivos/blog/",
+          "casos": 1,
+          "evidencia": "HTTP 404"
+        }
+      ]
+    },
+    "estados_resultado": [
+      "CORRECTO",
+      "FALLO_CONFIRMADO",
+      "REQUIERE_VERIFICACION_MANUAL",
+      "NO_APLICA",
+      "BLOQUEADO_POR_DEPENDENCIA"
     ],
     "criterios_cierre_cumplidos": true,
     "repositorios_eva_modificados": false,
     "correcciones_eva_autorizadas": false,
-    "etapa_3_iniciada": false
+    "etapa_4_iniciada": false
   }
 }
