@@ -9,8 +9,6 @@ on:
       - 'functional_inventory.py'
       - 'tests/test_functional_audit.py'
       - '.github/workflows/functional-audit.yml'
-      - 'tracking/fase-5.json'
-      - 'tracking/phases.json'
   push:
     branches: [main]
     paths:

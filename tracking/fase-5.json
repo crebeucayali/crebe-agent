@@ -166,7 +166,60 @@
     },
     "criterios_cierre_cumplidos": true,
     "repositorios_eva_modificados": false,
+    "correcciones_eva_autorizadas": false
+  },
+  "etapa_5": {
+    "nombre": "Diagnostico tecnico de hallazgos funcionales",
+    "estado": "ETAPA_5_COMPLETADA_DIAGNOSTICO",
+    "fecha_inicio": "2026-10-04",
+    "fecha_cierre": "2026-10-04",
+    "objetivo": "Identificar causa raiz, archivos afectados y destino o decision funcional necesaria para cada hallazgo priorizado antes de cualquier correccion.",
+    "implementacion": {
+      "programa": "functional_diagnosis.py",
+      "evidencia": "config/functional-diagnosis-evidence.json",
+      "workflow": ".github/workflows/functional-diagnosis.yml",
+      "pruebas": "tests/test_functional_diagnosis.py",
+      "documentacion": "docs/FASE_5_ETAPA_5_DIAGNOSTICO_TECNICO.md",
+      "tracking": "tracking/fase-5-etapa-5.json",
+      "salidas": [
+        "reports/functional-diagnosis/functional-diagnosis.json",
+        "reports/functional-diagnosis/Informe_fase_5_etapa_5.md"
+      ]
+    },
+    "resultado": {
+      "workflow_run_id": 37259224127,
+      "workflow_conclusion": "success",
+      "artifact_id": 11323972462,
+      "hallazgos_fuente": 3,
+      "hallazgos_diagnosticados": 3,
+      "por_estado": {
+        "DIAGNOSTICADO_LISTO_PARA_CORRECCION": 2,
+        "DIAGNOSTICADO_REQUIERE_DECISION_FUNCIONAL": 1
+      },
+      "hallazgos": [
+        {
+          "id": "F5E4-A1AE3BB801",
+          "causa_raiz": "REFERENCIA_OBSOLETA_RUTA_CONTACTO",
+          "destino_correcto": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+          "estado": "DIAGNOSTICADO_LISTO_PARA_CORRECCION"
+        },
+        {
+          "id": "F5E4-EAE63AF520",
+          "causa_raiz": "RUTA_HUERFANA_MODULO_NO_PUBLICADO",
+          "destino_correcto": null,
+          "estado": "DIAGNOSTICADO_REQUIERE_DECISION_FUNCIONAL"
+        },
+        {
+          "id": "F5E4-E9B33D5047",
+          "causa_raiz": "REFERENCIA_OBSOLETA_INDICE_PUBLICACIONES",
+          "destino_correcto": "https://crebeucayali.github.io/noti-inclusivos/articulos/",
+          "estado": "DIAGNOSTICADO_LISTO_PARA_CORRECCION"
+        }
+      ]
+    },
+    "criterios_cierre_cumplidos": true,
+    "repositorios_eva_modificados": false,
     "correcciones_eva_autorizadas": false,
-    "etapa_5_iniciada": false
+    "etapa_6_iniciada": false
   }
 }

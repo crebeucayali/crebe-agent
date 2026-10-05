@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "phase": 5,
+  "stage": 5,
+  "diagnoses": {
+    "F5E4-A1AE3BB801": {
+      "root_cause": "REFERENCIA_OBSOLETA_RUTA_CONTACTO",
+      "diagnosis": "Las paginas de noti-inclusivos conservan la ruta antigua /accesos-complementarios/institucional/contacto.html. El recurso vigente de contacto existe en /accesos-complementarios/paginas/contacto.html y el propio mapa web de Accesos Complementarios usa esa ubicacion.",
+      "correct_target": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+      "confidence": "ALTA",
+      "technical_action_class": "REEMPLAZAR_DESTINO_OBSOLETO",
+      "evidence": [
+        "noti-inclusivos contiene referencias explicitas a /institucional/contacto.html.",
+        "accesos-complementarios/paginas/contacto.html existe en main.",
+        "accesos-complementarios/mapa-web.html enlaza a paginas/contacto.html."
+      ]
+    },
+    "F5E4-EAE63AF520": {
+      "root_cause": "RUTA_HUERFANA_MODULO_NO_PUBLICADO",
+      "diagnosis": "La ruta /juegos-interactivos-accesibles/ permanece enlazada desde varias superficies, pero no existe actualmente un repositorio publicado con ese nombre dentro de los repositorios de crebeucayali. La documentacion historica aun menciona JIA como componente, por lo que la referencia quedo desalineada respecto del conjunto publicado actual.",
+      "correct_target": null,
+      "confidence": "ALTA",
+      "technical_action_class": "RETIRAR_O_REEMPLAZAR_SEGUN_DECISION_FUNCIONAL",
+      "evidence": [
+        "Existen referencias actuales a https://crebeucayali.github.io/juegos-interactivos-accesibles/.",
+        "La busqueda de repositorios de crebeucayali no devuelve un repositorio juegos-interactivos-accesibles.",
+        "La documentacion historica de EVA aun enumera JIA como componente."
+      ],
+      "decision_required": "Definir si JIA sera restituido/publicado o si las referencias deben retirarse/reemplazarse por otro modulo vigente."
+    },
+    "F5E4-E9B33D5047": {
+      "root_cause": "REFERENCIA_OBSOLETA_INDICE_PUBLICACIONES",
+      "diagnosis": "mapa-web.html enlaza a /noti-inclusivos/blog/, pero Noti Inclusivos no contiene una carpeta blog. El indice vigente que reune los articulos publicados existe en /noti-inclusivos/articulos/.",
+      "correct_target": "https://crebeucayali.github.io/noti-inclusivos/articulos/",
+      "confidence": "ALTA",
+      "technical_action_class": "REEMPLAZAR_DESTINO_OBSOLETO",
+      "evidence": [
+        "accesos-complementarios/mapa-web.html contiene la referencia /noti-inclusivos/blog/.",
+        "noti-inclusivos no contiene carpeta blog en la raiz.",
+        "noti-inclusivos/articulos/index.html se identifica como indice de articulos publicados."
+      ]
+    }
+  }
+}
