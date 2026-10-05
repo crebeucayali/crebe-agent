@@ -1,0 +1,60 @@
+name: Funcionamiento EVA - Fase 5 Etapa 2
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'functional_test_cases.py'
+      - 'tests/test_functional_test_cases.py'
+      - '.github/workflows/functional-test-cases.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: crebe-functional-test-cases
+  cancel-in-progress: false
+
+jobs:
+  test_cases:
+    name: Generar casos de prueba funcionales
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Preparar Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Ejecutar pruebas
+        run: python -m unittest discover -s tests -v
+      - name: Capturar fuentes de EVA en modo lectura
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python inventory.py --output reports/inventory --save-snapshot /tmp/crebe-source-snapshot.json
+      - name: Generar inventario funcional de referencia
+        run: python functional_inventory.py --snapshot /tmp/crebe-source-snapshot.json --output reports/functional-inventory
+      - name: Generar casos de prueba
+        run: python functional_test_cases.py --inventory reports/functional-inventory/functional-inventory.json --output reports/functional-test-cases
+      - name: Mostrar informe
+        if: always()
+        shell: bash
+        run: |
+          if [ -f reports/functional-test-cases/Informe_fase_5_etapa_2.md ]; then
+            cat reports/functional-test-cases/Informe_fase_5_etapa_2.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Guardar resultados
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: crebe-fase-5-etapa-2-${{ github.run_id }}
+          path: |
+            reports/inventory/
+            reports/functional-inventory/
+            reports/functional-test-cases/
+          if-no-files-found: warn
+          retention-days: 30
