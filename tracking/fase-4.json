@@ -9373,6 +9373,1225 @@
         "repositorio-accesible.layout.overflow",
         "repositorio-accesible.assets.materiales-elaborados.404"
       ]
+    },
+    {
+      "id": "DUA-3.0.navigation.typography",
+      "repositorio": "crebeucayali/DUA-3.0",
+      "hallazgo": "Inconsistencia tipográfica de navegación institucional en tres páginas",
+      "estado": "CORREGIDO_VERIFICADO",
+      "pr": 2,
+      "pr_url": "https://github.com/crebeucayali/DUA-3.0/pull/2",
+      "commit_corregido": "1f836ddf0baa9f6b4135e4023c9a78efbdcdd353",
+      "commit_merge": "42bb2ecac871f64a532fb8da83a0968280b7dafc",
+      "fecha_correccion": "2026-10-05T00:07:03Z",
+      "fecha_verificacion_publicada": "2026-10-05T00:09:29.221Z",
+      "archivos": [
+        "identidad-crebe.css"
+      ],
+      "selector": ".crebe-identity-links a",
+      "especificidad": "0,1,1",
+      "valores_anteriores": {
+        "font_size": ".9rem",
+        "computado_px": 14.4,
+        "font_weight": 750
+      },
+      "valores_finales": {
+        "escritorio": {
+          "font_size": "0.9375rem",
+          "computado_px": 15,
+          "font_weight": 600
+        },
+        "movil": {
+          "font_size": "0.875rem",
+          "computado_px": 14,
+          "font_weight": 600
+        }
+      },
+      "breakpoint_existente_px": 600,
+      "prioridades": "Sin !important tipográfico. Color:#fff!important y padding móvil 8px 13px intactos.",
+      "paginas_verificadas": [
+        "index.html",
+        "evolucion.html",
+        "recursos.html"
+      ],
+      "aprobacion": "Autorización expresa. GitHub rechazó APPROVE con 422 por tratarse de la cuenta autora. Merge normal sin auto-merge.",
+      "validacion": {
+        "mediciones": 18,
+        "anchos_px": [
+          320,
+          360,
+          390,
+          414,
+          768,
+          1440
+        ],
+        "resultados": [
+          {
+            "page": "index.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 580.671875,
+            "headerAfter": 579.453125,
+            "headerDelta": -1.21875,
+            "groupBefore": [
+              {
+                "text": "Inicio principal",
+                "y": 106.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 155.484375
+              }
+            ],
+            "groupAfter": [
+              {
+                "text": "Inicio principal",
+                "y": 106.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 154.875
+              }
+            ],
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 537.953125,
+            "headerAfter": 536.734375,
+            "headerDelta": -1.21875,
+            "groupBefore": [
+              {
+                "text": "Inicio principal",
+                "y": 106.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 155.484375
+              }
+            ],
+            "groupAfter": [
+              {
+                "text": "Inicio principal",
+                "y": 106.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 154.875
+              }
+            ],
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 513.953125,
+            "headerAfter": 512.734375,
+            "headerDelta": -1.21875,
+            "groupBefore": [
+              {
+                "text": "Inicio principal",
+                "y": 106.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 155.484375
+              }
+            ],
+            "groupAfter": [
+              {
+                "text": "Inicio principal",
+                "y": 106.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 154.875
+              }
+            ],
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 513.953125,
+            "headerAfter": 512.734375,
+            "headerDelta": -1.21875,
+            "groupBefore": [
+              {
+                "text": "Inicio principal",
+                "y": 106.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 155.484375
+              }
+            ],
+            "groupAfter": [
+              {
+                "text": "Inicio principal",
+                "y": 106.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 154.875
+              }
+            ],
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 347.1875,
+            "headerAfter": 348.078125,
+            "headerDelta": 0.890625,
+            "groupBefore": [
+              {
+                "text": "Inicio principal",
+                "y": 102
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 102
+              }
+            ],
+            "groupAfter": [
+              {
+                "text": "Inicio principal",
+                "y": 102
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 102
+              }
+            ],
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "index.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 301.484375,
+            "headerAfter": 301.484375,
+            "headerDelta": 0,
+            "groupBefore": [
+              {
+                "text": "Inicio principal",
+                "y": 46.1875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 46.1875
+              }
+            ],
+            "groupAfter": [
+              {
+                "text": "Inicio principal",
+                "y": 45.75
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 45.75
+              }
+            ],
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "recursos.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 559.0625,
+            "headerAfter": 557.75,
+            "headerDelta": -1.3125,
+            "groupBefore": [
+              {
+                "text": "Inicio principal",
+                "y": 104.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 154.921875
+              }
+            ],
+            "groupAfter": [
+              {
+                "text": "Inicio principal",
+                "y": 104.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 154.265625
+              }
+            ],
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "recursos.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 533.46875,
+            "headerAfter": 532.15625,
+            "headerDelta": -1.3125,
+            "groupBefore": [
+              {
+                "text": "Inicio principal",
+                "y": 104.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 154.921875
+              }
+            ],
+            "groupAfter": [
+              {
+                "text": "Inicio principal",
+                "y": 104.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 154.265625
+              }
+            ],
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "recursos.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 492.875,
+            "headerAfter": 491.5625,
+            "headerDelta": -1.3125,
+            "groupBefore": [
+              {
+                "text": "Inicio principal",
+                "y": 104.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 154.921875
+              }
+            ],
+            "groupAfter": [
+              {
+                "text": "Inicio principal",
+                "y": 104.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 154.265625
+              }
+            ],
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "recursos.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 492.875,
+            "headerAfter": 491.5625,
+            "headerDelta": -1.3125,
+            "groupBefore": [
+              {
+                "text": "Inicio principal",
+                "y": 104.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 154.921875
+              }
+            ],
+            "groupAfter": [
+              {
+                "text": "Inicio principal",
+                "y": 104.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 154.265625
+              }
+            ],
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "recursos.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 352.0625,
+            "headerAfter": 353.015625,
+            "headerDelta": 0.953125,
+            "groupBefore": [
+              {
+                "text": "Inicio principal",
+                "y": 98
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 98
+              }
+            ],
+            "groupAfter": [
+              {
+                "text": "Inicio principal",
+                "y": 98
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 98
+              }
+            ],
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "recursos.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 299.8125,
+            "headerAfter": 299.8125,
+            "headerDelta": 0,
+            "groupBefore": [
+              {
+                "text": "Inicio principal",
+                "y": 41.46875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 41.46875
+              }
+            ],
+            "groupAfter": [
+              {
+                "text": "Inicio principal",
+                "y": 41
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 41
+              }
+            ],
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "evolucion.html",
+            "width": 320,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 588.875,
+            "headerAfter": 587.5625,
+            "headerDelta": -1.3125,
+            "groupBefore": [
+              {
+                "text": "Inicio principal",
+                "y": 108.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 158.921875
+              }
+            ],
+            "groupAfter": [
+              {
+                "text": "Inicio principal",
+                "y": 108.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 158.265625
+              }
+            ],
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "evolucion.html",
+            "width": 360,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 588.875,
+            "headerAfter": 587.5625,
+            "headerDelta": -1.3125,
+            "groupBefore": [
+              {
+                "text": "Inicio principal",
+                "y": 108.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 158.921875
+              }
+            ],
+            "groupAfter": [
+              {
+                "text": "Inicio principal",
+                "y": 108.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 158.265625
+              }
+            ],
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "evolucion.html",
+            "width": 390,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 588.875,
+            "headerAfter": 587.5625,
+            "headerDelta": -1.3125,
+            "groupBefore": [
+              {
+                "text": "Inicio principal",
+                "y": 108.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 158.921875
+              }
+            ],
+            "groupAfter": [
+              {
+                "text": "Inicio principal",
+                "y": 108.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 158.265625
+              }
+            ],
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "evolucion.html",
+            "width": 414,
+            "font": "14px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 2,
+            "rowsAfter": 2,
+            "headerBefore": 588.875,
+            "headerAfter": 587.5625,
+            "headerDelta": -1.3125,
+            "groupBefore": [
+              {
+                "text": "Inicio principal",
+                "y": 108.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 158.921875
+              }
+            ],
+            "groupAfter": [
+              {
+                "text": "Inicio principal",
+                "y": 108.875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 158.265625
+              }
+            ],
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "evolucion.html",
+            "width": 768,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 372.0625,
+            "headerAfter": 373.015625,
+            "headerDelta": 0.953125,
+            "groupBefore": [
+              {
+                "text": "Inicio principal",
+                "y": 102
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 102
+              }
+            ],
+            "groupAfter": [
+              {
+                "text": "Inicio principal",
+                "y": 102
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 102
+              }
+            ],
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          },
+          {
+            "page": "evolucion.html",
+            "width": 1440,
+            "font": "15px",
+            "weight": "600",
+            "overflowBefore": 0,
+            "overflowAfter": 0,
+            "rowsBefore": 1,
+            "rowsAfter": 1,
+            "headerBefore": 347.296875,
+            "headerAfter": 347.296875,
+            "headerDelta": 0,
+            "groupBefore": [
+              {
+                "text": "Inicio principal",
+                "y": 45.46875
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 45.46875
+              }
+            ],
+            "groupAfter": [
+              {
+                "text": "Inicio principal",
+                "y": 45
+              },
+              {
+                "text": "Accesos complementarios",
+                "y": 45
+              }
+            ],
+            "overlap": false,
+            "hoverIntact": true,
+            "navigationIntact": true
+          }
+        ],
+        "comprobaciones_aumento_texto": 6,
+        "comprobaciones_destinos": 12,
+        "controles": [
+          {
+            "page": "index.html",
+            "width": 390,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "16.2px",
+                    "16.2px"
+                  ],
+                  "weights": [
+                    "750",
+                    "750"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "750",
+                    "750"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "15.75px",
+                    "15.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "17.5px",
+                    "17.5px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "index.html",
+            "width": 1440,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "16.2px",
+                    "16.2px"
+                  ],
+                  "weights": [
+                    "750",
+                    "750"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "750",
+                    "750"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "16.875px",
+                    "16.875px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "18.75px",
+                    "18.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "recursos.html",
+            "width": 390,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "16.2px",
+                    "16.2px"
+                  ],
+                  "weights": [
+                    "750",
+                    "750"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "750",
+                    "750"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "15.75px",
+                    "15.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "17.5px",
+                    "17.5px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "recursos.html",
+            "width": 1440,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "16.2px",
+                    "16.2px"
+                  ],
+                  "weights": [
+                    "750",
+                    "750"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "750",
+                    "750"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "16.875px",
+                    "16.875px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "18.75px",
+                    "18.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "evolucion.html",
+            "width": 390,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "16.2px",
+                    "16.2px"
+                  ],
+                  "weights": [
+                    "750",
+                    "750"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "750",
+                    "750"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "15.75px",
+                    "15.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "17.5px",
+                    "17.5px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "page": "evolucion.html",
+            "width": 1440,
+            "before": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "16.2px",
+                    "16.2px"
+                  ],
+                  "weights": [
+                    "750",
+                    "750"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "18px",
+                    "18px"
+                  ],
+                  "weights": [
+                    "750",
+                    "750"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "after": {
+              "states": [
+                {
+                  "cls": "eva-texto-grande",
+                  "fonts": [
+                    "16.875px",
+                    "16.875px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                },
+                {
+                  "cls": "eva-texto-muy-grande",
+                  "fonts": [
+                    "18.75px",
+                    "18.75px"
+                  ],
+                  "weights": [
+                    "600",
+                    "600"
+                  ],
+                  "overflow": 0,
+                  "overlap": false
+                }
+              ],
+              "reset": true
+            },
+            "destinations": [
+              {
+                "url": "https://crebeucayali.github.io/",
+                "checked": true
+              },
+              {
+                "url": "https://crebeucayali.github.io/accesos-complementarios/",
+                "checked": true
+              }
+            ]
+          }
+        ],
+        "escalado_rem": {
+          "movil_px": [
+            14,
+            15.75,
+            17.5
+          ],
+          "escritorio_px": [
+            15,
+            16.875,
+            18.75
+          ],
+          "peso": 600,
+          "retorno_normal": true
+        },
+        "filas": {
+          "movil": 2,
+          "escritorio": 1,
+          "sin_cambios": true
+        },
+        "agrupacion_sin_cambios": true,
+        "variaciones_naturales_altura": {
+          "reducciones_moviles": 12,
+          "aumentos_768_px": 3,
+          "sin_variacion_1440_px": 3,
+          "diferencias_px": {
+            "index": {
+              "movil": -1.21875,
+              "ancho_768": 0.890625
+            },
+            "evolucion_recursos": {
+              "movil": -1.3125,
+              "ancho_768": 0.953125
+            }
+          },
+          "sin_variaciones_nuevas": true,
+          "sin_compensacion_artificial": true
+        },
+        "overflow_cero_18_escenarios_y_texto_aumentado": true,
+        "sin_superposicion": true,
+        "hover_focus_visible_atributos_destinos_contenido_intactos": true,
+        "compartir": {
+          "etiquetas": [
+            "Compartir",
+            "Compartir",
+            "Compartir"
+          ],
+          "paginas": [
+            "index.html",
+            "evolucion.html",
+            "recursos.html"
+          ],
+          "html_scripts_web_share_fallback_urls_contadores_supabase_sin_cambios": true
+        },
+        "footer_color_padding_tipografia_ajena_intactos": true,
+        "metodo": "Chromium/Playwright. Recursos publicados leídos nuevamente y comparación con diagnóstico; identidad-crebe.css publicado idéntico al aprobado, sin sustituciones. Aleatoriedad de ejercicios fijada únicamente en contextos de prueba para comparar contenido. Solicitudes externas/Supabase, sockets y service workers bloqueados; destinos interceptados."
+      },
+      "registro_anterior_compartir_sin_modificar": "DUA-3.0.share_label"
     }
   ]
 }
