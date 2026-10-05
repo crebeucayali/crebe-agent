@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "phase": 5,
+  "stage": 8,
+  "name": "Monitoreo funcional recurrente",
+  "targets": [
+    {
+      "id": "eva-principal",
+      "name": "EVA principal",
+      "repo": "crebeucayali/crebeucayali.github.io",
+      "url": "https://crebeucayali.github.io/",
+      "criticality": "ALTA"
+    },
+    {
+      "id": "ac-principal",
+      "name": "Accesos Complementarios",
+      "repo": "crebeucayali/accesos-complementarios",
+      "url": "https://crebeucayali.github.io/accesos-complementarios/",
+      "criticality": "ALTA"
+    },
+    {
+      "id": "cap-principal",
+      "name": "Capacitaciones",
+      "repo": "crebeucayali/capacitaciones",
+      "url": "https://crebeucayali.github.io/capacitaciones/",
+      "criticality": "ALTA"
+    },
+    {
+      "id": "bda-principal",
+      "name": "Banco Digital Accesible",
+      "repo": "crebeucayali/banco-digital-accesible",
+      "url": "https://crebeucayali.github.io/banco-digital-accesible/",
+      "criticality": "ALTA"
+    },
+    {
+      "id": "mea-principal",
+      "name": "Materiales Educativos Accesibles",
+      "repo": "crebeucayali/materiales-educativos-accesibles",
+      "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/",
+      "criticality": "ALTA"
+    },
+    {
+      "id": "ni-principal",
+      "name": "Noti Inclusivos",
+      "repo": "crebeucayali/noti-inclusivos",
+      "url": "https://crebeucayali.github.io/noti-inclusivos/",
+      "criticality": "ALTA",
+      "must_not_contain": [
+        "accesos-complementarios/institucional/contacto.html"
+      ]
+    },
+    {
+      "id": "ra-principal",
+      "name": "Repositorio Accesible",
+      "repo": "crebeucayali/repositorio-accesible",
+      "url": "https://crebeucayali.github.io/repositorio-accesible/",
+      "criticality": "ALTA"
+    },
+    {
+      "id": "dua-principal",
+      "name": "DUA 3.0",
+      "repo": "crebeucayali/DUA-3.0",
+      "url": "https://crebeucayali.github.io/DUA-3.0/",
+      "criticality": "ALTA"
+    },
+    {
+      "id": "contacto-vigente",
+      "name": "Contacto institucional vigente",
+      "repo": "crebeucayali/accesos-complementarios",
+      "url": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+      "criticality": "ALTA"
+    },
+    {
+      "id": "noti-blog-compat",
+      "name": "Compatibilidad /noti-inclusivos/blog/",
+      "repo": "crebeucayali/noti-inclusivos",
+      "url": "https://crebeucayali.github.io/noti-inclusivos/blog/",
+      "criticality": "MEDIA",
+      "must_contain": [
+        "url=../articulos/",
+        "href=\"../articulos/\""
+      ]
+    },
+    {
+      "id": "noti-articulos",
+      "name": "Índice vigente de artículos",
+      "repo": "crebeucayali/noti-inclusivos",
+      "url": "https://crebeucayali.github.io/noti-inclusivos/articulos/",
+      "criticality": "MEDIA"
+    },
+    {
+      "id": "noti-lanzamiento",
+      "name": "Artículo lanzamiento EVA",
+      "repo": "crebeucayali/noti-inclusivos",
+      "url": "https://crebeucayali.github.io/noti-inclusivos/articulos/lanzamiento-eva/",
+      "criticality": "MEDIA",
+      "must_not_contain": [
+        "accesos-complementarios/institucional/contacto.html"
+      ]
+    },
+    {
+      "id": "noti-transicion",
+      "name": "Artículo transición vida adulta",
+      "repo": "crebeucayali/noti-inclusivos",
+      "url": "https://crebeucayali.github.io/noti-inclusivos/articulos/transicion-vida-adulta/",
+      "criticality": "MEDIA",
+      "must_not_contain": [
+        "accesos-complementarios/institucional/contacto.html"
+      ]
+    },
+    {
+      "id": "noti-salud",
+      "name": "Artículo salud y emergencias",
+      "repo": "crebeucayali/noti-inclusivos",
+      "url": "https://crebeucayali.github.io/noti-inclusivos/articulos/salud-emergencias-inclusion/",
+      "criticality": "MEDIA",
+      "must_not_contain": [
+        "accesos-complementarios/institucional/contacto.html"
+      ]
+    },
+    {
+      "id": "noti-cuentos",
+      "name": "Artículo cuentos e inclusión",
+      "repo": "crebeucayali/noti-inclusivos",
+      "url": "https://crebeucayali.github.io/noti-inclusivos/articulos/cuentos-inclusion-discapacidad/",
+      "criticality": "MEDIA",
+      "must_not_contain": [
+        "accesos-complementarios/institucional/contacto.html"
+      ]
+    },
+    {
+      "id": "noti-natacion",
+      "name": "Artículo natación inclusiva",
+      "repo": "crebeucayali/noti-inclusivos",
+      "url": "https://crebeucayali.github.io/noti-inclusivos/articulos/natacion-inclusiva-sin-barreras/",
+      "criticality": "MEDIA",
+      "must_not_contain": [
+        "accesos-complementarios/institucional/contacto.html"
+      ]
+    },
+    {
+      "id": "noti-down",
+      "name": "Artículo síndrome de Down y bioética",
+      "repo": "crebeucayali/noti-inclusivos",
+      "url": "https://crebeucayali.github.io/noti-inclusivos/articulos/sindrome-down-y-bioetica/",
+      "criticality": "MEDIA",
+      "must_not_contain": [
+        "accesos-complementarios/institucional/contacto.html"
+      ]
+    },
+    {
+      "id": "noti-neurodiversidad",
+      "name": "Artículo neurodiversidad",
+      "repo": "crebeucayali/noti-inclusivos",
+      "url": "https://crebeucayali.github.io/noti-inclusivos/articulos/neurodiversidad-del-reconocimiento-a-los-apoyos/",
+      "criticality": "MEDIA",
+      "must_not_contain": [
+        "accesos-complementarios/institucional/contacto.html"
+      ]
+    }
+  ],
+  "known_exceptions": [
+    {
+      "id": "F5E4-EAE63AF520",
+      "url": "https://crebeucayali.github.io/juegos-interactivos-accesibles/",
+      "status": "BLOQUEADO_POR_DECISION_FUNCIONAL",
+      "reason": "Juegos Interactivos Accesibles no tiene actualmente un destino publicado verificable. No debe generar una alerta nueva hasta que exista una decisión funcional explícita."
+    }
+  ]
+}
