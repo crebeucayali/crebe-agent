@@ -43,6 +43,8 @@ jobs:
           python-version: '3.12'
       - name: Ejecutar pruebas
         run: python -m unittest discover -s tests -v
+      # Las Etapas 1 y 2 ya están cerradas. Sus salidas se reconstruyen aquí en una sola ejecución
+      # para evitar tres lecturas concurrentes e innecesarias de los repositorios EVA.
       - name: Capturar fuentes de EVA en modo lectura
         env:
           GITHUB_TOKEN: ${{ github.token }}
