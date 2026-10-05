@@ -10592,6 +10592,31 @@
         "metodo": "Chromium/Playwright. Recursos publicados leídos nuevamente y comparación con diagnóstico; identidad-crebe.css publicado idéntico al aprobado, sin sustituciones. Aleatoriedad de ejercicios fijada únicamente en contextos de prueba para comparar contenido. Solicitudes externas/Supabase, sockets y service workers bloqueados; destinos interceptados."
       },
       "registro_anterior_compartir_sin_modificar": "DUA-3.0.share_label"
+    },
+    {
+      "id": "accesos-complementarios.footer.texto-muy-grande.overflow",
+      "repositorio": "crebeucayali/accesos-complementarios",
+      "hallazgo": "Overflow independiente de los bloques del footer a 320 px con texto Muy grande",
+      "estado": "PENDIENTE_DE_DIAGNOSTICO",
+      "pagina": "paginas/politica-cookies.html",
+      "fecha_registro": "2026-10-05T00:29:10.014Z",
+      "commit_main_diagnosticado": "ad2997def265bc219ec8729fa26b58488198258a",
+      "preexistente": true,
+      "ancho_px": 320,
+      "estado_texto": "Muy grande",
+      "overflow_aproximado_px": 28,
+      "footer_borde_derecho_px": 348.484375,
+      "causa_preliminar": "Bloques internos del footer exceden el viewport con texto Muy grande. Causa CSS exacta pendiente de diagnóstico independiente.",
+      "evidencia": {
+        "overflow_total_original_px": 82,
+        "overflow_total_con_codigos_envueltos_px": 28,
+        "borde_derecho_footer_antes_px": 348.484375,
+        "borde_derecho_footer_despues_px": 348.484375,
+        "estilos_dimensiones_y_contenido_footer_intactos": true,
+        "overflow_atribuible_a_codigos_despues_px": 0
+      },
+      "independencia": "La regla de códigos se limita a la lista de Cookies. Los bloques del footer mantienen idéntico borde derecho, dimensiones y estilos antes/después. Sin modificación del footer.",
+      "alcance": "Hallazgo separado. No corregido ni incluido en el PR de corte de códigos; no se modifican footer, HTML ni otras páginas."
     }
   ]
 }
