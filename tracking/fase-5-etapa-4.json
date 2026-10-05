@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "fase": 5,
+  "etapa": 4,
+  "nombre": "Clasificacion y priorizacion de hallazgos funcionales",
+  "estado": "ETAPA_4_EN_VALIDACION",
+  "fecha_inicio": "2026-10-04",
+  "zona_horaria": "America/Lima",
+  "fuente": {
+    "etapa": 3,
+    "workflow_run_id": 37256684229,
+    "artifact_id": 11322878003,
+    "fallos_confirmados": 21
+  },
+  "objetivo": "Agrupar los fallos confirmados por causa real y asignar severidad, prioridad y alcance antes del diagnostico tecnico.",
+  "implementacion": {
+    "programa": "functional_prioritization.py",
+    "workflow": ".github/workflows/functional-prioritization.yml",
+    "pruebas": "tests/test_functional_prioritization.py",
+    "documentacion": "docs/FASE_5_ETAPA_4_PRIORIZACION_HALLAZGOS.md",
+    "salidas": [
+      "reports/functional-prioritization/functional-prioritization.json",
+      "reports/functional-prioritization/Informe_fase_5_etapa_4.md"
+    ]
+  },
+  "criterios_cierre": [
+    "Los 21 casos FALLO_CONFIRMADO quedan agrupados sin perdida ni duplicacion causal.",
+    "Cada hallazgo unico tiene severidad y prioridad justificadas.",
+    "La suma de casos agrupados es exactamente 21.",
+    "Las pruebas automatizadas y el workflow finalizan correctamente.",
+    "No se modifica ninguno de los ocho repositorios EVA.",
+    "La Etapa 5 permanece sin iniciar."
+  ],
+  "repositorios_eva_modificados": false,
+  "correcciones_eva_autorizadas": false,
+  "etapa_5_iniciada": false
+}
