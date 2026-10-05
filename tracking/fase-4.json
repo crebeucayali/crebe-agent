@@ -175,15 +175,15 @@
     },
     {
       "repositorio": "crebeucayali/accesos-complementarios",
-      "estado": "PENDIENTE_DE_DIAGNOSTICO",
+      "estado": "CORREGIDO_VERIFICADO",
       "fecha_deteccion": "2026-10-04T14:55:22.874-05:00",
       "fecha_registro": "2026-10-04T15:08:17.124-05:00",
       "commit_base_verificado": "cae93ad44109d896f20ef2305ba61abcc35a42fe",
       "pr_contexto": "https://github.com/crebeucayali/accesos-complementarios/pull/1",
       "incluido_en_correccion_tipografica": false,
       "preexistente": true,
-      "resultado": "Mismo overflow antes y después del cambio tipográfico. Excepción expresamente aceptada para crear el PR de navegación.",
-      "siguiente_accion": "Diagnosticar por separado antes de proponer una corrección. No corregido en el PR tipográfico.",
+      "resultado": "Códigos íntegros; 18 → 0 px a 320 px. Publicación verificada sin sustituir CSS. Footer independiente sin cambios.",
+      "siguiente_accion": "Corrección cerrada y verificada. Footer pendiente por separado.",
       "limites": "Medición en Chromium con fuentes públicas fijadas, sin sesión; solicitudes externas/Supabase bloqueadas.",
       "id": "accesos-complementarios.politica-cookies.layout.overflow",
       "hallazgo": "Overflow horizontal del contenido de política de cookies a 320 px",
@@ -197,9 +197,95 @@
         {
           "ancho_px": 320,
           "antes_px": 18,
-          "despues_px": 18
+          "despues_px": 0
+        },
+        {
+          "ancho_px": 360,
+          "antes_px": 0,
+          "despues_px": 0
+        },
+        {
+          "ancho_px": 390,
+          "antes_px": 0,
+          "despues_px": 0
+        },
+        {
+          "ancho_px": 414,
+          "antes_px": 0,
+          "despues_px": 0
+        },
+        {
+          "ancho_px": 768,
+          "antes_px": 0,
+          "despues_px": 0
+        },
+        {
+          "ancho_px": 1440,
+          "antes_px": 0,
+          "despues_px": 0
         }
-      ]
+      ],
+      "estado_anterior": "PENDIENTE_DE_DIAGNOSTICO",
+      "pr": 2,
+      "pr_url": "https://github.com/crebeucayali/accesos-complementarios/pull/2",
+      "commit_corregido": "eb01ee9bd2f9ee144480bff6c394bc215e9e3757",
+      "commit_merge": "780114cf6d5500e5c9b92cf94b07221db4deae0b",
+      "fecha_correccion": "2026-10-05T00:39:40.572Z",
+      "archivo_modificado": "estilos.css",
+      "selector": "[aria-labelledby=\"titulo-politica-cookies\"] .lista-legal code",
+      "regla": "overflow-wrap:anywhere",
+      "aumento_texto": {
+        "anchos_px": [
+          320,
+          390,
+          1440
+        ],
+        "estados": [
+          "Normal",
+          "Grande",
+          "Muy grande"
+        ],
+        "numero_comprobaciones": 9,
+        "overflow_atribuible_codigos_px": 0,
+        "overflow_total": {
+          "320": [
+            0,
+            0,
+            28
+          ],
+          "390": [
+            0,
+            0,
+            0
+          ],
+          "1440": [
+            0,
+            0,
+            0
+          ]
+        },
+        "retorno_normal_correcto": true
+      },
+      "claves_verificadas": [
+        "eva_accesibilidad_preferencias",
+        "eva_buscador_historial_v1",
+        "eva_buscador_favoritos_v1",
+        "eva_tarjetas_educativas_v1",
+        "eva_firma_visita_ultimo_envio_v1",
+        "evaBrailleUltimoRegistroV1",
+        "evaBrailleUsuario"
+      ],
+      "footer_independiente": {
+        "id": "accesos-complementarios.footer.texto-muy-grande.overflow",
+        "estado": "PENDIENTE_DE_DIAGNOSTICO",
+        "ancho_px": 320,
+        "texto": "Muy grande",
+        "overflow_px": 28,
+        "right_antes_px": 348.484375,
+        "right_despues_px": 348.484375,
+        "intacto": true
+      },
+      "aprobacion": "GitHub rechazó aprobación de PR propio (422). Merge normal con autorización expresa, sin auto-merge."
     },
     {
       "repositorio": "crebeucayali/accesos-complementarios",
