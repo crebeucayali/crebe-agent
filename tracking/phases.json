@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "fase_4": {
+    "estado": "COMPLETADA_CON_PENDIENTES_DOCUMENTADOS",
+    "fecha_cierre": "2026-10-04T20:35:08-05:00",
+    "zona_horaria": "America/Lima",
+    "fuente": "tracking/fase-4.json",
+    "commit_tracking_base": "97590d6430694d167b1c4c70bd7b9065b8b72758",
+    "criterio_cierre": [
+      "Correcciones prioritarias completadas.",
+      "Siete normalizaciones tipográficas cerradas.",
+      "Correcciones de overflow principales cerradas.",
+      "Hallazgos secundarios restantes identificados y registrados.",
+      "No continuar una cadena indefinida de correcciones menores."
+    ],
+    "correcciones_prioritarias": "completadas",
+    "hallazgos_totales": 18,
+    "corregidos_verificados": 12,
+    "tipograficos_corregidos_verificados": 7,
+    "pendientes_restantes": 6,
+    "pendientes_ids": [
+      "banco-digital-accesible.braille-teoria.layout.overflow",
+      "banco-digital-accesible.lsp.assets.404",
+      "noti-inclusivos.assets.sindrome-down.404",
+      "materiales-educativos-accesibles.generador-braille.layout.overflow",
+      "repositorio-accesible.assets.materiales-elaborados.404",
+      "accesos-complementarios.contacto.layout.overflow"
+    ],
+    "categoria_pendientes": "BACKLOG_FASE_4",
+    "prioridad_backlog": "DIFERIDA_SUJETA_A_REAPERTURA",
+    "criterio_reapertura": {
+      "condiciones": [
+        "Rompe una función.",
+        "Afecta el uso normal.",
+        "Genera un recurso visible faltante relevante.",
+        "Produce una barrera de accesibilidad significativa.",
+        "Provoca una regresión.",
+        "Es reportado por usuarios.",
+        "Pasa a ser prioritario por una nueva necesidad institucional."
+      ],
+      "requiere_al_menos_una_condicion": true,
+      "no_reabrir_por": "La sola existencia de una anomalía marginal reproducible.",
+      "requiere_autorizacion_para_intervenir": true
+    },
+    "repositorios_eva_modificados_en_cierre": false,
+    "fase_5_iniciada": false,
+    "limites": "Cierre con deuda técnica documentada. No declara ausencia de hallazgos, corrección del 100 % ni certificación integral de accesibilidad."
+  }
+}
