@@ -10783,7 +10783,7 @@
       "id": "accesos-complementarios.footer.texto-muy-grande.overflow",
       "repositorio": "crebeucayali/accesos-complementarios",
       "hallazgo": "Overflow independiente de los bloques del footer a 320 px con texto Muy grande",
-      "estado": "PENDIENTE_DE_DIAGNOSTICO",
+      "estado": "CORREGIDO_VERIFICADO",
       "pagina": "paginas/politica-cookies.html",
       "fecha_registro": "2026-10-05T00:29:10.014Z",
       "commit_main_diagnosticado": "ad2997def265bc219ec8729fa26b58488198258a",
@@ -10802,7 +10802,435 @@
         "overflow_atribuible_a_codigos_despues_px": 0
       },
       "independencia": "La regla de códigos se limita a la lista de Cookies. Los bloques del footer mantienen idéntico borde derecho, dimensiones y estilos antes/después. Sin modificación del footer.",
-      "alcance": "Hallazgo separado. No corregido ni incluido en el PR de corte de códigos; no se modifican footer, HTML ni otras páginas."
+      "alcance": "Corregido y verificado exclusivamente el corte natural del correo en el tercer bloque de los dos footer compartidos. Cookies, Privacidad, Contacto y demás registros independientes preservados.",
+      "causa_confirmada": "Correo plano sin cortes en el párrafo del tercer bloque del footer; ancho intrínseco del grid en estilos.css y texto fuera del párrafo en paginas/nosotros.css.",
+      "correccion": {
+        "repositorio": "crebeucayali/accesos-complementarios",
+        "pr": 4,
+        "url": "https://github.com/crebeucayali/accesos-complementarios/pull/4",
+        "commit_correccion": "729e402c5a4c6c9379cef2a334a7d5ba7d92f124",
+        "commit_merge": "69b456a1a7c2d783358f90d74ce8144c508c3ff4",
+        "fecha": "2026-10-05T01:25:40.679Z",
+        "archivos": [
+          "estilos.css",
+          "paginas/nosotros.css"
+        ],
+        "selector": ".footer-contenido > .footer-bloque:nth-child(3) p",
+        "regla": ".footer-contenido > .footer-bloque:nth-child(3) p{overflow-wrap:anywhere;}",
+        "diff": {
+          "archivos": 2,
+          "adiciones": 2,
+          "eliminaciones": 0
+        },
+        "merge": "normal",
+        "auto_merge": false,
+        "aprobacion_formal": "GitHub rechazó APPROVE por ser la cuenta autora; merge realizado con autorización expresa del usuario."
+      },
+      "verificacion_posterior": {
+        "fecha": "2026-10-05T01:25:40.679Z",
+        "paginas": [
+          "paginas/politica-cookies.html",
+          "paginas/politica-privacidad.html",
+          "index.html",
+          "paginas/aviso-legal.html",
+          "paginas/guia-de-uso.html",
+          "paginas/lineas-de-accion.html",
+          "paginas/contacto.html",
+          "directorios/directorio-institucional.html",
+          "directorios/directorio-ciudadano.html",
+          "paginas/nosotros.html",
+          "recursos/calendario.html",
+          "recursos/galeria.html",
+          "paginas/que-hacemos.html"
+        ],
+        "anchos_px": [
+          320,
+          360,
+          390,
+          414,
+          768,
+          1440
+        ],
+        "estados_texto": [
+          "Normal",
+          "Grande",
+          "Muy grande"
+        ],
+        "escenarios": 234,
+        "overflow_footer_px": 0,
+        "overflow_critico_antes_despues": {
+          "estilos_css": [
+            28,
+            0
+          ],
+          "paginas_nosotros_css": [
+            26,
+            0
+          ]
+        },
+        "correo_completo": true,
+        "correo_texto_plano_preservado": true,
+        "href_y_enlaces_intactos": true,
+        "fuentes_y_contenido_intactos": true,
+        "sin_superposicion": true,
+        "sin_invasion_padding": true,
+        "aumentos_naturales_altura": 39,
+        "variaciones_altura": [
+          {
+            "page": "paginas/politica-cookies.html",
+            "width": 320,
+            "state": "Grande",
+            "before": 818.46875,
+            "after": 844.453125,
+            "delta": 25.984375
+          },
+          {
+            "page": "paginas/politica-cookies.html",
+            "width": 320,
+            "state": "Muy grande",
+            "before": 877.125,
+            "after": 906,
+            "delta": 28.875
+          },
+          {
+            "page": "paginas/politica-cookies.html",
+            "width": 360,
+            "state": "Muy grande",
+            "before": 877.125,
+            "after": 906,
+            "delta": 28.875
+          },
+          {
+            "page": "paginas/politica-privacidad.html",
+            "width": 320,
+            "state": "Grande",
+            "before": 844.453125,
+            "after": 870.4375,
+            "delta": 25.984375
+          },
+          {
+            "page": "paginas/politica-privacidad.html",
+            "width": 320,
+            "state": "Muy grande",
+            "before": 906,
+            "after": 934.875,
+            "delta": 28.875
+          },
+          {
+            "page": "paginas/politica-privacidad.html",
+            "width": 360,
+            "state": "Muy grande",
+            "before": 906,
+            "after": 934.875,
+            "delta": 28.875
+          },
+          {
+            "page": "index.html",
+            "width": 320,
+            "state": "Grande",
+            "before": 1087.15625,
+            "after": 1113.140625,
+            "delta": 25.984375
+          },
+          {
+            "page": "index.html",
+            "width": 320,
+            "state": "Muy grande",
+            "before": 1191.5,
+            "after": 1249.25,
+            "delta": 57.75
+          },
+          {
+            "page": "index.html",
+            "width": 360,
+            "state": "Muy grande",
+            "before": 1167.125,
+            "after": 1196,
+            "delta": 28.875
+          },
+          {
+            "page": "paginas/aviso-legal.html",
+            "width": 320,
+            "state": "Grande",
+            "before": 844.453125,
+            "after": 870.4375,
+            "delta": 25.984375
+          },
+          {
+            "page": "paginas/aviso-legal.html",
+            "width": 320,
+            "state": "Muy grande",
+            "before": 906,
+            "after": 934.875,
+            "delta": 28.875
+          },
+          {
+            "page": "paginas/aviso-legal.html",
+            "width": 360,
+            "state": "Muy grande",
+            "before": 906,
+            "after": 934.875,
+            "delta": 28.875
+          },
+          {
+            "page": "paginas/guia-de-uso.html",
+            "width": 320,
+            "state": "Grande",
+            "before": 818.46875,
+            "after": 844.453125,
+            "delta": 25.984375
+          },
+          {
+            "page": "paginas/guia-de-uso.html",
+            "width": 320,
+            "state": "Muy grande",
+            "before": 877.125,
+            "after": 906,
+            "delta": 28.875
+          },
+          {
+            "page": "paginas/guia-de-uso.html",
+            "width": 360,
+            "state": "Muy grande",
+            "before": 877.125,
+            "after": 906,
+            "delta": 28.875
+          },
+          {
+            "page": "paginas/lineas-de-accion.html",
+            "width": 320,
+            "state": "Grande",
+            "before": 866.390625,
+            "after": 892.375,
+            "delta": 25.984375
+          },
+          {
+            "page": "paginas/lineas-de-accion.html",
+            "width": 320,
+            "state": "Muy grande",
+            "before": 946.625,
+            "after": 975.5,
+            "delta": 28.875
+          },
+          {
+            "page": "paginas/lineas-de-accion.html",
+            "width": 360,
+            "state": "Muy grande",
+            "before": 946.625,
+            "after": 975.5,
+            "delta": 28.875
+          },
+          {
+            "page": "paginas/contacto.html",
+            "width": 320,
+            "state": "Grande",
+            "before": 944.34375,
+            "after": 970.328125,
+            "delta": 25.984375
+          },
+          {
+            "page": "paginas/contacto.html",
+            "width": 320,
+            "state": "Muy grande",
+            "before": 1033.25,
+            "after": 1062.125,
+            "delta": 28.875
+          },
+          {
+            "page": "paginas/contacto.html",
+            "width": 360,
+            "state": "Muy grande",
+            "before": 1033.25,
+            "after": 1062.125,
+            "delta": 28.875
+          },
+          {
+            "page": "directorios/directorio-institucional.html",
+            "width": 320,
+            "state": "Grande",
+            "before": 812.5625,
+            "after": 838.546875,
+            "delta": 25.984375
+          },
+          {
+            "page": "directorios/directorio-institucional.html",
+            "width": 320,
+            "state": "Muy grande",
+            "before": 917.75,
+            "after": 946.625,
+            "delta": 28.875
+          },
+          {
+            "page": "directorios/directorio-institucional.html",
+            "width": 360,
+            "state": "Muy grande",
+            "before": 886.8125,
+            "after": 915.6875,
+            "delta": 28.875
+          },
+          {
+            "page": "directorios/directorio-ciudadano.html",
+            "width": 320,
+            "state": "Grande",
+            "before": 812.5625,
+            "after": 838.546875,
+            "delta": 25.984375
+          },
+          {
+            "page": "directorios/directorio-ciudadano.html",
+            "width": 320,
+            "state": "Muy grande",
+            "before": 886.8125,
+            "after": 915.6875,
+            "delta": 28.875
+          },
+          {
+            "page": "directorios/directorio-ciudadano.html",
+            "width": 360,
+            "state": "Muy grande",
+            "before": 857.9375,
+            "after": 886.8125,
+            "delta": 28.875
+          },
+          {
+            "page": "paginas/nosotros.html",
+            "width": 320,
+            "state": "Grande",
+            "before": 840.40625,
+            "after": 866.390625,
+            "delta": 25.984375
+          },
+          {
+            "page": "paginas/nosotros.html",
+            "width": 320,
+            "state": "Muy grande",
+            "before": 917.75,
+            "after": 946.625,
+            "delta": 28.875
+          },
+          {
+            "page": "paginas/nosotros.html",
+            "width": 360,
+            "state": "Muy grande",
+            "before": 917.75,
+            "after": 946.625,
+            "delta": 28.875
+          },
+          {
+            "page": "recursos/calendario.html",
+            "width": 320,
+            "state": "Grande",
+            "before": 892.375,
+            "after": 918.359375,
+            "delta": 25.984375
+          },
+          {
+            "page": "recursos/calendario.html",
+            "width": 320,
+            "state": "Muy grande",
+            "before": 975.5,
+            "after": 1004.375,
+            "delta": 28.875
+          },
+          {
+            "page": "recursos/calendario.html",
+            "width": 360,
+            "state": "Muy grande",
+            "before": 975.5,
+            "after": 1004.375,
+            "delta": 28.875
+          },
+          {
+            "page": "recursos/galeria.html",
+            "width": 320,
+            "state": "Grande",
+            "before": 892.375,
+            "after": 918.359375,
+            "delta": 25.984375
+          },
+          {
+            "page": "recursos/galeria.html",
+            "width": 320,
+            "state": "Muy grande",
+            "before": 975.5,
+            "after": 1004.375,
+            "delta": 28.875
+          },
+          {
+            "page": "recursos/galeria.html",
+            "width": 360,
+            "state": "Muy grande",
+            "before": 975.5,
+            "after": 1004.375,
+            "delta": 28.875
+          },
+          {
+            "page": "paginas/que-hacemos.html",
+            "width": 320,
+            "state": "Grande",
+            "before": 866.390625,
+            "after": 892.375,
+            "delta": 25.984375
+          },
+          {
+            "page": "paginas/que-hacemos.html",
+            "width": 320,
+            "state": "Muy grande",
+            "before": 946.625,
+            "after": 975.5,
+            "delta": 28.875
+          },
+          {
+            "page": "paginas/que-hacemos.html",
+            "width": 360,
+            "state": "Muy grande",
+            "before": 946.625,
+            "after": 975.5,
+            "delta": 28.875
+          }
+        ],
+        "escenarios_altura_sin_variacion": 195,
+        "mapa_web": {
+          "escenarios": 18,
+          "selector_aplicable": false,
+          "overflow_px": 0,
+          "contenido_y_enlaces_intactos": true
+        },
+        "regresiones": [
+          {
+            "page": "paginas/politica-cookies.html",
+            "overflow": 0,
+            "previousRuleActive": true
+          },
+          {
+            "page": "paginas/politica-privacidad.html",
+            "overflow": 0,
+            "previousRuleActive": true
+          }
+        ],
+        "contacto_independiente": {
+          "id": "accesos-complementarios.contacto.layout.overflow",
+          "estado": "PENDIENTE_DE_DIAGNOSTICO",
+          "registro_sin_modificar": true,
+          "ancho_px": 320,
+          "overflow_total_antes_despues": {
+            "Normal": [
+              67,
+              67
+            ],
+            "Grande": [
+              109,
+              109
+            ],
+            "Muy grande": [
+              151,
+              151
+            ]
+          },
+          "overflow_footer_px": 0
+        },
+        "limites": "Chromium/Playwright. Publicación leída nuevamente y comparada con main; CSS publicado idéntico al aprobado sin sustituciones. Referencia anterior del diagnóstico sobre el mismo commit base. Servicios externos/Supabase bloqueados. Ninguna modificación de contenido o HTML."
+      }
     },
     {
       "id": "accesos-complementarios.contacto.layout.overflow",
