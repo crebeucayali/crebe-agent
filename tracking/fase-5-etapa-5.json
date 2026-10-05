@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "fase": 5,
+  "etapa": 5,
+  "nombre": "Diagnostico tecnico de hallazgos funcionales",
+  "estado": "ETAPA_5_EN_VALIDACION",
+  "fecha_inicio": "2026-10-04",
+  "zona_horaria": "America/Lima",
+  "fuente": {
+    "etapa": 4,
+    "workflow_run_id": 37257954656,
+    "artifact_id": 11323119358,
+    "hallazgos_priorizados": 3
+  },
+  "objetivo": "Identificar causa raiz, archivos afectados y destino o decision funcional necesaria para cada hallazgo priorizado antes de cualquier correccion.",
+  "implementacion": {
+    "programa": "functional_diagnosis.py",
+    "evidencia": "config/functional-diagnosis-evidence.json",
+    "workflow": ".github/workflows/functional-diagnosis.yml",
+    "pruebas": "tests/test_functional_diagnosis.py",
+    "documentacion": "docs/FASE_5_ETAPA_5_DIAGNOSTICO_TECNICO.md",
+    "salidas": [
+      "reports/functional-diagnosis/functional-diagnosis.json",
+      "reports/functional-diagnosis/Informe_fase_5_etapa_5.md"
+    ]
+  },
+  "criterios_cierre": [
+    "Los tres hallazgos priorizados reciben diagnostico tecnico sin perdida de trazabilidad.",
+    "Cada hallazgo identifica causa raiz y archivos afectados.",
+    "Cuando existe un destino vigente verificable, queda documentado.",
+    "Cuando no existe un destino vigente verificable, no se inventa uno y se documenta la decision funcional pendiente.",
+    "Las pruebas automatizadas y el workflow finalizan correctamente.",
+    "No se modifica ninguno de los ocho repositorios EVA.",
+    "La Etapa 6 permanece sin iniciar."
+  ],
+  "repositorios_eva_modificados": false,
+  "correcciones_eva_autorizadas": false,
+  "etapa_6_iniciada": false
+}
