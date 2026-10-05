@@ -1,0 +1,57 @@
+name: Funcionamiento EVA - Fase 5 Etapa 1
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'functional_inventory.py'
+      - 'tests/test_functional_inventory.py'
+      - '.github/workflows/functional-inventory.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: crebe-functional-inventory
+  cancel-in-progress: false
+
+jobs:
+  functional_inventory:
+    name: Generar inventario funcional
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Preparar Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Ejecutar pruebas
+        run: python -m unittest discover -s tests -v
+      - name: Capturar fuentes de EVA en modo lectura
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python inventory.py --output reports/inventory --save-snapshot /tmp/crebe-source-snapshot.json
+      - name: Generar inventario funcional
+        run: python functional_inventory.py --snapshot /tmp/crebe-source-snapshot.json --output reports/functional-inventory
+      - name: Mostrar informe
+        if: always()
+        shell: bash
+        run: |
+          if [ -f reports/functional-inventory/Informe_fase_5_etapa_1.md ]; then
+            cat reports/functional-inventory/Informe_fase_5_etapa_1.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Guardar resultados
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: crebe-fase-5-etapa-1-${{ github.run_id }}
+          path: |
+            reports/inventory/
+            reports/functional-inventory/
+          if-no-files-found: warn
+          retention-days: 30
