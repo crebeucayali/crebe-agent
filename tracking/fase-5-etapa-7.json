@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "fase": 5,
+  "etapa": 7,
+  "nombre": "Verificacion funcional posterior",
+  "estado": "ETAPA_7_COMPLETADA_VERIFICACION",
+  "fecha_inicio": "2026-10-04",
+  "fecha_cierre": "2026-10-04",
+  "zona_horaria": "America/Lima",
+  "fuente": {
+    "etapa": 6,
+    "hallazgos_corregidos_pendientes_verificacion": 2,
+    "hallazgos_bloqueados_por_decision_funcional": 1
+  },
+  "resultado": {
+    "hallazgos_verificados": 2,
+    "hallazgos_bloqueados": 1,
+    "regresiones_detectadas": 0,
+    "por_estado": {
+      "CORREGIDO_VERIFICADO": 2,
+      "BLOQUEADO_POR_DECISION_FUNCIONAL": 1
+    },
+    "hallazgos": [
+      {
+        "id": "F5E4-A1AE3BB801",
+        "estado": "CORREGIDO_VERIFICADO",
+        "evidencia": {
+          "referencias_obsoletas_en_main": 0,
+          "destino_vigente": "https://crebeucayali.github.io/accesos-complementarios/paginas/contacto.html",
+          "destino_vigente_accesible": true,
+          "pages_workflow_run_id": 37259993514,
+          "pages_workflow_conclusion": "success",
+          "pages_head_sha": "b859109e1af623960628b9f1f6ef4a3a4a5d103c"
+        }
+      },
+      {
+        "id": "F5E4-E9B33D5047",
+        "estado": "CORREGIDO_VERIFICADO",
+        "evidencia": {
+          "ruta_compatibilidad": "noti-inclusivos/blog/index.html",
+          "destino": "../articulos/",
+          "canonical": "https://crebeucayali.github.io/noti-inclusivos/articulos/",
+          "pages_workflow_run_id": 37260039033,
+          "pages_workflow_conclusion": "success",
+          "pages_head_sha": "6672b18d459cd73f3761982f68b6dbd90c28ec84"
+        }
+      },
+      {
+        "id": "F5E4-EAE63AF520",
+        "estado": "BLOQUEADO_POR_DECISION_FUNCIONAL",
+        "motivo": "No existe destino publicado verificable para Juegos Interactivos Accesibles y no fue intervenido en Etapa 6."
+      }
+    ]
+  },
+  "limitaciones_verificacion": [
+    "El rastreador web externo devolvio una copia cacheada de Noti Inclusivos rastreada la semana anterior; no se uso como evidencia actual de regresion.",
+    "La verificacion se fundamenta en el estado actual de main, la desaparicion de referencias obsoletas, la existencia de la ruta de compatibilidad y los despliegues oficiales de GitHub Pages finalizados con success.",
+    "JIA no se considera fallo persistente de una correccion porque no fue intervenido; conserva su bloqueo por decision funcional."
+  ],
+  "criterios_cierre_cumplidos": true,
+  "etapa_8_iniciada": false
+}
