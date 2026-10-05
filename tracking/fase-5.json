@@ -47,17 +47,45 @@
       "fallos_lectura": 0,
       "artifact_id": 11322785550
     },
-    "criterios_cierre": [
-      "Los ocho repositorios estan representados.",
-      "No existen fallos de lectura en la captura usada.",
-      "El inventario funcional se genera correctamente.",
-      "Las pruebas automatizadas son satisfactorias.",
-      "El workflow de la Etapa 1 finaliza correctamente.",
-      "No se modifica ninguno de los ocho repositorios EVA."
-    ],
     "criterios_cierre_cumplidos": true,
     "repositorios_eva_modificados": false,
+    "correcciones_eva_autorizadas": false
+  },
+  "etapa_2": {
+    "nombre": "Casos de prueba y resultados esperados",
+    "estado": "ETAPA_2_EN_VALIDACION",
+    "fecha_inicio": "2026-10-04",
+    "objetivo": "Convertir cada elemento funcional inventariado en un caso de prueba trazable con accion, resultado esperado, evidencia, prioridad y politica de ejecucion.",
+    "implementacion": {
+      "programa": "functional_test_cases.py",
+      "workflow": ".github/workflows/functional-test-cases.yml",
+      "pruebas": "tests/test_functional_test_cases.py",
+      "documentacion": "docs/FASE_5_ETAPA_2_CASOS_PRUEBA.md",
+      "salidas": [
+        "reports/functional-test-cases/functional-test-cases.json",
+        "reports/functional-test-cases/Informe_fase_5_etapa_2.md"
+      ]
+    },
+    "estados_caso": [
+      "DEFINIDO_NO_EJECUTADO"
+    ],
+    "prioridades": [
+      "P0_CRITICA",
+      "P1_ALTA",
+      "P2_MEDIA",
+      "P3_BAJA"
+    ],
+    "criterios_cierre": [
+      "Cada elemento funcional de la Etapa 1 tiene exactamente un caso de prueba.",
+      "No existen identificadores duplicados.",
+      "Los ocho repositorios estan representados.",
+      "Todos los casos tienen accion, resultado esperado, evidencia requerida, prioridad y politica de ejecucion.",
+      "Las pruebas automatizadas son satisfactorias.",
+      "El workflow de la Etapa 2 finaliza correctamente.",
+      "No se modifica ninguno de los ocho repositorios EVA."
+    ],
+    "repositorios_eva_modificados": false,
     "correcciones_eva_autorizadas": false,
-    "etapa_2_iniciada": false
+    "etapa_3_iniciada": false
   }
 }
