@@ -2,6 +2,14 @@ name: Funcionamiento EVA - Fase 5 Etapa 1
 
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - 'functional_inventory.py'
+      - 'tests/test_functional_inventory.py'
+      - '.github/workflows/functional-inventory.yml'
+      - 'docs/FASE_5_ETAPA_1_INVENTARIO_FUNCIONAL.md'
+      - 'tracking/fase-5.json'
+      - 'tracking/phases.json'
   push:
     branches: [main]
     paths:
@@ -13,7 +21,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: crebe-functional-inventory
+  group: crebe-functional-inventory-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
