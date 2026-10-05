@@ -253,6 +253,29 @@
     },
     "criterios_cierre_cumplidos": true,
     "correcciones_eva_autorizadas": true,
-    "etapa_7_iniciada": false
+    "etapa_7_iniciada": true
+  },
+  "etapa_7": {
+    "nombre": "Verificacion funcional posterior",
+    "estado": "ETAPA_7_COMPLETADA_VERIFICACION",
+    "fecha_inicio": "2026-10-04",
+    "fecha_cierre": "2026-10-04",
+    "documentacion": "docs/FASE_5_ETAPA_7_VERIFICACION_POSTERIOR.md",
+    "tracking": "tracking/fase-5-etapa-7.json",
+    "resultado": {
+      "hallazgos_verificados": 2,
+      "hallazgos_bloqueados": 1,
+      "regresiones_detectadas": 0,
+      "por_estado": {
+        "CORREGIDO_VERIFICADO": 2,
+        "BLOQUEADO_POR_DECISION_FUNCIONAL": 1
+      },
+      "pages_workflow_runs": [
+        37259993514,
+        37260039033
+      ]
+    },
+    "criterios_cierre_cumplidos": true,
+    "etapa_8_iniciada": false
   }
 }
