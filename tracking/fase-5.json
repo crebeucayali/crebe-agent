@@ -47,17 +47,71 @@
       "fallos_lectura": 0,
       "artifact_id": 11322785550
     },
+    "criterios_cierre_cumplidos": true,
+    "repositorios_eva_modificados": false,
+    "correcciones_eva_autorizadas": false
+  },
+  "etapa_2": {
+    "nombre": "Casos de prueba y resultados esperados",
+    "estado": "ETAPA_2_COMPLETADA_CASOS_PRUEBA",
+    "fecha_inicio": "2026-10-04",
+    "fecha_cierre": "2026-10-04",
+    "objetivo": "Convertir cada elemento funcional inventariado en un caso de prueba trazable con accion, resultado esperado, evidencia, prioridad y politica de ejecucion.",
+    "implementacion": {
+      "programa": "functional_test_cases.py",
+      "workflow": ".github/workflows/functional-test-cases.yml",
+      "pruebas": "tests/test_functional_test_cases.py",
+      "documentacion": "docs/FASE_5_ETAPA_2_CASOS_PRUEBA.md",
+      "salidas": [
+        "reports/functional-test-cases/functional-test-cases.json",
+        "reports/functional-test-cases/Informe_fase_5_etapa_2.md"
+      ]
+    },
+    "resultado": {
+      "workflow_run_id": 37255895169,
+      "workflow_conclusion": "success",
+      "artifact_id": 11322895822,
+      "casos_fuente": 1297,
+      "casos_generados": 1297,
+      "ids_duplicados": 0,
+      "repositorios_representados": 8,
+      "por_prioridad": {
+        "P0_CRITICA": 114,
+        "P1_ALTA": 278,
+        "P2_MEDIA": 708,
+        "P3_BAJA": 197
+      },
+      "por_politica_ejecucion": {
+        "AUTOMATIZABLE_LECTURA": 785,
+        "NAVEGADOR_INSTRUMENTADO_SIN_ENVIO": 111,
+        "NAVEGADOR_INSTRUMENTADO_SIN_PERSISTENCIA": 156,
+        "LECTURA_SIN_EFECTOS_EXTERNOS": 110,
+        "DATOS_PRUEBA_CONTROLADOS": 8,
+        "SESION_CONTROLADA_DATOS_PRUEBA": 114,
+        "MANUAL_O_INSTRUMENTADA": 13
+      }
+    },
+    "estados_caso": [
+      "DEFINIDO_NO_EJECUTADO"
+    ],
+    "prioridades": [
+      "P0_CRITICA",
+      "P1_ALTA",
+      "P2_MEDIA",
+      "P3_BAJA"
+    ],
     "criterios_cierre": [
+      "Cada elemento funcional de la Etapa 1 tiene exactamente un caso de prueba.",
+      "No existen identificadores duplicados.",
       "Los ocho repositorios estan representados.",
-      "No existen fallos de lectura en la captura usada.",
-      "El inventario funcional se genera correctamente.",
+      "Todos los casos tienen accion, resultado esperado, evidencia requerida, prioridad y politica de ejecucion.",
       "Las pruebas automatizadas son satisfactorias.",
-      "El workflow de la Etapa 1 finaliza correctamente.",
+      "El workflow de la Etapa 2 finaliza correctamente.",
       "No se modifica ninguno de los ocho repositorios EVA."
     ],
     "criterios_cierre_cumplidos": true,
     "repositorios_eva_modificados": false,
     "correcciones_eva_autorizadas": false,
-    "etapa_2_iniciada": false
+    "etapa_3_iniciada": false
   }
 }
