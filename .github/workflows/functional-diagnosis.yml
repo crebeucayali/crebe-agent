@@ -54,9 +54,9 @@ jobs:
           gh api -H 'Accept: application/vnd.github+json' "/repos/${{ github.repository }}/actions/artifacts/${ARTIFACT_ID}/zip" > /tmp/fase4.zip
           mkdir -p /tmp/fase4
           unzip -q /tmp/fase4.zip -d /tmp/fase4
-          test -f /tmp/fase4/functional-prioritization/functional-prioritization.json
+          test -f /tmp/fase4/functional-prioritization.json
       - name: Generar diagnostico tecnico
-        run: python functional_diagnosis.py --prioritization /tmp/fase4/functional-prioritization/functional-prioritization.json --evidence config/functional-diagnosis-evidence.json --output reports/functional-diagnosis
+        run: python functional_diagnosis.py --prioritization /tmp/fase4/functional-prioritization.json --evidence config/functional-diagnosis-evidence.json --output reports/functional-diagnosis
       - name: Mostrar informe
         if: always()
         shell: bash
