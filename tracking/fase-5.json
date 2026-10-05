@@ -61,8 +61,9 @@
   },
   "etapa_3": {
     "nombre": "Auditoria funcional inicial",
-    "estado": "ETAPA_3_EN_VALIDACION",
+    "estado": "ETAPA_3_COMPLETADA_LINEA_BASE_FUNCIONAL",
     "fecha_inicio": "2026-10-04",
+    "fecha_cierre": "2026-10-04",
     "objetivo": "Procesar los 1297 casos de prueba y establecer una linea base funcional mediante verificaciones de lectura seguras, separando fallos confirmados de casos manuales o bloqueados por dependencias.",
     "implementacion": {
       "programa": "functional_audit.py",
@@ -74,6 +75,37 @@
         "reports/functional-audit/Informe_fase_5_etapa_3.md"
       ]
     },
+    "resultado": {
+      "workflow_run_id": 37256684229,
+      "workflow_conclusion": "success",
+      "artifact_id": 11322878003,
+      "casos_procesados": 1297,
+      "solicitudes_red_unicas": 166,
+      "por_estado": {
+        "CORRECTO": 863,
+        "FALLO_CONFIRMADO": 21,
+        "REQUIERE_VERIFICACION_MANUAL": 280,
+        "NO_APLICA": 0,
+        "BLOQUEADO_POR_DEPENDENCIA": 133
+      },
+      "fallos_confirmados_agrupados": [
+        {
+          "destino": "https://crebeucayali.github.io/accesos-complementarios/institucional/contacto.html",
+          "casos": 16,
+          "evidencia": "HTTP 404"
+        },
+        {
+          "destino": "https://crebeucayali.github.io/juegos-interactivos-accesibles/",
+          "casos": 4,
+          "evidencia": "HTTP 404"
+        },
+        {
+          "destino": "https://crebeucayali.github.io/noti-inclusivos/blog/",
+          "casos": 1,
+          "evidencia": "HTTP 404"
+        }
+      ]
+    },
     "estados_resultado": [
       "CORRECTO",
       "FALLO_CONFIRMADO",
@@ -81,15 +113,7 @@
       "NO_APLICA",
       "BLOQUEADO_POR_DEPENDENCIA"
     ],
-    "criterios_cierre": [
-      "Se procesan los 1297 casos de la Etapa 2.",
-      "Cada caso termina en uno de los cinco estados autorizados.",
-      "Las comprobaciones automáticas se limitan a lectura segura.",
-      "Los fallos confirmados se registran sin iniciar correcciones.",
-      "Las pruebas automatizadas y el workflow finalizan correctamente.",
-      "No se modifica ninguno de los ocho repositorios EVA.",
-      "La Etapa 4 no se inicia."
-    ],
+    "criterios_cierre_cumplidos": true,
     "repositorios_eva_modificados": false,
     "correcciones_eva_autorizadas": false,
     "etapa_4_iniciada": false
