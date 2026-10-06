@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "fase": 6,
+  "etapa": 7,
+  "estado": "ETAPA_7_COMPLETADA_CORRECCION_CONTROLADA",
+  "modo": "NO_INTERVENTION_REQUIRED",
+  "fuente_diagnostico": "reports/fase-6-etapa-6-diagnostico.json",
+  "resultado": {
+    "hallazgos_que_requieren_correccion": 0,
+    "intervenciones_ejecutadas": 0,
+    "migraciones_ejecutadas": 0,
+    "cambios_rls_grants": 0,
+    "objetos_storage_eliminados": 0,
+    "storage_candidatos_revision_conservados": 24,
+    "dependencias_seguridad_conservadas": 1,
+    "supabase_modificado": false,
+    "repositorios_eva_modificados": false
+  },
+  "decision": "No intervenir cuando el diagnóstico no identifica una causa de integridad que requiera corrección.",
+  "etapa_8_iniciada": false
+}
