@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "fase": 7,
+  "nombre": "Seguridad, permisos y exposicion de datos",
+  "estado": "FASE_7_PREPARADA",
+  "fecha_inicio": "2026-10-06",
+  "zona_horaria": "America/Lima",
+  "objetivo": "Verificar secretos, permisos, RLS, GRANT, Data API, Storage, funciones privilegiadas y autenticacion administrativa aplicando minimo privilegio sin romper EVA.",
+  "dependencias_heredadas": ["SEC-DEPENDENCY-001"],
+  "etapas": [
+    {"numero":1,"nombre":"Inventario de superficie de seguridad","estado":"NO_INICIADA","cierre":"ETAPA_1_COMPLETADA_INVENTARIO_SEGURIDAD"},
+    {"numero":2,"nombre":"Contratos de seguridad y minimo privilegio","estado":"NO_INICIADA","cierre":"ETAPA_2_COMPLETADA_CONTRATOS_SEGURIDAD"},
+    {"numero":3,"nombre":"Auditoria de solo lectura","estado":"NO_INICIADA","cierre":"ETAPA_3_COMPLETADA_LINEA_BASE_SEGURIDAD"},
+    {"numero":4,"nombre":"Clasificacion y priorizacion de riesgos","estado":"NO_INICIADA","cierre":"ETAPA_4_COMPLETADA_PRIORIZACION_SEGURIDAD"},
+    {"numero":5,"nombre":"Pruebas controladas de permisos","estado":"NO_INICIADA","cierre":"ETAPA_5_COMPLETADA_PRUEBAS_PERMISOS"},
+    {"numero":6,"nombre":"Diagnostico tecnico","estado":"NO_INICIADA","cierre":"ETAPA_6_COMPLETADA_DIAGNOSTICO_SEGURIDAD"},
+    {"numero":7,"nombre":"Correccion controlada","estado":"NO_INICIADA","cierre":"ETAPA_7_COMPLETADA_CORRECCION_SEGURIDAD"},
+    {"numero":8,"nombre":"Verificacion y monitoreo","estado":"NO_INICIADA","cierre":"MONITOREO_SEGURIDAD_ACTIVO"}
+  ],
+  "criterios": {
+    "publicable_key_no_es_secreto": true,
+    "secretos_privados_no_se_registran_en_claro": true,
+    "minimo_privilegio": true,
+    "RLS_no_se_relaja_para_resolver_funcionalidad": true,
+    "lectura_primero": true,
+    "correccion_automatica": false,
+    "requiere_diagnostico_antes_de_corregir": true,
+    "requiere_verificacion_regresion": true
+  },
+  "prioridades": ["CRITICO","ALTO","MEDIO","BAJO"],
+  "condicion_temporal": {
+    "fecha": "2026-10-30",
+    "tema": "Cambio de exposicion Data API de Supabase para proyectos existentes",
+    "accion": "Verificar objetos expuestos, grants necesarios y RLS antes de la fecha sin ampliar permisos innecesariamente."
+  },
+  "etapa_1_iniciada": false,
+  "repositorios_eva_modificados": false,
+  "supabase_modificado": false,
+  "documentacion": "docs/FASE_7_SEGURIDAD_PERMISOS.md",
+  "alcance": "config/fase-7-security-scope.json"
+}
