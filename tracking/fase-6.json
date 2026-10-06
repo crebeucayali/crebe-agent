@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "fase": 6,
+  "nombre": "Integridad Supabase y flujos de datos",
+  "estado": "FASE_6_PREPARADA",
+  "fecha_inicio": "2026-10-05",
+  "zona_horaria": "America/Lima",
+  "prioridad_origen": 2,
+  "objetivo": "Verificar la integridad extremo a extremo entre panel administrativo, Supabase Database/Storage, consultas publicas y visualizacion en EVA.",
+  "supabase": {
+    "project_id": "dteimbhwtzghhsijeeld",
+    "project_name": "crebe Project",
+    "status_observado": "ACTIVE_HEALTHY",
+    "postgres_major": 17,
+    "objetos_iniciales": [
+      "public.calendario_actividades",
+      "public.calendario_publico",
+      "public.capacitaciones_sesiones",
+      "public.noticias_destacadas",
+      "public.galeria_items",
+      "public.galeria_item_imagenes",
+      "public.repositorio_recursos",
+      "public.eva_visitas_eventos",
+      "public.eva_visitas_diarias",
+      "public.eva_compartidos_eventos",
+      "public.eva_compartidos_diarios",
+      "storage:eva-publico"
+    ],
+    "conteos_referencia_no_contractuales": {
+      "calendario_actividades": 154,
+      "calendario_publico": 172,
+      "capacitaciones_sesiones": 20,
+      "noticias_destacadas": 5,
+      "galeria_items": 3,
+      "galeria_item_imagenes": 13,
+      "repositorio_recursos": 21,
+      "eva_visitas_diarias": 57,
+      "eva_visitas_eventos": 0,
+      "eva_compartidos_diarios": 9,
+      "eva_compartidos_eventos": 0
+    }
+  },
+  "prioridad_modulos": [
+    "calendario",
+    "capacitaciones",
+    "noticias",
+    "galeria",
+    "repositorio_accesible",
+    "storage_eva_publico",
+    "visitas",
+    "compartidos"
+  ],
+  "etapas": [
+    {"numero":1,"nombre":"Inventario de datos y dependencias","estado":"NO_INICIADA","cierre":"ETAPA_1_COMPLETADA_INVENTARIO_DATOS"},
+    {"numero":2,"nombre":"Contratos e invariantes por modulo","estado":"NO_INICIADA","cierre":"ETAPA_2_COMPLETADA_CONTRATOS_INTEGRIDAD"},
+    {"numero":3,"nombre":"Auditoria de integridad de solo lectura","estado":"NO_INICIADA","cierre":"ETAPA_3_COMPLETADA_LINEA_BASE_INTEGRIDAD"},
+    {"numero":4,"nombre":"Priorizacion y agrupacion causal","estado":"NO_INICIADA","cierre":"ETAPA_4_COMPLETADA_PRIORIZACION_INTEGRIDAD"},
+    {"numero":5,"nombre":"Pruebas controladas de escritura","estado":"NO_INICIADA","cierre":"ETAPA_5_COMPLETADA_PRUEBAS_CONTROLADAS"},
+    {"numero":6,"nombre":"Diagnostico tecnico","estado":"NO_INICIADA","cierre":"ETAPA_6_COMPLETADA_DIAGNOSTICO_INTEGRIDAD"},
+    {"numero":7,"nombre":"Correccion controlada","estado":"NO_INICIADA","cierre":"ETAPA_7_COMPLETADA_CORRECCION_CONTROLADA"},
+    {"numero":8,"nombre":"Verificacion y monitoreo","estado":"NO_INICIADA","cierre":"MONITOREO_INTEGRIDAD_ACTIVO"}
+  ],
+  "estados_auditoria": [
+    "INTEGRO",
+    "INCONSISTENCIA_CONFIRMADA",
+    "REQUIERE_VERIFICACION_CONTROLADA",
+    "BLOQUEADO_POR_PERMISOS_O_DEPENDENCIA",
+    "NO_APLICA"
+  ],
+  "reglas": {
+    "lectura_primero": true,
+    "escritura_produccion_por_defecto": false,
+    "correccion_automatica": false,
+    "secretos_en_artefactos": false,
+    "un_hallazgo_por_causa": true,
+    "etapa_1_iniciada": false
+  },
+  "dependencias_relevantes": {
+    "data_api_cambio_2026_10_30": "Verificar grants y exposicion de objetos consumidos por frontend sin relajar RLS.",
+    "hallazgos_seguridad_fuera_alcance": "Registrar como dependencia y derivar a fase de Seguridad y Permisos salvo que expliquen directamente una inconsistencia funcional."
+  },
+  "repositorios_eva_modificados": false,
+  "supabase_modificado": false,
+  "documentacion": "docs/FASE_6_INTEGRIDAD_SUPABASE_FLUJOS_DATOS.md"
+}

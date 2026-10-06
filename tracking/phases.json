@@ -77,6 +77,19 @@
     "repositorios_eva_modificados": true,
     "repositorios_eva_modificados_lista": [
       "crebeucayali/noti-inclusivos"
-    ]
+    ],
+    "fase_6_iniciada": true
+  },
+  "fase_6": {
+    "estado": "FASE_6_PREPARADA",
+    "fecha_inicio": "2026-10-05",
+    "zona_horaria": "America/Lima",
+    "nombre": "Integridad Supabase y flujos de datos",
+    "fuente": "tracking/fase-6.json",
+    "prioridad_origen": 2,
+    "etapa_actual": 0,
+    "etapa_1_iniciada": false,
+    "repositorios_eva_modificados": false,
+    "supabase_modificado": false
   }
 }

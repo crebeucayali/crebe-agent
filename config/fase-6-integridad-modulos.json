@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "phase": 6,
+  "project_id": "dteimbhwtzghhsijeeld",
+  "modules": [
+    {
+      "id": "calendario",
+      "priority": 1,
+      "objects": ["public.calendario_actividades", "public.calendario_publico"],
+      "dependencies": ["public.capacitaciones_sesiones"],
+      "checks": ["source_to_public_view", "visibility", "date_status_consistency", "image_reference"]
+    },
+    {
+      "id": "capacitaciones",
+      "priority": 2,
+      "objects": ["public.capacitaciones_sesiones"],
+      "dependencies": ["public.calendario_publico"],
+      "checks": ["publication_visibility", "calendar_projection", "required_content_fields"]
+    },
+    {
+      "id": "noticias",
+      "priority": 3,
+      "objects": ["public.noticias_destacadas"],
+      "dependencies": ["storage:eva-publico"],
+      "checks": ["publication_visibility", "required_content_fields", "storage_reference"]
+    },
+    {
+      "id": "galeria",
+      "priority": 4,
+      "objects": ["public.galeria_items", "public.galeria_item_imagenes"],
+      "dependencies": ["storage:eva-publico"],
+      "checks": ["parent_child_integrity", "publication_visibility", "storage_reference", "orphan_rows"]
+    },
+    {
+      "id": "repositorio_accesible",
+      "priority": 5,
+      "objects": ["public.repositorio_recursos"],
+      "dependencies": ["storage:eva-publico"],
+      "checks": ["publication_visibility", "required_content_fields", "resource_reference"]
+    },
+    {
+      "id": "storage_eva_publico",
+      "priority": 6,
+      "objects": ["storage:eva-publico"],
+      "dependencies": ["public.noticias_destacadas", "public.galeria_item_imagenes", "public.calendario_actividades", "public.repositorio_recursos"],
+      "checks": ["referenced_object_exists", "mime_consistency", "orphan_objects_without_deletion"]
+    },
+    {
+      "id": "visitas",
+      "priority": 7,
+      "objects": ["public.eva_visitas_eventos", "public.eva_visitas_diarias"],
+      "dependencies": [],
+      "checks": ["aggregate_consistency", "module_dimension_consistency"]
+    },
+    {
+      "id": "compartidos",
+      "priority": 8,
+      "objects": ["public.eva_compartidos_eventos", "public.eva_compartidos_diarios"],
+      "dependencies": [],
+      "checks": ["aggregate_consistency", "module_dimension_consistency"]
+    }
+  ],
+  "write_policy": "DISABLED_UNTIL_STAGE_5",
+  "automatic_correction": false
+}
