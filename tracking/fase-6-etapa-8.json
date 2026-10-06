@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "fase": 6,
+  "etapa": 8,
+  "nombre": "Verificacion y monitoreo de integridad",
+  "estado": "MONITOREO_INTEGRIDAD_ACTIVO",
+  "fecha_inicio": "2026-10-06",
+  "fecha_activacion": "2026-10-06",
+  "zona_horaria": "America/Lima",
+  "resultado_verificacion": {
+    "estado": "INTEGRO",
+    "alertas_iniciales": 0,
+    "calendario_union_ok": true,
+    "capacitaciones_proyeccion_ok": true,
+    "imagenes_huerfanas": 0,
+    "storage_referencias_faltantes": 0,
+    "storage_candidatos_revision": 24,
+    "visitas_eventos_persistidos": 0,
+    "compartidos_eventos_persistidos": 0,
+    "supabase_modificado": false,
+    "repositorios_eva_modificados": false
+  },
+  "monitor": {
+    "script": "integrity_monitor.py",
+    "pruebas": "tests/test_integrity_monitor.py",
+    "workflow": ".github/workflows/supabase-integrity-monitor.yml",
+    "reporte_base": "reports/fase-6-etapa-8-verificacion.json",
+    "documentacion": "docs/FASE_6_ETAPA_8_MONITOREO_INTEGRIDAD.md",
+    "cron_utc": "0 11 * * *",
+    "hora_america_lima": "06:00",
+    "modo": "PUBLIC_READ_ONLY",
+    "retencion_evidencia_dias": 30,
+    "correccion_automatica": false,
+    "usa_secretos_privilegiados": false
+  },
+  "auditoria_profunda_manual": [
+    "triggers_escritura_visitas_compartidos",
+    "RLS_GRANT",
+    "catalogo_storage_y_candidatos_no_referenciados"
+  ],
+  "criterios_cierre": [
+    "Linea base final verificada sin inconsistencias.",
+    "Monitor publico recurrente implementado sin escrituras.",
+    "Alertas no autorizan correcciones automaticas.",
+    "Visitas/Compartidos, RLS/GRANT y candidatos Storage preservados para auditoria profunda cuando corresponda.",
+    "Sin modificaciones en Supabase ni repositorios EVA."
+  ],
+  "criterios_cierre_cumplidos": true,
+  "workflow_run_id": null,
+  "workflow_conclusion": null
+}
