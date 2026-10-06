@@ -1,0 +1,41 @@
+name: Integridad Supabase - Fase 6 Etapa 2
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'contracts/fase-6-etapa-2-integridad.json'
+      - 'supabase_integrity_contracts_validate.py'
+      - 'tests/test_supabase_integrity_contracts.py'
+      - 'docs/FASE_6_ETAPA_2_CONTRATOS_INTEGRIDAD.md'
+      - 'tracking/fase-6-etapa-2.json'
+      - 'tracking/fase-6.json'
+      - 'tracking/phases.json'
+      - '.github/workflows/supabase-integrity-contracts.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'contracts/fase-6-etapa-2-integridad.json'
+      - 'supabase_integrity_contracts_validate.py'
+      - 'tests/test_supabase_integrity_contracts.py'
+      - '.github/workflows/supabase-integrity-contracts.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Ejecutar pruebas de Etapa 2
+        run: python -m unittest tests/test_supabase_integrity_contracts.py
+      - name: Validar contratos comprometidos
+        run: python supabase_integrity_contracts_validate.py
