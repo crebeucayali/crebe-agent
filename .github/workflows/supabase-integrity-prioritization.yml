@@ -1,0 +1,41 @@
+name: Integridad Supabase - Fase 6 Etapa 4
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'reports/fase-6-etapa-4-priorizacion.json'
+      - 'supabase_integrity_prioritization_validate.py'
+      - 'tests/test_supabase_integrity_prioritization.py'
+      - 'docs/FASE_6_ETAPA_4_PRIORIZACION_INTEGRIDAD.md'
+      - 'tracking/fase-6-etapa-4.json'
+      - 'tracking/fase-6.json'
+      - 'tracking/phases.json'
+      - '.github/workflows/supabase-integrity-prioritization.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'reports/fase-6-etapa-4-priorizacion.json'
+      - 'supabase_integrity_prioritization_validate.py'
+      - 'tests/test_supabase_integrity_prioritization.py'
+      - '.github/workflows/supabase-integrity-prioritization.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-prioritization:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Ejecutar pruebas de Etapa 4
+        run: python -m unittest tests/test_supabase_integrity_prioritization.py
+      - name: Validar priorizacion
+        run: python supabase_integrity_prioritization_validate.py

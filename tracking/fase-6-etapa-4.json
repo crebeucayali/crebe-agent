@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "fase": 6,
+  "etapa": 4,
+  "nombre": "Priorizacion y agrupacion causal",
+  "estado": "ETAPA_4_COMPLETADA_PRIORIZACION_INTEGRIDAD",
+  "fecha_inicio": "2026-10-06",
+  "fecha_cierre": "2026-10-06",
+  "zona_horaria": "America/Lima",
+  "fuente": "reports/fase-6-etapa-3-integridad.json",
+  "resultado": {
+    "contratos_auditados": 42,
+    "inconsistencias_confirmadas": 0,
+    "hallazgos_prioritarios": 0,
+    "prioridades": {"P0_CRITICA":0,"P1_ALTA":0,"P2_MEDIA":0,"P3_BAJA":0},
+    "storage_candidatos_revision": 24,
+    "dependencias_seguridad": 1,
+    "supabase_modificado": false,
+    "repositorios_eva_modificados": false
+  },
+  "artefactos": {
+    "reporte": "reports/fase-6-etapa-4-priorizacion.json",
+    "validador": "supabase_integrity_prioritization_validate.py",
+    "pruebas": "tests/test_supabase_integrity_prioritization.py",
+    "workflow": ".github/workflows/supabase-integrity-prioritization.yml",
+    "documentacion": "docs/FASE_6_ETAPA_4_PRIORIZACION_INTEGRIDAD.md"
+  },
+  "criterios_cierre": [
+    "Linea base de Etapa 3 reutilizada sin nueva escritura en Supabase.",
+    "Cero inconsistencias confirmadas producen cero hallazgos priorizados.",
+    "24 objetos Storage conservados como candidatos a revision no destructiva.",
+    "Dependencia de Seguridad separada de la integridad funcional.",
+    "Sin modificaciones en Supabase ni EVA."
+  ],
+  "criterios_cierre_cumplidos": true,
+  "workflow_run_id": 37460867992,
+  "workflow_conclusion": "success",
+  "etapa_5_iniciada": false
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "fase": 6,
+  "etapa": 4,
+  "estado": "ETAPA_4_COMPLETADA_PRIORIZACION_INTEGRIDAD",
+  "fuente": "reports/fase-6-etapa-3-integridad.json",
+  "resumen": {
+    "contratos_auditados": 42,
+    "inconsistencias_confirmadas": 0,
+    "hallazgos_prioritarios": 0,
+    "P0_CRITICA": 0,
+    "P1_ALTA": 0,
+    "P2_MEDIA": 0,
+    "P3_BAJA": 0,
+    "storage_candidatos_revision": 24,
+    "dependencias_seguridad": 1,
+    "supabase_modificado": false,
+    "repositorios_eva_modificados": false
+  },
+  "hallazgos_priorizados": [],
+  "observaciones_no_hallazgo": [
+    {
+      "id": "STORAGE-CANDIDATOS-REVISION",
+      "tipo": "REVISION_NO_DESTRUCTIVA",
+      "cantidad": 24,
+      "prioridad": "NO_ASIGNADA",
+      "accion": "Conservar y revisar trazabilidad antes de cualquier eliminacion.",
+      "es_inconsistencia": false
+    },
+    {
+      "id": "SEC-DEPENDENCY-001",
+      "tipo": "DEPENDENCIA_SEGURIDAD",
+      "tema": "Grants potencialmente mas amplios de lo necesario en galeria_item_imagenes.",
+      "destino": "Fase Seguridad y permisos",
+      "prioridad_integridad": "NO_APLICA",
+      "es_inconsistencia": false
+    }
+  ],
+  "politica": {
+    "no_inventar_hallazgos": true,
+    "cero_inconsistencias_implica_cero_prioridades": true,
+    "storage_no_referenciado_no_se_elimina": true,
+    "seguridad_se_deriva_fuera_de_esta_fase": true,
+    "etapa_5_requiere_justificacion": true
+  }
+}
