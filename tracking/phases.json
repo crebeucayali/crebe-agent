@@ -6,19 +6,14 @@
     "zona_horaria": "America/Lima",
     "fuente": "tracking/fase-4.json",
     "commit_tracking_base": "97590d6430694d167b1c4c70bd7b9065b8b72758",
-    "criterio_cierre": ["Correcciones prioritarias completadas.","Siete normalizaciones tipográficas cerradas.","Correcciones de overflow principales cerradas.","Hallazgos secundarios restantes identificados y registrados.","No continuar una cadena indefinida de correcciones menores."],
     "correcciones_prioritarias": "completadas",
     "hallazgos_totales": 18,
     "corregidos_verificados": 12,
     "tipograficos_corregidos_verificados": 7,
     "pendientes_restantes": 6,
     "pendientes_ids": ["banco-digital-accesible.braille-teoria.layout.overflow","banco-digital-accesible.lsp.assets.404","noti-inclusivos.assets.sindrome-down.404","materiales-educativos-accesibles.generador-braille.layout.overflow","repositorio-accesible.assets.materiales-elaborados.404","accesos-complementarios.contacto.layout.overflow"],
-    "categoria_pendientes": "BACKLOG_FASE_4",
-    "prioridad_backlog": "DIFERIDA_SUJETA_A_REAPERTURA",
-    "criterio_reapertura": {"condiciones":["Rompe una función.","Afecta el uso normal.","Genera un recurso visible faltante relevante.","Produce una barrera de accesibilidad significativa.","Provoca una regresión.","Es reportado por usuarios.","Pasa a ser prioritario por una nueva necesidad institucional."],"requiere_al_menos_una_condicion":true,"no_reabrir_por":"La sola existencia de una anomalía marginal reproducible.","requiere_autorizacion_para_intervenir":true},
     "repositorios_eva_modificados_en_cierre": false,
-    "fase_5_iniciada": true,
-    "limites": "Cierre con deuda técnica documentada. No declara ausencia de hallazgos, corrección del 100 % ni certificación integral de accesibilidad."
+    "fase_5_iniciada": true
   },
   "fase_5": {
     "estado":"MONITOREO_FUNCIONAL_ACTIVO","fecha_inicio":"2026-10-04","zona_horaria":"America/Lima","nombre":"Funcionamiento real de EVA","fuente":"tracking/fase-5.json","etapa_actual":8,
@@ -33,8 +28,8 @@
     "repositorios_eva_modificados":true,"repositorios_eva_modificados_lista":["crebeucayali/noti-inclusivos"],"fase_6_iniciada":true
   },
   "fase_6": {
-    "estado":"EN_CURSO","fecha_inicio":"2026-10-05","zona_horaria":"America/Lima","nombre":"Integridad Supabase y flujos de datos","fuente":"tracking/fase-6.json","prioridad_origen":2,
-    "etapa_actual":7,
+    "estado":"MONITOREO_INTEGRIDAD_ACTIVO","fecha_inicio":"2026-10-05","fecha_activacion_monitoreo":"2026-10-06","zona_horaria":"America/Lima","nombre":"Integridad Supabase y flujos de datos","fuente":"tracking/fase-6.json","prioridad_origen":2,
+    "etapa_actual":8,
     "etapa_1_iniciada":true,"etapa_1_estado":"ETAPA_1_COMPLETADA_INVENTARIO_DATOS",
     "etapa_2_iniciada":true,"etapa_2_estado":"ETAPA_2_COMPLETADA_CONTRATOS_INTEGRIDAD","etapa_2_workflow_run_id":37409150465,
     "etapa_3_iniciada":true,"etapa_3_estado":"ETAPA_3_COMPLETADA_LINEA_BASE_INTEGRIDAD",
@@ -42,11 +37,12 @@
     "etapa_5_iniciada":true,"etapa_5_estado":"ETAPA_5_COMPLETADA_PRUEBAS_CONTROLADAS",
     "etapa_6_iniciada":true,"etapa_6_estado":"ETAPA_6_COMPLETADA_DIAGNOSTICO_INTEGRIDAD",
     "etapa_7_iniciada":true,"etapa_7_estado":"ETAPA_7_COMPLETADA_CORRECCION_CONTROLADA",
-    "etapa_8_iniciada":false,
+    "etapa_8_iniciada":true,"etapa_8_estado":"MONITOREO_INTEGRIDAD_ACTIVO","etapa_8_workflow_run_id":37472251167,
     "hallazgos_prioritarios":0,
     "hallazgos_confirmados_etapa_5":0,
     "hallazgos_que_requieren_correccion":0,
     "intervenciones_etapa_7":0,
+    "alertas_iniciales_etapa_8":0,
     "storage_candidatos_revision":24,
     "dependencias_seguridad":1,
     "repositorios_eva_modificados":false,"supabase_modificado":false

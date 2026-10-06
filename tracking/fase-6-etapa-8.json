@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "fase": 6,
+  "etapa": 8,
+  "nombre": "Verificacion y monitoreo de integridad",
+  "estado": "MONITOREO_INTEGRIDAD_ACTIVO",
+  "fecha_inicio": "2026-10-06",
+  "fecha_activacion": "2026-10-06",
+  "zona_horaria": "America/Lima",
+  "resultado_verificacion": {
+    "estado": "INTEGRO",
+    "alertas_iniciales": 0,
+    "calendario_union_ok": true,
+    "capacitaciones_proyeccion_ok": true,
+    "imagenes_huerfanas": 0,
+    "storage_referencias_faltantes": 0,
+    "storage_candidatos_revision": 24,
+    "visitas_eventos_persistidos": 0,
+    "compartidos_eventos_persistidos": 0,
+    "supabase_modificado": false,
+    "repositorios_eva_modificados": false
+  },
+  "monitor": {
+    "script": "integrity_monitor.py",
+    "pruebas": "tests/test_integrity_monitor.py",
+    "workflow": ".github/workflows/supabase-integrity-monitor.yml",
+    "reporte_base": "reports/fase-6-etapa-8-verificacion.json",
+    "documentacion": "docs/FASE_6_ETAPA_8_MONITOREO_INTEGRIDAD.md",
+    "cron_utc": "0 11 * * *",
+    "hora_america_lima": "06:00",
+    "modo": "PUBLIC_READ_ONLY",
+    "retencion_evidencia_dias": 30,
+    "correccion_automatica": false,
+    "usa_secretos_privilegiados": false,
+    "primera_ejecucion": {
+      "workflow_run_id": 37472251167,
+      "conclusion": "success",
+      "artifact_id": 11417496955,
+      "artifact_digest": "sha256:5388aaf5e3be3ec9f03893203263aded5de5242ba333a70988acfd4e4b49473c",
+      "observado": {
+        "actividades_visibles": 152,
+        "capacitaciones_visibles": 20,
+        "calendario_publico": 172,
+        "capacitaciones_proyectadas": 20,
+        "noticias_publicas": 2,
+        "galeria_publica": 3,
+        "galeria_imagenes_visibles": 13,
+        "repositorio_publico": 21,
+        "storage_referencias_publicas_unicas": 16,
+        "storage_referencias_faltantes": 0
+      },
+      "alertas": 0
+    }
+  },
+  "auditoria_profunda_manual": [
+    "triggers_escritura_visitas_compartidos",
+    "RLS_GRANT",
+    "catalogo_storage_y_candidatos_no_referenciados"
+  ],
+  "criterios_cierre": [
+    "Linea base final verificada sin inconsistencias.",
+    "Monitor publico recurrente implementado sin escrituras.",
+    "Primera ejecucion real del monitor concluida en success y sin alertas.",
+    "Alertas no autorizan correcciones automaticas.",
+    "Visitas/Compartidos, RLS/GRANT y candidatos Storage preservados para auditoria profunda cuando corresponda.",
+    "Sin modificaciones en Supabase ni repositorios EVA."
+  ],
+  "criterios_cierre_cumplidos": true,
+  "workflow_run_id": 37472251167,
+  "workflow_conclusion": "success"
+}

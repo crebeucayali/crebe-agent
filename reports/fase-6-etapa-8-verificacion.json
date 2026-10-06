@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "fase": 6,
+  "etapa": 8,
+  "fecha": "2026-10-06",
+  "zona_horaria": "America/Lima",
+  "estado_verificacion": "INTEGRO",
+  "modo": "READ_ONLY_BASELINE_PLUS_PUBLIC_MONITOR",
+  "verificacion_profunda": {
+    "actividades_visibles": 152,
+    "capacitaciones_visibles": 20,
+    "calendario_publico_total": 172,
+    "capacitaciones_proyectadas": 20,
+    "calendario_union_ok": true,
+    "capacitaciones_proyeccion_ok": true,
+    "noticias_publicas": 2,
+    "galeria_publica": 3,
+    "repositorio_publico": 21,
+    "imagenes_huerfanas": 0,
+    "visitas_eventos_persistidos": 0,
+    "compartidos_eventos_persistidos": 0,
+    "visitas_negativas": 0,
+    "compartidos_negativos": 0,
+    "storage_objetos": 44,
+    "storage_referenciados_unicos": 20,
+    "storage_referencias_faltantes": 0,
+    "storage_candidatos_revision": 24
+  },
+  "monitor_automatico": {
+    "frecuencia": "DAILY_11_00_UTC_06_00_AMERICA_LIMA",
+    "modo": "PUBLIC_READ_ONLY",
+    "corrige_automaticamente": false,
+    "usa_secretos_privilegiados": false,
+    "retencion_evidencia_dias": 30,
+    "cubre": [
+      "calendario_union_fuentes",
+      "capacitaciones_proyeccion",
+      "noticias_publicas",
+      "galeria_padre_hijas_visibles",
+      "repositorio_publico",
+      "referencias_storage_publicas"
+    ],
+    "requiere_auditoria_profunda_manual": [
+      "triggers_escritura_visitas_compartidos",
+      "RLS_GRANT",
+      "catalogo_storage_y_24_candidatos_no_referenciados"
+    ]
+  },
+  "alertas_iniciales": 0,
+  "supabase_modificado": false,
+  "repositorios_eva_modificados": false
+}
