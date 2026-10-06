@@ -1,0 +1,41 @@
+name: Integridad Supabase - Fase 6 Etapa 3
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'reports/fase-6-etapa-3-integridad.json'
+      - 'supabase_integrity_audit_validate.py'
+      - 'tests/test_supabase_integrity_audit.py'
+      - 'docs/FASE_6_ETAPA_3_AUDITORIA_INTEGRIDAD.md'
+      - 'tracking/fase-6-etapa-3.json'
+      - 'tracking/fase-6.json'
+      - 'tracking/phases.json'
+      - '.github/workflows/supabase-integrity-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'reports/fase-6-etapa-3-integridad.json'
+      - 'supabase_integrity_audit_validate.py'
+      - 'tests/test_supabase_integrity_audit.py'
+      - '.github/workflows/supabase-integrity-audit.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Ejecutar pruebas de Etapa 3
+        run: python -m unittest tests/test_supabase_integrity_audit.py
+      - name: Validar linea base de integridad
+        run: python supabase_integrity_audit_validate.py
