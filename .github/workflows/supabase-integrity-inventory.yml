@@ -1,0 +1,42 @@
+name: Integridad Supabase - Fase 6 Etapa 1
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'baselines/fase-6-etapa-1-inventario.json'
+      - 'supabase_integrity_inventory_validate.py'
+      - 'tests/test_supabase_integrity_inventory.py'
+      - '.github/workflows/supabase-integrity-inventory.yml'
+      - 'tracking/fase-6-etapa-1.json'
+      - 'tracking/fase-6.json'
+  push:
+    branches: [main]
+    paths:
+      - 'baselines/fase-6-etapa-1-inventario.json'
+      - 'supabase_integrity_inventory_validate.py'
+      - 'tests/test_supabase_integrity_inventory.py'
+      - '.github/workflows/supabase-integrity-inventory.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validar inventario de datos y dependencias
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Preparar Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Ejecutar pruebas de la Etapa 1
+        run: python -m unittest tests.test_supabase_integrity_inventory -v
+      - name: Validar artefacto comprometido
+        run: python supabase_integrity_inventory_validate.py
