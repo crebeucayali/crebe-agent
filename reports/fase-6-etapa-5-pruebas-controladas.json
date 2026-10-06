@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "fase": 6,
+  "etapa": 5,
+  "estado": "ETAPA_5_COMPLETADA_PRUEBAS_CONTROLADAS",
+  "modo": "CONTROLLED_TRANSACTION_ROLLBACK",
+  "project_id": "dteimbhwtzghhsijeeld",
+  "fecha": "2026-10-06",
+  "zona_horaria": "America/Lima",
+  "modulos_probados": ["calendario","capacitaciones","noticias","galeria","repositorio_accesible","visitas","compartidos"],
+  "storage_escritura": "NO_EJECUTADA_POR_NO_SER_NECESARIA",
+  "resultado_final": {
+    "calendario_insert_update_ok": true,
+    "capacitacion_insert_update_ok": true,
+    "noticia_insert_update_ok": true,
+    "galeria_padre_ok": true,
+    "galeria_hija_ok": true,
+    "galeria_on_delete_cascade_ok": true,
+    "repositorio_insert_update_ok": true,
+    "visitas_global_trigger_ok": true,
+    "visitas_modulo_trigger_ok": true,
+    "compartidos_trigger_ok": true,
+    "visitas_eventos_efimeros_ok": true,
+    "compartidos_eventos_efimeros_ok": true
+  },
+  "guardrails_observados": [
+    "Los IDs son GENERATED ALWAYS y no aceptan valores manuales.",
+    "Calendario exige que titulo coincida con la primera linea de contenido_lineas.",
+    "nueva_sesion incrementa __eva__; nuevo_modulo incrementa el modulo concreto."
+  ],
+  "rollback": {
+    "ejecutado": true,
+    "residuos_calendario": 0,
+    "residuos_capacitaciones": 0,
+    "residuos_noticias": 0,
+    "residuos_galeria": 0,
+    "residuos_galeria_imagenes": 0,
+    "residuos_repositorio": 0,
+    "visitas_eventos_persistidos": 0,
+    "compartidos_eventos_persistidos": 0
+  },
+  "limitaciones": [
+    "La prueba valida mecanica de escritura, constraints, relaciones y triggers a nivel de base de datos.",
+    "No valida aun el recorrido interactivo completo Panel+AAL2+Data API desde navegador.",
+    "No se realizaron escrituras en Storage porque no existia un hallazgo que justificara crear o borrar objetos reales."
+  ],
+  "supabase_modificado_durablemente": false,
+  "repositorios_eva_modificados": false,
+  "hallazgos_confirmados": 0,
+  "etapa_6_requiere_diagnostico": false
+}
