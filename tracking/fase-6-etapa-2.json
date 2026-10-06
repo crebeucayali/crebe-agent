@@ -3,8 +3,9 @@
   "fase": 6,
   "etapa": 2,
   "nombre": "Contratos e invariantes por modulo",
-  "estado": "ETAPA_2_EN_VALIDACION",
+  "estado": "ETAPA_2_COMPLETADA_CONTRATOS_INTEGRIDAD",
   "fecha_inicio": "2026-10-05",
+  "fecha_cierre": "2026-10-05",
   "zona_horaria": "America/Lima",
   "modo": "READ_ONLY_DEFINITION",
   "fuente_etapa_1": {
@@ -47,8 +48,8 @@
     "Escritura y correccion automatica deshabilitadas.",
     "Pruebas y validador exitosos."
   ],
-  "criterios_cierre_cumplidos": false,
-  "workflow_run_id": null,
-  "workflow_conclusion": null,
+  "criterios_cierre_cumplidos": true,
+  "workflow_run_id": 37409150465,
+  "workflow_conclusion": "success",
   "etapa_3_iniciada": false
 }
