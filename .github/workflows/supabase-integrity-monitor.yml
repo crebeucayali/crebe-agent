@@ -1,0 +1,54 @@
+name: Integridad Supabase - Fase 6 Etapa 8
+
+on:
+  schedule:
+    - cron: '0 11 * * *'
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'integrity_monitor.py'
+      - 'tests/test_integrity_monitor.py'
+      - '.github/workflows/supabase-integrity-monitor.yml'
+      - 'tracking/fase-6-etapa-8.json'
+      - 'reports/fase-6-etapa-8-verificacion.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fase-6-integrity-monitor
+  cancel-in-progress: false
+
+jobs:
+  verify-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Preparar Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Ejecutar pruebas unitarias
+        run: python -m unittest -q tests/test_integrity_monitor.py
+      - name: Verificar integridad publica
+        run: python integrity_monitor.py
+      - name: Resumen de ejecución
+        if: always()
+        run: |
+          echo '## Monitor de integridad EVA' >> "$GITHUB_STEP_SUMMARY"
+          if [ -f reports/runtime/fase-6-integrity-monitor.json ]; then
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            cat reports/runtime/fase-6-integrity-monitor.json >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Conservar evidencia
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: fase-6-integrity-monitor-${{ github.run_id }}
+          path: reports/runtime/fase-6-integrity-monitor.json
+          if-no-files-found: warn
+          retention-days: 30
