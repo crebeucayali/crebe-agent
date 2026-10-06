@@ -31,7 +31,26 @@
     "modo": "PUBLIC_READ_ONLY",
     "retencion_evidencia_dias": 30,
     "correccion_automatica": false,
-    "usa_secretos_privilegiados": false
+    "usa_secretos_privilegiados": false,
+    "primera_ejecucion": {
+      "workflow_run_id": 37472251167,
+      "conclusion": "success",
+      "artifact_id": 11417496955,
+      "artifact_digest": "sha256:5388aaf5e3be3ec9f03893203263aded5de5242ba333a70988acfd4e4b49473c",
+      "observado": {
+        "actividades_visibles": 152,
+        "capacitaciones_visibles": 20,
+        "calendario_publico": 172,
+        "capacitaciones_proyectadas": 20,
+        "noticias_publicas": 2,
+        "galeria_publica": 3,
+        "galeria_imagenes_visibles": 13,
+        "repositorio_publico": 21,
+        "storage_referencias_publicas_unicas": 16,
+        "storage_referencias_faltantes": 0
+      },
+      "alertas": 0
+    }
   },
   "auditoria_profunda_manual": [
     "triggers_escritura_visitas_compartidos",
@@ -41,11 +60,12 @@
   "criterios_cierre": [
     "Linea base final verificada sin inconsistencias.",
     "Monitor publico recurrente implementado sin escrituras.",
+    "Primera ejecucion real del monitor concluida en success y sin alertas.",
     "Alertas no autorizan correcciones automaticas.",
     "Visitas/Compartidos, RLS/GRANT y candidatos Storage preservados para auditoria profunda cuando corresponda.",
     "Sin modificaciones en Supabase ni repositorios EVA."
   ],
   "criterios_cierre_cumplidos": true,
-  "workflow_run_id": null,
-  "workflow_conclusion": null
+  "workflow_run_id": 37472251167,
+  "workflow_conclusion": "success"
 }
