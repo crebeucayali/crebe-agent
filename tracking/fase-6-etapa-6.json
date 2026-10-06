@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "fase": 6,
+  "etapa": 6,
+  "nombre": "Diagnostico tecnico",
+  "estado": "ETAPA_6_COMPLETADA_DIAGNOSTICO_INTEGRIDAD",
+  "fecha_inicio": "2026-10-06",
+  "fecha_cierre": "2026-10-06",
+  "zona_horaria": "America/Lima",
+  "resultado": {
+    "inconsistencias_confirmadas": 0,
+    "hallazgos_diagnosticables": 0,
+    "hallazgos_que_requieren_correccion": 0,
+    "storage_candidatos_revision": 24,
+    "dependencias_seguridad": 1,
+    "correccion_autorizada": false,
+    "supabase_modificado": false,
+    "repositorios_eva_modificados": false
+  },
+  "artefactos": {
+    "reporte": "reports/fase-6-etapa-6-diagnostico.json",
+    "validador": "supabase_integrity_diagnosis_validate.py",
+    "pruebas": "tests/test_supabase_integrity_diagnosis.py",
+    "workflow": ".github/workflows/supabase-integrity-diagnosis.yml",
+    "documentacion": "docs/FASE_6_ETAPA_6_DIAGNOSTICO_INTEGRIDAD.md"
+  },
+  "criterios_cierre": [
+    "Evidencia de Etapas 3 a 5 consolidada.",
+    "Cero inconsistencias confirmadas producen cero diagnosticos correctivos.",
+    "24 candidatos Storage separados de fallos confirmados.",
+    "Dependencia de Seguridad derivada fuera de la correccion de integridad.",
+    "Sin modificaciones en Supabase ni EVA."
+  ],
+  "criterios_cierre_cumplidos": true,
+  "workflow_run_id": null,
+  "workflow_conclusion": null,
+  "etapa_7_iniciada": false,
+  "etapa_7_requerida_por_hallazgos_actuales": false
+}
