@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "fase": 7,
+  "etapa": 1,
+  "nombre": "Inventario de superficie de seguridad",
+  "estado": "ETAPA_1_COMPLETADA_INVENTARIO_SEGURIDAD",
+  "fecha_inicio": "2026-10-06",
+  "fecha_cierre": "2026-10-06",
+  "zona_horaria": "America/Lima",
+  "modo": "READ_ONLY",
+  "reporte": "reports/fase-7-etapa-1-inventario-seguridad.json",
+  "documentacion": "docs/FASE_7_ETAPA_1_INVENTARIO_SEGURIDAD.md",
+  "resultado": {
+    "schemas_relevantes": 4,
+    "objetos_catalogados": 21,
+    "politicas_rls_catalogadas": 36,
+    "funciones_private_catalogadas": 24,
+    "funciones_private_security_definer": 19,
+    "superficies_a_contratar": 6,
+    "service_role_literal_detectado": false,
+    "sb_secret_literal_detectado": false,
+    "security_advisor_warnings": 1,
+    "security_advisor_info_findings": 2
+  },
+  "criterios_cierre_cumplidos": true,
+  "etapa_2_iniciada": false,
+  "supabase_modificado": false,
+  "repositorios_eva_modificados": false,
+  "workflow_run_id": null,
+  "workflow_conclusion": null
+}
