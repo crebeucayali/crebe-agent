@@ -17,19 +17,32 @@ def validate() -> list[str]:
     errors: list[str] = []
     if not TRACKING.exists() or not SCOPE.exists() or not DOC.exists():
         return ["Faltan artefactos obligatorios de Fase 7"]
+
     tracking = load(TRACKING)
     scope = load(SCOPE)
-    if tracking.get("fase") != 7 or tracking.get("estado") != "FASE_7_PREPARADA":
-        errors.append("Estado inicial de Fase 7 invalido")
+
+    if tracking.get("fase") != 7:
+        errors.append("Numero de Fase 7 invalido")
+
+    allowed_phase_states = {"FASE_7_PREPARADA", "EN_CURSO", "MONITOREO_SEGURIDAD_ACTIVO"}
+    if tracking.get("estado") not in allowed_phase_states:
+        errors.append("Estado de Fase 7 invalido")
+
     etapas = tracking.get("etapas", [])
     if len(etapas) != 8 or [e.get("numero") for e in etapas] != list(range(1, 9)):
         errors.append("La Fase 7 debe contener exactamente 8 etapas ordenadas")
-    if any(e.get("estado") != "NO_INICIADA" for e in etapas):
-        errors.append("Ninguna etapa debe iniciarse durante la preparacion")
-    if tracking.get("etapa_1_iniciada") is not False:
-        errors.append("Etapa 1 debe permanecer sin iniciar")
-    if tracking.get("repositorios_eva_modificados") is not False or tracking.get("supabase_modificado") is not False:
-        errors.append("La preparacion no puede modificar EVA ni Supabase")
+
+    # Las condiciones de 'ninguna etapa iniciada' solo pertenecen al instante
+    # FASE_7_PREPARADA. Este validador permanece activo durante toda la fase y
+    # no debe bloquear un avance legitimo de etapas posteriores.
+    if tracking.get("estado") == "FASE_7_PREPARADA":
+        if any(e.get("estado") != "NO_INICIADA" for e in etapas):
+            errors.append("La fase preparada no debe tener etapas iniciadas")
+        if tracking.get("etapa_1_iniciada") is not False:
+            errors.append("Etapa 1 debe permanecer sin iniciar mientras la fase esta preparada")
+        if tracking.get("repositorios_eva_modificados") is not False or tracking.get("supabase_modificado") is not False:
+            errors.append("La preparacion no puede modificar EVA ni Supabase")
+
     rules = scope.get("reglas", {})
     required_true = [
         "solo_lectura_hasta_diagnostico",
@@ -44,17 +57,20 @@ def validate() -> list[str]:
     for key in required_true:
         if rules.get(key) is not True:
             errors.append(f"Guardrail requerido ausente: {key}")
+
     if rules.get("correccion_automatica") is not False:
         errors.append("La correccion automatica debe permanecer deshabilitada")
     if len(scope.get("repositorios_eva", [])) != 8:
         errors.append("El alcance debe incluir exactamente 8 repositorios EVA")
     if scope.get("supabase_project_id") != "dteimbhwtzghhsijeeld":
         errors.append("Project ID de Supabase inesperado")
+
     deps = scope.get("dependencias_heredadas", [])
     if not any(d.get("id") == "SEC-DEPENDENCY-001" for d in deps):
         errors.append("Debe heredarse SEC-DEPENDENCY-001")
     if tracking.get("condicion_temporal", {}).get("fecha") != "2026-10-30":
         errors.append("Falta condicion temporal Data API del 2026-10-30")
+
     return errors
 
 
@@ -64,4 +80,4 @@ if __name__ == "__main__":
         for item in problems:
             print(f"ERROR: {item}")
         raise SystemExit(1)
-    print("FASE_7_PREPARADA: validacion correcta")
+    print("FASE_7: estructura y guardrails validos")
