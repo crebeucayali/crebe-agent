@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "fase": 7,
+  "nombre": "Seguridad, permisos y exposicion de datos",
+  "objetivo": "Auditar y reducir riesgos de exposicion, privilegios excesivos y configuraciones inseguras sin romper los flujos funcionales de EVA.",
+  "repositorios_eva": [
+    "crebeucayali/crebeucayali.github.io",
+    "crebeucayali/accesos-complementarios",
+    "crebeucayali/capacitaciones",
+    "crebeucayali/banco-digital-accesible",
+    "crebeucayali/materiales-educativos-accesibles",
+    "crebeucayali/noti-inclusivos",
+    "crebeucayali/repositorio-accesible",
+    "crebeucayali/DUA-3.0"
+  ],
+  "supabase_project_id": "dteimbhwtzghhsijeeld",
+  "frentes": [
+    "secretos_y_claves",
+    "RLS_y_politicas",
+    "GRANT_y_minimo_privilegio",
+    "Data_API_y_exposicion",
+    "Storage_y_politicas",
+    "funciones_RPC_y_security_definer",
+    "autenticacion_admin_AAL2",
+    "rutas_y_superficie_administrativa",
+    "dependencias_y_servicios_externos"
+  ],
+  "dependencias_heredadas": [
+    {"id":"SEC-DEPENDENCY-001","origen":"Fase 6","descripcion":"Revisar grants potencialmente mas amplios de lo necesario en galeria_item_imagenes."}
+  ],
+  "reglas": {
+    "solo_lectura_hasta_diagnostico": true,
+    "no_imprimir_secretos": true,
+    "enmascarar_evidencia_sensible": true,
+    "publicable_key_no_es_secreto_por_si_sola": true,
+    "service_role_o_secretos_privados_son_criticos": true,
+    "no_relajar_RLS_para_resolver_fallos": true,
+    "no_cambiar_permisos_sin_prueba_de_regresion": true,
+    "una_causa_un_hallazgo": true,
+    "correccion_automatica": false
+  },
+  "prioridad_riesgo": ["CRITICO","ALTO","MEDIO","BAJO"]
+}
