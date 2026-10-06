@@ -1,0 +1,34 @@
+name: Seguridad EVA - Fase 7 Etapa 1
+
+on:
+  pull_request:
+    paths:
+      - 'reports/fase-7-etapa-1-inventario-seguridad.json'
+      - 'docs/FASE_7_ETAPA_1_INVENTARIO_SEGURIDAD.md'
+      - 'tracking/fase-7-etapa-1.json'
+      - 'security_inventory_validate.py'
+      - 'tests/test_security_inventory.py'
+      - '.github/workflows/security-inventory.yml'
+      - 'tracking/fase-7.json'
+      - 'tracking/phases.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-security-inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Preparar Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Ejecutar pruebas
+        run: python -m unittest -q tests/test_security_inventory.py
+      - name: Validar inventario
+        run: python security_inventory_validate.py
