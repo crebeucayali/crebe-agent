@@ -1,0 +1,308 @@
+{
+  "schema_version": 1,
+  "phase": 6,
+  "stage": 1,
+  "name": "Inventario de datos y dependencias",
+  "status": "COMPLETO",
+  "observed_date": "2026-10-05",
+  "timezone": "America/Lima",
+  "mode": "READ_ONLY",
+  "project": {
+    "id": "dteimbhwtzghhsijeeld",
+    "name": "crebe Project",
+    "status": "ACTIVE_HEALTHY",
+    "postgres_major": 17
+  },
+  "objects": [
+    {
+      "name": "public.calendario_actividades",
+      "type": "table",
+      "columns": 13,
+      "rows": 154,
+      "visible_rows": 152,
+      "non_visible_rows": 2,
+      "rls_enabled": true,
+      "rls_forced": true,
+      "policy_count": 4,
+      "anon_select": true,
+      "authenticated_select": true,
+      "authenticated_insert": true,
+      "authenticated_update": true,
+      "authenticated_delete": false,
+      "key_fields": ["id", "fecha", "orden", "titulo", "contenido_lineas", "estado", "origen", "visible", "imagen_url", "imagen_alt"]
+    },
+    {
+      "name": "public.capacitaciones_sesiones",
+      "type": "table",
+      "columns": 21,
+      "rows": 20,
+      "visible_rows": 20,
+      "non_visible_rows": 0,
+      "rls_enabled": true,
+      "rls_forced": true,
+      "policy_count": 4,
+      "anon_select": true,
+      "authenticated_select": true,
+      "authenticated_insert": true,
+      "authenticated_update": true,
+      "authenticated_delete": false,
+      "key_fields": ["id", "jornada", "numero_sesion", "fecha", "titulo", "tema", "estado", "visible", "recursos_adicionales"]
+    },
+    {
+      "name": "public.calendario_publico",
+      "type": "view",
+      "rows": 172,
+      "security_invoker": true,
+      "anon_select": true,
+      "authenticated_select": true,
+      "sources": [
+        {"object": "public.calendario_actividades", "filter": "visible=true", "observed_rows": 152},
+        {"object": "public.capacitaciones_sesiones", "filter": "visible=true", "observed_rows": 20}
+      ],
+      "projection_rule": "UNION ALL de actividades visibles y capacitaciones visibles"
+    },
+    {
+      "name": "public.noticias_destacadas",
+      "type": "table",
+      "columns": 12,
+      "rows": 5,
+      "public_rows": 2,
+      "non_public_rows": 3,
+      "public_rule": "visible=true AND estado_publicacion='publicado'",
+      "rls_enabled": true,
+      "rls_forced": true,
+      "policy_count": 5,
+      "anon_select": true,
+      "authenticated_select": true,
+      "authenticated_insert": true,
+      "authenticated_update": true,
+      "authenticated_delete": true,
+      "storage_fields": ["imagen_url"]
+    },
+    {
+      "name": "public.galeria_items",
+      "type": "table",
+      "columns": 13,
+      "rows": 3,
+      "public_rows": 3,
+      "non_public_rows": 0,
+      "public_rule": "visible=true AND publicacion_autorizada=true AND estado_publicacion='publicado'",
+      "rls_enabled": true,
+      "rls_forced": true,
+      "policy_count": 5,
+      "anon_select": true,
+      "authenticated_select": true,
+      "authenticated_insert": true,
+      "authenticated_update": true,
+      "authenticated_delete": true,
+      "storage_fields": ["imagen_url"]
+    },
+    {
+      "name": "public.galeria_item_imagenes",
+      "type": "table",
+      "columns": 6,
+      "rows": 13,
+      "rls_enabled": true,
+      "rls_forced": true,
+      "policy_count": 5,
+      "anon_select": true,
+      "authenticated_select": true,
+      "authenticated_insert": true,
+      "authenticated_update": true,
+      "authenticated_delete": true,
+      "foreign_keys": [
+        {"column": "galeria_item_id", "references": "public.galeria_items.id"}
+      ],
+      "storage_fields": ["imagen_url"]
+    },
+    {
+      "name": "public.repositorio_recursos",
+      "type": "table",
+      "columns": 12,
+      "rows": 21,
+      "public_rows": 21,
+      "non_public_rows": 0,
+      "public_rule": "visible=true AND estado_publicacion='publicado'",
+      "rls_enabled": true,
+      "rls_forced": true,
+      "policy_count": 5,
+      "anon_select": true,
+      "authenticated_select": true,
+      "authenticated_insert": true,
+      "authenticated_update": true,
+      "authenticated_delete": true,
+      "storage_fields": ["imagen_url"]
+    },
+    {
+      "name": "public.eva_visitas_eventos",
+      "type": "table_endpoint",
+      "columns": 5,
+      "rows": 0,
+      "rls_enabled": true,
+      "rls_forced": true,
+      "policy_count": 1,
+      "anon_select": false,
+      "authenticated_select": false,
+      "anon_insert": true,
+      "authenticated_insert": true,
+      "trigger": "private.registrar_visita_eva_evento"
+    },
+    {
+      "name": "public.eva_visitas_diarias",
+      "type": "aggregate_table",
+      "columns": 4,
+      "rows": 57,
+      "primary_key": ["fecha", "modulo"],
+      "rls_enabled": true,
+      "rls_forced": true,
+      "policy_count": 1,
+      "anon_select": false,
+      "authenticated_select": true
+    },
+    {
+      "name": "public.eva_compartidos_eventos",
+      "type": "table_endpoint",
+      "columns": 4,
+      "rows": 0,
+      "rls_enabled": true,
+      "rls_forced": false,
+      "policy_count": 1,
+      "anon_select": false,
+      "authenticated_select": false,
+      "anon_insert": true,
+      "authenticated_insert": true,
+      "trigger": "private.registrar_compartir_eva_evento"
+    },
+    {
+      "name": "public.eva_compartidos_diarios",
+      "type": "aggregate_table",
+      "columns": 5,
+      "rows": 9,
+      "primary_key": ["fecha", "modulo", "pagina"],
+      "rls_enabled": true,
+      "rls_forced": false,
+      "policy_count": 1,
+      "anon_select": false,
+      "authenticated_select": true
+    },
+    {
+      "name": "storage:eva-publico",
+      "type": "storage_bucket",
+      "public": true,
+      "file_size_limit_bytes": 5242880,
+      "allowed_mime_types": ["image/webp", "image/jpeg", "image/png"],
+      "objects": 44,
+      "prefixes": {
+        "calendario": 4,
+        "capacitaciones": 3,
+        "galeria": 30,
+        "noticias": 6,
+        "repositorio": 1
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "calendar_union",
+      "from": ["public.calendario_actividades", "public.capacitaciones_sesiones"],
+      "to": "public.calendario_publico",
+      "kind": "view_projection",
+      "observed_equation": "152 + 20 = 172"
+    },
+    {
+      "id": "gallery_parent_child",
+      "from": "public.galeria_item_imagenes.galeria_item_id",
+      "to": "public.galeria_items.id",
+      "kind": "foreign_key"
+    },
+    {
+      "id": "visit_event_aggregate",
+      "from": "public.eva_visitas_eventos",
+      "to": "public.eva_visitas_diarias",
+      "kind": "trigger_aggregate",
+      "function": "private.registrar_visita_eva_evento"
+    },
+    {
+      "id": "share_event_aggregate",
+      "from": "public.eva_compartidos_eventos",
+      "to": "public.eva_compartidos_diarios",
+      "kind": "trigger_aggregate",
+      "function": "private.registrar_compartir_eva_evento"
+    }
+  ],
+  "relevant_triggers": [
+    "public.calendario_actividades:calendario_actualizar_updated_at",
+    "public.calendario_actividades:calendario_auditoria_admin",
+    "public.calendario_actividades:calendario_validar_contenido_lineas",
+    "public.capacitaciones_sesiones:capacitaciones_auditoria_admin",
+    "public.capacitaciones_sesiones:capacitaciones_sesiones_actualizar_fecha",
+    "public.capacitaciones_sesiones:capacitaciones_validar_recursos_adicionales",
+    "public.noticias_destacadas:noticias_destacadas_actualizar_updated_at",
+    "public.noticias_destacadas:noticias_destacadas_auditoria_admin",
+    "public.galeria_items:galeria_actualizar_updated_at",
+    "public.galeria_items:galeria_auditoria_admin",
+    "public.galeria_item_imagenes:galeria_imagenes_auditoria_admin",
+    "public.repositorio_recursos:repositorio_actualizar_updated_at",
+    "public.repositorio_recursos:repositorio_auditoria_admin",
+    "public.eva_visitas_eventos:eva_visitas_eventos_registrar",
+    "public.eva_compartidos_eventos:eva_compartidos_eventos_registrar"
+  ],
+  "relevant_routines": [
+    "public.admin_guardar_actividad_calendario",
+    "private.cambiar_publicacion_contenido",
+    "private.registrar_actividad_calendario",
+    "private.registrar_auditoria_admin",
+    "private.registrar_visita_eva_evento",
+    "private.registrar_compartir_eva_evento",
+    "public.estadisticas_visitas_eva",
+    "public.estadisticas_visitas_eva_periodo",
+    "public.estadisticas_compartidos_eva",
+    "public.estadisticas_compartidos_eva_periodo"
+  ],
+  "frontend_consumers": [
+    {
+      "module": "calendario",
+      "repository": "crebeucayali/accesos-complementarios",
+      "path": "recursos/calendario-supabase.js",
+      "reads": ["public.calendario_publico"]
+    },
+    {
+      "module": "capacitaciones",
+      "repository": "crebeucayali/capacitaciones",
+      "path": "supabase-publico.js",
+      "reads": ["public.capacitaciones_sesiones"]
+    },
+    {
+      "module": "noticias",
+      "repository": "crebeucayali/crebeucayali.github.io",
+      "path": "main.js",
+      "reads": ["public.noticias_destacadas"]
+    },
+    {
+      "module": "galeria",
+      "repository": "crebeucayali/accesos-complementarios",
+      "path": "recursos/galeria-supabase.js",
+      "reads": ["public.galeria_items", "public.galeria_item_imagenes"]
+    },
+    {
+      "module": "repositorio_accesible",
+      "repository": "crebeucayali/repositorio-accesible",
+      "path": "repositorio-supabase.js",
+      "reads": ["public.repositorio_recursos"]
+    },
+    {
+      "module": "administracion",
+      "repository": "crebeucayali/accesos-complementarios",
+      "path": "admin/admin.js",
+      "uses": ["public.calendario_actividades", "public.capacitaciones_sesiones", "public.noticias_destacadas", "public.galeria_items", "public.galeria_item_imagenes", "public.repositorio_recursos"]
+    }
+  ],
+  "stage_1_observations": [
+    "calendario_publico es una vista y no una segunda fuente de escritura.",
+    "Las capacitaciones visibles participan directamente en calendario_publico; no deben duplicarse manualmente en calendario_actividades.",
+    "Las tablas *_eventos de visitas y compartidos tienen cero filas porque su diseño observado usa triggers de agregacion y no persistencia individual.",
+    "Storage eva-publico es una dependencia compartida por cinco prefijos funcionales.",
+    "Los conteos son fotografia de inventario y no constituyen por si mismos contratos de integridad.",
+    "No se ejecutaron INSERT, UPDATE, DELETE, DDL ni cambios de politicas durante esta etapa."
+  ]
+}
