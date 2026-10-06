@@ -81,14 +81,16 @@
     "fase_6_iniciada": true
   },
   "fase_6": {
-    "estado": "FASE_6_PREPARADA",
+    "estado": "EN_CURSO",
     "fecha_inicio": "2026-10-05",
     "zona_horaria": "America/Lima",
     "nombre": "Integridad Supabase y flujos de datos",
     "fuente": "tracking/fase-6.json",
     "prioridad_origen": 2,
-    "etapa_actual": 0,
-    "etapa_1_iniciada": false,
+    "etapa_actual": 1,
+    "etapa_1_iniciada": true,
+    "etapa_1_estado": "ETAPA_1_COMPLETADA_INVENTARIO_DATOS",
+    "etapa_2_iniciada": false,
     "repositorios_eva_modificados": false,
     "supabase_modificado": false
   }
