@@ -1,0 +1,41 @@
+name: Integridad Supabase - Fase 6 Etapa 5
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'reports/fase-6-etapa-5-pruebas-controladas.json'
+      - 'supabase_integrity_controlled_writes_validate.py'
+      - 'tests/test_supabase_integrity_controlled_writes.py'
+      - 'docs/FASE_6_ETAPA_5_PRUEBAS_CONTROLADAS.md'
+      - 'tracking/fase-6-etapa-5.json'
+      - 'tracking/fase-6.json'
+      - 'tracking/phases.json'
+      - '.github/workflows/supabase-integrity-controlled-writes.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'reports/fase-6-etapa-5-pruebas-controladas.json'
+      - 'supabase_integrity_controlled_writes_validate.py'
+      - 'tests/test_supabase_integrity_controlled_writes.py'
+      - '.github/workflows/supabase-integrity-controlled-writes.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-controlled-writes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Ejecutar pruebas de Etapa 5
+        run: python -m unittest tests/test_supabase_integrity_controlled_writes.py
+      - name: Validar evidencia comprometida
+        run: python supabase_integrity_controlled_writes_validate.py
