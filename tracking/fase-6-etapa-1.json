@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "fase": 6,
+  "etapa": 1,
+  "nombre": "Inventario de datos y dependencias",
+  "estado": "ETAPA_1_COMPLETADA_INVENTARIO_DATOS",
+  "fecha_inicio": "2026-10-05",
+  "fecha_cierre": "2026-10-05",
+  "zona_horaria": "America/Lima",
+  "modo": "READ_ONLY",
+  "fuente": {
+    "supabase_project_id": "dteimbhwtzghhsijeeld",
+    "supabase_project_name": "crebe Project",
+    "repositorios_github_consultados": [
+      "crebeucayali/accesos-complementarios",
+      "crebeucayali/capacitaciones",
+      "crebeucayali/crebeucayali.github.io",
+      "crebeucayali/repositorio-accesible"
+    ]
+  },
+  "resultado": {
+    "objetos_funcionales_inventariados": 12,
+    "tablas_public": 10,
+    "vistas_public": 1,
+    "buckets_storage": 1,
+    "objetos_storage_observados": 44,
+    "relaciones_clave": 4,
+    "consumidores_frontend_documentados": 6,
+    "calendario": {
+      "actividades_total": 154,
+      "actividades_visibles": 152,
+      "capacitaciones_total": 20,
+      "capacitaciones_visibles": 20,
+      "vista_publica": 172,
+      "proyeccion_observada_consistente": true
+    },
+    "noticias": {"total": 5, "publicas": 2},
+    "galeria": {"actividades": 3, "imagenes": 13, "fk_padre_hija": true},
+    "repositorio": {"total": 21, "publicos": 21},
+    "visitas": {"eventos_persistidos": 0, "agregados_diarios": 57},
+    "compartidos": {"eventos_persistidos": 0, "agregados_diarios": 9},
+    "supabase_modificado": false,
+    "repositorios_eva_modificados": false
+  },
+  "artefactos": {
+    "inventario": "baselines/fase-6-etapa-1-inventario.json",
+    "validador": "supabase_integrity_inventory_validate.py",
+    "pruebas": "tests/test_supabase_integrity_inventory.py",
+    "workflow": ".github/workflows/supabase-integrity-inventory.yml",
+    "documentacion": "docs/FASE_6_ETAPA_1_INVENTARIO_DATOS.md"
+  },
+  "criterios_cierre": [
+    "Objetos funcionales principales representados.",
+    "Dependencia Calendario-Capacitaciones documentada.",
+    "Relacion Galeria padre-hijas documentada.",
+    "Flujos eventos-agregados de visitas y compartidos documentados.",
+    "Dependencias Storage documentadas.",
+    "Consumidores frontend y administrativos relevantes identificados.",
+    "Inventario validable sin secretos.",
+    "Sin escrituras en Supabase y sin cambios en EVA."
+  ],
+  "criterios_cierre_cumplidos": true,
+  "etapa_2_iniciada": false
+}
