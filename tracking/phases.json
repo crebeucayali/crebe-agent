@@ -37,7 +37,7 @@
     "etapa_5_iniciada":true,"etapa_5_estado":"ETAPA_5_COMPLETADA_PRUEBAS_CONTROLADAS",
     "etapa_6_iniciada":true,"etapa_6_estado":"ETAPA_6_COMPLETADA_DIAGNOSTICO_INTEGRIDAD",
     "etapa_7_iniciada":true,"etapa_7_estado":"ETAPA_7_COMPLETADA_CORRECCION_CONTROLADA",
-    "etapa_8_iniciada":true,"etapa_8_estado":"MONITOREO_INTEGRIDAD_ACTIVO",
+    "etapa_8_iniciada":true,"etapa_8_estado":"MONITOREO_INTEGRIDAD_ACTIVO","etapa_8_workflow_run_id":37472251167,
     "hallazgos_prioritarios":0,
     "hallazgos_confirmados_etapa_5":0,
     "hallazgos_que_requieren_correccion":0,
