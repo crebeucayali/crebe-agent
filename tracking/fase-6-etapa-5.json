@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "fase": 6,
+  "etapa": 5,
+  "nombre": "Pruebas controladas de escritura",
+  "estado": "ETAPA_5_COMPLETADA_PRUEBAS_CONTROLADAS",
+  "fecha_inicio": "2026-10-06",
+  "fecha_cierre": "2026-10-06",
+  "zona_horaria": "America/Lima",
+  "modo": "CONTROLLED_TRANSACTION_ROLLBACK",
+  "resultado": {
+    "modulos_probados": 7,
+    "checks_finales_exitosos": 12,
+    "hallazgos_confirmados": 0,
+    "storage_escritura_ejecutada": false,
+    "rollback_ejecutado": true,
+    "residuos_post_rollback": 0,
+    "supabase_modificado_durablemente": false,
+    "repositorios_eva_modificados": false
+  },
+  "artefactos": {
+    "reporte": "reports/fase-6-etapa-5-pruebas-controladas.json",
+    "validador": "supabase_integrity_controlled_writes_validate.py",
+    "pruebas": "tests/test_supabase_integrity_controlled_writes.py",
+    "workflow": ".github/workflows/supabase-integrity-controlled-writes.yml",
+    "documentacion": "docs/FASE_6_ETAPA_5_PRUEBAS_CONTROLADAS.md"
+  },
+  "criterios_cierre": [
+    "Pruebas de escritura ejecutadas solo dentro de transaccion reversible.",
+    "CRUD principal validado en Calendario, Capacitaciones, Noticias, Galeria y Repositorio.",
+    "Triggers efimeros de Visitas y Compartidos validados.",
+    "ON DELETE CASCADE de Galeria validado.",
+    "Rollback confirmado y cero residuos de prueba.",
+    "Sin escrituras innecesarias en Storage.",
+    "Sin cambios en repositorios EVA."
+  ],
+  "criterios_cierre_cumplidos": true,
+  "workflow_run_id": 37462961470,
+  "workflow_conclusion": "success",
+  "etapa_6_iniciada": false
+}
