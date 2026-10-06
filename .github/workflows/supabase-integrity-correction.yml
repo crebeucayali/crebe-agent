@@ -1,0 +1,33 @@
+name: Integridad Supabase - Fase 6 Etapa 7
+
+on:
+  pull_request:
+    paths:
+      - 'reports/fase-6-etapa-7-correccion-controlada.json'
+      - 'tracking/fase-6-etapa-7.json'
+      - 'supabase_integrity_correction_validate.py'
+      - 'tests/test_supabase_integrity_correction.py'
+      - '.github/workflows/supabase-integrity-correction.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-correction:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Instalar pytest
+        run: python -m pip install --disable-pip-version-check pytest
+      - name: Ejecutar pruebas de Etapa 7
+        run: python -m pytest -q tests/test_supabase_integrity_correction.py
+      - name: Validar cierre sin intervención
+        run: python supabase_integrity_correction_validate.py
