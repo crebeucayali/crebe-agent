@@ -27,7 +27,7 @@
   ],
   "etapas": [
     {"numero":1,"nombre":"Inventario de datos y dependencias","estado":"ETAPA_1_COMPLETADA_INVENTARIO_DATOS","fecha_cierre":"2026-10-05","cierre":"ETAPA_1_COMPLETADA_INVENTARIO_DATOS"},
-    {"numero":2,"nombre":"Contratos e invariantes por modulo","estado":"NO_INICIADA","cierre":"ETAPA_2_COMPLETADA_CONTRATOS_INTEGRIDAD"},
+    {"numero":2,"nombre":"Contratos e invariantes por modulo","estado":"ETAPA_2_COMPLETADA_CONTRATOS_INTEGRIDAD","fecha_cierre":"2026-10-05","cierre":"ETAPA_2_COMPLETADA_CONTRATOS_INTEGRIDAD"},
     {"numero":3,"nombre":"Auditoria de integridad de solo lectura","estado":"NO_INICIADA","cierre":"ETAPA_3_COMPLETADA_LINEA_BASE_INTEGRIDAD"},
     {"numero":4,"nombre":"Priorizacion y agrupacion causal","estado":"NO_INICIADA","cierre":"ETAPA_4_COMPLETADA_PRIORIZACION_INTEGRIDAD"},
     {"numero":5,"nombre":"Pruebas controladas de escritura","estado":"NO_INICIADA","cierre":"ETAPA_5_COMPLETADA_PRUEBAS_CONTROLADAS"},
@@ -53,7 +53,24 @@
       "repositorios_eva_modificados": false
     },
     "criterios_cierre_cumplidos": true,
-    "etapa_2_iniciada": false
+    "etapa_2_iniciada": true
+  },
+  "etapa_2": {
+    "estado": "ETAPA_2_COMPLETADA_CONTRATOS_INTEGRIDAD",
+    "tracking": "tracking/fase-6-etapa-2.json",
+    "contratos": "contracts/fase-6-etapa-2-integridad.json",
+    "documentacion": "docs/FASE_6_ETAPA_2_CONTRATOS_INTEGRIDAD.md",
+    "workflow_run_id": 37409150465,
+    "resultado": {
+      "modulos": 8,
+      "reglas_globales": 4,
+      "contratos_modulo": 38,
+      "reglas_totales": 42,
+      "supabase_modificado": false,
+      "repositorios_eva_modificados": false
+    },
+    "criterios_cierre_cumplidos": true,
+    "etapa_3_iniciada": false
   },
   "estados_auditoria": [
     "INTEGRO",
@@ -69,7 +86,8 @@
     "secretos_en_artefactos": false,
     "un_hallazgo_por_causa": true,
     "etapa_1_iniciada": true,
-    "etapa_2_iniciada": false
+    "etapa_2_iniciada": true,
+    "etapa_3_iniciada": false
   },
   "dependencias_relevantes": {
     "data_api_cambio_2026_10_30": "Verificar grants y exposicion de objetos consumidos por frontend sin relajar RLS.",

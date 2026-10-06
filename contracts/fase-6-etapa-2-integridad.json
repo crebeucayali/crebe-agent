@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "fase": 6,
+  "etapa": 2,
+  "nombre": "Contratos e invariantes por modulo",
+  "project_id": "dteimbhwtzghhsijeeld",
+  "modo": "READ_ONLY_DEFINITION",
+  "estados_resultado_etapa_3": [
+    "INTEGRO",
+    "INCONSISTENCIA_CONFIRMADA",
+    "REQUIERE_VERIFICACION_CONTROLADA",
+    "BLOQUEADO_POR_PERMISOS_O_DEPENDENCIA",
+    "NO_APLICA"
+  ],
+  "reglas_globales": [
+    {
+      "id": "GLOB-001",
+      "descripcion": "La auditoria de Etapa 3 no modifica datos, esquema, RLS, grants ni Storage.",
+      "verificacion": "STATIC_CONTRACT"
+    },
+    {
+      "id": "GLOB-002",
+      "descripcion": "Los conteos observados en Etapa 1 son fotografia y no se usan como cantidades fijas de integridad.",
+      "verificacion": "STATIC_CONTRACT"
+    },
+    {
+      "id": "GLOB-003",
+      "descripcion": "Un incumplimiento se agrupa por causa tecnica, no por numero de filas afectadas.",
+      "verificacion": "STATIC_CONTRACT"
+    },
+    {
+      "id": "GLOB-004",
+      "descripcion": "Los objetos consumidos por el frontend deben conservar la exposicion minima necesaria por Data API y RLS; privilegios excesivos se derivan a Seguridad y permisos.",
+      "verificacion": "SCHEMA_AND_GRANTS"
+    }
+  ],
+  "modulos": [
+    {
+      "id": "calendario",
+      "prioridad": 1,
+      "objetos": ["public.calendario_actividades", "public.calendario_publico", "public.capacitaciones_sesiones"],
+      "contratos": [
+        {"id":"CAL-001","descripcion":"calendario_publico debe ser una vista security_invoker=true y no una tabla de datos duplicados.","verificacion":"SCHEMA_METADATA"},
+        {"id":"CAL-002","descripcion":"La vista publica debe contener exactamente las actividades con visible=true y las capacitaciones con visible=true, sin exigir un conteo fijo.","verificacion":"READ_ONLY_SQL"},
+        {"id":"CAL-003","descripcion":"Cada fila proyectada debe conservar fuente coherente: calendario usa prefijo actividad- y capacitaciones usa prefijo capacitacion-.","verificacion":"READ_ONLY_SQL"},
+        {"id":"CAL-004","descripcion":"calendario_actividades debe mantener unicidad por (fecha, origen, orden), titulo no vacio y contenido_lineas como arreglo JSON no vacio.","verificacion":"SCHEMA_AND_DATA"},
+        {"id":"CAL-005","descripcion":"estado solo puede ser confirmada, planificacion, interna, feriado o cancelada; orden debe permanecer entre 1 y 999.","verificacion":"SCHEMA_AND_DATA"},
+        {"id":"CAL-006","descripcion":"Si imagen_url existe debe usar una ruta permitida y debe existir imagen_alt no vacio.","verificacion":"READ_ONLY_SQL_AND_REFERENCE"},
+        {"id":"CAL-007","descripcion":"El rol anon debe poder leer calendario_publico y las tablas fuente solo deben exponer por RLS los registros visibles.","verificacion":"GRANTS_AND_RLS"}
+      ]
+    },
+    {
+      "id": "capacitaciones",
+      "prioridad": 2,
+      "objetos": ["public.capacitaciones_sesiones", "public.calendario_publico"],
+      "contratos": [
+        {"id":"CAP-001","descripcion":"La combinacion (jornada, numero_sesion) debe ser unica; jornada solo 1 o 2 y numero_sesion entre 1 y 50.","verificacion":"SCHEMA_AND_DATA"},
+        {"id":"CAP-002","descripcion":"Cada capacitacion visible debe proyectarse exactamente una vez en calendario_publico como fuente capacitaciones.","verificacion":"READ_ONLY_SQL"},
+        {"id":"CAP-003","descripcion":"fecha_texto, titulo y etiqueta deben permanecer no vacios.","verificacion":"SCHEMA_AND_DATA"},
+        {"id":"CAP-004","descripcion":"Una sesion con estado disponible no puede ser un placeholder pendiente de publicacion y debe tener al menos un recurso util.","verificacion":"SCHEMA_AND_DATA"},
+        {"id":"CAP-005","descripcion":"recursos_adicionales debe ser arreglo JSON y las URL de Drive/imagenes deben cumplir los formatos permitidos por las restricciones vigentes.","verificacion":"SCHEMA_AND_DATA"},
+        {"id":"CAP-006","descripcion":"anon solo debe leer sesiones visibles; authenticated puede ampliar lectura segun permisos administrativos vigentes.","verificacion":"GRANTS_AND_RLS"}
+      ]
+    },
+    {
+      "id": "noticias",
+      "prioridad": 3,
+      "objetos": ["public.noticias_destacadas", "storage:eva-publico/noticias"],
+      "contratos": [
+        {"id":"NOT-001","descripcion":"visible debe ser equivalente a estado_publicacion=publicado.","verificacion":"SCHEMA_AND_DATA"},
+        {"id":"NOT-002","descripcion":"anon solo debe leer noticias publicadas y visibles.","verificacion":"GRANTS_AND_RLS"},
+        {"id":"NOT-003","descripcion":"titulo, categoria y descripcion deben respetar sus limites y enlace_url solo puede estar vacio o apuntar al dominio institucional permitido.","verificacion":"SCHEMA_AND_DATA"},
+        {"id":"NOT-004","descripcion":"Toda imagen_url que apunte a eva-publico/noticias debe corresponder a un objeto existente en Storage.","verificacion":"READ_ONLY_SQL_AND_REFERENCE"}
+      ]
+    },
+    {
+      "id": "galeria",
+      "prioridad": 4,
+      "objetos": ["public.galeria_items", "public.galeria_item_imagenes", "storage:eva-publico/galeria"],
+      "contratos": [
+        {"id":"GAL-001","descripcion":"visible debe ser equivalente a estado_publicacion=publicado y todo registro visible debe tener publicacion_autorizada=true.","verificacion":"SCHEMA_AND_DATA"},
+        {"id":"GAL-002","descripcion":"Toda imagen hija debe tener un padre existente; la FK debe conservar ON DELETE CASCADE.","verificacion":"SCHEMA_AND_DATA"},
+        {"id":"GAL-003","descripcion":"El orden de imagen debe ser unico por actividad y permanecer entre 1 y 8.","verificacion":"SCHEMA_AND_DATA"},
+        {"id":"GAL-004","descripcion":"anon solo puede leer actividades publicadas, visibles y autorizadas y solo las imagenes hijas de esas actividades.","verificacion":"GRANTS_AND_RLS"},
+        {"id":"GAL-005","descripcion":"imagen_alt debe ser no vacio y las referencias a eva-publico/galeria deben existir en Storage.","verificacion":"READ_ONLY_SQL_AND_REFERENCE"}
+      ]
+    },
+    {
+      "id": "repositorio_accesible",
+      "prioridad": 5,
+      "objetos": ["public.repositorio_recursos", "storage:eva-publico/repositorio"],
+      "contratos": [
+        {"id":"REP-001","descripcion":"visible debe ser equivalente a estado_publicacion=publicado.","verificacion":"SCHEMA_AND_DATA"},
+        {"id":"REP-002","descripcion":"categoria solo puede ser materiales_disponibles, equipos_tecnologicos o materiales_elaborados.","verificacion":"SCHEMA_AND_DATA"},
+        {"id":"REP-003","descripcion":"anon solo debe leer recursos publicados y visibles.","verificacion":"GRANTS_AND_RLS"},
+        {"id":"REP-004","descripcion":"Toda imagen_url que apunte a eva-publico/repositorio debe corresponder a un objeto existente en Storage.","verificacion":"READ_ONLY_SQL_AND_REFERENCE"}
+      ]
+    },
+    {
+      "id": "storage_eva_publico",
+      "prioridad": 6,
+      "objetos": ["storage.buckets", "storage.objects"],
+      "contratos": [
+        {"id":"STO-001","descripcion":"El bucket eva-publico debe existir y permanecer public=true para las URLs publicas actualmente consumidas por EVA.","verificacion":"STORAGE_METADATA"},
+        {"id":"STO-002","descripcion":"El limite de archivo debe ser 5 MiB y los MIME permitidos image/webp, image/jpeg e image/png.","verificacion":"STORAGE_METADATA"},
+        {"id":"STO-003","descripcion":"Toda URL Supabase persistida en tablas funcionales debe poder mapearse a un objeto existente del bucket y a un prefijo permitido por su modulo.","verificacion":"READ_ONLY_SQL_AND_REFERENCE"},
+        {"id":"STO-004","descripcion":"Los objetos no referenciados se reportan como candidatos a revision; no se eliminan automaticamente en Etapa 3.","verificacion":"STATIC_CONTRACT"}
+      ]
+    },
+    {
+      "id": "visitas",
+      "prioridad": 7,
+      "objetos": ["public.eva_visitas_eventos", "public.eva_visitas_diarias"],
+      "contratos": [
+        {"id":"VIS-001","descripcion":"eva_visitas_eventos funciona como endpoint efimero: su trigger incrementa el agregado diario y los eventos no deben persistir como historial ordinario.","verificacion":"SCHEMA_AND_READ_ONLY_OBSERVATION"},
+        {"id":"VIS-002","descripcion":"eva_visitas_diarias debe tener clave primaria (fecha, modulo) y visitas no negativas.","verificacion":"SCHEMA_AND_DATA"},
+        {"id":"VIS-003","descripcion":"Los modulos deben pertenecer al conjunto institucional permitido; __eva__ solo aplica al agregado global.","verificacion":"SCHEMA_AND_DATA"},
+        {"id":"VIS-004","descripcion":"anon puede insertar eventos validos pero no debe tener lectura directa del historial agregado; la lectura administrativa queda protegida.","verificacion":"GRANTS_AND_RLS"}
+      ]
+    },
+    {
+      "id": "compartidos",
+      "prioridad": 8,
+      "objetos": ["public.eva_compartidos_eventos", "public.eva_compartidos_diarios"],
+      "contratos": [
+        {"id":"COM-001","descripcion":"eva_compartidos_eventos funciona como endpoint efimero: su trigger incrementa el agregado diario y los eventos no deben persistir como historial ordinario.","verificacion":"SCHEMA_AND_READ_ONLY_OBSERVATION"},
+        {"id":"COM-002","descripcion":"eva_compartidos_diarios debe tener clave primaria (fecha, modulo, pagina) y acciones no negativas.","verificacion":"SCHEMA_AND_DATA"},
+        {"id":"COM-003","descripcion":"modulo y pagina deben respetar los conjuntos y formatos institucionales permitidos, incluida la excepcion canonica de galeria por actividad.","verificacion":"SCHEMA_AND_DATA"},
+        {"id":"COM-004","descripcion":"anon puede insertar eventos validos pero no debe tener lectura directa del agregado; la lectura administrativa queda protegida.","verificacion":"GRANTS_AND_RLS"}
+      ]
+    }
+  ],
+  "dependencias_fuera_de_alcance": [
+    {
+      "id":"SEC-DEPENDENCY-001",
+      "tema":"privilegios excesivos o configuracion de grants no necesaria para integridad funcional",
+      "destino":"Fase Seguridad y permisos",
+      "regla":"Registrar evidencia sin corregir ni ampliar privilegios en esta fase."
+    }
+  ],
+  "escritura_habilitada": false,
+  "correccion_automatica": false
+}

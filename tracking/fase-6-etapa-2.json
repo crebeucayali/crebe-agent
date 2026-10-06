@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "fase": 6,
+  "etapa": 2,
+  "nombre": "Contratos e invariantes por modulo",
+  "estado": "ETAPA_2_COMPLETADA_CONTRATOS_INTEGRIDAD",
+  "fecha_inicio": "2026-10-05",
+  "fecha_cierre": "2026-10-05",
+  "zona_horaria": "America/Lima",
+  "modo": "READ_ONLY_DEFINITION",
+  "fuente_etapa_1": {
+    "tracking": "tracking/fase-6-etapa-1.json",
+    "inventario": "baselines/fase-6-etapa-1-inventario.json"
+  },
+  "resultado": {
+    "modulos": 8,
+    "reglas_globales": 4,
+    "contratos_modulo": 38,
+    "reglas_totales": 42,
+    "escritura_habilitada": false,
+    "correccion_automatica": false,
+    "supabase_modificado": false,
+    "repositorios_eva_modificados": false
+  },
+  "modulos": [
+    {"id":"calendario","contratos":7},
+    {"id":"capacitaciones","contratos":6},
+    {"id":"noticias","contratos":4},
+    {"id":"galeria","contratos":5},
+    {"id":"repositorio_accesible","contratos":4},
+    {"id":"storage_eva_publico","contratos":4},
+    {"id":"visitas","contratos":4},
+    {"id":"compartidos","contratos":4}
+  ],
+  "artefactos": {
+    "contratos": "contracts/fase-6-etapa-2-integridad.json",
+    "validador": "supabase_integrity_contracts_validate.py",
+    "pruebas": "tests/test_supabase_integrity_contracts.py",
+    "workflow": ".github/workflows/supabase-integrity-contracts.yml",
+    "documentacion": "docs/FASE_6_ETAPA_2_CONTRATOS_INTEGRIDAD.md"
+  },
+  "criterios_cierre": [
+    "Ocho modulos cubiertos.",
+    "Contratos con IDs unicos y verificaciones tipadas.",
+    "Conteos de Etapa 1 no convertidos en cantidades fijas.",
+    "Contratos de Calendario-Capacitaciones, publicacion, Storage y eventos efimeros definidos.",
+    "Exposicion Data API incluida como contrato sin modificar grants.",
+    "Escritura y correccion automatica deshabilitadas.",
+    "Pruebas y validador exitosos."
+  ],
+  "criterios_cierre_cumplidos": true,
+  "workflow_run_id": 37409150465,
+  "workflow_conclusion": "success",
+  "etapa_3_iniciada": false
+}
