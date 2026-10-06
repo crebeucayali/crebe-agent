@@ -8,47 +8,17 @@
   "fecha_cierre": "2026-10-06",
   "zona_horaria": "America/Lima",
   "modo": "READ_ONLY_AUDIT",
-  "fuente": {
-    "contratos": "contracts/fase-6-etapa-2-integridad.json",
-    "supabase_project_id": "dteimbhwtzghhsijeeld"
-  },
-  "resultado": {
-    "contratos_totales": 42,
-    "integros": 42,
-    "inconsistencias_confirmadas": 0,
-    "requiere_verificacion_controlada": 0,
-    "bloqueados": 0,
-    "no_aplica": 0,
-    "storage_objetos": 44,
-    "storage_referencias_persistidas": 23,
-    "storage_referencias_faltantes": 0,
-    "storage_candidatos_revision": 24,
-    "supabase_modificado": false,
-    "repositorios_eva_modificados": false
-  },
+  "fuente": {"contratos":"contracts/fase-6-etapa-2-integridad.json","supabase_project_id":"dteimbhwtzghhsijeeld"},
+  "resultado": {"contratos_totales":42,"integros":42,"inconsistencias_confirmadas":0,"requiere_verificacion_controlada":0,"bloqueados":0,"no_aplica":0,"storage_objetos":44,"storage_referencias_persistidas":23,"storage_referencias_faltantes":0,"storage_candidatos_revision":24,"supabase_modificado":false,"repositorios_eva_modificados":false},
   "observaciones": [
     "CAP-002 tuvo un falso negativo inicial por una extraccion incorrecta del ID; la prueba fue corregida sin tocar datos.",
     "Los 24 objetos Storage no referenciados son candidatos a revision y no fallos confirmados.",
     "Posibles grants excesivos en galeria_item_imagenes se derivan a Seguridad y permisos; RLS conserva la integridad funcional observada."
   ],
-  "artefactos": {
-    "reporte": "reports/fase-6-etapa-3-integridad.json",
-    "validador": "supabase_integrity_audit_validate.py",
-    "pruebas": "tests/test_supabase_integrity_audit.py",
-    "workflow": ".github/workflows/supabase-integrity-audit.yml",
-    "documentacion": "docs/FASE_6_ETAPA_3_AUDITORIA_INTEGRIDAD.md"
-  },
-  "criterios_cierre": [
-    "42 contratos ejecutados y clasificados.",
-    "Evidencia de esquema, RLS, datos y Storage registrada.",
-    "Sin inconsistencias confirmadas.",
-    "Sin escrituras ni cambios de esquema.",
-    "Sin cambios en EVA.",
-    "Candidatos Storage conservados sin eliminacion automatica.",
-    "Dependencias de seguridad derivadas sin modificar permisos."
-  ],
+  "artefactos": {"reporte":"reports/fase-6-etapa-3-integridad.json","validador":"supabase_integrity_audit_validate.py","pruebas":"tests/test_supabase_integrity_audit.py","workflow":".github/workflows/supabase-integrity-audit.yml","documentacion":"docs/FASE_6_ETAPA_3_AUDITORIA_INTEGRIDAD.md"},
+  "criterios_cierre": ["42 contratos ejecutados y clasificados.","Evidencia de esquema, RLS, datos y Storage registrada.","Sin inconsistencias confirmadas.","Sin escrituras ni cambios de esquema.","Sin cambios en EVA.","Candidatos Storage conservados sin eliminacion automatica.","Dependencias de seguridad derivadas sin modificar permisos.","Pruebas y validador exitosos."],
   "criterios_cierre_cumplidos": true,
-  "workflow_run_id": null,
-  "workflow_conclusion": null,
+  "workflow_run_id": 37459819293,
+  "workflow_conclusion": "success",
   "etapa_4_iniciada": false
 }
