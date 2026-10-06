@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "fase": 7,
+  "etapa": 1,
+  "estado": "ETAPA_1_COMPLETADA_INVENTARIO_SEGURIDAD",
+  "fecha": "2026-10-06",
+  "zona_horaria": "America/Lima",
+  "modo": "READ_ONLY",
+  "fuentes": ["Supabase catalogos PostgreSQL", "Supabase Security Advisor", "GitHub code search en 8 repositorios EVA", "Supabase changelog"],
+  "supabase": {
+    "project_id": "dteimbhwtzghhsijeeld",
+    "schemas_relevantes": ["public", "private", "admin_guard", "storage"],
+    "objetos_catalogados": 21,
+    "objetos_public": 11,
+    "objetos_admin_guard": 2,
+    "objetos_storage": 8,
+    "politicas_rls_catalogadas": 36,
+    "vista_publica": {"nombre": "public.calendario_publico", "security_invoker": true},
+    "bucket_eva_publico": {"public": true, "file_size_limit": 5242880, "mime_types": ["image/webp", "image/jpeg", "image/png"]},
+    "funciones_publicas_security_definer": 0,
+    "funciones_private_catalogadas": 24,
+    "funciones_private_security_definer": 19,
+    "anon_usage_private_schema": false,
+    "authenticated_usage_private_schema": true,
+    "anon_usage_admin_guard_schema": false,
+    "authenticated_usage_admin_guard_schema": true,
+    "security_advisor": {
+      "rls_enabled_no_policy": ["admin_guard.admin_correos_autorizados", "admin_guard.admin_usuarios_autorizados"],
+      "leaked_password_protection": "DISABLED"
+    }
+  },
+  "superficies_a_contratar_en_etapa_2": [
+    {
+      "id": "SEC-SURFACE-001",
+      "tema": "galeria_item_imagenes",
+      "evidencia": "GRANT de tabla amplio para anon y authenticated; RLS contiene politicas especificas",
+      "origen": "SEC-DEPENDENCY-001",
+      "clasificacion": "PENDIENTE_ETAPA_3"
+    },
+    {
+      "id": "SEC-SURFACE-002",
+      "tema": "default_privileges_public",
+      "evidencia": "default ACL historica otorga privilegios amplios sobre nuevas tablas, secuencias y funciones a anon/authenticated/service_role",
+      "clasificacion": "PENDIENTE_ETAPA_3",
+      "fecha_limite_contextual": "2026-10-30"
+    },
+    {
+      "id": "SEC-SURFACE-003",
+      "tema": "private_security_definer",
+      "evidencia": "19 funciones SECURITY DEFINER en schema private; ninguna inventariada con EXECUTE para PUBLIC; varias son ejecutables por authenticated segun su funcion administrativa",
+      "clasificacion": "PENDIENTE_ETAPA_3"
+    },
+    {
+      "id": "SEC-SURFACE-004",
+      "tema": "admin_guard_rls_sin_policies",
+      "evidencia": "2 tablas con RLS habilitado y sin policies segun Security Advisor; anon no tiene USAGE del schema y los grants de tabla observados son service_role",
+      "clasificacion": "PENDIENTE_ETAPA_3"
+    },
+    {
+      "id": "SEC-SURFACE-005",
+      "tema": "auth_leaked_password_protection",
+      "evidencia": "Security Advisor informa proteccion de contrasenas filtradas deshabilitada",
+      "clasificacion": "PENDIENTE_ETAPA_3"
+    },
+    {
+      "id": "SEC-SURFACE-006",
+      "tema": "storage_eva_publico",
+      "evidencia": "bucket publico con escrituras protegidas por politicas authenticated + MFA y carpetas funcionales",
+      "clasificacion": "PENDIENTE_ETAPA_3"
+    }
+  ],
+  "github": {
+    "repositorios_eva": 8,
+    "service_role_literal_detectado": false,
+    "sb_secret_literal_detectado": false,
+    "service_role_referencias": "Solo referencias documentales, SQL de permisos, Edge Function server-side por variable de entorno y pruebas sinteticas observadas",
+    "publishable_key": "Presente en frontend y clasificada como clave publicable, no secreto privado",
+    "edge_function_server_side": "accesos-complementarios/supabase/functions/admin-invitar-editor/index.js usa SUPABASE_SERVICE_ROLE_KEY desde entorno; no se observo valor literal",
+    "autenticacion_admin": "Supabase Auth con control de roles/modulos; AAL2 documentado para master y operaciones de escritura",
+    "dua_3_direct_supabase_reference_found": false
+  },
+  "reglas_de_inventario": {
+    "no_secret_values_in_report": true,
+    "no_risk_severity_assigned_yet": true,
+    "no_corrections_authorized": true,
+    "supabase_modified": false,
+    "eva_repositories_modified": false
+  },
+  "next_stage": "Contratos de seguridad y minimo privilegio"
+}
