@@ -42,6 +42,12 @@
     "supabase_modificado": false,
     "repositorios_eva_modificados": false
   },
+  "validacion": {
+    "workflow_run_id": 37406278479,
+    "workflow_conclusion": "success",
+    "pruebas_unitarias": 4,
+    "validador_artefacto": "success"
+  },
   "artefactos": {
     "inventario": "baselines/fase-6-etapa-1-inventario.json",
     "validador": "supabase_integrity_inventory_validate.py",
