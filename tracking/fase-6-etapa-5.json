@@ -35,7 +35,7 @@
     "Sin cambios en repositorios EVA."
   ],
   "criterios_cierre_cumplidos": true,
-  "workflow_run_id": null,
-  "workflow_conclusion": null,
+  "workflow_run_id": 37462961470,
+  "workflow_conclusion": "success",
   "etapa_6_iniciada": false
 }
