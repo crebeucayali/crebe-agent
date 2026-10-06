@@ -32,8 +32,8 @@
     "Sin modificaciones en Supabase ni EVA."
   ],
   "criterios_cierre_cumplidos": true,
-  "workflow_run_id": null,
-  "workflow_conclusion": null,
+  "workflow_run_id": 37464285701,
+  "workflow_conclusion": "success",
   "etapa_7_iniciada": false,
   "etapa_7_requerida_por_hallazgos_actuales": false
 }
