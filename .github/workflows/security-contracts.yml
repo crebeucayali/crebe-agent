@@ -1,0 +1,34 @@
+name: Seguridad EVA - Fase 7 Etapa 2
+
+on:
+  pull_request:
+    paths:
+      - 'contracts/fase-7-etapa-2-contratos-seguridad.json'
+      - 'tracking/fase-7-etapa-2.json'
+      - 'docs/FASE_7_ETAPA_2_CONTRATOS_SEGURIDAD.md'
+      - 'security_contracts_validate.py'
+      - 'tests/test_security_contracts.py'
+      - '.github/workflows/security-contracts.yml'
+      - 'tracking/fase-7.json'
+      - 'tracking/phases.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-security-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Preparar Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Ejecutar pruebas Etapa 2
+        run: python -m unittest -q tests/test_security_contracts.py
+      - name: Validar contratos
+        run: python security_contracts_validate.py

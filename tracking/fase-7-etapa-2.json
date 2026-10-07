@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "fase": 7,
+  "etapa": 2,
+  "nombre": "Contratos de seguridad y minimo privilegio",
+  "estado": "ETAPA_2_COMPLETADA_CONTRATOS_SEGURIDAD",
+  "fecha_inicio": "2026-10-06",
+  "fecha_cierre": "2026-10-06",
+  "zona_horaria": "America/Lima",
+  "modo": "READ_ONLY_DEFINITION",
+  "contratos": "contracts/fase-7-etapa-2-contratos-seguridad.json",
+  "documentacion": "docs/FASE_7_ETAPA_2_CONTRATOS_SEGURIDAD.md",
+  "resultado": {
+    "contratos_totales": 26,
+    "superficies_cubiertas": 6,
+    "roles_logicos": 5,
+    "correcciones_autorizadas": 0
+  },
+  "criterios_cierre_cumplidos": true,
+  "etapa_3_iniciada": false,
+  "supabase_modificado": false,
+  "repositorios_eva_modificados": false,
+  "workflow_run_id": 37549789623,
+  "workflow_conclusion": "success"
+}
