@@ -1,0 +1,27 @@
+name: Seguridad EVA - Fase 7 Etapa 7
+
+on:
+  pull_request:
+    paths:
+      - 'reports/fase-7-etapa-7-correccion-seguridad.json'
+      - 'security_correction_validate.py'
+      - 'tests/test_security_correction.py'
+      - 'tracking/fase-7-etapa-7.json'
+      - 'tracking/fase-7.json'
+      - 'tracking/phases.json'
+      - '.github/workflows/security-correction.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-security-correction:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest tests/test_security_correction.py -v
+      - run: python security_correction_validate.py
