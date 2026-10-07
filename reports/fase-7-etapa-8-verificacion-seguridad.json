@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "fase": 7,
+  "etapa": 8,
+  "estado": "MONITOREO_SEGURIDAD_ACTIVO",
+  "fecha": "2026-10-07",
+  "zona_horaria": "America/Lima",
+  "verificacion_supabase": {
+    "all_public_tables_rls_enabled": true,
+    "admin_guard_tables_rls_enabled": true,
+    "galeria_privileges": {
+      "anon": ["SELECT"],
+      "authenticated": ["SELECT", "INSERT", "UPDATE", "DELETE"]
+    },
+    "postgres_default_acl_excludes_anon_authenticated": true,
+    "public_objects_owned_by_supabase_admin": 0,
+    "security_advisor": {
+      "warnings_actionable": 0,
+      "accepted_plan_warnings": 1,
+      "expected_info_findings": 2
+    }
+  },
+  "regresiones": 0,
+  "alertas_iniciales": 0,
+  "accepted_exceptions": [
+    "F7S4-AUTH-LEAKED-PASSWORD",
+    "ADMIN_GUARD_RLS_NO_POLICY"
+  ],
+  "repositorios_eva_modificados": false,
+  "supabase_modificado_en_etapa_8": false,
+  "rls_modificado_en_etapa_8": false,
+  "modelo_auth_modificado_en_etapa_8": false
+}
