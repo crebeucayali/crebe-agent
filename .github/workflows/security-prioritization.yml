@@ -1,0 +1,28 @@
+name: Seguridad EVA - Fase 7 Etapa 4
+
+on:
+  pull_request:
+    paths:
+      - 'reports/fase-7-etapa-4-priorizacion-seguridad.json'
+      - 'security_prioritization_validate.py'
+      - 'tests/test_security_prioritization.py'
+      - 'tracking/fase-7-etapa-4.json'
+      - 'tracking/fase-7.json'
+      - 'tracking/phases.json'
+      - '.github/workflows/security-prioritization.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-security-prioritization:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pytest
+      - run: python -m pytest -q tests/test_security_prioritization.py
+      - run: python security_prioritization_validate.py
