@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "fase": 7,
+  "etapa": 8,
+  "schedule": "15 11 * * *",
+  "timezone_reference": "America/Lima",
+  "checks": {
+    "stage7_completed": true,
+    "default_privileges_data_api": "CORREGIDO_VERIFICADO",
+    "galeria_grants": "CORREGIDO_VERIFICADO",
+    "leaked_password_protection": "ACEPTADO_NO_APLICABLE_EN_PLAN_FREE",
+    "mfa_master_required": true,
+    "mfa_editors_required": false,
+    "forbid_literal_sb_secret": true
+  },
+  "accepted_exceptions": [
+    {
+      "id": "F7S4-AUTH-LEAKED-PASSWORD",
+      "reason": "Supabase Free no incluye Leaked Password Protection",
+      "reopen_if": "PLAN_PRO_O_SUPERIOR"
+    },
+    {
+      "id": "ADMIN_GUARD_RLS_NO_POLICY",
+      "reason": "Tablas internas aisladas por schema/grants; acceso mediante funciones controladas",
+      "reopen_if": "CAMBIA_ESQUEMA_GRANTS_O_ACCESO_DIRECTO"
+    }
+  ],
+  "live_deep_checks": [
+    "Supabase Security Advisor",
+    "RLS de tablas public/admin_guard",
+    "GRANT de galeria_item_imagenes",
+    "default ACL de postgres",
+    "ownership de objetos public"
+  ]
+}
