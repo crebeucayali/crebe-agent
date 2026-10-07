@@ -1,0 +1,27 @@
+name: Seguridad EVA - Fase 7 Etapa 6
+
+on:
+  pull_request:
+    paths:
+      - 'reports/fase-7-etapa-6-diagnostico-seguridad.json'
+      - 'security_diagnosis_validate.py'
+      - 'tests/test_security_diagnosis.py'
+      - 'tracking/fase-7-etapa-6.json'
+      - 'tracking/fase-7.json'
+      - 'tracking/phases.json'
+      - '.github/workflows/security-diagnosis.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-security-diagnosis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest tests/test_security_diagnosis.py -v
+      - run: python security_diagnosis_validate.py
