@@ -25,6 +25,6 @@
   ],
   "criterios_cierre_cumplidos": false,
   "etapa_8_iniciada": false,
-  "workflow_run_id": null,
-  "workflow_conclusion": null
+  "workflow_run_id": 37563295621,
+  "workflow_conclusion": "success"
 }
