@@ -26,7 +26,9 @@
     "cron_utc": "15 11 * * *",
     "hora_referencia_lima": "06:15",
     "sin_secretos_supabase": true,
-    "retencion_evidencia_dias": 30
+    "retencion_evidencia_dias": 30,
+    "workflow_run_id_activacion": 37594803472,
+    "workflow_conclusion_activacion": "success"
   },
   "excepciones_aceptadas": [
     "F7S4-AUTH-LEAKED-PASSWORD",
