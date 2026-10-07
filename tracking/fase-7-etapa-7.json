@@ -12,8 +12,8 @@
   "documentacion": "docs/FASE_7_ETAPA_7_CORRECCION_SEGURIDAD.md",
   "resultado": {
     "hallazgos_objetivo": 3,
-    "corregidos_verificados": 1,
-    "parcialmente_corregidos": 1,
+    "corregidos_verificados": 2,
+    "parcialmente_corregidos": 0,
     "bloqueados": 1,
     "supabase_modificado": true,
     "repositorios_eva_modificados": false,
@@ -24,11 +24,17 @@
     "editor": "AUTHENTICATED_AAL1_OR_AAL2_SCOPED_BY_MODULE",
     "consulta": "AUTHENTICATED_AAL1_OR_AAL2_SCOPED_BY_MODULE",
     "mfa_obligatorio_editores": false,
-    "decision": "NO_CAMBIAR_MODELO_AUTH_EN_ETAPA_7",
-    "evidencia": "private.permite_modulo exige AAL2 al master y permite AAL1/AAL2 a editor/consulta solo en modulos asignados; funciones de gestion de usuarios exigen private.es_admin_mfa()."
+    "decision": "NO_CAMBIAR_MODELO_AUTH_EN_ETAPA_7"
+  },
+  "default_privileges_data_api": {
+    "estado": "CORREGIDO_VERIFICADO",
+    "owner_aplicacion": "postgres",
+    "owner_interno_supabase": "supabase_admin",
+    "objetos_public_propiedad_supabase_admin": 0,
+    "criterio": "La documentacion oficial para proyectos existentes indica endurecer los default privileges del role postgres. supabase_admin es un rol interno usado por Supabase para tareas administrativas, upgrades y automatizaciones; no es owner de objetos funcionales EVA en public.",
+    "cambio_adicional_supabase_admin_requerido": false
   },
   "bloqueos": [
-    "PERMISSION_DENIED_OWNER_SUPABASE_ADMIN",
     "LEAKED_PASSWORD_PROTECTION_REQUIERE_PLAN_PRO_O_SUPERIOR"
   ],
   "leaked_password_protection": {
