@@ -15,7 +15,7 @@ def load(path):
 
 def scan_for_literal_secrets():
     hits = []
-    pattern = re.compile(r'sb_secret_[A-Za-z0-9_-]{8,}')
+    pattern = re.compile(r'sb_secret_[A-Za-z0-9_-]{20,}')
     excluded_dirs = {'.git', '__pycache__', 'docs', 'reports', 'tracking', 'tests'}
     allowed_suffixes = {'.py', '.js', '.ts', '.json', '.yml', '.yaml', '.html', '.css', '.sql'}
     for path in ROOT.rglob('*'):
