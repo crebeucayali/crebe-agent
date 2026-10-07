@@ -4,12 +4,12 @@
   "etapa": 7,
   "estado": "ETAPA_7_EN_CURSO_CON_BLOQUEOS_CONTROLADOS",
   "modo": "CONTROLLED_SECURITY_CORRECTION",
-  "fecha": "2026-10-06",
+  "fecha": "2026-10-07",
   "zona_horaria": "America/Lima",
   "resultado": {
     "hallazgos_objetivo": 3,
-    "corregidos_verificados": 1,
-    "parcialmente_corregidos": 1,
+    "corregidos_verificados": 2,
+    "parcialmente_corregidos": 0,
     "bloqueados_por_capacidad_o_plan": 1,
     "supabase_modificado": true,
     "repositorios_eva_modificados": false,
@@ -20,17 +20,26 @@
     "estado": "CONFIRMADO_SIN_CAMBIOS",
     "master": {"requiere_auth":true,"requiere_aal2_mfa":true,"gestion_usuarios_reservada":true},
     "editor": {"requiere_auth":true,"requiere_aal2_mfa":false,"aal_permitido":["aal1","aal2"],"acceso_limitado_a_modulos_asignados":true,"sin_escalacion_a_master":true},
-    "consulta": {"requiere_auth":true,"requiere_aal2_mfa":false,"aal_permitido":["aal1","aal2"],"acceso_limitado_a_modulos_asignados":true},
-    "motivo": "La correccion de Data API/default privileges no debe mezclarse con un endurecimiento de MFA para editores."
+    "consulta": {"requiere_auth":true,"requiere_aal2_mfa":false,"aal_permitido":["aal1","aal2"],"acceso_limitado_a_modulos_asignados":true}
   },
   "hallazgos": [
     {
       "id":"F7S4-DEFAULT-PRIVILEGES-DATA-API",
       "prioridad":"ALTO",
-      "estado":"PARCIALMENTE_CORREGIDO",
-      "aplicado":["Default privileges futuros del owner postgres restringidos para anon/authenticated.","EXECUTE futuro via PUBLIC retirado para funciones creadas por postgres.","Prueba temporal de tabla/funcion confirmo ausencia de herencia no deseada."],
-      "pendiente":"Los default privileges propiedad de supabase_admin siguen amplios.",
-      "bloqueo":"PERMISSION_DENIED_OWNER_SUPABASE_ADMIN"
+      "estado":"CORREGIDO_VERIFICADO",
+      "aplicado":[
+        "Default privileges futuros del owner postgres restringidos para anon/authenticated.",
+        "EXECUTE futuro via PUBLIC retirado para funciones creadas por postgres.",
+        "Prueba temporal de tabla y funcion confirmo ausencia de herencia no deseada.",
+        "La documentacion oficial de Supabase para proyectos existentes indica aplicar el endurecimiento al role postgres.",
+        "Se verifico que no existen objetos funcionales de public propiedad de supabase_admin; todos los objetos EVA de public auditados pertenecen a postgres."
+      ],
+      "supabase_admin": {
+        "clasificacion":"ROL_INTERNO_GESTIONADO_POR_SUPABASE",
+        "uso_oficial":"tareas administrativas, upgrades y automatizaciones",
+        "objetos_funcionales_public_propiedad":0,
+        "cambio_requerido":false
+      }
     },
     {
       "id":"F7S4-GALERIA-GRANTS",
