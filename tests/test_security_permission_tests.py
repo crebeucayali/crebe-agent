@@ -1,40 +1,48 @@
 import json
 from pathlib import Path
-import pytest
+import tempfile
+import unittest
 
 from security_permission_tests_validate import validate
 
 
-def load_report():
-    return json.loads(Path('reports/fase-7-etapa-5-pruebas-permisos.json').read_text(encoding='utf-8'))
+class SecurityPermissionTests(unittest.TestCase):
+    def load_report(self):
+        return json.loads(Path('reports/fase-7-etapa-5-pruebas-permisos.json').read_text(encoding='utf-8'))
+
+    def write_bad(self, data):
+        tmp = tempfile.NamedTemporaryFile('w', suffix='.json', delete=False, encoding='utf-8')
+        with tmp:
+            json.dump(data, tmp)
+        return Path(tmp.name)
+
+    def test_committed_report_valid(self):
+        self.assertTrue(validate())
+
+    def test_detects_failed_contract(self):
+        data = self.load_report()
+        data['pruebas'][0]['resultado'] = 'FAIL'
+        p = self.write_bad(data)
+        with self.assertRaises(AssertionError):
+            validate(p)
+        p.unlink(missing_ok=True)
+
+    def test_detects_residue(self):
+        data = self.load_report()
+        data['resultado']['residuos'] = 1
+        p = self.write_bad(data)
+        with self.assertRaises(AssertionError):
+            validate(p)
+        p.unlink(missing_ok=True)
+
+    def test_detects_stage6_started(self):
+        data = self.load_report()
+        data['etapa_6_iniciada'] = True
+        p = self.write_bad(data)
+        with self.assertRaises(AssertionError):
+            validate(p)
+        p.unlink(missing_ok=True)
 
 
-def test_committed_report_valid():
-    assert validate()
-
-
-def test_detects_failed_contract(tmp_path):
-    data = load_report()
-    data['pruebas'][0]['resultado'] = 'FAIL'
-    p = tmp_path / 'bad.json'
-    p.write_text(json.dumps(data), encoding='utf-8')
-    with pytest.raises(AssertionError):
-        validate(p)
-
-
-def test_detects_residue(tmp_path):
-    data = load_report()
-    data['resultado']['residuos'] = 1
-    p = tmp_path / 'bad.json'
-    p.write_text(json.dumps(data), encoding='utf-8')
-    with pytest.raises(AssertionError):
-        validate(p)
-
-
-def test_detects_stage6_started(tmp_path):
-    data = load_report()
-    data['etapa_6_iniciada'] = True
-    p = tmp_path / 'bad.json'
-    p.write_text(json.dumps(data), encoding='utf-8')
-    with pytest.raises(AssertionError):
-        validate(p)
+if __name__ == '__main__':
+    unittest.main()
