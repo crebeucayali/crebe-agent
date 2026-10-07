@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "fase": 7,
+  "etapa": 4,
+  "nombre": "Clasificacion y priorizacion de riesgos",
+  "estado": "ETAPA_4_COMPLETADA_PRIORIZACION_SEGURIDAD",
+  "fecha_inicio": "2026-10-06",
+  "fecha_cierre": "2026-10-06",
+  "zona_horaria": "America/Lima",
+  "modo": "READ_ONLY_CLASSIFICATION",
+  "reporte": "reports/fase-7-etapa-4-priorizacion-seguridad.json",
+  "documentacion": "docs/FASE_7_ETAPA_4_PRIORIZACION_SEGURIDAD.md",
+  "resultado": {
+    "contratos_incumplidos": 5,
+    "hallazgos_causales": 3,
+    "critico": 0,
+    "alto": 1,
+    "medio": 2,
+    "bajo": 0,
+    "pendientes_prueba_controlada": 5
+  },
+  "criterios_cierre_cumplidos": true,
+  "etapa_5_iniciada": false,
+  "correccion_autorizada": false,
+  "supabase_modificado": false,
+  "repositorios_eva_modificados": false,
+  "workflow_run_id": null,
+  "workflow_conclusion": null
+}
