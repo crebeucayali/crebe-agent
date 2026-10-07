@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "fase": 7,
+  "etapa": 3,
+  "nombre": "Auditoria de solo lectura",
+  "estado": "ETAPA_3_COMPLETADA_LINEA_BASE_SEGURIDAD",
+  "fecha_inicio": "2026-10-06",
+  "fecha_cierre": "2026-10-06",
+  "zona_horaria": "America/Lima",
+  "modo": "READ_ONLY",
+  "reporte": "reports/fase-7-etapa-3-linea-base-seguridad.json",
+  "documentacion": "docs/FASE_7_ETAPA_3_AUDITORIA_SEGURIDAD.md",
+  "resultado": {
+    "contratos_auditados": 26,
+    "cumple": 16,
+    "incumplimiento_confirmado": 5,
+    "requiere_prueba_controlada": 5,
+    "requiere_revision_manual": 0,
+    "no_aplica": 0,
+    "security_advisor_warn": 1,
+    "security_advisor_info": 2
+  },
+  "hallazgos_confirmados_ids": ["SEC-CON-001","SEC-CON-003","SEC-CON-004","SEC-CON-011","SEC-CON-026"],
+  "pruebas_controladas_pendientes_ids": ["SEC-CON-007","SEC-CON-012","SEC-CON-013","SEC-CON-015","SEC-CON-023"],
+  "criterios_cierre_cumplidos": true,
+  "etapa_4_iniciada": false,
+  "correccion_autorizada": false,
+  "supabase_modificado": false,
+  "repositorios_eva_modificados": false,
+  "workflow_run_id": null,
+  "workflow_conclusion": null
+}
