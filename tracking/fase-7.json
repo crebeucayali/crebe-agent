@@ -10,7 +10,7 @@
   "etapas": [
     {"numero":1,"nombre":"Inventario de superficie de seguridad","estado":"ETAPA_1_COMPLETADA_INVENTARIO_SEGURIDAD","fecha_cierre":"2026-10-06","cierre":"ETAPA_1_COMPLETADA_INVENTARIO_SEGURIDAD"},
     {"numero":2,"nombre":"Contratos de seguridad y minimo privilegio","estado":"ETAPA_2_COMPLETADA_CONTRATOS_SEGURIDAD","fecha_cierre":"2026-10-06","cierre":"ETAPA_2_COMPLETADA_CONTRATOS_SEGURIDAD"},
-    {"numero":3,"nombre":"Auditoria de solo lectura","estado":"NO_INICIADA","cierre":"ETAPA_3_COMPLETADA_LINEA_BASE_SEGURIDAD"},
+    {"numero":3,"nombre":"Auditoria de solo lectura","estado":"ETAPA_3_COMPLETADA_LINEA_BASE_SEGURIDAD","fecha_cierre":"2026-10-06","cierre":"ETAPA_3_COMPLETADA_LINEA_BASE_SEGURIDAD"},
     {"numero":4,"nombre":"Clasificacion y priorizacion de riesgos","estado":"NO_INICIADA","cierre":"ETAPA_4_COMPLETADA_PRIORIZACION_SEGURIDAD"},
     {"numero":5,"nombre":"Pruebas controladas de permisos","estado":"NO_INICIADA","cierre":"ETAPA_5_COMPLETADA_PRUEBAS_PERMISOS"},
     {"numero":6,"nombre":"Diagnostico tecnico","estado":"NO_INICIADA","cierre":"ETAPA_6_COMPLETADA_DIAGNOSTICO_SEGURIDAD"},
@@ -64,7 +64,24 @@
       "correcciones_autorizadas": 0
     },
     "criterios_cierre_cumplidos": true,
-    "etapa_3_iniciada": false
+    "etapa_3_iniciada": true
+  },
+  "etapa_3_iniciada": true,
+  "etapa_3": {
+    "estado": "ETAPA_3_COMPLETADA_LINEA_BASE_SEGURIDAD",
+    "tracking": "tracking/fase-7-etapa-3.json",
+    "reporte": "reports/fase-7-etapa-3-linea-base-seguridad.json",
+    "documentacion": "docs/FASE_7_ETAPA_3_AUDITORIA_SEGURIDAD.md",
+    "resultado": {
+      "contratos_auditados": 26,
+      "cumple": 16,
+      "incumplimiento_confirmado": 5,
+      "requiere_prueba_controlada": 5,
+      "requiere_revision_manual": 0,
+      "no_aplica": 0
+    },
+    "criterios_cierre_cumplidos": true,
+    "etapa_4_iniciada": false
   },
   "repositorios_eva_modificados": false,
   "supabase_modificado": false,
