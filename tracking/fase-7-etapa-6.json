@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "fase": 7,
+  "etapa": 6,
+  "nombre": "Diagnostico tecnico",
+  "estado": "ETAPA_6_COMPLETADA_DIAGNOSTICO_SEGURIDAD",
+  "fecha_inicio": "2026-10-06",
+  "fecha_cierre": "2026-10-06",
+  "zona_horaria": "America/Lima",
+  "modo": "READ_ONLY_DIAGNOSIS",
+  "reporte": "reports/fase-7-etapa-6-diagnostico-seguridad.json",
+  "documentacion": "docs/FASE_7_ETAPA_6_DIAGNOSTICO_SEGURIDAD.md",
+  "resultado": {
+    "hallazgos_diagnosticados": 3,
+    "listos_para_correccion_controlada": 3,
+    "critico": 0,
+    "alto": 1,
+    "medio": 2,
+    "bajo": 0,
+    "correcciones_autorizadas": 0
+  },
+  "criterios_cierre_cumplidos": true,
+  "etapa_7_iniciada": false,
+  "supabase_modificado": false,
+  "repositorios_eva_modificados": false,
+  "workflow_run_id": 37562573703,
+  "workflow_conclusion": "success"
+}

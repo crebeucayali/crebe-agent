@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "fase": 7,
+  "etapa": 6,
+  "estado": "ETAPA_6_COMPLETADA_DIAGNOSTICO_SEGURIDAD",
+  "modo": "READ_ONLY_DIAGNOSIS",
+  "hallazgos_diagnosticados": 3,
+  "correcciones_autorizadas": 0,
+  "hallazgos": [
+    {
+      "id": "F7S4-DEFAULT-PRIVILEGES-DATA-API",
+      "prioridad": "ALTO",
+      "contratos": ["SEC-CON-003", "SEC-CON-004", "SEC-CON-026"],
+      "causa_raiz": "Los default ACL del schema public para los owners postgres y supabase_admin conceden privilegios amplios a anon y authenticated sobre nuevas tablas, secuencias y funciones.",
+      "impacto": "Objetos futuros pueden heredar privilegios innecesarios y depender de una exposicion automatica incompatible con el objetivo de minimo privilegio y el cambio de Data API del 2026-10-30.",
+      "evidencia": {
+        "owners_afectados": ["postgres", "supabase_admin"],
+        "tablas_default": "anon/authenticated reciben arwdDxtm",
+        "funciones_default": "anon/authenticated reciben EXECUTE",
+        "secuencias_default": "anon/authenticated reciben rwU"
+      },
+      "correccion_minima_segura": [
+        "Revocar de los default privileges futuros de postgres y supabase_admin los privilegios automaticos de anon y authenticated sobre TABLES, FUNCTIONS y SEQUENCES en public.",
+        "No revocar de forma masiva permisos de objetos existentes en el mismo paso.",
+        "Mantener grants explicitos solo donde una ruta funcional actual los requiera.",
+        "Verificar tras el cambio que un objeto de prueba creado de forma controlada no herede privilegios publicos y eliminarlo dentro de la misma intervencion controlada."
+      ],
+      "riesgo_regresion": "BAJO si se limita a default privileges futuros; ALTO si se mezcla con revocaciones masivas de objetos existentes.",
+      "listo_para_correccion_controlada": true
+    },
+    {
+      "id": "F7S4-GALERIA-GRANTS",
+      "prioridad": "MEDIO",
+      "contratos": ["SEC-CON-001"],
+      "causa_raiz": "public.galeria_item_imagenes conserva grants de tabla completos para anon y authenticated, mientras la seguridad efectiva depende de RLS y funciones de autorizacion.",
+      "impacto": "RLS evita actualmente el DML anon y restringe authenticated, pero la capa GRANT excede minimo privilegio y aumenta el impacto potencial de una regresion futura de policies.",
+      "evidencia": {
+        "anon": ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES", "TRIGGER"],
+        "authenticated": ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES", "TRIGGER"],
+        "rls_actual": "anon solo SELECT publico; authenticated SELECT y DML condicionado por es_admin_mfa()",
+        "consumidor_publico": "recursos/galeria-supabase.js requiere SELECT",
+        "consumidor_admin": "admin/admin.js usa la tabla para operaciones de Galeria"
+      },
+      "correccion_minima_segura": [
+        "Revocar a anon INSERT, UPDATE, DELETE, TRUNCATE, REFERENCES y TRIGGER; conservar SELECT.",
+        "Revocar a authenticated TRUNCATE, REFERENCES y TRIGGER.",
+        "Conservar temporalmente SELECT, INSERT, UPDATE y DELETE para authenticated porque el panel administrativo usa acceso directo protegido por RLS/AAL2.",
+        "No modificar las policies RLS que ya pasaron las pruebas de Etapa 5."
+      ],
+      "riesgo_regresion": "MEDIO si se revocan DML necesarios a authenticated; BAJO con la correccion minima indicada.",
+      "listo_para_correccion_controlada": true
+    },
+    {
+      "id": "F7S4-AUTH-LEAKED-PASSWORD",
+      "prioridad": "MEDIO",
+      "contratos": ["SEC-CON-011"],
+      "causa_raiz": "Leaked Password Protection de Supabase Auth esta deshabilitado.",
+      "impacto": "Una contraseña conocida como comprometida puede aceptarse si cumple los demas requisitos de contraseña; no implica que exista hoy una cuenta comprometida.",
+      "evidencia": {
+        "security_advisor": "WARN auth_leaked_password_protection",
+        "estado": "disabled"
+      },
+      "correccion_minima_segura": [
+        "Habilitar Leaked Password Protection en la configuracion de Supabase Auth.",
+        "No modificar MFA/AAL2 ni politicas RLS como parte de este cambio.",
+        "Verificar posteriormente que el acceso administrativo existente siga operativo y que el advisor deje de reportar el WARN."
+      ],
+      "riesgo_regresion": "BAJO para sesiones existentes; puede afectar futuros cambios/altas con contraseñas comprometidas, que es el comportamiento deseado.",
+      "listo_para_correccion_controlada": true
+    }
+  ],
+  "pruebas_etapa_5": {
+    "contratos_aprobados": 5,
+    "hallazgos_nuevos": 0,
+    "residuos": 0,
+    "conclusion": "Los controles dinamicos de identidad, AAL2, aislamiento de modulo, Storage y anti-escalacion funcionan y no requieren correccion."
+  },
+  "orden_correccion_etapa_7": [
+    "F7S4-DEFAULT-PRIVILEGES-DATA-API",
+    "F7S4-GALERIA-GRANTS",
+    "F7S4-AUTH-LEAKED-PASSWORD"
+  ],
+  "fecha_limite_data_api": "2026-10-30",
+  "supabase_modificado": false,
+  "repositorios_eva_modificados": false,
+  "etapa_7_iniciada": false
+}
