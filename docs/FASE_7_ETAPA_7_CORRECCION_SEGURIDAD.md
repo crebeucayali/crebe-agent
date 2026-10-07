@@ -2,57 +2,29 @@
 
 Estado: `ETAPA_7_EN_CURSO_CON_BLOQUEOS_CONTROLADOS`.
 
-La etapa se inició sobre los tres hallazgos diagnosticados en la Etapa 6. Se aplicaron únicamente cambios mínimos y verificables, sin relajar RLS, sin revocaciones masivas de objetos existentes y sin modificar los ocho repositorios EVA.
-
-## Decisión explícita sobre autenticación
-
-La corrección de `GRANT`, default privileges y Data API **no modifica el modelo de autenticación de los editores**.
-
-Modelo confirmado:
-
-- `master`: usuario autenticado + AAL2/MFA obligatorio para operaciones administrativas sensibles y gestión de usuarios.
-- `editor`: usuario autenticado; puede operar con AAL1 o AAL2 únicamente dentro de los módulos asignados. No se le impone MFA obligatorio en esta etapa.
-- `consulta`: usuario autenticado; AAL1 o AAL2, limitado a los módulos asignados.
-
-La función `private.permite_modulo` mantiene AAL2 para `master` y permite AAL1/AAL2 a `editor`/`consulta` solo dentro de su alcance. Las funciones de gestión de usuarios (`admin_autorizar_editor`, `admin_guardar_usuario`, `admin_listar_usuarios`) continúan exigiendo `private.es_admin_mfa()`, es decir master + AAL2.
-
-Esta separación es deliberada: autenticación, autorización por módulo y permisos de Data API son capas distintas. No se añadirá MFA obligatorio a editores como efecto colateral de esta corrección.
+## Modelo de autenticación
+- `master`: autenticado + AAL2/MFA obligatorio para operaciones sensibles y gestión de usuarios.
+- `editor`: autenticado; AAL1 o AAL2, limitado a módulos asignados. No se impone MFA obligatorio en esta etapa.
+- `consulta`: autenticado; AAL1 o AAL2, limitado a módulos asignados.
 
 ## 1. Default privileges + Data API — ALTO
-
-### Aplicado
-- Owner `postgres`: se retiraron de `anon` y `authenticated` los default privileges futuros sobre tablas, secuencias y funciones en `public`.
-- Se retiró además `EXECUTE` futuro vía `PUBLIC` para funciones creadas por `postgres`.
-- La prueba inicial detectó correctamente que `PUBLIC` seguía otorgando `EXECUTE`; esa prueba falló y revirtió completamente.
-- Tras ajustar el default global de funciones, una nueva tabla y una nueva función de prueba confirmaron que `anon` y `authenticated` ya no heredan acceso. Los objetos de prueba se eliminaron en la misma migración.
-
-### Bloqueo pendiente
-Los default privileges de objetos cuyo owner es `supabase_admin` siguen otorgando permisos amplios. La sesión disponible opera como `postgres`, no es miembro de `supabase_admin` y PostgreSQL rechazó el cambio con `permission denied to change default privileges`.
-
-No se intentó escalar privilegios ni cambiar ownership.
+El owner `postgres` quedó endurecido y verificado. Los defaults propiedad de `supabase_admin` siguen pendientes porque la sesión disponible no puede modificarlos.
 
 ## 2. `galeria_item_imagenes` — MEDIO
-
-Corregido y verificado:
-- `anon`: solo `SELECT`.
-- `authenticated`: `SELECT`, `INSERT`, `UPDATE`, `DELETE`.
-- retirados de ambos roles: privilegios no necesarios como `TRUNCATE`, `REFERENCES` y `TRIGGER`.
-- las cinco policies RLS se conservaron intactas.
-
-Esto mantiene la lectura pública y el flujo administrativo existente sin ampliar permisos.
+Corregido y verificado: `anon` conserva solo `SELECT`; `authenticated` conserva `SELECT`, `INSERT`, `UPDATE` y `DELETE`; RLS permanece intacto.
 
 ## 3. Leaked Password Protection — MEDIO
+El subpunto fue intentado y verificado contra las capacidades y el plan actuales. La organización Supabase `crebe ucayali` está en `free / tier_free`.
 
-El Security Advisor continúa reportando `auth_leaked_password_protection` como `WARN`.
+La documentación oficial de Supabase establece que **Leaked Password Protection está disponible únicamente en el plan Pro o superior**. Por tanto, este control no puede habilitarse en el estado actual del proyecto, aunque se utilice Dashboard o Management API.
 
-La capacidad Supabase disponible en esta ejecución permite migraciones SQL, consultas y lectura del Security Advisor, pero no expone escritura de la configuración de Auth/Management API. Por tanto, habilitar esta opción no puede ejecutarse de forma segura desde este conector y queda documentado como bloqueo de capacidad de plataforma, no como corrección omitida silenciosamente.
+Estado formal: `BLOQUEADO_POR_PLAN`.
 
-Referencia oficial: https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection
+No se modificó MFA, AAL, RLS ni permisos de editores como consecuencia de este bloqueo.
 
 ## Estado de cierre
-
-La Etapa 7 no se marca completada porque quedan dos dependencias reales:
-1. restringir los defaults del owner `supabase_admin` mediante una identidad autorizada;
-2. habilitar Leaked Password Protection mediante Dashboard o Management API autorizada.
+La Etapa 7 no se marca completada porque siguen dos dependencias reales:
+1. restringir los defaults del owner `supabase_admin` con una identidad autorizada;
+2. disponer de un plan Supabase Pro o superior para poder habilitar Leaked Password Protection.
 
 La Etapa 8 permanece sin iniciar.
