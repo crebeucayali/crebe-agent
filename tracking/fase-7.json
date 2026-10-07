@@ -14,7 +14,7 @@
     {"numero":4,"nombre":"Clasificacion y priorizacion de riesgos","estado":"ETAPA_4_COMPLETADA_PRIORIZACION_SEGURIDAD","fecha_cierre":"2026-10-06","cierre":"ETAPA_4_COMPLETADA_PRIORIZACION_SEGURIDAD"},
     {"numero":5,"nombre":"Pruebas controladas de permisos","estado":"ETAPA_5_COMPLETADA_PRUEBAS_PERMISOS","fecha_cierre":"2026-10-06","cierre":"ETAPA_5_COMPLETADA_PRUEBAS_PERMISOS"},
     {"numero":6,"nombre":"Diagnostico tecnico","estado":"ETAPA_6_COMPLETADA_DIAGNOSTICO_SEGURIDAD","fecha_cierre":"2026-10-06","cierre":"ETAPA_6_COMPLETADA_DIAGNOSTICO_SEGURIDAD"},
-    {"numero":7,"nombre":"Correccion controlada","estado":"ETAPA_7_EN_CURSO_CON_BLOQUEOS_CONTROLADOS","cierre":"ETAPA_7_COMPLETADA_CORRECCION_SEGURIDAD"},
+    {"numero":7,"nombre":"Correccion controlada","estado":"ETAPA_7_COMPLETADA_CORRECCION_SEGURIDAD","fecha_cierre":"2026-10-07","cierre":"ETAPA_7_COMPLETADA_CORRECCION_SEGURIDAD"},
     {"numero":8,"nombre":"Verificacion y monitoreo","estado":"NO_INICIADA","cierre":"MONITOREO_SEGURIDAD_ACTIVO"}
   ],
   "criterios": {"publicable_key_no_es_secreto":true,"secretos_privados_no_se_registran_en_claro":true,"minimo_privilegio":true,"RLS_no_se_relaja_para_resolver_funcionalidad":true,"lectura_primero":true,"correccion_automatica":false,"requiere_diagnostico_antes_de_corregir":true,"requiere_verificacion_regresion":true},
@@ -34,7 +34,8 @@
   "etapa_6_iniciada": true,
   "etapa_6": {"estado":"ETAPA_6_COMPLETADA_DIAGNOSTICO_SEGURIDAD","tracking":"tracking/fase-7-etapa-6.json","reporte":"reports/fase-7-etapa-6-diagnostico-seguridad.json","documentacion":"docs/FASE_7_ETAPA_6_DIAGNOSTICO_SEGURIDAD.md","resultado":{"hallazgos_diagnosticados":3,"listos_para_correccion_controlada":3,"critico":0,"alto":1,"medio":2,"bajo":0,"correcciones_autorizadas":0},"criterios_cierre_cumplidos":true,"etapa_7_iniciada":true},
   "etapa_7_iniciada": true,
-  "etapa_7": {"estado":"ETAPA_7_EN_CURSO_CON_BLOQUEOS_CONTROLADOS","tracking":"tracking/fase-7-etapa-7.json","reporte":"reports/fase-7-etapa-7-correccion-seguridad.json","documentacion":"docs/FASE_7_ETAPA_7_CORRECCION_SEGURIDAD.md","resultado":{"hallazgos_objetivo":3,"corregidos_verificados":2,"parcialmente_corregidos":0,"bloqueados":1,"supabase_modificado":true,"repositorios_eva_modificados":false,"rls_modificado":false},"criterios_cierre_cumplidos":false,"etapa_8_iniciada":false},
+  "etapa_7": {"estado":"ETAPA_7_COMPLETADA_CORRECCION_SEGURIDAD","tracking":"tracking/fase-7-etapa-7.json","reporte":"reports/fase-7-etapa-7-correccion-seguridad.json","documentacion":"docs/FASE_7_ETAPA_7_CORRECCION_SEGURIDAD.md","resultado":{"hallazgos_objetivo":3,"corregidos_verificados":2,"aceptados_no_aplicables_plan_free":1,"parcialmente_corregidos":0,"bloqueados":0,"supabase_modificado":true,"repositorios_eva_modificados":false,"rls_modificado":false},"criterios_cierre_cumplidos":true,"etapa_8_iniciada":false},
+  "limitaciones_plan_aceptadas": [{"id":"F7S4-AUTH-LEAKED-PASSWORD","estado":"ACEPTADO_NO_APLICABLE_EN_PLAN_FREE","reabrir_si":"PLAN_PRO_O_SUPERIOR"}],
   "repositorios_eva_modificados": false,
   "supabase_modificado": true,
   "documentacion": "docs/FASE_7_SEGURIDAD_PERMISOS.md",

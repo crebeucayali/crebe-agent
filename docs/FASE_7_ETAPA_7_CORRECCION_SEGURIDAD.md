@@ -1,6 +1,6 @@
 # Fase 7 — Etapa 7: Corrección controlada de seguridad
 
-Estado: `ETAPA_7_EN_CURSO_CON_BLOQUEOS_CONTROLADOS`.
+Estado: `ETAPA_7_COMPLETADA_CORRECCION_SEGURIDAD`.
 
 ## Modelo de autenticación
 - `master`: autenticado + AAL2/MFA obligatorio para operaciones sensibles y gestión de usuarios.
@@ -11,15 +11,9 @@ Estado: `ETAPA_7_EN_CURSO_CON_BLOQUEOS_CONTROLADOS`.
 
 Estado: `CORREGIDO_VERIFICADO`.
 
-El owner funcional de los objetos EVA en `public` es `postgres`. Sobre ese role ya se aplicó el endurecimiento recomendado para proyectos existentes:
+El owner funcional de los objetos EVA en `public` es `postgres`. Sobre ese role se aplicó y verificó el endurecimiento recomendado para proyectos existentes: se retiraron default privileges futuros innecesarios para `anon` y `authenticated`, se retiró `EXECUTE` futuro vía `PUBLIC` y una prueba temporal confirmó que nuevos objetos ya no heredan acceso no deseado.
 
-- retirados los default privileges futuros innecesarios para `anon` y `authenticated` sobre tablas, secuencias y funciones;
-- retirado `EXECUTE` futuro heredado mediante `PUBLIC` para funciones creadas por `postgres`;
-- prueba temporal de tabla y función nuevas confirmó que ya no heredan acceso no deseado.
-
-La documentación oficial de Supabase indica precisamente aplicar este cambio mediante `ALTER DEFAULT PRIVILEGES FOR ROLE postgres` en proyectos existentes.
-
-Además se verificó el catálogo real de `public`: no existe ningún objeto funcional EVA propiedad de `supabase_admin`. Supabase documenta `supabase_admin` como un rol interno utilizado para tareas administrativas, upgrades y automatizaciones. Por tanto, sus ACL internas no se consideran una corrección pendiente de EVA y no se intenta escalar privilegios para modificarlas.
+`supabase_admin` queda clasificado como rol interno gestionado por Supabase. No existen objetos funcionales EVA de `public` propiedad de ese role, por lo que no existe corrección pendiente de EVA sobre sus ACL internas.
 
 ## 2. `galeria_item_imagenes` — MEDIO
 
@@ -32,16 +26,18 @@ Estado: `CORREGIDO_VERIFICADO`.
 
 ## 3. Leaked Password Protection — MEDIO
 
-Estado: `BLOQUEADO_POR_PLAN`.
+Estado: `ACEPTADO_NO_APLICABLE_EN_PLAN_FREE`.
 
-La organización Supabase está en `free / tier_free`. La documentación oficial establece que Leaked Password Protection está disponible únicamente en Pro o superior.
+La organización Supabase permanece deliberadamente en `free / tier_free`. Leaked Password Protection requiere Pro o superior. El usuario decidió mantener el plan Free, por lo que este control no se considera una deuda accionable ni un bloqueo para el cierre de la etapa.
 
-No se modifica MFA, AAL, RLS ni permisos de editores como consecuencia de este bloqueo.
+No se simula su activación y no se modifica MFA, AAL, RLS ni permisos de editores. La excepción queda documentada y solo deberá reabrirse si en el futuro la organización migra a Supabase Pro o superior.
 
-## Estado de cierre
+## Cierre
 
-La deuda técnica de Data API/default privileges queda cerrada. El único bloqueo restante de Etapa 7 es de plan:
+Resultado final de los tres hallazgos:
+- 2 `CORREGIDO_VERIFICADO`;
+- 1 `ACEPTADO_NO_APLICABLE_EN_PLAN_FREE`;
+- 0 parcialmente corregidos;
+- 0 bloqueos técnicos accionables.
 
-1. `Leaked Password Protection` requiere Supabase Pro o superior.
-
-La Etapa 8 permanece sin iniciar mientras se mantenga el criterio actual de no avanzar con bloqueos de seguridad pendientes.
+Los criterios de cierre de la Etapa 7 se consideran cumplidos. La Etapa 8 queda disponible para iniciar la verificación y monitoreo de seguridad.
