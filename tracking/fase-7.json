@@ -20,6 +20,7 @@
   "criterios": {"publicable_key_no_es_secreto":true,"secretos_privados_no_se_registran_en_claro":true,"minimo_privilegio":true,"RLS_no_se_relaja_para_resolver_funcionalidad":true,"lectura_primero":true,"correccion_automatica":false,"requiere_diagnostico_antes_de_corregir":true,"requiere_verificacion_regresion":true},
   "prioridades": ["CRITICO","ALTO","MEDIO","BAJO"],
   "condicion_temporal": {"fecha":"2026-10-30","tema":"Cambio de exposicion Data API de Supabase para proyectos existentes","accion":"Verificar objetos expuestos, grants necesarios y RLS antes de la fecha sin ampliar permisos innecesariamente."},
+  "modelo_autenticacion_vigente": {"master":"AUTHENTICATED_PLUS_AAL2_MFA","editor":"AUTHENTICATED_AAL1_OR_AAL2_SCOPED_BY_MODULE","consulta":"AUTHENTICATED_AAL1_OR_AAL2_SCOPED_BY_MODULE","mfa_obligatorio_editores":false,"decision_etapa_7":"NO_CAMBIAR_MODELO_AUTH"},
   "etapa_1_iniciada": true,
   "etapa_1": {"estado":"ETAPA_1_COMPLETADA_INVENTARIO_SEGURIDAD","tracking":"tracking/fase-7-etapa-1.json","reporte":"reports/fase-7-etapa-1-inventario-seguridad.json","documentacion":"docs/FASE_7_ETAPA_1_INVENTARIO_SEGURIDAD.md","resultado":{"schemas_relevantes":4,"objetos_catalogados":21,"politicas_rls_catalogadas":36,"funciones_private_catalogadas":24,"funciones_private_security_definer":19,"superficies_a_contratar":6,"secretos_privados_literales_detectados":0},"criterios_cierre_cumplidos":true,"etapa_2_iniciada":true},
   "etapa_2_iniciada": true,

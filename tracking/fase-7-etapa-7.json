@@ -19,6 +19,14 @@
     "repositorios_eva_modificados": false,
     "rls_modificado": false
   },
+  "modelo_autenticacion_confirmado": {
+    "master": "AUTHENTICATED_PLUS_AAL2_MFA",
+    "editor": "AUTHENTICATED_AAL1_OR_AAL2_SCOPED_BY_MODULE",
+    "consulta": "AUTHENTICATED_AAL1_OR_AAL2_SCOPED_BY_MODULE",
+    "mfa_obligatorio_editores": false,
+    "decision": "NO_CAMBIAR_MODELO_AUTH_EN_ETAPA_7",
+    "evidencia": "private.permite_modulo exige AAL2 al master y permite AAL1/AAL2 a editor/consulta solo en modulos asignados; funciones de gestion de usuarios exigen private.es_admin_mfa()."
+  },
   "bloqueos": [
     "PERMISSION_DENIED_OWNER_SUPABASE_ADMIN",
     "SUPABASE_CONNECTOR_NO_EXPONE_ESCRITURA_CONFIG_AUTH"
