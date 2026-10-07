@@ -2,15 +2,16 @@
   "schema_version": 1,
   "fase": 7,
   "etapa": 7,
-  "estado": "ETAPA_7_EN_CURSO_CON_BLOQUEOS_CONTROLADOS",
+  "estado": "ETAPA_7_COMPLETADA_CORRECCION_SEGURIDAD",
   "modo": "CONTROLLED_SECURITY_CORRECTION",
   "fecha": "2026-10-07",
   "zona_horaria": "America/Lima",
   "resultado": {
     "hallazgos_objetivo": 3,
     "corregidos_verificados": 2,
+    "aceptados_no_aplicables_plan_free": 1,
     "parcialmente_corregidos": 0,
-    "bloqueados_por_capacidad_o_plan": 1,
+    "bloqueados": 0,
     "supabase_modificado": true,
     "repositorios_eva_modificados": false,
     "rls_modificado": false,
@@ -31,15 +32,8 @@
         "Default privileges futuros del owner postgres restringidos para anon/authenticated.",
         "EXECUTE futuro via PUBLIC retirado para funciones creadas por postgres.",
         "Prueba temporal de tabla y funcion confirmo ausencia de herencia no deseada.",
-        "La documentacion oficial de Supabase para proyectos existentes indica aplicar el endurecimiento al role postgres.",
-        "Se verifico que no existen objetos funcionales de public propiedad de supabase_admin; todos los objetos EVA de public auditados pertenecen a postgres."
-      ],
-      "supabase_admin": {
-        "clasificacion":"ROL_INTERNO_GESTIONADO_POR_SUPABASE",
-        "uso_oficial":"tareas administrativas, upgrades y automatizaciones",
-        "objetos_funcionales_public_propiedad":0,
-        "cambio_requerido":false
-      }
+        "No existen objetos funcionales EVA de public propiedad de supabase_admin; se clasifica como rol interno gestionado por Supabase."
+      ]
     },
     {
       "id":"F7S4-GALERIA-GRANTS",
@@ -50,12 +44,18 @@
     {
       "id":"F7S4-AUTH-LEAKED-PASSWORD",
       "prioridad":"MEDIO",
-      "estado":"BLOQUEADO_POR_PLAN",
-      "evidencia":"La organizacion Supabase usa plan free/tier_free. La documentacion oficial indica que Leaked Password Protection esta disponible en Pro o superior.",
-      "pendiente":"Solo puede habilitarse despues de migrar la organizacion/proyecto a un plan compatible.",
-      "bloqueo":"LEAKED_PASSWORD_PROTECTION_REQUIERE_PLAN_PRO_O_SUPERIOR",
+      "estado":"ACEPTADO_NO_APLICABLE_EN_PLAN_FREE",
+      "evidencia":"La organizacion Supabase usa plan free/tier_free y Leaked Password Protection requiere Pro o superior.",
+      "decision_usuario":"MANTENER_PLAN_FREE",
+      "accion_actual":"No aplicar ni escalar plan por este control.",
+      "criterio_reapertura":"Reevaluar unicamente si la organizacion migra a Supabase Pro o superior.",
       "cambio_aplicado":false
     }
   ],
-  "guardrails":{"no_relajar_rls":true,"no_revocacion_masiva_objetos_existentes":true,"no_correccion_automatica_bloqueos":true,"no_iniciar_etapa_8_hasta_resolver_bloqueos":true,"no_imponer_mfa_editores_sin_decision_separada":true}
+  "guardrails": {
+    "no_relajar_rls":true,
+    "no_revocacion_masiva_objetos_existentes":true,
+    "no_imponer_mfa_editores_sin_decision_separada":true,
+    "limitaciones_de_plan_pueden_cerrarse_como_excepcion_documentada":true
+  }
 }
