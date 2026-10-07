@@ -9,7 +9,7 @@
   "dependencias_heredadas": ["SEC-DEPENDENCY-001"],
   "etapas": [
     {"numero":1,"nombre":"Inventario de superficie de seguridad","estado":"ETAPA_1_COMPLETADA_INVENTARIO_SEGURIDAD","fecha_cierre":"2026-10-06","cierre":"ETAPA_1_COMPLETADA_INVENTARIO_SEGURIDAD"},
-    {"numero":2,"nombre":"Contratos de seguridad y minimo privilegio","estado":"NO_INICIADA","cierre":"ETAPA_2_COMPLETADA_CONTRATOS_SEGURIDAD"},
+    {"numero":2,"nombre":"Contratos de seguridad y minimo privilegio","estado":"ETAPA_2_COMPLETADA_CONTRATOS_SEGURIDAD","fecha_cierre":"2026-10-06","cierre":"ETAPA_2_COMPLETADA_CONTRATOS_SEGURIDAD"},
     {"numero":3,"nombre":"Auditoria de solo lectura","estado":"NO_INICIADA","cierre":"ETAPA_3_COMPLETADA_LINEA_BASE_SEGURIDAD"},
     {"numero":4,"nombre":"Clasificacion y priorizacion de riesgos","estado":"NO_INICIADA","cierre":"ETAPA_4_COMPLETADA_PRIORIZACION_SEGURIDAD"},
     {"numero":5,"nombre":"Pruebas controladas de permisos","estado":"NO_INICIADA","cierre":"ETAPA_5_COMPLETADA_PRUEBAS_PERMISOS"},
@@ -49,7 +49,22 @@
       "secretos_privados_literales_detectados": 0
     },
     "criterios_cierre_cumplidos": true,
-    "etapa_2_iniciada": false
+    "etapa_2_iniciada": true
+  },
+  "etapa_2_iniciada": true,
+  "etapa_2": {
+    "estado": "ETAPA_2_COMPLETADA_CONTRATOS_SEGURIDAD",
+    "tracking": "tracking/fase-7-etapa-2.json",
+    "contratos": "contracts/fase-7-etapa-2-contratos-seguridad.json",
+    "documentacion": "docs/FASE_7_ETAPA_2_CONTRATOS_SEGURIDAD.md",
+    "resultado": {
+      "contratos_totales": 26,
+      "superficies_cubiertas": 6,
+      "roles_logicos": 5,
+      "correcciones_autorizadas": 0
+    },
+    "criterios_cierre_cumplidos": true,
+    "etapa_3_iniciada": false
   },
   "repositorios_eva_modificados": false,
   "supabase_modificado": false,
