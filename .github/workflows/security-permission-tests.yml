@@ -1,0 +1,28 @@
+name: Seguridad EVA - Fase 7 Etapa 5
+
+on:
+  pull_request:
+    paths:
+      - 'reports/fase-7-etapa-5-pruebas-permisos.json'
+      - 'security_permission_tests_validate.py'
+      - 'tests/test_security_permission_tests.py'
+      - 'tracking/fase-7-etapa-5.json'
+      - 'tracking/fase-7.json'
+      - 'tracking/phases.json'
+      - '.github/workflows/security-permission-tests.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-permission-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pytest
+      - run: python -m pytest tests/test_security_permission_tests.py -q
+      - run: python security_permission_tests_validate.py
