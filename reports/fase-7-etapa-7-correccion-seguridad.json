@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "fase": 7,
+  "etapa": 7,
+  "estado": "ETAPA_7_EN_CURSO_CON_BLOQUEOS_CONTROLADOS",
+  "modo": "CONTROLLED_SECURITY_CORRECTION",
+  "fecha": "2026-10-06",
+  "zona_horaria": "America/Lima",
+  "resultado": {
+    "hallazgos_objetivo": 3,
+    "corregidos_verificados": 1,
+    "parcialmente_corregidos": 1,
+    "bloqueados_por_capacidad_plataforma": 1,
+    "supabase_modificado": true,
+    "repositorios_eva_modificados": false,
+    "rls_modificado": false,
+    "etapa_8_iniciada": false
+  },
+  "hallazgos": [
+    {
+      "id": "F7S4-DEFAULT-PRIVILEGES-DATA-API",
+      "prioridad": "ALTO",
+      "estado": "PARCIALMENTE_CORREGIDO",
+      "aplicado": [
+        "Se revocaron a anon y authenticated los default privileges futuros de TABLES, SEQUENCES y FUNCTIONS para el owner postgres en public.",
+        "Se revoco EXECUTE por defecto a PUBLIC para funciones futuras creadas por postgres.",
+        "Una prueba temporal posterior con tabla y funcion nuevas confirmo que anon/authenticated no heredan SELECT ni EXECUTE; los objetos de prueba fueron eliminados."
+      ],
+      "pendiente": "Los default privileges propiedad de supabase_admin siguen amplios porque la sesion postgres no es miembro ni puede alterar los defaults de ese owner.",
+      "bloqueo": "PERMISSION_DENIED_OWNER_SUPABASE_ADMIN",
+      "correccion_masiva_objetos_existentes": false
+    },
+    {
+      "id": "F7S4-GALERIA-GRANTS",
+      "prioridad": "MEDIO",
+      "estado": "CORREGIDO_VERIFICADO",
+      "aplicado": [
+        "anon conserva solo SELECT sobre public.galeria_item_imagenes.",
+        "authenticated conserva SELECT, INSERT, UPDATE y DELETE.",
+        "TRUNCATE, REFERENCES y TRIGGER fueron retirados de anon y authenticated.",
+        "Las cinco policies RLS permanecen sin cambios."
+      ]
+    },
+    {
+      "id": "F7S4-AUTH-LEAKED-PASSWORD",
+      "prioridad": "MEDIO",
+      "estado": "BLOQUEADO_POR_CAPACIDAD_HERRAMIENTA",
+      "evidencia": "Security Advisor mantiene WARN auth_leaked_password_protection.",
+      "pendiente": "Habilitar Leaked Password Protection en la configuracion de Supabase Auth.",
+      "bloqueo": "SUPABASE_CONNECTOR_NO_EXPONE_ESCRITURA_CONFIG_AUTH"
+    }
+  ],
+  "migraciones_aplicadas": [
+    "fase_7_etapa_7_default_privileges_postgres",
+    "fase_7_etapa_7_minimo_privilegio_galeria_imagenes",
+    "fase_7_etapa_7_default_functions_postgres_public",
+    "fase_7_etapa_7_default_functions_postgres_global",
+    "fase_7_etapa_7_probe_default_acl_owner",
+    "fase_7_etapa_7_cleanup_acl_probe",
+    "fase_7_etapa_7_verificacion_default_privileges_postgres_v3"
+  ],
+  "migraciones_fallidas_sin_cambios_persistentes": [
+    "fase_7_etapa_7_minimo_privilegio_data_api_y_galeria",
+    "fase_7_etapa_7_verificacion_default_privileges_postgres",
+    "fase_7_etapa_7_verificacion_default_privileges_postgres_v2"
+  ],
+  "guardrails": {
+    "no_relajar_rls": true,
+    "no_revocacion_masiva_objetos_existentes": true,
+    "no_correccion_automatica_bloqueos": true,
+    "no_iniciar_etapa_8_hasta_resolver_bloqueos": true
+  }
+}
