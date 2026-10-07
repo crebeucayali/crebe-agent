@@ -24,6 +24,6 @@
   "correccion_autorizada": false,
   "supabase_modificado": false,
   "repositorios_eva_modificados": false,
-  "workflow_run_id": null,
-  "workflow_conclusion": null
+  "workflow_run_id": 37551072290,
+  "workflow_conclusion": "success"
 }
