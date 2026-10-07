@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "fase": 7,
+  "etapa": 7,
+  "nombre": "Correccion controlada",
+  "estado": "ETAPA_7_EN_CURSO_CON_BLOQUEOS_CONTROLADOS",
+  "fecha_inicio": "2026-10-06",
+  "fecha_cierre": null,
+  "zona_horaria": "America/Lima",
+  "modo": "CONTROLLED_SECURITY_CORRECTION",
+  "reporte": "reports/fase-7-etapa-7-correccion-seguridad.json",
+  "documentacion": "docs/FASE_7_ETAPA_7_CORRECCION_SEGURIDAD.md",
+  "resultado": {
+    "hallazgos_objetivo": 3,
+    "corregidos_verificados": 1,
+    "parcialmente_corregidos": 1,
+    "bloqueados": 1,
+    "supabase_modificado": true,
+    "repositorios_eva_modificados": false,
+    "rls_modificado": false
+  },
+  "bloqueos": [
+    "PERMISSION_DENIED_OWNER_SUPABASE_ADMIN",
+    "SUPABASE_CONNECTOR_NO_EXPONE_ESCRITURA_CONFIG_AUTH"
+  ],
+  "criterios_cierre_cumplidos": false,
+  "etapa_8_iniciada": false,
+  "workflow_run_id": null,
+  "workflow_conclusion": null
+}
