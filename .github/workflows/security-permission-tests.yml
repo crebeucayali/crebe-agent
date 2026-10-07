@@ -23,6 +23,5 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m pip install pytest
-      - run: python -m pytest tests/test_security_permission_tests.py -q
+      - run: python -m unittest tests.test_security_permission_tests -v
       - run: python security_permission_tests_validate.py
