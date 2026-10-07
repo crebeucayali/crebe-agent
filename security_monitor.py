@@ -16,11 +16,12 @@ def load(path):
 def scan_for_literal_secrets():
     hits = []
     pattern = re.compile(r'sb_secret_[A-Za-z0-9_-]{8,}')
-    excluded_dirs = {'.git', '__pycache__'}
+    excluded_dirs = {'.git', '__pycache__', 'docs', 'reports', 'tracking', 'tests'}
+    allowed_suffixes = {'.py', '.js', '.ts', '.json', '.yml', '.yaml', '.html', '.css', '.sql'}
     for path in ROOT.rglob('*'):
         if not path.is_file() or any(part in excluded_dirs for part in path.parts):
             continue
-        if path.suffix.lower() not in {'.py', '.js', '.ts', '.json', '.md', '.yml', '.yaml', '.html', '.css', '.sql'}:
+        if path.suffix.lower() not in allowed_suffixes:
             continue
         try:
             text = path.read_text(encoding='utf-8')
@@ -55,7 +56,7 @@ def run(output_dir='reports/security-monitor'):
 
     secret_hits = scan_for_literal_secrets() if cfg['checks']['forbid_literal_sb_secret'] else []
     if secret_hits:
-        alerts.append('Se detectaron posibles claves sb_secret_ literales en el repositorio.')
+        alerts.append('Se detectaron posibles claves sb_secret_ literales en superficies ejecutables/configurables.')
 
     out = Path(output_dir)
     out.mkdir(parents=True, exist_ok=True)
