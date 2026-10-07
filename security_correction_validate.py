@@ -12,7 +12,7 @@ def validate(path=REPORT):
     assert r['hallazgos_objetivo'] == 3
     assert r['corregidos_verificados'] == 1
     assert r['parcialmente_corregidos'] == 1
-    assert r['bloqueados_por_capacidad_plataforma'] == 1
+    assert r.get('bloqueados_por_capacidad_o_plan', r.get('bloqueados_por_capacidad_plataforma')) == 1
     assert r['supabase_modificado'] is True
     assert r['repositorios_eva_modificados'] is False
     assert r['rls_modificado'] is False
@@ -20,7 +20,7 @@ def validate(path=REPORT):
     estados = {h['id']: h['estado'] for h in data['hallazgos']}
     assert estados['F7S4-GALERIA-GRANTS'] == 'CORREGIDO_VERIFICADO'
     assert estados['F7S4-DEFAULT-PRIVILEGES-DATA-API'] == 'PARCIALMENTE_CORREGIDO'
-    assert estados['F7S4-AUTH-LEAKED-PASSWORD'] == 'BLOQUEADO_POR_CAPACIDAD_HERRAMIENTA'
+    assert estados['F7S4-AUTH-LEAKED-PASSWORD'] in {'BLOQUEADO_POR_CAPACIDAD_HERRAMIENTA', 'BLOQUEADO_POR_PLAN'}
     assert data['guardrails']['no_relajar_rls'] is True
     assert data['guardrails']['no_iniciar_etapa_8_hasta_resolver_bloqueos'] is True
     return True

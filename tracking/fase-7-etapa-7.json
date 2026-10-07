@@ -29,8 +29,15 @@
   },
   "bloqueos": [
     "PERMISSION_DENIED_OWNER_SUPABASE_ADMIN",
-    "SUPABASE_CONNECTOR_NO_EXPONE_ESCRITURA_CONFIG_AUTH"
+    "LEAKED_PASSWORD_PROTECTION_REQUIERE_PLAN_PRO_O_SUPERIOR"
   ],
+  "leaked_password_protection": {
+    "estado": "BLOQUEADO_POR_PLAN",
+    "plan_actual": "free",
+    "plan_minimo_requerido": "pro",
+    "cambio_aplicado": false,
+    "motivo": "Supabase documenta Leaked Password Protection como disponible en Pro o superior."
+  },
   "criterios_cierre_cumplidos": false,
   "etapa_8_iniciada": false,
   "workflow_run_id": 37563295621,
