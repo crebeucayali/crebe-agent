@@ -20,6 +20,6 @@
   "etapa_3_iniciada": false,
   "supabase_modificado": false,
   "repositorios_eva_modificados": false,
-  "workflow_run_id": null,
-  "workflow_conclusion": null
+  "workflow_run_id": 37549789623,
+  "workflow_conclusion": "success"
 }
