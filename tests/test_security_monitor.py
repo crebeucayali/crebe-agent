@@ -10,7 +10,7 @@ class SecurityMonitorTests(unittest.TestCase):
     def test_baseline_is_safe(self):
         with tempfile.TemporaryDirectory() as tmp:
             result = security_monitor.run(tmp)
-            self.assertEqual(result['estado'], 'SEGURO')
+            self.assertEqual(result['estado'], 'SEGURO', msg=json.dumps(result, ensure_ascii=False))
             self.assertEqual(result['alertas'], [])
 
     def test_expected_free_plan_exception_is_configured(self):
