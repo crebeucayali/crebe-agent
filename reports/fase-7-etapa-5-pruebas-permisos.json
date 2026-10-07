@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "fase": 7,
+  "etapa": 5,
+  "estado": "ETAPA_5_COMPLETADA_PRUEBAS_PERMISOS",
+  "fecha": "2026-10-06",
+  "zona_horaria": "America/Lima",
+  "modo": "CONTROLLED_PERMISSION_TESTS_ROLLBACK",
+  "contratos_probados": ["SEC-CON-007","SEC-CON-012","SEC-CON-013","SEC-CON-015","SEC-CON-023"],
+  "resultado": {
+    "contratos_probados": 5,
+    "aprobados": 5,
+    "fallidos": 0,
+    "residuos": 0
+  },
+  "pruebas": [
+    {"id":"SEC-CON-007","resultado":"PASS","evidencia":"authenticated sin autorizacion administrativa fue rechazado por RPC protegida","persistencia":false},
+    {"id":"SEC-CON-012","resultado":"PASS","evidencia":"master AAL1 rechazado y master AAL2 aceptado en operacion administrativa sensible de lectura","persistencia":false},
+    {"id":"SEC-CON-013","resultado":"PASS","evidencia":"editor temporalmente limitado a noticias pudo consultar su modulo, fue bloqueado en galeria y no obtuvo permiso de escritura master","persistencia":false},
+    {"id":"SEC-CON-015","resultado":"PASS","evidencia":"anon no pudo INSERT, UPDATE ni DELETE en storage.objects para eva-publico","persistencia":false},
+    {"id":"SEC-CON-023","resultado":"PASS","evidencia":"editor no pudo autorizar invitaciones ni gestionar usuarios","persistencia":false}
+  ],
+  "guardrails": {
+    "transacciones_con_rollback": true,
+    "sin_objetos_storage_persistidos": true,
+    "sin_usuarios_persistidos": true,
+    "sin_cambios_de_modulos_persistidos": true,
+    "sin_cambios_de_permisos": true,
+    "sin_cambios_en_repositorios_eva": true
+  },
+  "hallazgos_priorizados_etapa_4_sin_corregir": [
+    "F7S4-DEFAULT-PRIVILEGES-DATA-API",
+    "F7S4-GALERIA-GRANTS",
+    "F7S4-AUTH-LEAKED-PASSWORD"
+  ],
+  "correccion_autorizada": false,
+  "etapa_6_iniciada": false
+}

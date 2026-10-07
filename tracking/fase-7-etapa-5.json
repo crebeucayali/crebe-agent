@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "fase": 7,
+  "etapa": 5,
+  "nombre": "Pruebas controladas de permisos",
+  "estado": "ETAPA_5_COMPLETADA_PRUEBAS_PERMISOS",
+  "fecha_inicio": "2026-10-06",
+  "fecha_cierre": "2026-10-06",
+  "zona_horaria": "America/Lima",
+  "modo": "CONTROLLED_PERMISSION_TESTS_ROLLBACK",
+  "reporte": "reports/fase-7-etapa-5-pruebas-permisos.json",
+  "documentacion": "docs/FASE_7_ETAPA_5_PRUEBAS_PERMISOS.md",
+  "resultado": {
+    "contratos_probados": 5,
+    "aprobados": 5,
+    "fallidos": 0,
+    "residuos": 0,
+    "hallazgos_nuevos": 0,
+    "hallazgos_priorizados_previos": 3
+  },
+  "contratos_resueltos": ["SEC-CON-007","SEC-CON-012","SEC-CON-013","SEC-CON-015","SEC-CON-023"],
+  "criterios_cierre_cumplidos": true,
+  "etapa_6_iniciada": false,
+  "correccion_autorizada": false,
+  "supabase_modificado_persistentemente": false,
+  "repositorios_eva_modificados": false,
+  "workflow_run_id": 37551790599,
+  "workflow_conclusion": "success"
+}
