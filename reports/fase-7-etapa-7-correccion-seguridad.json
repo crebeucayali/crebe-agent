@@ -16,6 +16,28 @@
     "rls_modificado": false,
     "etapa_8_iniciada": false
   },
+  "decision_modelo_auth": {
+    "estado": "CONFIRMADO_SIN_CAMBIOS",
+    "master": {
+      "requiere_auth": true,
+      "requiere_aal2_mfa": true,
+      "gestion_usuarios_reservada": true
+    },
+    "editor": {
+      "requiere_auth": true,
+      "requiere_aal2_mfa": false,
+      "aal_permitido": ["aal1", "aal2"],
+      "acceso_limitado_a_modulos_asignados": true,
+      "sin_escalacion_a_master": true
+    },
+    "consulta": {
+      "requiere_auth": true,
+      "requiere_aal2_mfa": false,
+      "aal_permitido": ["aal1", "aal2"],
+      "acceso_limitado_a_modulos_asignados": true
+    },
+    "motivo": "La correccion de Data API/default privileges no debe mezclarse con un endurecimiento de MFA para editores. El modelo actual ya separa identidad, autorizacion por modulo y AAL2 exclusivo del master para operaciones sensibles."
+  },
   "hallazgos": [
     {
       "id": "F7S4-DEFAULT-PRIVILEGES-DATA-API",
@@ -68,6 +90,7 @@
     "no_relajar_rls": true,
     "no_revocacion_masiva_objetos_existentes": true,
     "no_correccion_automatica_bloqueos": true,
-    "no_iniciar_etapa_8_hasta_resolver_bloqueos": true
+    "no_iniciar_etapa_8_hasta_resolver_bloqueos": true,
+    "no_imponer_mfa_editores_sin_decision_separada": true
   }
 }
