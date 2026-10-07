@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "fase": 7,
+  "etapa": 4,
+  "estado": "ETAPA_4_COMPLETADA_PRIORIZACION_SEGURIDAD",
+  "fuente": "reports/fase-7-etapa-3-linea-base-seguridad.json",
+  "modo": "READ_ONLY_CLASSIFICATION",
+  "contratos_incumplidos": 5,
+  "hallazgos_causales": 3,
+  "severidad": {"CRITICO":0,"ALTO":1,"MEDIO":2,"BAJO":0},
+  "hallazgos": [
+    {
+      "id": "F7S4-DEFAULT-PRIVILEGES-DATA-API",
+      "severidad": "ALTO",
+      "contratos": ["SEC-CON-003","SEC-CON-004","SEC-CON-026"],
+      "causa": "Default privileges historicos del schema public otorgan privilegios amplios a anon/authenticated para objetos nuevos y mantienen dependencia de exposicion implicita en Data API.",
+      "impacto": "Un objeto nuevo puede nacer con una superficie de acceso mayor que la requerida si no se revocan o redefinen privilegios de forma explicita.",
+      "condicion_temporal": "Resolver antes del 2026-10-30.",
+      "correccion_autorizada": false
+    },
+    {
+      "id": "F7S4-GALERIA-GRANTS",
+      "severidad": "MEDIO",
+      "contratos": ["SEC-CON-001"],
+      "causa": "public.galeria_item_imagenes conserva GRANT de tabla historicos mas amplios que el minimo necesario para anon/authenticated.",
+      "impacto": "RLS bloquea actualmente el DML no autorizado, pero la capa GRANT no cumple minimo privilegio y aumenta superficie de riesgo ante futuras regresiones de policies.",
+      "correccion_autorizada": false
+    },
+    {
+      "id": "F7S4-AUTH-LEAKED-PASSWORD",
+      "severidad": "MEDIO",
+      "contratos": ["SEC-CON-011"],
+      "causa": "Leaked Password Protection de Supabase Auth esta deshabilitado.",
+      "impacto": "No crea por si solo acceso no autorizado, pero reduce el endurecimiento preventivo frente a contrasenas conocidas como comprometidas.",
+      "correccion_autorizada": false
+    }
+  ],
+  "pendientes_prueba_controlada": ["SEC-CON-007","SEC-CON-012","SEC-CON-013","SEC-CON-015","SEC-CON-023"],
+  "regla_pendientes": "No reciben severidad definitiva ni entran a correccion hasta completar Etapa 5.",
+  "orden_recomendado": ["F7S4-DEFAULT-PRIVILEGES-DATA-API","F7S4-GALERIA-GRANTS","F7S4-AUTH-LEAKED-PASSWORD"],
+  "correcciones_autorizadas": 0,
+  "supabase_modificado": false,
+  "repositorios_eva_modificados": false
+}
