@@ -4,6 +4,20 @@ Estado: `ETAPA_7_EN_CURSO_CON_BLOQUEOS_CONTROLADOS`.
 
 La etapa se inició sobre los tres hallazgos diagnosticados en la Etapa 6. Se aplicaron únicamente cambios mínimos y verificables, sin relajar RLS, sin revocaciones masivas de objetos existentes y sin modificar los ocho repositorios EVA.
 
+## Decisión explícita sobre autenticación
+
+La corrección de `GRANT`, default privileges y Data API **no modifica el modelo de autenticación de los editores**.
+
+Modelo confirmado:
+
+- `master`: usuario autenticado + AAL2/MFA obligatorio para operaciones administrativas sensibles y gestión de usuarios.
+- `editor`: usuario autenticado; puede operar con AAL1 o AAL2 únicamente dentro de los módulos asignados. No se le impone MFA obligatorio en esta etapa.
+- `consulta`: usuario autenticado; AAL1 o AAL2, limitado a los módulos asignados.
+
+La función `private.permite_modulo` mantiene AAL2 para `master` y permite AAL1/AAL2 a `editor`/`consulta` solo dentro de su alcance. Las funciones de gestión de usuarios (`admin_autorizar_editor`, `admin_guardar_usuario`, `admin_listar_usuarios`) continúan exigiendo `private.es_admin_mfa()`, es decir master + AAL2.
+
+Esta separación es deliberada: autenticación, autorización por módulo y permisos de Data API son capas distintas. No se añadirá MFA obligatorio a editores como efecto colateral de esta corrección.
+
 ## 1. Default privileges + Data API — ALTO
 
 ### Aplicado
