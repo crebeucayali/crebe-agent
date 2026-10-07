@@ -3,9 +3,9 @@
   "fase": 7,
   "etapa": 7,
   "nombre": "Correccion controlada",
-  "estado": "ETAPA_7_EN_CURSO_CON_BLOQUEOS_CONTROLADOS",
+  "estado": "ETAPA_7_COMPLETADA_CORRECCION_SEGURIDAD",
   "fecha_inicio": "2026-10-06",
-  "fecha_cierre": null,
+  "fecha_cierre": "2026-10-07",
   "zona_horaria": "America/Lima",
   "modo": "CONTROLLED_SECURITY_CORRECTION",
   "reporte": "reports/fase-7-etapa-7-correccion-seguridad.json",
@@ -13,8 +13,9 @@
   "resultado": {
     "hallazgos_objetivo": 3,
     "corregidos_verificados": 2,
+    "aceptados_no_aplicables_plan_free": 1,
     "parcialmente_corregidos": 0,
-    "bloqueados": 1,
+    "bloqueados": 0,
     "supabase_modificado": true,
     "repositorios_eva_modificados": false,
     "rls_modificado": false
@@ -31,21 +32,21 @@
     "owner_aplicacion": "postgres",
     "owner_interno_supabase": "supabase_admin",
     "objetos_public_propiedad_supabase_admin": 0,
-    "criterio": "La documentacion oficial para proyectos existentes indica endurecer los default privileges del role postgres. supabase_admin es un rol interno usado por Supabase para tareas administrativas, upgrades y automatizaciones; no es owner de objetos funcionales EVA en public.",
     "cambio_adicional_supabase_admin_requerido": false
   },
-  "bloqueos": [
-    "LEAKED_PASSWORD_PROTECTION_REQUIERE_PLAN_PRO_O_SUPERIOR"
-  ],
   "leaked_password_protection": {
-    "estado": "BLOQUEADO_POR_PLAN",
+    "estado": "ACEPTADO_NO_APLICABLE_EN_PLAN_FREE",
     "plan_actual": "free",
     "plan_minimo_requerido": "pro",
     "cambio_aplicado": false,
-    "motivo": "Supabase documenta Leaked Password Protection como disponible en Pro o superior."
+    "decision_usuario": "MANTENER_PLAN_FREE",
+    "criterio_reapertura": "Reevaluar solo si la organizacion migra a Supabase Pro o superior."
   },
-  "criterios_cierre_cumplidos": false,
+  "limitaciones_plan_documentadas": [
+    "LEAKED_PASSWORD_PROTECTION_REQUIERE_PLAN_PRO_O_SUPERIOR"
+  ],
+  "criterios_cierre_cumplidos": true,
   "etapa_8_iniciada": false,
-  "workflow_run_id": 37563295621,
-  "workflow_conclusion": "success"
+  "workflow_run_id": null,
+  "workflow_conclusion": null
 }
