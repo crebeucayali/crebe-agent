@@ -1,0 +1,74 @@
+name: Accesibilidad EVA - Fase 8 Etapa 6
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'accessibility_diagnosis.mjs'
+      - '.github/workflows/accessibility-diagnosis.yml'
+      - 'reports/fase-8-etapa-6-diagnostico-accesibilidad.json'
+      - 'tracking/fase-8-etapa-6.json'
+      - 'tracking/fase-8.json'
+      - 'tracking/phases.json'
+      - 'docs/FASE_8_ETAPA_6_DIAGNOSTICO_ACCESIBILIDAD.md'
+      - 'accessibility_diagnosis_validate.py'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'accessibility_diagnosis.mjs'
+      - '.github/workflows/accessibility-diagnosis.yml'
+      - 'reports/fase-8-etapa-6-diagnostico-accesibilidad.json'
+      - 'tracking/fase-8-etapa-6.json'
+      - 'tracking/fase-8.json'
+      - 'tracking/phases.json'
+      - 'docs/FASE_8_ETAPA_6_DIAGNOSTICO_ACCESIBILIDAD.md'
+      - 'accessibility_diagnosis_validate.py'
+
+permissions:
+  contents: read
+
+jobs:
+  diagnosis:
+    name: Diagnosticar accesibilidad sin modificar EVA
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Preparar Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+      - name: Instalar dependencias temporales
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-save playwright@1.55.0 axe-core@4.10.3
+          npx playwright install --with-deps chromium
+      - name: Obtener repositorios EVA en solo lectura
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _eva
+          cd _eva
+          for repo in crebeucayali.github.io accesos-complementarios capacitaciones banco-digital-accesible materiales-educativos-accesibles noti-inclusivos repositorio-accesible DUA-3.0; do
+            git clone --depth 1 --filter=blob:none "https://github.com/crebeucayali/${repo}.git" "$repo"
+          done
+      - name: Ejecutar diagnostico tecnico
+        run: node accessibility_diagnosis.mjs _eva reports/fase-8-etapa-6-diagnostico.generated.json
+      - name: Validar cierre si existe reporte formal
+        shell: bash
+        run: |
+          if [ -f reports/fase-8-etapa-6-diagnostico-accesibilidad.json ]; then
+            python accessibility_diagnosis_validate.py reports/fase-8-etapa-6-diagnostico.generated.json
+          else
+            echo 'Ejecucion diagnostica: cierre formal aun no incorporado.'
+          fi
+      - name: Publicar evidencia diagnostica
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: fase-8-etapa-6-diagnostico
+          path: reports/fase-8-etapa-6-diagnostico.generated.json
+          retention-days: 30
