@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "fase": 8,
+  "etapa": 4,
+  "nombre": "Clasificacion y priorizacion de accesibilidad",
+  "estado": "ETAPA_4_COMPLETADA_PRIORIZACION_ACCESIBILIDAD",
+  "fecha": "2026-10-08",
+  "zona_horaria": "America/Lima",
+  "fuente": "reports/fase-8-etapa-3-linea-base-accesibilidad.json",
+  "modo": "READ_ONLY_CLASSIFICATION",
+  "referencia_tecnica": "WCAG_2_2_AA",
+  "contratos_totales": 28,
+  "cumple_estructural": 2,
+  "incumplimientos_confirmados": 0,
+  "requiere_verificacion_controlada": 26,
+  "criterio_priorizacion": "La prioridad se asigna a la VERIFICACION, no como severidad de un fallo no confirmado. P0 cubre barreras potenciales de operacion; P1 cubre comprension, estructura y percepcion; P2 cubre contextos acotados que dependen de presencia o uso real.",
+  "prioridades_verificacion": {
+    "P0": 11,
+    "P1": 13,
+    "P2": 2
+  },
+  "grupos": [
+    {
+      "id": "F8S4-P0-OPERABILIDAD",
+      "prioridad": "P0",
+      "descripcion": "Verificar primero criterios que, si fallaran, pueden impedir completar acciones, navegar por teclado o utilizar interfaces dinamicas y administrativas.",
+      "contratos": ["A11Y-CON-005","A11Y-CON-006","A11Y-CON-013","A11Y-CON-014","A11Y-CON-015","A11Y-CON-016","A11Y-CON-017","A11Y-CON-018","A11Y-CON-025","A11Y-CON-026","A11Y-CON-028"],
+      "cantidad": 11,
+      "tratamiento": "ETAPA_5_PRUEBA_CONTROLADA",
+      "correccion_autorizada": false
+    },
+    {
+      "id": "F8S4-P1-ESTRUCTURA-PERCEPCION",
+      "prioridad": "P1",
+      "descripcion": "Verificar despues criterios de semantica, estructura, idioma, titulos, landmarks, ARIA, relaciones tabulares, contraste y uso del color.",
+      "contratos": ["A11Y-CON-002","A11Y-CON-004","A11Y-CON-007","A11Y-CON-008","A11Y-CON-009","A11Y-CON-010","A11Y-CON-011","A11Y-CON-012","A11Y-CON-019","A11Y-CON-020","A11Y-CON-021","A11Y-CON-023","A11Y-CON-024"],
+      "cantidad": 13,
+      "tratamiento": "ETAPA_5_PRUEBA_CONTROLADA",
+      "correccion_autorizada": false
+    },
+    {
+      "id": "F8S4-P2-CONTEXTO-ACOTADO",
+      "prioridad": "P2",
+      "descripcion": "Verificar finalmente criterios cuya aplicacion depende de confirmar presencia y uso real de tablas de maquetacion o contenido multimedia.",
+      "contratos": ["A11Y-CON-022","A11Y-CON-027"],
+      "cantidad": 2,
+      "tratamiento": "ETAPA_5_PRUEBA_CONTROLADA",
+      "correccion_autorizada": false
+    }
+  ],
+  "candidatos_especificos": [
+    {
+      "contrato": "A11Y-CON-005",
+      "prioridad": "P0",
+      "evidencia": "1 candidato de control de formulario sin etiqueta estatica en materiales-educativos-accesibles/pictogramas/pictogramas.html.",
+      "regla": "No se declara incumplimiento hasta comprobar nombre accesible efectivo y etiquetado dinamico/implicito."
+    },
+    {
+      "contratos": ["A11Y-CON-009","A11Y-CON-010"],
+      "prioridad": "P1",
+      "evidencia": "3 HTML candidatos sin lang/title coinciden con archivos de verificacion o referencia auxiliar.",
+      "regla": "Primero confirmar pertenencia al universo funcional antes de evaluar idioma o titulo como fallo."
+    },
+    {
+      "tipo": "DIFERENCIA_UNIVERSO_HTML",
+      "prioridad": "P1",
+      "evidencia": "Referencia Etapa 1: 65 HTML; observados actualmente: 66 HTML.",
+      "regla": "La diferencia se verifica, no se corrige ni se fuerza para igualar el historico."
+    }
+  ],
+  "orden_etapa_5": ["F8S4-P0-OPERABILIDAD","F8S4-P1-ESTRUCTURA-PERCEPCION","F8S4-P2-CONTEXTO-ACOTADO"],
+  "severidades_de_fallos_asignadas": 0,
+  "hallazgos_confirmados_nuevos": 0,
+  "correcciones_autorizadas": 0,
+  "correcciones_aplicadas": 0,
+  "repositorios_eva_modificados": false,
+  "supabase_modificado": false,
+  "etapa_5_iniciada": false
+}
