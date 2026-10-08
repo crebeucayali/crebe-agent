@@ -16,6 +16,8 @@ def main():
     report = load(REPORT)
     track = load(TRACK)
     phase = load(PHASE)
+
+    # La Etapa 6 permanece como evidencia historica previa a la correccion.
     assert report['estado'] == 'ETAPA_6_COMPLETADA_DIAGNOSTICO_ACCESIBILIDAD'
     assert report['resumen']['nodos_contraste_confirmados'] == 77
     assert report['resumen']['grupos_causales_contraste'] == 6
@@ -25,24 +27,40 @@ def main():
     assert report['resumen']['correcciones_aplicadas'] == 0
     assert report['guardrails']['repositorios_eva_modificados'] is False
     assert report['guardrails']['supabase_modificado'] is False
-    assert report['guardrails']['etapa_7_iniciada'] is False
     assert len(report['diagnostico_contraste']) == 6
     assert sum(x['nodos'] for x in report['diagnostico_contraste']) == 77
     assert len(report['diagnostico_reflujo']) == 3
     assert track['estado'] == 'ETAPA_6_COMPLETADA_DIAGNOSTICO_ACCESIBILIDAD'
     assert track['resultado']['grupos_causales_totales'] == 9
-    assert track['etapa_7_iniciada'] is False
     assert phase['etapas'][5]['estado'] == 'ETAPA_6_COMPLETADA_DIAGNOSTICO_ACCESIBILIDAD'
     assert phase['etapa_6']['resultado']['grupos_causales_totales'] == 9
-    assert phase['etapa_6']['etapa_7_iniciada'] is False
-    assert phase['repositorios_eva_modificados'] is False
+
+    etapa_7_iniciada = bool(phase.get('etapa_7_iniciada', phase['etapa_6'].get('etapa_7_iniciada', False)))
+    if etapa_7_iniciada:
+        assert phase['etapa_6']['etapa_7_iniciada'] is True
+        assert 'etapa_7' in phase
+        assert phase['etapa_7']['estado'] == 'ETAPA_7_COMPLETADA_CORRECCION_CONTROLADA_ACCESIBILIDAD'
+        assert phase['etapa_7']['etapa_8_iniciada'] is False
+    else:
+        assert report['guardrails']['etapa_7_iniciada'] is False
+        assert track['etapa_7_iniciada'] is False
+        assert phase['etapa_6']['etapa_7_iniciada'] is False
+        assert phase['repositorios_eva_modificados'] is False
+
     if GENERATED.exists():
         generated = load(GENERATED)
-        assert generated['contraste']['nodos'] == 77
-        assert len(generated['reflujo']['detalle']) == 4
         assert generated['guardrails']['repositorios_eva_modificados'] is False
         assert generated['guardrails']['supabase_modificado'] is False
-    print('Validacion Fase 8 Etapa 6: OK')
+        assert len(generated['reflujo']['detalle']) == 4
+        assert all('error' not in x for x in generated['reflujo']['detalle'])
+        if etapa_7_iniciada:
+            # Evidencia transitoria: Etapa 7 aplica correcciones; Etapa 8 verifica el despliegue final.
+            # No se permite una regresion por encima de la linea previa de 77 nodos.
+            assert generated['contraste']['nodos'] <= 77
+        else:
+            assert generated['contraste']['nodos'] == 77
+
+    print('Validacion Fase 8 Etapa 6 / progresion Etapa 7: OK')
 
 
 if __name__ == '__main__':

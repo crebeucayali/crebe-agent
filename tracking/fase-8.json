@@ -13,7 +13,7 @@
     {"numero":4,"nombre":"Clasificacion y priorizacion","estado":"ETAPA_4_COMPLETADA_PRIORIZACION_ACCESIBILIDAD","fecha_cierre":"2026-10-08"},
     {"numero":5,"nombre":"Pruebas controladas","estado":"ETAPA_5_COMPLETADA_PRUEBAS_CONTROLADAS_ACCESIBILIDAD","fecha_cierre":"2026-10-08"},
     {"numero":6,"nombre":"Diagnostico tecnico","estado":"ETAPA_6_COMPLETADA_DIAGNOSTICO_ACCESIBILIDAD","fecha_cierre":"2026-10-08"},
-    {"numero":7,"nombre":"Correccion controlada","estado":"NO_INICIADA"},
+    {"numero":7,"nombre":"Correccion controlada","estado":"ETAPA_7_COMPLETADA_CORRECCION_CONTROLADA_ACCESIBILIDAD","fecha_cierre":"2026-10-08"},
     {"numero":8,"nombre":"Verificacion y monitoreo","estado":"NO_INICIADA"}
   ],
   "criterios": {
@@ -100,8 +100,23 @@
     "correcciones_aplicadas":0,
     "severidades_asignadas":0,
     "criterios_cierre_cumplidos":true,
-    "etapa_7_iniciada":false
+    "etapa_7_iniciada":true
   },
-  "repositorios_eva_modificados": false,
+  "etapa_7_iniciada": true,
+  "etapa_7": {
+    "estado":"ETAPA_7_COMPLETADA_CORRECCION_CONTROLADA_ACCESIBILIDAD",
+    "tracking":"tracking/fase-8-etapa-7.json",
+    "reporte":"reports/fase-8-etapa-7-correccion-accesibilidad.json",
+    "documentacion":"docs/FASE_8_ETAPA_7_CORRECCION_ACCESIBILIDAD.md",
+    "modo":"CONTROLLED_CORRECTION",
+    "resultado":{"grupos_causales_objetivo":9,"grupos_causales_intervenidos":9,"repositorios_intervenidos":8,"pull_requests_eva":9,"archivos_eva_modificados":9,"contratos_manual_sin_fallo_intervenidos":0},
+    "verificacion_post_correccion":{"workflow_run_id":37821334263,"artifact_id":11571817492,"paginas_verificadas":63,"fallos_carga":0,"nodos_contraste":0,"urls_objetivo_reflujo":4,"fallos_overflow_320":0},
+    "supabase_modificado":false,
+    "criterios_cierre_cumplidos":true,
+    "etapa_8_iniciada":false
+  },
+  "repositorios_eva_modificados": true,
+  "repositorios_eva_modificados_lista": ["crebeucayali/crebeucayali.github.io","crebeucayali/accesos-complementarios","crebeucayali/capacitaciones","crebeucayali/banco-digital-accesible","crebeucayali/materiales-educativos-accesibles","crebeucayali/noti-inclusivos","crebeucayali/repositorio-accesible","crebeucayali/DUA-3.0"],
+  "supabase_modificado": false,
   "alcance": "config/fase-8-accessibility-scope.json"
 }

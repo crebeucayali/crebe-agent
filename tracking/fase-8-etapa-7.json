@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "fase": 8,
+  "etapa": 7,
+  "nombre": "Correccion controlada de accesibilidad",
+  "estado": "ETAPA_7_COMPLETADA_CORRECCION_CONTROLADA_ACCESIBILIDAD",
+  "fecha": "2026-10-08",
+  "zona_horaria": "America/Lima",
+  "grupos_causales_objetivo": 9,
+  "grupos_causales_intervenidos": 9,
+  "repositorios_intervenidos": 8,
+  "pull_requests_eva": 9,
+  "archivos_eva_modificados": 9,
+  "supabase_modificado": false,
+  "correcciones_fuera_de_alcance": 0,
+  "contratos_manual_sin_fallo_intervenidos": 0,
+  "verificacion_final": {
+    "estado": "APROBADA_POST_CORRECCION_ETAPA_7",
+    "workflow_run_id": 37821334263,
+    "artifact_id": 11571817492,
+    "paginas_verificadas": 63,
+    "fallos_carga": 0,
+    "nodos_contraste": 0,
+    "urls_objetivo_reflujo": 4,
+    "fallos_overflow_320": 0,
+    "nota": "La Etapa 7 verifica el resultado inmediato de las correcciones. La Etapa 8 permanece reservada para verificacion independiente final y monitoreo recurrente."
+  },
+  "criterios_cierre_cumplidos": true,
+  "etapa_8_iniciada": false
+}

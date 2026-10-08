@@ -30,11 +30,13 @@ def main():
     assert report["guardrails"]["priorizacion_realizada"] is False
     assert report["guardrails"]["etapa_4_iniciada"] is False
 
+    # El tracking propio de Etapa 3 conserva el snapshot historico de su cierre.
     assert track["estado"] == "ETAPA_3_COMPLETADA_LINEA_BASE_ACCESIBILIDAD"
     assert track["workflow_run_id"] == 37798165287
     assert track["evidencia_pendiente_workflow"] is False
     assert track["etapa_4_iniciada"] is False
 
+    # El tracking vivo de la Fase 8 puede avanzar sin reescribir la linea base.
     assert phase["etapas"][2]["estado"] == "ETAPA_3_COMPLETADA_LINEA_BASE_ACCESIBILIDAD"
     assert phase["etapa_3"]["estado"] == "ETAPA_3_COMPLETADA_LINEA_BASE_ACCESIBILIDAD"
     assert phase["etapa_3"]["resultado"]["incumplimientos_confirmados"] == 0
@@ -42,7 +44,14 @@ def main():
     if phase["etapa_3"]["etapa_4_iniciada"]:
         assert phase.get("etapa_4_iniciada") is True
         assert "etapa_4" in phase
-    assert phase["repositorios_eva_modificados"] is False
+
+    # En Etapa 3 no se modifico EVA. Si la fase ya avanzo a Etapa 7, es legitimo
+    # que el tracking vivo registre cambios por la correccion controlada posterior.
+    if phase.get("etapa_7_iniciada"):
+        assert phase["repositorios_eva_modificados"] is True
+        assert phase["etapa_7"]["estado"] == "ETAPA_7_COMPLETADA_CORRECCION_CONTROLADA_ACCESIBILIDAD"
+    else:
+        assert phase["repositorios_eva_modificados"] is False
 
     if GENERATED.exists():
         generated = load(GENERATED)

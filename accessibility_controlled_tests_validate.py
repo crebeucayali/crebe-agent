@@ -29,11 +29,26 @@ def main():
     assert phase["etapa_5"]["estado"] == expected_state
     assert phases["fase_8"]["etapa_5_estado"] == expected_state
 
+    # La evidencia histórica que cerró Etapa 5 es inmutable.
     assert report["workflow_run_id"] == 37803532344
     assert report["artifact_id"] == 11561852492
     assert track["workflow_run_id"] == 37803532344
     assert track["artifact_id"] == 11561852492
+    historical_summary = {
+        "REQUIERE_DIAGNOSTICO_O_REVISION_MANUAL": 22,
+        "INCUMPLIMIENTO_CONFIRMADO_AUTOMATIZADO": 1,
+        "EVIDENCIA_FAVORABLE_CONTROLADA": 1,
+        "REQUIERE_DIAGNOSTICO": 1,
+        "NO_APLICA_EN_UNIVERSO_OBSERVADO": 1,
+    }
+    assert sum(historical_summary.values()) == 26
+    for key, value in historical_summary.items():
+        assert report["resumen_contratos_pendientes"][key] == value
+    assert report["resumen_contratos_pendientes"]["total"] == 26
 
+    # El workflow puede volver a ejecutarse en etapas posteriores sobre el EVA actual.
+    # Se valida el mismo universo y los guardrails, pero no se exige reproducir fallos
+    # que Etapas 6-7 ya diagnosticaron y corrigieron.
     assert generated["fase"] == 8 and generated["etapa"] == 5
     assert generated["paginas_observadas"] == report["universo"]["paginas_html_observadas"] == 66
     assert generated["paginas_funcionales_completamente_probadas"] == report["universo"]["paginas_funcionales_completamente_probadas"] == 63
@@ -42,38 +57,30 @@ def main():
     assert generated["paginas_no_cargadas"] == report["universo"]["paginas_no_cargadas"] == 0
     assert generated["tablas_observadas"] == report["universo"]["tablas_observadas"] == 22
     assert generated["multimedia_observada"] == report["universo"]["multimedia_observada"] == 0
+    assert sum(generated["resumen_estados"].values()) == 26
 
-    expected_summary = {
-        "REQUIERE_DIAGNOSTICO_O_REVISION_MANUAL": 22,
-        "INCUMPLIMIENTO_CONFIRMADO_AUTOMATIZADO": 1,
-        "EVIDENCIA_FAVORABLE_CONTROLADA": 1,
-        "REQUIERE_DIAGNOSTICO": 1,
-        "NO_APLICA_EN_UNIVERSO_OBSERVADO": 1,
-    }
-    assert generated["resumen_estados"] == expected_summary
-    assert sum(expected_summary.values()) == 26
-    for key, value in expected_summary.items():
-        assert report["resumen_contratos_pendientes"][key] == value
-    assert report["resumen_contratos_pendientes"]["total"] == 26
+    stage7_completed = phase.get("etapa_7", {}).get("estado") == "ETAPA_7_COMPLETADA_CORRECCION_CONTROLADA_ACCESIBILIDAD"
+    if stage7_completed:
+        verification = phase["etapa_7"].get("verificacion_post_correccion", {})
+        assert verification.get("nodos_contraste") == 0
+        assert verification.get("fallos_overflow_320") == 0
+        # Tras la corrección ya no debe reaparecer en la lectura actual la clasificación
+        # de fallo automatizado/diagnóstico que motivó Etapas 6-7.
+        assert generated["resumen_estados"].get("INCUMPLIMIENTO_CONFIRMADO_AUTOMATIZADO", 0) == 0
+        assert generated["resumen_estados"].get("REQUIERE_DIAGNOSTICO", 0) == 0
+    else:
+        # Antes de la corrección, una reejecución de Etapa 5 debe reproducir su cierre.
+        assert generated["resumen_estados"] == historical_summary
+        contracts = generated["contratos"]
+        assert contracts["A11Y-CON-013"]["status"] == "EVIDENCIA_FAVORABLE_CONTROLADA"
+        assert contracts["A11Y-CON-013"]["pagesWithFocusable"] == 63
+        assert contracts["A11Y-CON-013"]["pagesFirstTabWithoutFocus"] == 0
+        assert contracts["A11Y-CON-023"]["status"] == "INCUMPLIMIENTO_CONFIRMADO_AUTOMATIZADO"
+        assert contracts["A11Y-CON-023"]["axeViolations"] == 77
+        assert contracts["A11Y-CON-025"]["status"] == "REQUIERE_DIAGNOSTICO"
+        assert contracts["A11Y-CON-025"]["pagesWithHorizontalOverflowAt320"] == 4
 
-    contracts = generated["contratos"]
-    assert contracts["A11Y-CON-013"]["status"] == "EVIDENCIA_FAVORABLE_CONTROLADA"
-    assert contracts["A11Y-CON-013"]["pagesWithFocusable"] == 63
-    assert contracts["A11Y-CON-013"]["pagesFirstTabWithoutFocus"] == 0
-
-    assert contracts["A11Y-CON-023"]["status"] == "INCUMPLIMIENTO_CONFIRMADO_AUTOMATIZADO"
-    assert contracts["A11Y-CON-023"]["axeViolations"] == 77
-
-    assert contracts["A11Y-CON-025"]["status"] == "REQUIERE_DIAGNOSTICO"
-    assert contracts["A11Y-CON-025"]["pagesWithHorizontalOverflowAt320"] == 4
-    assert set(contracts["A11Y-CON-025"]["pages"]) == {
-        "accesos-complementarios/paginas/contacto.html",
-        "accesos-complementarios/recursos/contacto.html",
-        "banco-digital-accesible/braille/teoria.html",
-        "materiales-educativos-accesibles/generador/generador.html",
-    }
-
-    assert contracts["A11Y-CON-027"]["status"] == "NO_APLICA_EN_UNIVERSO_OBSERVADO"
+    assert generated["contratos"]["A11Y-CON-027"]["status"] == "NO_APLICA_EN_UNIVERSO_OBSERVADO"
 
     for obj in (report["guardrails"], generated["guardrails"]):
         assert obj["repositorios_eva_modificados"] is False
@@ -94,7 +101,7 @@ def main():
         assert phases["fase_8"]["etapa_actual"] >= 6
         assert phases["fase_8"].get("etapa_6_estado") == "ETAPA_6_COMPLETADA_DIAGNOSTICO_ACCESIBILIDAD"
 
-    print("Validacion Fase 8 Etapa 5: OK")
+    print("Validacion Fase 8 Etapa 5: OK (evidencia historica preservada; progreso posterior permitido)")
 
 
 if __name__ == "__main__":

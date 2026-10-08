@@ -36,21 +36,28 @@ def main():
     assert report["supabase_modificado"] is False
     assert report["etapa_5_iniciada"] is False
 
-    # El snapshot propio de Etapa 4 conserva que Etapa 5 aún no había iniciado.
+    # El snapshot propio de Etapa 4 conserva el estado historico de su cierre.
     assert track["estado"] == "ETAPA_4_COMPLETADA_PRIORIZACION_ACCESIBILIDAD"
     assert track["resultado"]["prioridad_p0"] == 11
     assert track["resultado"]["prioridad_p1"] == 13
     assert track["resultado"]["prioridad_p2"] == 2
     assert track["etapa_5_iniciada"] is False
 
-    # El tracking vivo de la Fase 8 puede haber progresado legítimamente a Etapa 5.
+    # El tracking vivo puede progresar a etapas posteriores sin reescribir Etapa 4.
     assert phase["etapas"][3]["estado"] == "ETAPA_4_COMPLETADA_PRIORIZACION_ACCESIBILIDAD"
     assert phase["etapa_4"]["resultado"]["requiere_verificacion_controlada"] == 26
     assert isinstance(phase["etapa_4"]["etapa_5_iniciada"], bool)
     if phase["etapa_4"]["etapa_5_iniciada"]:
         assert phase.get("etapa_5_iniciada") is True
         assert "etapa_5" in phase
-    assert phase["repositorios_eva_modificados"] is False
+
+    # Antes de la correccion, EVA seguia intacto; tras Etapa 7 es legitimo que el
+    # tracking vivo registre los repositorios modificados por la correccion controlada.
+    if phase.get("etapa_7_iniciada"):
+        assert phase["repositorios_eva_modificados"] is True
+        assert phase["etapa_7"]["estado"] == "ETAPA_7_COMPLETADA_CORRECCION_CONTROLADA_ACCESIBILIDAD"
+    else:
+        assert phase["repositorios_eva_modificados"] is False
 
     print("Validacion Fase 8 Etapa 4: OK")
 
