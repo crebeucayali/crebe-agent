@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "fase": 8,
+  "etapa": 3,
+  "nombre": "Linea base de accesibilidad",
+  "estado": "ETAPA_3_EN_EJECUCION",
+  "fecha_inicio": "2026-10-08",
+  "zona_horaria": "America/Lima",
+  "modo": "READ_ONLY_BASELINE",
+  "contratos_objetivo": 28,
+  "repositorios_objetivo": 8,
+  "evidencia_pendiente_workflow": true,
+  "repositorios_eva_modificados": false,
+  "supabase_modificado": false,
+  "correcciones_aplicadas": 0,
+  "severidades_asignadas": 0,
+  "priorizacion_realizada": false,
+  "etapa_4_iniciada": false
+}
