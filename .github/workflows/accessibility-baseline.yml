@@ -2,6 +2,17 @@ name: Accesibilidad EVA - Fase 8 Etapa 3
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'accessibility_baseline_scan.py'
+      - 'tests/test_accessibility_baseline.py'
+      - '.github/workflows/accessibility-baseline.yml'
+      - 'reports/fase-8-etapa-3-linea-base-accesibilidad.json'
+      - 'tracking/fase-8-etapa-3.json'
+      - 'tracking/fase-8.json'
+      - 'tracking/phases.json'
+      - 'docs/FASE_8_ETAPA_3_LINEA_BASE_ACCESIBILIDAD.md'
   pull_request:
     branches: [main]
     paths:
@@ -58,17 +69,8 @@ jobs:
       - name: Generar linea base
         run: python accessibility_baseline_scan.py --root _eva --output reports/fase-8-etapa-3-linea-base-accesibilidad.generated.json
 
-      - name: Mostrar resumen
-        run: python - <<'PY'
-          import json
-          p='reports/fase-8-etapa-3-linea-base-accesibilidad.generated.json'
-          d=json.load(open(p, encoding='utf-8'))
-          print(json.dumps({
-            'universo_observado': d['universo_observado'],
-            'resumen_contratos': d['resumen_contratos'],
-            'metricas_estaticas': d['metricas_estaticas'],
-          }, ensure_ascii=False, indent=2))
-          PY
+      - name: Mostrar evidencia completa
+        run: cat reports/fase-8-etapa-3-linea-base-accesibilidad.generated.json
 
       - name: Publicar evidencia
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
