@@ -108,7 +108,6 @@ for (const item of pages) {
       continue;
     }
 
-    // Permite que redirecciones de compatibilidad terminen antes de auditar el documento final.
     await page.waitForTimeout(500);
     await page.waitForLoadState('domcontentloaded', { timeout: 5000 }).catch(() => {});
     row.finalUrl = page.url();
@@ -190,7 +189,8 @@ const pendingIds = [
 const contractEvidence = {};
 for (const id of pendingIds) contractEvidence[id] = { axeViolations: 0, pages: [], status: 'REQUIERE_DIAGNOSTICO_O_REVISION_MANUAL' };
 
-for (const row of results.filter(r => r.testComplete)) {
+// Los auxiliares se conservan como evidencia observada, pero no generan incumplimientos de EVA.
+for (const row of results.filter(r => r.testComplete && !r.auxiliary)) {
   for (const v of row.axe) {
     for (const id of v.contracts || []) {
       if (!contractEvidence[id]) continue;
