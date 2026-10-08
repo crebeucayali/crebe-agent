@@ -8,7 +8,7 @@
   "objetivo": "Inventariar, auditar, priorizar, corregir y monitorear la accesibilidad de EVA sin introducir cambios sin evidencia ni romper funcionalidad existente.",
   "etapas": [
     {"numero":1,"nombre":"Inventario de accesibilidad","estado":"ETAPA_1_COMPLETADA_INVENTARIO_ACCESIBILIDAD","fecha_cierre":"2026-10-08"},
-    {"numero":2,"nombre":"Contratos y criterios de accesibilidad","estado":"NO_INICIADA"},
+    {"numero":2,"nombre":"Contratos y criterios de accesibilidad","estado":"ETAPA_2_COMPLETADA_CONTRATOS_ACCESIBILIDAD","fecha_cierre":"2026-10-08"},
     {"numero":3,"nombre":"Linea base de accesibilidad","estado":"NO_INICIADA"},
     {"numero":4,"nombre":"Clasificacion y priorizacion","estado":"NO_INICIADA"},
     {"numero":5,"nombre":"Pruebas controladas","estado":"NO_INICIADA"},
@@ -32,7 +32,18 @@
     "documentacion":"docs/FASE_8_ETAPA_1_INVENTARIO_ACCESIBILIDAD.md",
     "resultado":{"repositorios":8,"paginas_html":65,"elementos_funcionales":1297,"superficies_inventariadas":14,"hallazgos_confirmados":0},
     "criterios_cierre_cumplidos":true,
-    "etapa_2_iniciada":false
+    "etapa_2_iniciada":true
+  },
+  "etapa_2_iniciada": true,
+  "etapa_2": {
+    "estado":"ETAPA_2_COMPLETADA_CONTRATOS_ACCESIBILIDAD",
+    "tracking":"tracking/fase-8-etapa-2.json",
+    "reporte":"reports/fase-8-etapa-2-contratos-accesibilidad.json",
+    "documentacion":"docs/FASE_8_ETAPA_2_CONTRATOS_ACCESIBILIDAD.md",
+    "resultado":{"superficies_cubiertas":14,"contratos_definidos":28,"hallazgos_confirmados":0,"severidades_asignadas":0,"correcciones_aplicadas":0},
+    "referencia_tecnica":"WCAG_2_2_AA",
+    "criterios_cierre_cumplidos":true,
+    "etapa_3_iniciada":false
   },
   "repositorios_eva_modificados": false,
   "alcance": "config/fase-8-accessibility-scope.json"
