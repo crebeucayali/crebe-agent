@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 REPORT = Path("reports/fase-8-etapa-3-linea-base-accesibilidad.json")
+GENERATED = Path("reports/fase-8-etapa-3-linea-base-accesibilidad.generated.json")
 TRACK = Path("tracking/fase-8-etapa-3.json")
 PHASE = Path("tracking/fase-8.json")
 
@@ -15,13 +16,14 @@ def main():
     track = load(TRACK)
     phase = load(PHASE)
 
-    assert report["estado"] == "ETAPA_3_COMPLETADA_LINEA_BASE_ACCESIBILIDAD"
-    assert report["resumen_contratos"] == {
+    expected_summary = {
         "CUMPLE": 2,
         "INCUMPLIMIENTO_CONFIRMADO": 0,
         "REQUIERE_VERIFICACION_CONTROLADA": 26,
         "total": 28,
     }
+    assert report["estado"] == "ETAPA_3_COMPLETADA_LINEA_BASE_ACCESIBILIDAD"
+    assert report["resumen_contratos"] == expected_summary
     assert report["universo"]["repositorios"] == 8
     assert report["universo"]["paginas_html_referencia_etapa_1"] == 65
     assert report["universo"]["paginas_html_observadas_actualmente"] == 66
@@ -43,6 +45,16 @@ def main():
     assert phase["etapa_3"]["resultado"]["incumplimientos_confirmados"] == 0
     assert phase["etapa_3"]["etapa_4_iniciada"] is False
     assert phase["repositorios_eva_modificados"] is False
+
+    if GENERATED.exists():
+        generated = load(GENERATED)
+        assert generated["resumen_contratos"] == expected_summary
+        assert generated["universo"]["repositorios"] == 8
+        assert generated["universo"]["paginas_html_referencia_etapa_1"] == 65
+        assert generated["universo"]["paginas_html_observadas_actualmente"] == 66
+        assert generated["metricas_estaticas"]["form_controls_missing_label"] == 1
+        assert generated["metricas_estaticas"]["images_missing_alt"] == 0
+        assert generated["metricas_estaticas"]["controls_missing_name"] == 0
 
     print("Validacion Fase 8 Etapa 3: OK")
 
