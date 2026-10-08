@@ -1,0 +1,103 @@
+name: Accesibilidad EVA - Fase 8 Etapa 5
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'accessibility_controlled_tests.mjs'
+      - '.github/workflows/accessibility-controlled-tests.yml'
+      - 'reports/fase-8-etapa-5-pruebas-controladas.json'
+      - 'tracking/fase-8-etapa-5.json'
+      - 'tracking/fase-8.json'
+      - 'tracking/phases.json'
+      - 'docs/FASE_8_ETAPA_5_PRUEBAS_CONTROLADAS.md'
+      - 'accessibility_controlled_tests_validate.py'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'accessibility_controlled_tests.mjs'
+      - '.github/workflows/accessibility-controlled-tests.yml'
+      - 'reports/fase-8-etapa-5-pruebas-controladas.json'
+      - 'tracking/fase-8-etapa-5.json'
+      - 'tracking/fase-8.json'
+      - 'tracking/phases.json'
+      - 'docs/FASE_8_ETAPA_5_PRUEBAS_CONTROLADAS.md'
+      - 'accessibility_controlled_tests_validate.py'
+
+permissions:
+  contents: read
+
+jobs:
+  controlled-tests:
+    name: Ejecutar pruebas controladas de accesibilidad
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Preparar Node
+        uses: actions/setup-node@1e60f620b9541d52c5409f1e23e73e79a62c76c3 # v4.0.3
+        with:
+          node-version: '20'
+
+      - name: Instalar dependencias temporales de auditoria
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-save playwright@1.55.0 axe-core@4.10.3
+          npx playwright install --with-deps chromium
+
+      - name: Obtener repositorios EVA en solo lectura
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _eva
+          cd _eva
+          for repo in \
+            crebeucayali.github.io \
+            accesos-complementarios \
+            capacitaciones \
+            banco-digital-accesible \
+            materiales-educativos-accesibles \
+            noti-inclusivos \
+            repositorio-accesible \
+            DUA-3.0
+          do
+            git clone --depth 1 --filter=blob:none "https://github.com/crebeucayali/${repo}.git" "$repo"
+          done
+
+      - name: Ejecutar pruebas P0 P1 P2
+        run: node accessibility_controlled_tests.mjs _eva reports/fase-8-etapa-5-pruebas-controladas.generated.json
+
+      - name: Mostrar resumen
+        run: |
+          python - <<'PY'
+          import json
+          p='reports/fase-8-etapa-5-pruebas-controladas.generated.json'
+          d=json.load(open(p,encoding='utf-8'))
+          print(json.dumps({
+            'paginas_observadas':d['paginas_observadas'],
+            'paginas_funcionales_cargadas':d['paginas_funcionales_cargadas'],
+            'paginas_no_cargadas':d['paginas_no_cargadas'],
+            'resumen_estados':d['resumen_estados']
+          },ensure_ascii=False,indent=2))
+          PY
+
+      - name: Validar cierre si existe reporte formal
+        shell: bash
+        run: |
+          if [ -f reports/fase-8-etapa-5-pruebas-controladas.json ]; then
+            python accessibility_controlled_tests_validate.py reports/fase-8-etapa-5-pruebas-controladas.generated.json
+          else
+            echo 'Ejecucion de evidencia: reporte formal de cierre aun no incorporado.'
+          fi
+
+      - name: Publicar evidencia
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: fase-8-etapa-5-pruebas-controladas
+          path: reports/fase-8-etapa-5-pruebas-controladas.generated.json
+          retention-days: 30
