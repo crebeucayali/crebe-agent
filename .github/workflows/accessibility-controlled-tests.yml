@@ -40,7 +40,7 @@ jobs:
           persist-credentials: false
 
       - name: Preparar Node
-        uses: actions/setup-node@1e60f620b9541d52c5409f1e23e73e79a62c76c3 # v4.0.3
+        uses: actions/setup-node@v6
         with:
           node-version: '20'
 
