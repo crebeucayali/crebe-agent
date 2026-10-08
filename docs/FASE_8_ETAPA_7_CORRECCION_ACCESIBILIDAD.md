@@ -8,7 +8,7 @@ La intervención se limita a los nueve grupos causales diagnosticados en la Etap
 
 ## Intervenciones EVA
 
-Se abrieron, revisaron y fusionaron ocho PRs, uno por repositorio EVA. Se modificaron nueve archivos CSS en total. No se modificaron HTML funcional, JavaScript funcional, contenido, Supabase, autenticación, permisos ni RLS.
+Se fusionaron nueve PRs EVA. Los primeros ocho correspondieron a la intervención inicial, uno por repositorio; el noveno fue un ajuste residual puntual en la plataforma principal después de la verificación post-corrección. Se mantienen nueve archivos CSS únicos modificados. No se modificaron HTML funcional, JavaScript funcional, contenido, Supabase, autenticación, permisos ni RLS.
 
 - Plataforma principal PR #17: contraste de Compartir y enlace de noticia.
 - Accesos Complementarios PR #5: contraste de `.seccion-etiqueta` solo dentro de `main` y wrapping de correos de Contacto.
@@ -18,21 +18,24 @@ Se abrieron, revisaron y fusionaron ocho PRs, uno por repositorio EVA. Se modifi
 - Noti Inclusivos PR #5: contraste de Compartir en artículos.
 - Repositorio Accesible PR #4: contraste de Compartir.
 - DUA-3.0 PR #3: contraste de Compartir.
+- Plataforma principal PR #19: ajuste residual de `.noticia-enlace` a fondo `#064e3b` y hover/focus `#043c30`.
 
-## Evidencia transitoria posterior a los merges
+## Verificación post-corrección
 
-El informe histórico de Etapa 6 permanece intacto como línea previa: 77 nodos de contraste y cuatro URLs objetivo de reflujo. Una ejecución pública posterior a los merges (`37811940130`) observó un único nodo de contraste restante en el despliegue público frente a los 77 de la línea previa.
+El informe histórico de Etapa 6 permanece intacto como línea previa: 77 nodos de contraste y cuatro URLs objetivo de reflujo.
 
-El runner de diagnóstico conserva siempre las cuatro URLs objetivo dentro de `reflujo.detalle`, incluso cuando una URL ya no presenta desbordamiento; por tanto, la longitud de ese arreglo no puede utilizarse como contador de fallos activos.
+La verificación final de la Etapa 7 se ejecutó en el workflow `37821334263`, con artefacto `11571817492`, después de fusionar el ajuste residual. Resultado:
+
+- 63 páginas funcionales verificadas;
+- 0 fallos de carga;
+- `contrastNodes = 0`;
+- 4 URLs objetivo de reflujo inspeccionadas;
+- `overflowFailures = 0`.
+
+Por tanto, las nueve causas diagnosticadas quedaron corregidas y la verificación inmediata posterior a las correcciones no detecta residuos de contraste ni desbordamiento a 320 px dentro del alcance de la Etapa 7.
 
 ## Separación formal de etapas
 
-La Etapa 7 certifica que las nueve causas diagnosticadas recibieron una intervención controlada y que no se modificó nada fuera del alcance autorizado. La comprobación definitiva del despliegue público, la ausencia final de regresiones y la activación del monitoreo pertenecen a la **Etapa 8 — Verificación y monitoreo**.
-
-Objetivo de Etapa 8:
-
-- 0 nodos de contraste correspondientes a los hallazgos intervenidos;
-- 0 desbordamientos activos a 320 px en las URLs objetivo;
-- ausencia de regresiones funcionales o de accesibilidad derivadas de la corrección.
+La Etapa 7 certifica la corrección controlada y su verificación inmediata. La **Etapa 8 — Verificación y monitoreo** permanece no iniciada y se reserva para una comprobación independiente final, revisión de regresiones y activación del monitoreo recurrente.
 
 La Etapa 8 no se inicia en este cierre.
