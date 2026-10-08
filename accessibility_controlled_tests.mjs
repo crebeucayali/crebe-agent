@@ -91,12 +91,12 @@ for (const repo of REPOS) {
 }
 
 const browser = await chromium.launch({ headless: true });
-const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+const context = await browser.newContext({ viewport: { width: 1280, height: 900 }, bypassCSP: true });
 const results = [];
 
 for (const item of pages) {
   const page = await context.newPage();
-  const row = { ...item, loaded: false, status: null, axe: [], metrics: {}, notes: [] };
+  const row = { ...item, loaded: false, testComplete: false, status: null, finalUrl: '', axe: [], metrics: {}, notes: [] };
   try {
     const response = await page.goto(item.url, { waitUntil: 'domcontentloaded', timeout: 15000 });
     row.status = response ? response.status() : null;
@@ -107,6 +107,11 @@ for (const item of pages) {
       await page.close();
       continue;
     }
+
+    // Permite que redirecciones de compatibilidad terminen antes de auditar el documento final.
+    await page.waitForTimeout(500);
+    await page.waitForLoadState('domcontentloaded', { timeout: 5000 }).catch(() => {});
+    row.finalUrl = page.url();
 
     await page.addScriptTag({ content: axe.source });
     const axeResult = await page.evaluate(async () => {
@@ -166,6 +171,7 @@ for (const item of pages) {
       scrollWidth: document.documentElement.scrollWidth,
       horizontalOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 2
     }));
+    row.testComplete = true;
   } catch (error) {
     row.notes.push(`Error de prueba controlada: ${String(error.message || error)}`);
   }
@@ -176,18 +182,15 @@ for (const item of pages) {
 await context.close();
 await browser.close();
 
-const contractEvidence = {};
-for (const n of Array.from({ length: 26 }, (_, i) => i + 1)) {
-  // Contratos 001 y 003 ya cerrados en Etapa 3; se excluyen de Etapa 5.
-}
 const pendingIds = [
   'A11Y-CON-002','A11Y-CON-004','A11Y-CON-005','A11Y-CON-006','A11Y-CON-007','A11Y-CON-008','A11Y-CON-009','A11Y-CON-010',
   'A11Y-CON-011','A11Y-CON-012','A11Y-CON-013','A11Y-CON-014','A11Y-CON-015','A11Y-CON-016','A11Y-CON-017','A11Y-CON-018',
   'A11Y-CON-019','A11Y-CON-020','A11Y-CON-021','A11Y-CON-022','A11Y-CON-023','A11Y-CON-024','A11Y-CON-025','A11Y-CON-026','A11Y-CON-027','A11Y-CON-028'
 ];
+const contractEvidence = {};
 for (const id of pendingIds) contractEvidence[id] = { axeViolations: 0, pages: [], status: 'REQUIERE_DIAGNOSTICO_O_REVISION_MANUAL' };
 
-for (const row of results) {
+for (const row of results.filter(r => r.testComplete)) {
   for (const v of row.axe) {
     for (const id of v.contracts || []) {
       if (!contractEvidence[id]) continue;
@@ -197,40 +200,49 @@ for (const row of results) {
   }
 }
 
-for (const [id, ev] of Object.entries(contractEvidence)) {
+for (const ev of Object.values(contractEvidence)) {
   if (ev.axeViolations > 0) ev.status = 'INCUMPLIMIENTO_CONFIRMADO_AUTOMATIZADO';
 }
 
-const loadedFunctional = results.filter(r => r.loaded && !r.auxiliary);
-const keyboardCandidates = loadedFunctional.filter(r => r.metrics.focusable > 0);
+const completedFunctional = results.filter(r => r.loaded && r.testComplete && !r.auxiliary);
+const incompleteFunctional = results.filter(r => !r.auxiliary && (!r.loaded || !r.testComplete));
+const keyboardCandidates = completedFunctional.filter(r => r.metrics.focusable > 0);
 const keyboardUnreached = keyboardCandidates.filter(r => !r.metrics.keyboardFirstTab?.reached);
 contractEvidence['A11Y-CON-013'] = {
   pagesWithFocusable: keyboardCandidates.length,
   pagesFirstTabWithoutFocus: keyboardUnreached.length,
-  status: keyboardUnreached.length ? 'REQUIERE_DIAGNOSTICO' : 'EVIDENCIA_FAVORABLE_CONTROLADA'
+  incompleteFunctionalPages: incompleteFunctional.length,
+  status: keyboardCandidates.length > 0 && keyboardUnreached.length === 0 && incompleteFunctional.length === 0
+    ? 'EVIDENCIA_FAVORABLE_CONTROLADA'
+    : (keyboardUnreached.length > 0 ? 'REQUIERE_DIAGNOSTICO' : 'REQUIERE_DIAGNOSTICO_O_REVISION_MANUAL')
 };
 
-const overflow = loadedFunctional.filter(r => r.metrics.mobile?.horizontalOverflow);
+const overflow = completedFunctional.filter(r => r.metrics.mobile?.horizontalOverflow);
 contractEvidence['A11Y-CON-025'] = {
-  pagesChecked: loadedFunctional.length,
+  pagesChecked: completedFunctional.length,
   pagesWithHorizontalOverflowAt320: overflow.length,
+  incompleteFunctionalPages: incompleteFunctional.length,
   pages: overflow.slice(0, 30).map(r => `${r.repo}/${r.rel}`),
-  status: overflow.length ? 'REQUIERE_DIAGNOSTICO' : 'EVIDENCIA_FAVORABLE_CONTROLADA'
+  status: overflow.length > 0
+    ? 'REQUIERE_DIAGNOSTICO'
+    : (completedFunctional.length > 0 && incompleteFunctional.length === 0 ? 'EVIDENCIA_FAVORABLE_CONTROLADA' : 'REQUIERE_DIAGNOSTICO_O_REVISION_MANUAL')
 };
 
-const tables = loadedFunctional.reduce((n, r) => n + (r.metrics.tables || 0), 0);
-const multimedia = loadedFunctional.reduce((n, r) => n + (r.metrics.multimedia || 0), 0);
-if (tables === 0) {
+const tables = completedFunctional.reduce((n, r) => n + (r.metrics.tables || 0), 0);
+const multimedia = completedFunctional.reduce((n, r) => n + (r.metrics.multimedia || 0), 0);
+if (incompleteFunctional.length === 0 && tables === 0) {
   contractEvidence['A11Y-CON-021'].status = 'NO_APLICA_EN_UNIVERSO_OBSERVADO';
   contractEvidence['A11Y-CON-022'].status = 'NO_APLICA_EN_UNIVERSO_OBSERVADO';
 }
-if (multimedia === 0) contractEvidence['A11Y-CON-027'].status = 'NO_APLICA_EN_UNIVERSO_OBSERVADO';
+if (incompleteFunctional.length === 0 && multimedia === 0) {
+  contractEvidence['A11Y-CON-027'].status = 'NO_APLICA_EN_UNIVERSO_OBSERVADO';
+}
 
 const summary = {};
 for (const ev of Object.values(contractEvidence)) summary[ev.status] = (summary[ev.status] || 0) + 1;
 
 const report = {
-  schema_version: 1,
+  schema_version: 2,
   fase: 8,
   etapa: 5,
   nombre: 'Pruebas controladas de accesibilidad',
@@ -238,7 +250,8 @@ const report = {
   referencia_tecnica: 'WCAG_2_2_AA',
   orden_pruebas: ['P0','P1','P2'],
   paginas_observadas: pages.length,
-  paginas_funcionales_cargadas: loadedFunctional.length,
+  paginas_funcionales_completamente_probadas: completedFunctional.length,
+  paginas_funcionales_incompletas: incompleteFunctional.length,
   paginas_auxiliares: results.filter(r => r.auxiliary).length,
   paginas_no_cargadas: results.filter(r => !r.loaded).length,
   tablas_observadas: tables,
@@ -257,4 +270,9 @@ const report = {
 
 fs.mkdirSync(path.dirname(output), { recursive: true });
 fs.writeFileSync(output, JSON.stringify(report, null, 2) + '\n');
-console.log(JSON.stringify({ paginas: pages.length, funcionales_cargadas: loadedFunctional.length, resumen: summary }, null, 2));
+console.log(JSON.stringify({
+  paginas: pages.length,
+  funcionales_completamente_probadas: completedFunctional.length,
+  funcionales_incompletas: incompleteFunctional.length,
+  resumen: summary
+}, null, 2));
