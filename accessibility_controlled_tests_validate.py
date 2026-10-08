@@ -81,10 +81,18 @@ def main():
         assert obj["correcciones_aplicadas"] == 0
         assert obj["severidades_asignadas"] == 0
 
+    # El cierre histórico de Etapa 5 permanece inmutable, pero el tracking global
+    # puede avanzar legítimamente a Etapa 6 o posteriores.
     assert report["guardrails"]["etapa_6_iniciada"] is False
     assert track["etapa_6_iniciada"] is False
-    assert phase["etapa_5"]["etapa_6_iniciada"] is False
-    assert phases["fase_8"]["etapa_6_iniciada"] is False
+    assert isinstance(phase["etapa_5"]["etapa_6_iniciada"], bool)
+    if phase["etapa_5"]["etapa_6_iniciada"]:
+        assert phase.get("etapa_6_iniciada") is True
+        assert "etapa_6" in phase
+    assert isinstance(phases["fase_8"]["etapa_6_iniciada"], bool)
+    if phases["fase_8"]["etapa_6_iniciada"]:
+        assert phases["fase_8"]["etapa_actual"] >= 6
+        assert phases["fase_8"].get("etapa_6_estado") == "ETAPA_6_COMPLETADA_DIAGNOSTICO_ACCESIBILIDAD"
 
     print("Validacion Fase 8 Etapa 5: OK")
 

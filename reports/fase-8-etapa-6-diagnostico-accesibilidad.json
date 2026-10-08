@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "fase": 8,
+  "etapa": 6,
+  "nombre": "Diagnostico tecnico de accesibilidad",
+  "estado": "ETAPA_6_COMPLETADA_DIAGNOSTICO_ACCESIBILIDAD",
+  "fecha": "2026-10-08",
+  "zona_horaria": "America/Lima",
+  "modo": "READ_ONLY_DIAGNOSIS",
+  "referencia_tecnica": "WCAG_2_2_AA",
+  "fuente_etapa_5": "reports/fase-8-etapa-5-pruebas-controladas.json",
+  "workflow_run_id": 37806844799,
+  "artifact_id": 11563855487,
+  "resumen": {
+    "nodos_contraste_confirmados": 77,
+    "grupos_causales_contraste": 6,
+    "urls_overflow_320": 4,
+    "grupos_causales_overflow": 3,
+    "grupos_causales_totales": 9,
+    "contratos_pendientes_revision_manual_sin_fallo_confirmado": 22,
+    "correcciones_aplicadas": 0,
+    "severidades_proyecto_asignadas": 0
+  },
+  "diagnostico_contraste": [
+    {
+      "id": "A11Y-DIAG-CONTRASTE-001",
+      "contrato": "A11Y-CON-023",
+      "causa": "Boton Compartir con texto #ffffff sobre fondo #1877f2",
+      "selector": ".compartir-facebook",
+      "nodos": 38,
+      "ratio_observado": 4.23,
+      "ratio_objetivo_minimo": 4.5,
+      "alcance": "Componente repetido en multiples repositorios EVA",
+      "tratamiento_etapa_7": "Ajuste controlado del token/fondo del componente Compartir, preservando identidad y estados hover/focus."
+    },
+    {
+      "id": "A11Y-DIAG-CONTRASTE-002",
+      "contrato": "A11Y-CON-023",
+      "causa": "Etiqueta de seccion #c9f7ee renderizada sobre fondo blanco",
+      "selector": ".seccion-etiqueta",
+      "nodos": 9,
+      "ratio_observado": 1.16,
+      "ratio_objetivo_minimo": 4.5,
+      "alcance": "Accesos Complementarios",
+      "tratamiento_etapa_7": "Separar el color de etiqueta usado sobre superficies claras del color destinado a cabeceras oscuras."
+    },
+    {
+      "id": "A11Y-DIAG-CONTRASTE-003",
+      "contrato": "A11Y-CON-023",
+      "causa": "Enlaces legales #1f6a5a sobre fondo de footer #17324d",
+      "selector": ".footer-legal-eva > a",
+      "nodos": 9,
+      "ratio_observado": 2.04,
+      "ratio_objetivo_minimo": 4.5,
+      "alcance": "Capacitaciones, tres enlaces repetidos en tres paginas",
+      "tratamiento_etapa_7": "Usar color de enlace apto para fondo oscuro sin alterar estructura ni contenido del footer."
+    },
+    {
+      "id": "A11Y-DIAG-CONTRASTE-004",
+      "contrato": "A11Y-CON-023",
+      "causa": "Tarjetas BDA en construccion usan combinaciones secundarias por debajo de AA",
+      "selector": ".en-construccion .material-icono / .enlace-material.deshabilitado",
+      "nodos": 8,
+      "ratios_observados": [4.18, 3.95],
+      "alcance": "Banco Digital Accesible index",
+      "tratamiento_etapa_7": "Ajustar colores de estados deshabilitados preservando su diferenciacion visual."
+    },
+    {
+      "id": "A11Y-DIAG-CONTRASTE-005",
+      "contrato": "A11Y-CON-023",
+      "causa": "Color secundario #627d98 usado en varios contextos claros y uno oscuro sin contraste suficiente",
+      "nodos": 12,
+      "ratios_observados": [4.28, 4.08, 3.24],
+      "alcance": "Materiales Educativos Accesibles",
+      "tratamiento_etapa_7": "Aplicar ajustes contextuales; no sustituir globalmente el token porque el mismo color aparece sobre fondos distintos."
+    },
+    {
+      "id": "A11Y-DIAG-CONTRASTE-006",
+      "contrato": "A11Y-CON-023",
+      "causa": "Enlace de noticia #e6f0f0 sobre #2b867e",
+      "selector": ".noticia-enlace",
+      "nodos": 1,
+      "ratio_observado": 3.75,
+      "alcance": "Plataforma principal EVA",
+      "tratamiento_etapa_7": "Ajuste puntual del par foreground/background del enlace."
+    }
+  ],
+  "diagnostico_reflujo": [
+    {
+      "id": "A11Y-DIAG-REFLOW-001",
+      "contrato": "A11Y-CON-025",
+      "urls": [
+        "accesos-complementarios/paginas/contacto.html",
+        "accesos-complementarios/recursos/contacto.html"
+      ],
+      "causa": "Direcciones de correo largas no pueden fragmentarse dentro de .directorio-texto; el contenido interno excede la tarjeta en viewport de 320 px.",
+      "evidencia": "scrollWidth 339 frente a clientWidth 320; correo institucional llega a 289 px dentro de un bloque de 220 px.",
+      "relacion_historica": "accesos-complementarios.contacto.layout.overflow",
+      "tratamiento_etapa_7": "Agregar regla de wrapping/overflow apropiada al texto de contacto sin alterar el contenido ni el layout de escritorio."
+    },
+    {
+      "id": "A11Y-DIAG-REFLOW-002",
+      "contrato": "A11Y-CON-025",
+      "urls": ["banco-digital-accesible/braille/teoria.html"],
+      "causa": "La grilla .pagina-teoria mantiene minimo intrinseco de sus items; .tarjeta-teoria conserva min-width:auto y la pista se expande mas alla del ancho disponible a 320 px.",
+      "evidencia": "viewport 320 px; tarjetas medidas hasta right=340 px con ancho aproximado de 303 px.",
+      "relacion_historica": "banco-digital-accesible.braille-teoria.layout.overflow",
+      "tratamiento_etapa_7": "Permitir contraccion real del item/grid en movil mediante min-width:0 y, si corresponde, reglas equivalentes sobre contenido interno sin ocultar informacion."
+    },
+    {
+      "id": "A11Y-DIAG-REFLOW-003",
+      "contrato": "A11Y-CON-025",
+      "urls": ["materiales-educativos-accesibles/generador/generador.html"],
+      "causa": ".contenedor-generador mantiene grid-template-columns:1fr 320px sin una regla responsive que colapse la segunda columna.",
+      "evidencia": "viewport 320 px; scrollWidth 561 px; .panel-descarga ocupa 320 px y comienza aproximadamente en x=241.",
+      "relacion_historica": "materiales-educativos-accesibles.generador-braille.layout.overflow",
+      "tratamiento_etapa_7": "Colapsar a una sola columna en breakpoint movil, preservando orden logico y controles."
+    }
+  ],
+  "otros_contratos": {
+    "A11Y-CON-013": "EVIDENCIA_FAVORABLE_CONTROLADA; no se corrige en Etapa 7 salvo nueva evidencia.",
+    "A11Y-CON-027": "NO_APLICA_EN_UNIVERSO_OBSERVADO; reabrir si se incorpora multimedia.",
+    "pendientes_revision_manual": 22,
+    "criterio": "No se convierten en incumplimientos ni se corrigen sin evidencia adicional."
+  },
+  "guardrails": {
+    "repositorios_eva_modificados": false,
+    "supabase_modificado": false,
+    "correcciones_aplicadas": 0,
+    "severidades_proyecto_asignadas": 0,
+    "etapa_7_iniciada": false
+  }
+}
