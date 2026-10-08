@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "fase": 8,
+  "etapa": 6,
+  "nombre": "Diagnostico tecnico de accesibilidad",
+  "estado": "ETAPA_6_COMPLETADA_DIAGNOSTICO_ACCESIBILIDAD",
+  "fecha_cierre": "2026-10-08",
+  "zona_horaria": "America/Lima",
+  "workflow_run_id": 37806844799,
+  "artifact_id": 11563855487,
+  "resultado": {
+    "nodos_contraste_confirmados": 77,
+    "grupos_causales_contraste": 6,
+    "urls_overflow_320": 4,
+    "grupos_causales_overflow": 3,
+    "grupos_causales_totales": 9,
+    "contratos_pendientes_revision_manual_sin_fallo_confirmado": 22,
+    "pendientes_historicos_relacionados": 3,
+    "correcciones_aplicadas": 0,
+    "severidades_proyecto_asignadas": 0
+  },
+  "reporte": "reports/fase-8-etapa-6-diagnostico-accesibilidad.json",
+  "documentacion": "docs/FASE_8_ETAPA_6_DIAGNOSTICO_ACCESIBILIDAD.md",
+  "repositorios_eva_modificados": false,
+  "supabase_modificado": false,
+  "criterios_cierre_cumplidos": true,
+  "etapa_7_iniciada": false
+}
