@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "fase": 8,
+  "etapa": 1,
+  "nombre": "Inventario de accesibilidad",
+  "estado": "ETAPA_1_COMPLETADA_INVENTARIO_ACCESIBILIDAD",
+  "fecha_inicio": "2026-10-08",
+  "fecha_cierre": "2026-10-08",
+  "zona_horaria": "America/Lima",
+  "modo": "READ_ONLY",
+  "reporte": "reports/fase-8-etapa-1-inventario-accesibilidad.json",
+  "documentacion": "docs/FASE_8_ETAPA_1_INVENTARIO_ACCESIBILIDAD.md",
+  "resultado": {
+    "repositorios": 8,
+    "paginas_html": 65,
+    "elementos_funcionales": 1297,
+    "superficies_inventariadas": 14,
+    "hallazgos_confirmados": 0,
+    "severidades_asignadas": 0,
+    "correcciones_aplicadas": 0
+  },
+  "criterios_cierre_cumplidos": true,
+  "repositorios_eva_modificados": false,
+  "etapa_2_iniciada": false
+}

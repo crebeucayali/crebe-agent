@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "fase": 8,
+  "nombre": "Accesibilidad integral de EVA",
+  "modo_inicial": "READ_ONLY",
+  "repositorios": [
+    "crebeucayali/crebeucayali.github.io",
+    "crebeucayali/accesos-complementarios",
+    "crebeucayali/capacitaciones",
+    "crebeucayali/banco-digital-accesible",
+    "crebeucayali/materiales-educativos-accesibles",
+    "crebeucayali/noti-inclusivos",
+    "crebeucayali/repositorio-accesible",
+    "crebeucayali/DUA-3.0"
+  ],
+  "universo_base_validado": {
+    "repositorios": 8,
+    "paginas_html": 65,
+    "elementos_funcionales": 1297,
+    "botones": 196,
+    "formularios": 18,
+    "controles": 175,
+    "enlaces_navegacion": 711,
+    "enlaces_externos": 110,
+    "anclas": 74,
+    "enlaces_mail": 13,
+    "referencias_js": 54
+  },
+  "superficies": [
+    "IMAGENES_Y_TEXTO_ALTERNATIVO",
+    "BOTONES_ENLACES_Y_NOMBRES_ACCESIBLES",
+    "FORMULARIOS_LABELS_ERRORES_Y_AYUDA",
+    "ENCABEZADOS_Y_JERARQUIA_SEMANTICA",
+    "IDIOMA_Y_TITULOS_DE_DOCUMENTO",
+    "LANDMARKS_Y_REGIONES",
+    "NAVEGACION_POR_TECLADO",
+    "FOCO_VISIBLE_Y_ORDEN_DE_FOCO",
+    "MODALES_DIALOGOS_Y_CONTENIDO_DINAMICO",
+    "ARIA_ROLES_ESTADOS_Y_PROPIEDADES",
+    "TABLAS_Y_RELACIONES_SEMANTICAS",
+    "CONTRASTE_ALTO_CONTRASTE_Y_COLOR",
+    "ZOOM_REFLUJO_TAMANO_DE_TEXTO_Y_MOVIL",
+    "MULTIMEDIA_Y_COMPONENTES_ADMINISTRATIVOS"
+  ],
+  "reglas": {
+    "no_corregir_en_etapa_1": true,
+    "no_clasificar_severidad_en_etapa_1": true,
+    "no_declarar_defectos_sin_evidencia": true,
+    "no_modificar_repositorios_eva": true,
+    "inventario_antes_de_auditoria": true
+  }
+}

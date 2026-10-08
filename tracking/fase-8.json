@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "fase": 8,
+  "nombre": "Accesibilidad integral de EVA",
+  "estado": "EN_CURSO",
+  "fecha_inicio": "2026-10-08",
+  "zona_horaria": "America/Lima",
+  "objetivo": "Inventariar, auditar, priorizar, corregir y monitorear la accesibilidad de EVA sin introducir cambios sin evidencia ni romper funcionalidad existente.",
+  "etapas": [
+    {"numero":1,"nombre":"Inventario de accesibilidad","estado":"ETAPA_1_COMPLETADA_INVENTARIO_ACCESIBILIDAD","fecha_cierre":"2026-10-08"},
+    {"numero":2,"nombre":"Contratos y criterios de accesibilidad","estado":"NO_INICIADA"},
+    {"numero":3,"nombre":"Linea base de accesibilidad","estado":"NO_INICIADA"},
+    {"numero":4,"nombre":"Clasificacion y priorizacion","estado":"NO_INICIADA"},
+    {"numero":5,"nombre":"Pruebas controladas","estado":"NO_INICIADA"},
+    {"numero":6,"nombre":"Diagnostico tecnico","estado":"NO_INICIADA"},
+    {"numero":7,"nombre":"Correccion controlada","estado":"NO_INICIADA"},
+    {"numero":8,"nombre":"Verificacion y monitoreo","estado":"NO_INICIADA"}
+  ],
+  "criterios": {
+    "lectura_primero": true,
+    "no_declarar_fallos_sin_evidencia": true,
+    "no_corregir_antes_de_diagnosticar": true,
+    "preservar_funcionalidad": true,
+    "preservar_identidad_visual": true,
+    "requiere_verificacion_regresion": true
+  },
+  "etapa_1_iniciada": true,
+  "etapa_1": {
+    "estado":"ETAPA_1_COMPLETADA_INVENTARIO_ACCESIBILIDAD",
+    "tracking":"tracking/fase-8-etapa-1.json",
+    "reporte":"reports/fase-8-etapa-1-inventario-accesibilidad.json",
+    "documentacion":"docs/FASE_8_ETAPA_1_INVENTARIO_ACCESIBILIDAD.md",
+    "resultado":{"repositorios":8,"paginas_html":65,"elementos_funcionales":1297,"superficies_inventariadas":14,"hallazgos_confirmados":0},
+    "criterios_cierre_cumplidos":true,
+    "etapa_2_iniciada":false
+  },
+  "repositorios_eva_modificados": false,
+  "alcance": "config/fase-8-accessibility-scope.json"
+}
