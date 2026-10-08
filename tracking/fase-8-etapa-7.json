@@ -14,10 +14,13 @@
   "supabase_modificado": false,
   "correcciones_fuera_de_alcance": 0,
   "contratos_manual_sin_fallo_intervenidos": 0,
-  "verificacion_post_correccion": {
-    "nodos_contraste_esperados": 0,
-    "urls_overflow_320_esperadas": 0,
-    "validacion": "accessibility_diagnosis_validate.py"
+  "verificacion_final": {
+    "estado": "PENDIENTE_ETAPA_8",
+    "objetivo_nodos_contraste": 0,
+    "objetivo_urls_overflow_320": 0,
+    "ultima_evidencia_transitoria_run_id": 37811940130,
+    "nodos_contraste_transitorios": 1,
+    "nota_reflujo": "reflujo.detalle conserva siempre las cuatro URLs objetivo; el conteo de entradas no representa por si solo overflow activo"
   },
   "criterios_cierre_cumplidos": true,
   "etapa_8_iniciada": false
