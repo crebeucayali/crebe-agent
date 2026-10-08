@@ -12,7 +12,7 @@
     {"numero":3,"nombre":"Linea base de accesibilidad","estado":"ETAPA_3_COMPLETADA_LINEA_BASE_ACCESIBILIDAD","fecha_cierre":"2026-10-08"},
     {"numero":4,"nombre":"Clasificacion y priorizacion","estado":"ETAPA_4_COMPLETADA_PRIORIZACION_ACCESIBILIDAD","fecha_cierre":"2026-10-08"},
     {"numero":5,"nombre":"Pruebas controladas","estado":"ETAPA_5_COMPLETADA_PRUEBAS_CONTROLADAS_ACCESIBILIDAD","fecha_cierre":"2026-10-08"},
-    {"numero":6,"nombre":"Diagnostico tecnico","estado":"NO_INICIADA"},
+    {"numero":6,"nombre":"Diagnostico tecnico","estado":"ETAPA_6_COMPLETADA_DIAGNOSTICO_ACCESIBILIDAD","fecha_cierre":"2026-10-08"},
     {"numero":7,"nombre":"Correccion controlada","estado":"NO_INICIADA"},
     {"numero":8,"nombre":"Verificacion y monitoreo","estado":"NO_INICIADA"}
   ],
@@ -85,7 +85,22 @@
     "correcciones_aplicadas":0,
     "severidades_asignadas":0,
     "criterios_cierre_cumplidos":true,
-    "etapa_6_iniciada":false
+    "etapa_6_iniciada":true
+  },
+  "etapa_6_iniciada": true,
+  "etapa_6": {
+    "estado":"ETAPA_6_COMPLETADA_DIAGNOSTICO_ACCESIBILIDAD",
+    "tracking":"tracking/fase-8-etapa-6.json",
+    "reporte":"reports/fase-8-etapa-6-diagnostico-accesibilidad.json",
+    "documentacion":"docs/FASE_8_ETAPA_6_DIAGNOSTICO_ACCESIBILIDAD.md",
+    "modo":"READ_ONLY_DIAGNOSIS",
+    "workflow_run_id":37806844799,
+    "artifact_id":11563855487,
+    "resultado":{"nodos_contraste_confirmados":77,"grupos_causales_contraste":6,"urls_overflow_320":4,"grupos_causales_overflow":3,"grupos_causales_totales":9,"contratos_pendientes_revision_manual_sin_fallo_confirmado":22,"pendientes_historicos_relacionados":3},
+    "correcciones_aplicadas":0,
+    "severidades_asignadas":0,
+    "criterios_cierre_cumplidos":true,
+    "etapa_7_iniciada":false
   },
   "repositorios_eva_modificados": false,
   "alcance": "config/fase-8-accessibility-scope.json"
