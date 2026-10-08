@@ -9,18 +9,21 @@
   "grupos_causales_objetivo": 9,
   "grupos_causales_intervenidos": 9,
   "repositorios_intervenidos": 8,
-  "pull_requests_eva": 8,
+  "pull_requests_eva": 9,
   "archivos_eva_modificados": 9,
   "supabase_modificado": false,
   "correcciones_fuera_de_alcance": 0,
   "contratos_manual_sin_fallo_intervenidos": 0,
   "verificacion_final": {
-    "estado": "PENDIENTE_ETAPA_8",
-    "objetivo_nodos_contraste": 0,
-    "objetivo_urls_overflow_320": 0,
-    "ultima_evidencia_transitoria_run_id": 37811940130,
-    "nodos_contraste_transitorios": 1,
-    "nota_reflujo": "reflujo.detalle conserva siempre las cuatro URLs objetivo; el conteo de entradas no representa por si solo overflow activo"
+    "estado": "APROBADA_POST_CORRECCION_ETAPA_7",
+    "workflow_run_id": 37821334263,
+    "artifact_id": 11571817492,
+    "paginas_verificadas": 63,
+    "fallos_carga": 0,
+    "nodos_contraste": 0,
+    "urls_objetivo_reflujo": 4,
+    "fallos_overflow_320": 0,
+    "nota": "La Etapa 7 verifica el resultado inmediato de las correcciones. La Etapa 8 permanece reservada para verificacion independiente final y monitoreo recurrente."
   },
   "criterios_cierre_cumplidos": true,
   "etapa_8_iniciada": false
