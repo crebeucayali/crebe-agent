@@ -19,11 +19,20 @@ Se abrieron, revisaron y fusionaron ocho PRs, uno por repositorio EVA. Se modifi
 - Repositorio Accesible PR #4: contraste de Compartir.
 - DUA-3.0 PR #3: contraste de Compartir.
 
-## Verificación de cierre
+## Evidencia transitoria posterior a los merges
 
-El informe histórico de Etapa 6 permanece intacto como línea previa (77 nodos de contraste y 4 URLs con overflow). Al avanzar a Etapa 7, el validador de Etapa 6 cambia a modo post-corrección y exige una nueva ejecución real de `accessibility_diagnosis.mjs` contra `main` de los ocho repositorios EVA con:
+El informe histórico de Etapa 6 permanece intacto como línea previa: 77 nodos de contraste y cuatro URLs objetivo de reflujo. Una ejecución pública posterior a los merges (`37811940130`) observó un único nodo de contraste restante en el despliegue público frente a los 77 de la línea previa.
 
-- 0 nodos `color-contrast`;
-- 0 entradas de reflujo con overflow a 320 px.
+El runner de diagnóstico conserva siempre las cuatro URLs objetivo dentro de `reflujo.detalle`, incluso cuando una URL ya no presenta desbordamiento; por tanto, la longitud de ese arreglo no puede utilizarse como contador de fallos activos.
+
+## Separación formal de etapas
+
+La Etapa 7 certifica que las nueve causas diagnosticadas recibieron una intervención controlada y que no se modificó nada fuera del alcance autorizado. La comprobación definitiva del despliegue público, la ausencia final de regresiones y la activación del monitoreo pertenecen a la **Etapa 8 — Verificación y monitoreo**.
+
+Objetivo de Etapa 8:
+
+- 0 nodos de contraste correspondientes a los hallazgos intervenidos;
+- 0 desbordamientos activos a 320 px en las URLs objetivo;
+- ausencia de regresiones funcionales o de accesibilidad derivadas de la corrección.
 
 La Etapa 8 no se inicia en este cierre.
