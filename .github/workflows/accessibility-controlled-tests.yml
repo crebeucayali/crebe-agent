@@ -80,7 +80,8 @@ jobs:
           d=json.load(open(p,encoding='utf-8'))
           print(json.dumps({
             'paginas_observadas':d['paginas_observadas'],
-            'paginas_funcionales_cargadas':d['paginas_funcionales_cargadas'],
+            'paginas_funcionales_completamente_probadas':d['paginas_funcionales_completamente_probadas'],
+            'paginas_funcionales_incompletas':d['paginas_funcionales_incompletas'],
             'paginas_no_cargadas':d['paginas_no_cargadas'],
             'resumen_estados':d['resumen_estados']
           },ensure_ascii=False,indent=2))
@@ -96,8 +97,10 @@ jobs:
           fi
 
       - name: Publicar evidencia
+        if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: fase-8-etapa-5-pruebas-controladas
           path: reports/fase-8-etapa-5-pruebas-controladas.generated.json
           retention-days: 30
+          if-no-files-found: warn
