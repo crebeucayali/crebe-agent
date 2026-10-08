@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - 'accessibility_baseline_scan.py'
+      - 'accessibility_baseline_validate.py'
       - 'tests/test_accessibility_baseline.py'
       - '.github/workflows/accessibility-baseline.yml'
       - 'reports/fase-8-etapa-3-linea-base-accesibilidad.json'
@@ -17,6 +18,7 @@ on:
     branches: [main]
     paths:
       - 'accessibility_baseline_scan.py'
+      - 'accessibility_baseline_validate.py'
       - 'tests/test_accessibility_baseline.py'
       - '.github/workflows/accessibility-baseline.yml'
       - 'reports/fase-8-etapa-3-linea-base-accesibilidad.json'
@@ -68,6 +70,9 @@ jobs:
 
       - name: Generar linea base
         run: python accessibility_baseline_scan.py --root _eva --output reports/fase-8-etapa-3-linea-base-accesibilidad.generated.json
+
+      - name: Validar cierre contra evidencia generada
+        run: python accessibility_baseline_validate.py
 
       - name: Mostrar evidencia completa
         run: cat reports/fase-8-etapa-3-linea-base-accesibilidad.generated.json

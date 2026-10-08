@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "fase": 8,
+  "etapa": 3,
+  "nombre": "Linea base de accesibilidad",
+  "estado": "ETAPA_3_COMPLETADA_LINEA_BASE_ACCESIBILIDAD",
+  "fecha_inicio": "2026-10-08",
+  "fecha_cierre": "2026-10-08",
+  "zona_horaria": "America/Lima",
+  "modo": "READ_ONLY_BASELINE",
+  "contratos_objetivo": 28,
+  "repositorios_objetivo": 8,
+  "workflow_run_id": 37798165287,
+  "artifact_id": 11559462417,
+  "evidencia_pendiente_workflow": false,
+  "resultado": {
+    "CUMPLE": 2,
+    "INCUMPLIMIENTO_CONFIRMADO": 0,
+    "REQUIERE_VERIFICACION_CONTROLADA": 26,
+    "paginas_html_referencia": 65,
+    "paginas_html_observadas": 66,
+    "candidatos_formulario": 1,
+    "candidatos_lang": 3,
+    "candidatos_title": 3
+  },
+  "repositorios_eva_modificados": false,
+  "supabase_modificado": false,
+  "correcciones_aplicadas": 0,
+  "severidades_asignadas": 0,
+  "priorizacion_realizada": false,
+  "criterios_cierre_cumplidos": true,
+  "etapa_4_iniciada": false
+}

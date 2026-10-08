@@ -18,6 +18,7 @@ REPOS = [
     "DUA-3.0",
 ]
 
+REFERENCE_HTML_PAGES = 65
 STATUS_OK = "CUMPLE"
 STATUS_FAIL = "INCUMPLIMIENTO_CONFIRMADO"
 STATUS_CONTROLLED = "REQUIERE_VERIFICACION_CONTROLADA"
@@ -37,8 +38,9 @@ class PageParser(HTMLParser):
         self.form_controls = 0
         self.form_controls_missing_label = 0
         self.labels_for: set[str] = set()
-        self.pending_controls: list[dict[str, str]] = []
+        self.pending_controls: list[dict[str, Any]] = []
         self._interactive_stack: list[dict[str, Any]] = []
+        self._label_depth = 0
 
     @staticmethod
     def attrs_dict(attrs):
@@ -62,6 +64,7 @@ class PageParser(HTMLParser):
             if self._interactive_stack and a.get("alt", "").strip():
                 self._interactive_stack[-1]["text"].append(a["alt"].strip())
         elif tag == "label":
+            self._label_depth += 1
             target = a.get("for", "").strip()
             if target:
                 self.labels_for.add(target)
@@ -78,17 +81,19 @@ class PageParser(HTMLParser):
             if input_type == "hidden":
                 return
             self.form_controls += 1
-            self.pending_controls.append(a)
+            self.pending_controls.append({"attrs": a, "implicit_label": self._label_depth > 0})
 
     def handle_startendtag(self, tag: str, attrs) -> None:
         self.handle_starttag(tag, attrs)
-        if tag.lower() in ("button", "a"):
+        if tag.lower() in ("button", "a", "label"):
             self.handle_endtag(tag)
 
     def handle_endtag(self, tag: str) -> None:
         tag = tag.lower()
         if tag == "title" and self.title_depth:
             self.title_depth -= 1
+        elif tag == "label" and self._label_depth:
+            self._label_depth -= 1
         if tag in ("button", "a") and self._interactive_stack:
             item = self._interactive_stack.pop()
             if item["tag"] != tag:
@@ -105,9 +110,12 @@ class PageParser(HTMLParser):
             self._interactive_stack[-1]["text"].append(data.strip())
 
     def finalize(self) -> None:
-        for a in self.pending_controls:
+        for item in self.pending_controls:
+            a = item["attrs"]
             control_id = a.get("id", "").strip()
             input_type = a.get("type", "text").lower()
+            if item["implicit_label"]:
+                continue
             if input_type in ("submit", "reset", "button") and a.get("value", "").strip():
                 continue
             if input_type == "image" and a.get("alt", "").strip():
@@ -170,25 +178,28 @@ def baseline(root: Path) -> dict[str, Any]:
         totals.update(repo_counter)
 
     contracts: list[dict[str, Any]] = []
-    controlled = {
+    always_controlled = {
         "A11Y-CON-002", "A11Y-CON-004", "A11Y-CON-006", "A11Y-CON-007", "A11Y-CON-008",
         "A11Y-CON-011", "A11Y-CON-012", "A11Y-CON-013", "A11Y-CON-014", "A11Y-CON-015",
         "A11Y-CON-016", "A11Y-CON-017", "A11Y-CON-018", "A11Y-CON-019", "A11Y-CON-020",
         "A11Y-CON-021", "A11Y-CON-022", "A11Y-CON-023", "A11Y-CON-024", "A11Y-CON-025",
         "A11Y-CON-026", "A11Y-CON-027", "A11Y-CON-028",
     }
-    objective = {
+
+    static_structural = {
         "A11Y-CON-001": ("images_missing_alt", "imagenes sin atributo alt"),
-        "A11Y-CON-003": ("controls_missing_name", "controles interactivos sin nombre accesible estatico"),
-        "A11Y-CON-005": ("form_controls_missing_label", "controles de formulario sin etiqueta/nombre programatico estatico"),
-        "A11Y-CON-009": ("lang_missing", "paginas sin idioma principal programatico"),
-        "A11Y-CON-010": ("title_missing", "paginas sin titulo de documento no vacio"),
+        "A11Y-CON-003": ("controls_missing_name", "botones/enlaces sin nombre accesible estatico"),
+    }
+    candidate_only = {
+        "A11Y-CON-005": ("form_controls_missing_label", "controles de formulario candidatos sin etiqueta/nombre programatico estatico"),
+        "A11Y-CON-009": ("lang_missing", "HTML observados sin idioma principal programatico; requieren confirmar pertenencia al universo funcional"),
+        "A11Y-CON-010": ("title_missing", "HTML observados sin titulo no vacio; requieren confirmar pertenencia al universo funcional y utilidad del titulo"),
     }
 
     for n in range(1, 29):
         cid = f"A11Y-CON-{n:03d}"
-        if cid in objective:
-            metric, description = objective[cid]
+        if cid in static_structural:
+            metric, description = static_structural[cid]
             count = int(totals.get(metric, 0))
             contracts.append({
                 "id": cid,
@@ -198,10 +209,26 @@ def baseline(root: Path) -> dict[str, Any]:
                     "descripcion": description,
                     "cantidad": count,
                     "muestra_paginas": evidence_pages.get(metric, [])[:20],
+                    "nota": "El estado se limita al requisito estructural automatizable y no constituye declaracion global de conformidad WCAG.",
                 },
-                "alcance_evidencia": "ESTATICA_OBJETIVA",
+                "alcance_evidencia": "ESTATICA_ESTRUCTURAL",
             })
-        elif cid in controlled:
+        elif cid in candidate_only:
+            metric, description = candidate_only[cid]
+            count = int(totals.get(metric, 0))
+            contracts.append({
+                "id": cid,
+                "estado": STATUS_CONTROLLED,
+                "evidencia": {
+                    "metrica": metric,
+                    "descripcion": description,
+                    "cantidad_candidatos": count,
+                    "muestra_paginas": evidence_pages.get(metric, [])[:20],
+                    "motivo": "La evidencia estatica identifica candidatos, pero no basta para confirmar incumplimiento sin validar contexto funcional, etiquetado implicito/dinamico o semantica efectiva.",
+                },
+                "alcance_evidencia": "CANDIDATOS_PARA_VERIFICACION_CONTROLADA",
+            })
+        elif cid in always_controlled:
             contracts.append({
                 "id": cid,
                 "estado": STATUS_CONTROLLED,
@@ -212,14 +239,21 @@ def baseline(root: Path) -> dict[str, Any]:
             raise AssertionError(cid)
 
     status_counts = Counter(c["estado"] for c in contracts)
+    observed_pages = int(totals.get("paginas_html", 0))
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "fase": 8,
         "etapa": 3,
         "nombre": "Linea base de accesibilidad",
         "modo": "READ_ONLY_BASELINE",
         "repositorios_eva_modificados": False,
-        "universo_observado": {"repositorios": len(REPOS), "paginas_html": int(totals.get("paginas_html", 0))},
+        "universo": {
+            "repositorios": len(REPOS),
+            "paginas_html_referencia_etapa_1": REFERENCE_HTML_PAGES,
+            "paginas_html_observadas_actualmente": observed_pages,
+            "diferencia_desde_referencia": observed_pages - REFERENCE_HTML_PAGES,
+            "tratamiento_diferencia": "REQUIERE_VERIFICACION_CONTROLADA; no se interpreta como fallo de accesibilidad ni se fuerza el conteo historico.",
+        },
         "metricas_estaticas": dict(totals),
         "por_repositorio": repo_results,
         "contratos": contracts,
@@ -229,7 +263,13 @@ def baseline(root: Path) -> dict[str, Any]:
             STATUS_CONTROLLED: int(status_counts.get(STATUS_CONTROLLED, 0)),
             "total": len(contracts),
         },
-        "guardrails": {"sin_correcciones": True, "sin_severidades": True, "sin_priorizacion": True, "etapa_4_no_iniciada": True},
+        "guardrails": {
+            "sin_correcciones": True,
+            "sin_severidades": True,
+            "sin_priorizacion": True,
+            "sin_forzar_universo_historico": True,
+            "etapa_4_no_iniciada": True,
+        },
     }
 
 
