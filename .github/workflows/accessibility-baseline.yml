@@ -1,0 +1,78 @@
+name: Accesibilidad EVA - Fase 8 Etapa 3
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'accessibility_baseline_scan.py'
+      - 'tests/test_accessibility_baseline.py'
+      - '.github/workflows/accessibility-baseline.yml'
+      - 'reports/fase-8-etapa-3-linea-base-accesibilidad.json'
+      - 'tracking/fase-8-etapa-3.json'
+      - 'tracking/fase-8.json'
+      - 'tracking/phases.json'
+      - 'docs/FASE_8_ETAPA_3_LINEA_BASE_ACCESIBILIDAD.md'
+
+permissions:
+  contents: read
+
+jobs:
+  baseline:
+    name: Levantar linea base de accesibilidad
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Preparar Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Ejecutar pruebas del scanner
+        run: python -m unittest tests.test_accessibility_baseline -v
+
+      - name: Obtener repositorios EVA en solo lectura
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _eva
+          cd _eva
+          for repo in \
+            crebeucayali.github.io \
+            accesos-complementarios \
+            capacitaciones \
+            banco-digital-accesible \
+            materiales-educativos-accesibles \
+            noti-inclusivos \
+            repositorio-accesible \
+            DUA-3.0
+          do
+            git clone --depth 1 --filter=blob:none "https://github.com/crebeucayali/${repo}.git" "$repo"
+          done
+
+      - name: Generar linea base
+        run: python accessibility_baseline_scan.py --root _eva --output reports/fase-8-etapa-3-linea-base-accesibilidad.generated.json
+
+      - name: Mostrar resumen
+        run: python - <<'PY'
+          import json
+          p='reports/fase-8-etapa-3-linea-base-accesibilidad.generated.json'
+          d=json.load(open(p, encoding='utf-8'))
+          print(json.dumps({
+            'universo_observado': d['universo_observado'],
+            'resumen_contratos': d['resumen_contratos'],
+            'metricas_estaticas': d['metricas_estaticas'],
+          }, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Publicar evidencia
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: fase-8-etapa-3-linea-base-accesibilidad
+          path: reports/fase-8-etapa-3-linea-base-accesibilidad.generated.json
+          retention-days: 30
