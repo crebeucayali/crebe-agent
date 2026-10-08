@@ -22,7 +22,8 @@
     {"repo":"crebeucayali/materiales-educativos-accesibles","pr":3,"merge_sha":"1f89b804ecd8d63367ddc82bf60acd9d76070f5a","archivos":["compartir-facebook.css"],"grupos":["A11Y-DIAG-CONTRASTE-001","A11Y-DIAG-CONTRASTE-005","A11Y-DIAG-REFLOW-003"]},
     {"repo":"crebeucayali/noti-inclusivos","pr":5,"merge_sha":"fb547910dcd8f4a28bf196bbb7a4f5109426f436","archivos":["articulos/compartir-facebook.css"],"grupos":["A11Y-DIAG-CONTRASTE-001"]},
     {"repo":"crebeucayali/repositorio-accesible","pr":4,"merge_sha":"cbcaec31870a8b40bba212af7686a5ba2cbc74e8","archivos":["compartir-facebook.css"],"grupos":["A11Y-DIAG-CONTRASTE-001"]},
-    {"repo":"crebeucayali/DUA-3.0","pr":3,"merge_sha":"0f3dc6ed6d5f7fc7485319d095d6b99e02610bd2","archivos":["compartir-facebook.css"],"grupos":["A11Y-DIAG-CONTRASTE-001"]}
+    {"repo":"crebeucayali/DUA-3.0","pr":3,"merge_sha":"0f3dc6ed6d5f7fc7485319d095d6b99e02610bd2","archivos":["compartir-facebook.css"],"grupos":["A11Y-DIAG-CONTRASTE-001"]},
+    {"repo":"crebeucayali/crebeucayali.github.io","pr":19,"merge_sha":"41688e20fe796a664b38d251a81ed7ce4dc31a09","archivos":["compartir-facebook.css"],"grupos":["A11Y-DIAG-CONTRASTE-006"],"tipo":"ajuste_residual_post_verificacion"}
   ],
   "correcciones": {
     "boton_compartir": "fondo #1877f2 -> #1666d3; hover #145dbf conservado",
@@ -30,22 +31,22 @@
     "footer_legal_capacitaciones": "#c9f7ee sobre footer oscuro",
     "bda_en_construccion": "material-icono #1f6a5a; enlace deshabilitado #40566b",
     "mea_textos_secundarios": "selectores diagnosticados claros -> #486581; pie-ficha oscuro -> #d9e2ec",
-    "noticia_enlace": "blanco sobre #26776f; hover #1f6a5a",
+    "noticia_enlace": "blanco sobre #064e3b; hover/focus #043c30 tras ajuste residual PR #19",
     "contacto": "overflow-wrap:anywhere y word-break:break-word en .directorio-texto p",
     "braille_teoria": "min-width:0 en .pagina-teoria y .tarjeta-teoria",
     "generador_mea": "a <=700px .contenedor-generador colapsa a 1fr y sus hijos min-width:0"
   },
   "verificacion_final": {
-    "estado": "PENDIENTE_ETAPA_8",
-    "objetivo_nodos_contraste": 0,
-    "objetivo_urls_overflow_320": 0,
-    "metodo": "Etapa 8: nueva verificacion del despliegue publico y monitoreo posterior",
-    "evidencia_transitoria_etapa_7": {
-      "workflow_run_id": 37811940130,
-      "nodos_contraste_observados_en_despliegue": 1,
-      "urls_objetivo_reflujo_inspeccionadas": 4,
-      "nota": "El runner de diagnostico siempre conserva las cuatro URLs objetivo en reflujo.detalle; la presencia de cuatro entradas no equivale a cuatro desbordamientos activos."
-    }
+    "estado": "APROBADA_POST_CORRECCION_ETAPA_7",
+    "workflow_run_id": 37821334263,
+    "artifact_id": 11571817492,
+    "paginas_verificadas": 63,
+    "fallos_carga": 0,
+    "nodos_contraste": 0,
+    "urls_objetivo_reflujo": 4,
+    "fallos_overflow_320": 0,
+    "metodo": "verificacion automatizada de solo lectura posterior a las correcciones y al ajuste residual",
+    "nota": "La Etapa 8 permanece no iniciada y se reserva para verificacion independiente final y monitoreo recurrente."
   },
   "guardrails": {
     "supabase_modificado": false,
