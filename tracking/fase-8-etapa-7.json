@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "fase": 8,
+  "etapa": 7,
+  "nombre": "Correccion controlada de accesibilidad",
+  "estado": "ETAPA_7_COMPLETADA_CORRECCION_CONTROLADA_ACCESIBILIDAD",
+  "fecha": "2026-10-08",
+  "zona_horaria": "America/Lima",
+  "grupos_causales_objetivo": 9,
+  "grupos_causales_intervenidos": 9,
+  "repositorios_intervenidos": 8,
+  "pull_requests_eva": 8,
+  "archivos_eva_modificados": 9,
+  "supabase_modificado": false,
+  "correcciones_fuera_de_alcance": 0,
+  "contratos_manual_sin_fallo_intervenidos": 0,
+  "verificacion_post_correccion": {
+    "nodos_contraste_esperados": 0,
+    "urls_overflow_320_esperadas": 0,
+    "validacion": "accessibility_diagnosis_validate.py"
+  },
+  "criterios_cierre_cumplidos": true,
+  "etapa_8_iniciada": false
+}
