@@ -109,8 +109,8 @@
     "reporte":"reports/fase-8-etapa-7-correccion-accesibilidad.json",
     "documentacion":"docs/FASE_8_ETAPA_7_CORRECCION_ACCESIBILIDAD.md",
     "modo":"CONTROLLED_CORRECTION",
-    "resultado":{"grupos_causales_objetivo":9,"grupos_causales_intervenidos":9,"repositorios_intervenidos":8,"pull_requests_eva":8,"archivos_eva_modificados":9,"contratos_manual_sin_fallo_intervenidos":0},
-    "verificacion_post_correccion":{"nodos_contraste_esperados":0,"urls_overflow_320_esperadas":0},
+    "resultado":{"grupos_causales_objetivo":9,"grupos_causales_intervenidos":9,"repositorios_intervenidos":8,"pull_requests_eva":9,"archivos_eva_modificados":9,"contratos_manual_sin_fallo_intervenidos":0},
+    "verificacion_post_correccion":{"workflow_run_id":37821334263,"artifact_id":11571817492,"paginas_verificadas":63,"fallos_carga":0,"nodos_contraste":0,"urls_objetivo_reflujo":4,"fallos_overflow_320":0},
     "supabase_modificado":false,
     "criterios_cierre_cumplidos":true,
     "etapa_8_iniciada":false
