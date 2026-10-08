@@ -1,0 +1,74 @@
+name: Accesibilidad EVA - Fase 8 Etapa 7
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'accessibility_correction_verify.mjs'
+      - '.github/workflows/accessibility-correction-verify.yml'
+      - 'reports/fase-8-etapa-7-correccion-accesibilidad.json'
+      - 'tracking/fase-8-etapa-7.json'
+      - 'tracking/fase-8.json'
+      - 'tracking/phases.json'
+      - 'docs/FASE_8_ETAPA_7_CORRECCION_ACCESIBILIDAD.md'
+      - 'accessibility_correction_validate.py'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'accessibility_correction_verify.mjs'
+      - '.github/workflows/accessibility-correction-verify.yml'
+      - 'reports/fase-8-etapa-7-correccion-accesibilidad.json'
+      - 'tracking/fase-8-etapa-7.json'
+      - 'tracking/fase-8.json'
+      - 'tracking/phases.json'
+      - 'docs/FASE_8_ETAPA_7_CORRECCION_ACCESIBILIDAD.md'
+      - 'accessibility_correction_validate.py'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Verificar correcciones de accesibilidad sin modificar EVA
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Preparar Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+      - name: Instalar dependencias temporales
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-save playwright@1.55.0 axe-core@4.10.3
+          npx playwright install --with-deps chromium
+      - name: Obtener repositorios EVA en solo lectura
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _eva
+          cd _eva
+          for repo in crebeucayali.github.io accesos-complementarios capacitaciones banco-digital-accesible materiales-educativos-accesibles noti-inclusivos repositorio-accesible DUA-3.0; do
+            git clone --depth 1 --filter=blob:none "https://github.com/crebeucayali/${repo}.git" "$repo"
+          done
+      - name: Verificar contraste y reflujo corregidos
+        run: node accessibility_correction_verify.mjs _eva reports/fase-8-etapa-7-verificacion.generated.json
+      - name: Validar cierre si existe reporte formal
+        shell: bash
+        run: |
+          if [ -f reports/fase-8-etapa-7-correccion-accesibilidad.json ]; then
+            python accessibility_correction_validate.py reports/fase-8-etapa-7-verificacion.generated.json
+          else
+            echo 'Verificacion de correcciones: cierre formal aun no incorporado.'
+          fi
+      - name: Publicar evidencia
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: fase-8-etapa-7-verificacion
+          path: reports/fase-8-etapa-7-verificacion.generated.json
+          retention-days: 30
