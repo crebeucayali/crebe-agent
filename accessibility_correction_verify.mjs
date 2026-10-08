@@ -71,7 +71,16 @@ for (const item of pages) {
     const ax=await page.evaluate(async()=>await axe.run(document,{runOnly:{type:'rule',values:['color-contrast']}}));
     const nodes=ax.violations.reduce((n,v)=>n+v.nodes.length,0);
     contrastNodes+=nodes;
-    if (nodes>0) contrastDetail.push({repo:item.repo,path:item.rel,nodes,violations:ax.violations.map(v=>({id:v.id,nodes:v.nodes.length,targets:v.nodes.slice(0,10).map(n=>n.target)}))});
+    if (nodes>0) contrastDetail.push({
+      repo:item.repo,
+      path:item.rel,
+      nodes,
+      violations:ax.violations.map(v=>({
+        id:v.id,
+        nodes:v.nodes.length,
+        detail:v.nodes.map(n=>({target:n.target,html:n.html,failureSummary:n.failureSummary,checks:[...(n.any||[]),...(n.all||[]),...(n.none||[])].map(c=>({id:c.id,message:c.message,data:c.data||null}))}))
+      }))
+    });
 
     const key=`${item.repo}/${item.rel}`;
     if (OVERFLOW_TARGETS.has(key)) {
@@ -103,5 +112,5 @@ const report={
 };
 fs.mkdirSync(path.dirname(output),{recursive:true});
 fs.writeFileSync(output,JSON.stringify(report,null,2)+'\n');
-console.log(JSON.stringify({paginas:pages.length,loadFailures:loadFailures.length,contrastNodes,overflowTargets:overflowDetail.length,overflowFailures:overflowFailures.length},null,2));
+console.log(JSON.stringify({paginas:pages.length,loadFailures:loadFailures.length,contrastNodes,contrastDetail,overflowTargets:overflowDetail.length,overflowFailures:overflowFailures.length},null,2));
 if (loadFailures.length>0 || contrastNodes>0 || overflowFailures.length>0 || overflowDetail.length!==4) process.exitCode=1;
