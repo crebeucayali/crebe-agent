@@ -16,12 +16,7 @@ def main():
     track = load(TRACK)
     phase = load(PHASE)
 
-    expected_summary = {
-        "CUMPLE": 2,
-        "INCUMPLIMIENTO_CONFIRMADO": 0,
-        "REQUIERE_VERIFICACION_CONTROLADA": 26,
-        "total": 28,
-    }
+    expected_summary = {"CUMPLE":2,"INCUMPLIMIENTO_CONFIRMADO":0,"REQUIERE_VERIFICACION_CONTROLADA":26,"total":28}
     assert report["estado"] == "ETAPA_3_COMPLETADA_LINEA_BASE_ACCESIBILIDAD"
     assert report["resumen_contratos"] == expected_summary
     assert report["universo"]["repositorios"] == 8
@@ -43,7 +38,10 @@ def main():
     assert phase["etapas"][2]["estado"] == "ETAPA_3_COMPLETADA_LINEA_BASE_ACCESIBILIDAD"
     assert phase["etapa_3"]["estado"] == "ETAPA_3_COMPLETADA_LINEA_BASE_ACCESIBILIDAD"
     assert phase["etapa_3"]["resultado"]["incumplimientos_confirmados"] == 0
-    assert phase["etapa_3"]["etapa_4_iniciada"] is False
+    assert isinstance(phase["etapa_3"]["etapa_4_iniciada"], bool)
+    if phase["etapa_3"]["etapa_4_iniciada"]:
+        assert phase.get("etapa_4_iniciada") is True
+        assert "etapa_4" in phase
     assert phase["repositorios_eva_modificados"] is False
 
     if GENERATED.exists():

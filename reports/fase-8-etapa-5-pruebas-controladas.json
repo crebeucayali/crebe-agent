@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "fase": 8,
+  "etapa": 5,
+  "nombre": "Pruebas controladas de accesibilidad",
+  "estado": "ETAPA_5_COMPLETADA_PRUEBAS_CONTROLADAS_ACCESIBILIDAD",
+  "fecha": "2026-10-08",
+  "zona_horaria": "America/Lima",
+  "modo": "READ_ONLY_CONTROLLED_BROWSER_TESTS",
+  "referencia_tecnica": "WCAG_2_2_AA",
+  "fuente_priorizacion": "reports/fase-8-etapa-4-priorizacion-accesibilidad.json",
+  "workflow_run_id": 37803532344,
+  "artifact_id": 11561852492,
+  "orden_ejecutado": ["P0", "P1", "P2"],
+  "universo": {
+    "paginas_html_observadas": 66,
+    "paginas_funcionales_completamente_probadas": 63,
+    "paginas_funcionales_incompletas": 0,
+    "paginas_auxiliares": 3,
+    "paginas_no_cargadas": 0,
+    "tablas_observadas": 22,
+    "multimedia_observada": 0,
+    "tratamiento_auxiliares": "Los 3 HTML auxiliares ya identificados en Etapa 3 permanecen en la evidencia observada, pero se excluyen de la agregacion de incumplimientos funcionales de EVA."
+  },
+  "resumen_contratos_pendientes": {
+    "REQUIERE_DIAGNOSTICO_O_REVISION_MANUAL": 22,
+    "INCUMPLIMIENTO_CONFIRMADO_AUTOMATIZADO": 1,
+    "EVIDENCIA_FAVORABLE_CONTROLADA": 1,
+    "REQUIERE_DIAGNOSTICO": 1,
+    "NO_APLICA_EN_UNIVERSO_OBSERVADO": 1,
+    "total": 26
+  },
+  "resultados_relevantes": [
+    {
+      "id": "A11Y-CON-013",
+      "prioridad": "P0",
+      "estado": "EVIDENCIA_FAVORABLE_CONTROLADA",
+      "evidencia": {
+        "paginas_con_elementos_enfocables": 63,
+        "paginas_donde_primer_tab_no_alcanzo_foco": 0,
+        "paginas_funcionales_incompletas": 0
+      },
+      "limite": "Esta prueba demuestra que el primer Tab alcanzo un elemento enfocables en el universo probado; no certifica por si sola todo el recorrido, ausencia de trampas, orden de foco o visibilidad del foco."
+    },
+    {
+      "id": "A11Y-CON-023",
+      "prioridad": "P1",
+      "estado": "INCUMPLIMIENTO_CONFIRMADO_AUTOMATIZADO",
+      "evidencia": {
+        "regla_automatizada": "color-contrast",
+        "nodos_reportados": 77,
+        "muestra_paginas": [
+          "crebeucayali.github.io/index.html",
+          "accesos-complementarios/directorios/directorio-ciudadano.html",
+          "accesos-complementarios/directorios/directorio-institucional.html",
+          "accesos-complementarios/mapa-web.html",
+          "accesos-complementarios/paginas/lineas-de-accion.html",
+          "accesos-complementarios/paginas/mapa-web.html",
+          "accesos-complementarios/paginas/nosotros.html",
+          "accesos-complementarios/paginas/que-hacemos.html",
+          "accesos-complementarios/recursos/calendario.html",
+          "accesos-complementarios/recursos/galeria.html",
+          "capacitaciones/index.html",
+          "capacitaciones/primera-jornada.html",
+          "capacitaciones/segunda-jornada.html",
+          "banco-digital-accesible/biblioteca/criterios.html",
+          "banco-digital-accesible/biblioteca/index.html",
+          "banco-digital-accesible/biblioteca/recurso.html",
+          "banco-digital-accesible/braille/accesibilidad.html",
+          "banco-digital-accesible/braille/faq.html",
+          "banco-digital-accesible/braille/index.html",
+          "banco-digital-accesible/braille/teoria.html"
+        ]
+      },
+      "tratamiento": "Pasa a Etapa 6 para diagnostico tecnico antes de cualquier correccion. No se asigna severidad en Etapa 5."
+    },
+    {
+      "id": "A11Y-CON-025",
+      "prioridad": "P0",
+      "estado": "REQUIERE_DIAGNOSTICO",
+      "evidencia": {
+        "paginas_probadas_a_320px": 63,
+        "paginas_con_desbordamiento_horizontal": 4,
+        "paginas": [
+          "accesos-complementarios/paginas/contacto.html",
+          "accesos-complementarios/recursos/contacto.html",
+          "banco-digital-accesible/braille/teoria.html",
+          "materiales-educativos-accesibles/generador/generador.html"
+        ]
+      },
+      "tratamiento": "Pasa a Etapa 6 para determinar causa, alcance y relacion con pendientes historicos; no se corrige ni se eleva automaticamente a incumplimiento definitivo en esta etapa."
+    },
+    {
+      "id": "A11Y-CON-027",
+      "prioridad": "P2",
+      "estado": "NO_APLICA_EN_UNIVERSO_OBSERVADO",
+      "evidencia": {
+        "paginas_funcionales_completamente_probadas": 63,
+        "elementos_video_audio_observados": 0
+      },
+      "limite": "El estado solo corresponde al universo observado en esta ejecucion; debe reabrirse si se incorpora multimedia posteriormente."
+    }
+  ],
+  "contratos_pendientes_revision_manual_o_diagnostico": 22,
+  "notas_metodologicas": [
+    "Las pruebas se ejecutaron con navegador Chromium temporal mediante Playwright y axe-core.",
+    "El bypassCSP se aplico unicamente al contexto del navegador de auditoria para permitir inyectar axe-core; no se modifico la Content Security Policy de EVA.",
+    "No se iniciaron sesiones administrativas ni se proporcionaron credenciales.",
+    "No se enviaron formularios ni se ejecutaron acciones de escritura.",
+    "EVIDENCIA_FAVORABLE_CONTROLADA no equivale a declaracion global de cumplimiento WCAG.",
+    "Los contratos que requieren juicio semantico, recorridos completos, estados dinamicos o acceso administrativo permanecen para diagnostico/revision posterior."
+  ],
+  "guardrails": {
+    "repositorios_eva_modificados": false,
+    "supabase_modificado": false,
+    "correcciones_aplicadas": 0,
+    "severidades_asignadas": 0,
+    "etapa_6_iniciada": false
+  }
+}
