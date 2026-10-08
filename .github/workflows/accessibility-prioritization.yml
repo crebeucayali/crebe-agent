@@ -1,0 +1,51 @@
+name: Accesibilidad EVA - Fase 8 Etapa 4
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'reports/fase-8-etapa-4-priorizacion-accesibilidad.json'
+      - 'tracking/fase-8-etapa-4.json'
+      - 'tracking/fase-8.json'
+      - 'tracking/phases.json'
+      - 'docs/FASE_8_ETAPA_4_PRIORIZACION_ACCESIBILIDAD.md'
+      - 'accessibility_prioritization_validate.py'
+      - 'tests/test_accessibility_prioritization.py'
+      - '.github/workflows/accessibility-prioritization.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'reports/fase-8-etapa-4-priorizacion-accesibilidad.json'
+      - 'tracking/fase-8-etapa-4.json'
+      - 'tracking/fase-8.json'
+      - 'tracking/phases.json'
+      - 'docs/FASE_8_ETAPA_4_PRIORIZACION_ACCESIBILIDAD.md'
+      - 'accessibility_prioritization_validate.py'
+      - 'tests/test_accessibility_prioritization.py'
+      - '.github/workflows/accessibility-prioritization.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  prioritization:
+    name: Validar clasificacion y priorizacion
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Preparar Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Ejecutar pruebas de priorizacion
+        run: python -m unittest tests.test_accessibility_prioritization -v
+
+      - name: Validar tracking y guardrails
+        run: python accessibility_prioritization_validate.py

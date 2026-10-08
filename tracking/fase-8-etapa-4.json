@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "fase": 8,
+  "etapa": 4,
+  "nombre": "Clasificacion y priorizacion",
+  "estado": "ETAPA_4_COMPLETADA_PRIORIZACION_ACCESIBILIDAD",
+  "fecha_inicio": "2026-10-08",
+  "fecha_cierre": "2026-10-08",
+  "zona_horaria": "America/Lima",
+  "modo": "READ_ONLY_CLASSIFICATION",
+  "fuente": "reports/fase-8-etapa-3-linea-base-accesibilidad.json",
+  "reporte": "reports/fase-8-etapa-4-priorizacion-accesibilidad.json",
+  "documentacion": "docs/FASE_8_ETAPA_4_PRIORIZACION_ACCESIBILIDAD.md",
+  "resultado": {
+    "contratos_total": 28,
+    "cumple_estructural": 2,
+    "incumplimientos_confirmados": 0,
+    "requiere_verificacion_controlada": 26,
+    "prioridad_p0": 11,
+    "prioridad_p1": 13,
+    "prioridad_p2": 2,
+    "severidades_de_fallos_asignadas": 0,
+    "hallazgos_confirmados_nuevos": 0
+  },
+  "repositorios_eva_modificados": false,
+  "supabase_modificado": false,
+  "correcciones_aplicadas": 0,
+  "etapa_5_iniciada": false,
+  "criterios_cierre_cumplidos": true
+}
