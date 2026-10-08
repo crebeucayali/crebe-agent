@@ -9,7 +9,7 @@
   "etapas": [
     {"numero":1,"nombre":"Inventario de accesibilidad","estado":"ETAPA_1_COMPLETADA_INVENTARIO_ACCESIBILIDAD","fecha_cierre":"2026-10-08"},
     {"numero":2,"nombre":"Contratos y criterios de accesibilidad","estado":"ETAPA_2_COMPLETADA_CONTRATOS_ACCESIBILIDAD","fecha_cierre":"2026-10-08"},
-    {"numero":3,"nombre":"Linea base de accesibilidad","estado":"NO_INICIADA"},
+    {"numero":3,"nombre":"Linea base de accesibilidad","estado":"ETAPA_3_EN_EJECUCION"},
     {"numero":4,"nombre":"Clasificacion y priorizacion","estado":"NO_INICIADA"},
     {"numero":5,"nombre":"Pruebas controladas","estado":"NO_INICIADA"},
     {"numero":6,"nombre":"Diagnostico tecnico","estado":"NO_INICIADA"},
@@ -43,7 +43,17 @@
     "resultado":{"superficies_cubiertas":14,"contratos_definidos":28,"hallazgos_confirmados":0,"severidades_asignadas":0,"correcciones_aplicadas":0},
     "referencia_tecnica":"WCAG_2_2_AA",
     "criterios_cierre_cumplidos":true,
-    "etapa_3_iniciada":false
+    "etapa_3_iniciada":true
+  },
+  "etapa_3_iniciada": true,
+  "etapa_3": {
+    "estado":"ETAPA_3_EN_EJECUCION",
+    "tracking":"tracking/fase-8-etapa-3.json",
+    "modo":"READ_ONLY_BASELINE",
+    "correcciones_aplicadas":0,
+    "severidades_asignadas":0,
+    "priorizacion_realizada":false,
+    "etapa_4_iniciada":false
   },
   "repositorios_eva_modificados": false,
   "alcance": "config/fase-8-accessibility-scope.json"
