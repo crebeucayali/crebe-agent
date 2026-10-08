@@ -11,7 +11,7 @@
     {"numero":2,"nombre":"Contratos y criterios de accesibilidad","estado":"ETAPA_2_COMPLETADA_CONTRATOS_ACCESIBILIDAD","fecha_cierre":"2026-10-08"},
     {"numero":3,"nombre":"Linea base de accesibilidad","estado":"ETAPA_3_COMPLETADA_LINEA_BASE_ACCESIBILIDAD","fecha_cierre":"2026-10-08"},
     {"numero":4,"nombre":"Clasificacion y priorizacion","estado":"ETAPA_4_COMPLETADA_PRIORIZACION_ACCESIBILIDAD","fecha_cierre":"2026-10-08"},
-    {"numero":5,"nombre":"Pruebas controladas","estado":"NO_INICIADA"},
+    {"numero":5,"nombre":"Pruebas controladas","estado":"ETAPA_5_COMPLETADA_PRUEBAS_CONTROLADAS_ACCESIBILIDAD","fecha_cierre":"2026-10-08"},
     {"numero":6,"nombre":"Diagnostico tecnico","estado":"NO_INICIADA"},
     {"numero":7,"nombre":"Correccion controlada","estado":"NO_INICIADA"},
     {"numero":8,"nombre":"Verificacion y monitoreo","estado":"NO_INICIADA"}
@@ -70,7 +70,22 @@
     "resultado":{"contratos_total":28,"cumple_estructural":2,"incumplimientos_confirmados":0,"requiere_verificacion_controlada":26,"prioridad_p0":11,"prioridad_p1":13,"prioridad_p2":2,"severidades_de_fallos_asignadas":0,"hallazgos_confirmados_nuevos":0},
     "correcciones_aplicadas":0,
     "criterios_cierre_cumplidos":true,
-    "etapa_5_iniciada":false
+    "etapa_5_iniciada":true
+  },
+  "etapa_5_iniciada": true,
+  "etapa_5": {
+    "estado":"ETAPA_5_COMPLETADA_PRUEBAS_CONTROLADAS_ACCESIBILIDAD",
+    "tracking":"tracking/fase-8-etapa-5.json",
+    "reporte":"reports/fase-8-etapa-5-pruebas-controladas.json",
+    "documentacion":"docs/FASE_8_ETAPA_5_PRUEBAS_CONTROLADAS.md",
+    "modo":"READ_ONLY_CONTROLLED_BROWSER_TESTS",
+    "workflow_run_id":37803532344,
+    "artifact_id":11561852492,
+    "resultado":{"contratos_objetivo":26,"requiere_diagnostico_o_revision_manual":22,"incumplimiento_confirmado_automatizado":1,"evidencia_favorable_controlada":1,"requiere_diagnostico":1,"no_aplica_en_universo_observado":1,"paginas_funcionales_completamente_probadas":63,"paginas_funcionales_incompletas":0,"paginas_auxiliares":3},
+    "correcciones_aplicadas":0,
+    "severidades_asignadas":0,
+    "criterios_cierre_cumplidos":true,
+    "etapa_6_iniciada":false
   },
   "repositorios_eva_modificados": false,
   "alcance": "config/fase-8-accessibility-scope.json"
