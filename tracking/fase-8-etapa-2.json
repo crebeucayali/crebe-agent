@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "fase": 8,
+  "etapa": 2,
+  "nombre": "Contratos y criterios de accesibilidad",
+  "estado": "ETAPA_2_COMPLETADA_CONTRATOS_ACCESIBILIDAD",
+  "fecha_inicio": "2026-10-08",
+  "fecha_cierre": "2026-10-08",
+  "zona_horaria": "America/Lima",
+  "modo": "READ_ONLY_CONTRACT_DEFINITION",
+  "referencia_tecnica": "WCAG_2_2_AA",
+  "resultado": {
+    "superficies_cubiertas": 14,
+    "contratos_definidos": 28,
+    "hallazgos_confirmados": 0,
+    "severidades_asignadas": 0,
+    "correcciones_aplicadas": 0,
+    "repositorios_eva_modificados": false
+  },
+  "reporte": "reports/fase-8-etapa-2-contratos-accesibilidad.json",
+  "documentacion": "docs/FASE_8_ETAPA_2_CONTRATOS_ACCESIBILIDAD.md",
+  "criterios_cierre_cumplidos": true,
+  "etapa_3_iniciada": false
+}
