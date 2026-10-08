@@ -1,0 +1,86 @@
+{
+  "schema_version": 2,
+  "fase": 8,
+  "etapa": 3,
+  "nombre": "Linea base de accesibilidad",
+  "estado": "ETAPA_3_COMPLETADA_LINEA_BASE_ACCESIBILIDAD",
+  "fecha": "2026-10-08",
+  "zona_horaria": "America/Lima",
+  "modo": "READ_ONLY_BASELINE",
+  "workflow_run_id": 37798165287,
+  "artifact_id": 11559462417,
+  "universo": {
+    "repositorios": 8,
+    "paginas_html_referencia_etapa_1": 65,
+    "paginas_html_observadas_actualmente": 66,
+    "diferencia_desde_referencia": 1,
+    "tratamiento_diferencia": "REQUIERE_VERIFICACION_CONTROLADA; no se interpreta como fallo de accesibilidad ni se fuerza el conteo historico."
+  },
+  "metricas_estaticas": {
+    "imagenes": 139,
+    "imagenes_sin_alt": 0,
+    "botones": 196,
+    "enlaces": 909,
+    "botones_o_enlaces_sin_nombre_accesible_estatico": 0,
+    "controles_formulario": 163,
+    "candidatos_control_formulario_sin_etiqueta_estatica": 1,
+    "html_sin_lang_candidatos": 3,
+    "html_sin_title_candidatos": 3
+  },
+  "resumen_contratos": {
+    "CUMPLE": 2,
+    "INCUMPLIMIENTO_CONFIRMADO": 0,
+    "REQUIERE_VERIFICACION_CONTROLADA": 26,
+    "total": 28
+  },
+  "cumple_estructural": [
+    {
+      "id": "A11Y-CON-001",
+      "evidencia": "0 de 139 imagenes observadas carecen del atributo alt.",
+      "limite": "El resultado cubre la presencia estructural de alt; no certifica por si solo la equivalencia semantica de cada texto alternativo."
+    },
+    {
+      "id": "A11Y-CON-003",
+      "evidencia": "0 botones o enlaces observados carecen de nombre accesible estatico segun el scanner.",
+      "limite": "El resultado cubre la comprobacion estructural automatizable y no sustituye la revision de nombre, funcion y contexto."
+    }
+  ],
+  "candidatos_especificos_verificacion": [
+    {
+      "id": "A11Y-CON-005",
+      "cantidad": 1,
+      "paginas": ["materiales-educativos-accesibles/pictogramas/pictogramas.html"],
+      "tratamiento": "REQUIERE_VERIFICACION_CONTROLADA; no se declara incumplimiento porque debe comprobarse el nombre accesible efectivo y cualquier etiquetado dinamico."
+    },
+    {
+      "id": "A11Y-CON-009",
+      "cantidad": 3,
+      "paginas": [
+        "crebeucayali.github.io/google09722cd21d5d281a.html",
+        "accesos-complementarios/google09722cd21d5d281a.html",
+        "banco-digital-accesible/docs/referencias/logo-ruta-base.html"
+      ],
+      "tratamiento": "REQUIERE_VERIFICACION_CONTROLADA; primero debe confirmarse si forman parte del universo funcional accesible y no solo de verificacion/referencia auxiliar."
+    },
+    {
+      "id": "A11Y-CON-010",
+      "cantidad": 3,
+      "paginas": [
+        "crebeucayali.github.io/google09722cd21d5d281a.html",
+        "accesos-complementarios/google09722cd21d5d281a.html",
+        "banco-digital-accesible/docs/referencias/logo-ruta-base.html"
+      ],
+      "tratamiento": "REQUIERE_VERIFICACION_CONTROLADA; primero debe confirmarse alcance funcional y luego utilidad del titulo."
+    }
+  ],
+  "otros_contratos_verificacion_controlada": 23,
+  "motivo_otros": "Requieren interaccion, arbol de accesibilidad, medicion visual o juicio semantico y no pueden cerrarse responsablemente con HTML estatico.",
+  "guardrails": {
+    "repositorios_eva_modificados": false,
+    "supabase_modificado": false,
+    "correcciones_aplicadas": 0,
+    "severidades_asignadas": 0,
+    "priorizacion_realizada": false,
+    "etapa_4_iniciada": false
+  }
+}
