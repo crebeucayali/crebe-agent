@@ -1,0 +1,40 @@
+{
+  "proyecto": "mapa-web",
+  "etapa": 3,
+  "estado": "VERIFICADOR_SOLO_LECTURA_IMPLEMENTADO",
+  "repositorio": "crebeucayali/crebe-agent",
+  "modo": "READ_ONLY",
+  "archivos": [
+    "mapa_web_verify.py",
+    "tracking/mapa-web-baseline.json",
+    "docs/MAPA_WEB_ETAPA_3_VERIFICADOR.md",
+    "tracking/mapa-web-etapa-3.json"
+  ],
+  "repositorios_supervisados": 8,
+  "mapa_canonico": "crebeucayali/accesos-complementarios/mapa-web.html",
+  "criterio_transicion": {
+    "html_existente_en_baseline_fuera_exclusiones": "LEGADO_APROBADO",
+    "html_nuevo_sin_marca": "PENDIENTE_CONFIRMACION",
+    "data_mapa_web_publicar": "PUBLICAR_EN_MAPA",
+    "data_mapa_web_no_publicar": "NO_PUBLICAR_EN_MAPA"
+  },
+  "exclusiones_confirmadas": [
+    "crebeucayali.github.io/pruebas/buscador-accesible/",
+    "crebeucayali.github.io/pruebas/tarjetas-educativas/",
+    "crebeucayali.github.io/pruebas/generador-por-pasos/ (referencia obsoleta)"
+  ],
+  "regla_pruebas": "Toda ruta bajo /pruebas/ se excluye por defecto.",
+  "estados_salida": [
+    "PUBLICAR_EN_MAPA",
+    "NO_PUBLICAR_EN_MAPA",
+    "PENDIENTE_CONFIRMACION",
+    "YA_REGISTRADO",
+    "RUTA_NO_DISPONIBLE"
+  ],
+  "modificaciones_repositorios_eva": false,
+  "modificacion_mapa_web": false,
+  "modificacion_supabase": false,
+  "escritura_automatica": false,
+  "etapa_4_habilitada": true,
+  "etapa_4_objetivo": "Ejecutar el verificador contra EVA real, validar resultados y revisar falsos positivos antes de generar propuestas de actualización."
+}
