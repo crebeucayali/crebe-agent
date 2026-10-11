@@ -1,0 +1,32 @@
+{
+  "componente": "directorio_entidades",
+  "repositorio_objetivo": "crebeucayali/accesos-complementarios",
+  "fuente_objetivo": "directorios/directorio-ciudadano.js",
+  "etapa": 6,
+  "nombre": "mantenimiento_periodico",
+  "estado": "IMPLEMENTADA_PENDIENTE_VALIDACION_WORKFLOW",
+  "modo": "supervision_periodica_solo_lectura",
+  "frecuencia": {
+    "tipo": "quincenal_operativa",
+    "cron": "0 13 1,15 * *",
+    "dias": [1,15],
+    "hora_utc": "13:00",
+    "hora_peru": "08:00"
+  },
+  "referencia": "tracking/directorio-entidades-referencia.json",
+  "comparaciones": [
+    "entidades_nuevas",
+    "entidades_ausentes",
+    "url_modificada",
+    "estado_modificado",
+    "incidencias_nuevas",
+    "incidencias_resueltas",
+    "incidencias_sin_cambio"
+  ],
+  "escritura_repositorio_objetivo": false,
+  "escritura_supabase": false,
+  "commit_push_automatico": false,
+  "actualizacion_referencia_automatica": false,
+  "resultado_validacion": null,
+  "etapa_final": true
+}
