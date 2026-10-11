@@ -1,0 +1,81 @@
+name: Directorio de entidades - Actualización controlada
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'directory_entities_proposals.mjs'
+      - 'directory_entities_apply_approved.mjs'
+      - 'tests/directory_entities_stage5.test.mjs'
+      - 'config/directorio-entidades-candidatos.json'
+      - 'config/directorio-entidades-aprobaciones.json'
+      - '.github/workflows/directory-entities-controlled-update.yml'
+      - 'docs/DIRECTORIO_ENTIDADES_ETAPA_5_ACTUALIZACION_CONTROLADA.md'
+      - 'tracking/directorio-entidades-etapa-5.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: crebe-directory-entities-controlled-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  controlled-update:
+    name: Generar propuestas sin modificar el directorio
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Obtener Accesos Complementarios en modo lectura
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: crebeucayali/accesos-complementarios
+          ref: main
+          path: target
+          persist-credentials: false
+
+      - name: Preparar Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '20'
+
+      - name: Ejecutar pruebas de verificación y control
+        run: |
+          node --test tests/directory_entities_verify.test.mjs
+          node --test tests/directory_entities_stage5.test.mjs
+
+      - name: Verificar directorio actual
+        run: node directory_entities_verify.mjs --source target/directorios/directorio-ciudadano.js --output reports/directorio-entidades --concurrency 6
+
+      - name: Generar propuestas controladas
+        run: node directory_entities_proposals.mjs --verification reports/directorio-entidades/verificacion.json --candidates config/directorio-entidades-candidatos.json --output reports/directorio-entidades
+
+      - name: Aplicar únicamente aprobaciones a una copia temporal
+        run: node directory_entities_apply_approved.mjs --source target/directorios/directorio-ciudadano.js --proposals reports/directorio-entidades/propuestas.json --approvals config/directorio-entidades-aprobaciones.json --output reports/directorio-entidades/directorio-ciudadano.propuesto.js
+
+      - name: Generar diff de revisión
+        shell: bash
+        run: diff -u target/directorios/directorio-ciudadano.js reports/directorio-entidades/directorio-ciudadano.propuesto.js > reports/directorio-entidades/cambios-aprobados.patch || true
+
+      - name: Mostrar propuestas
+        if: always()
+        shell: bash
+        run: |
+          if [ -f reports/directorio-entidades/Propuestas_directorio_entidades.md ]; then
+            cat reports/directorio-entidades/Propuestas_directorio_entidades.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Guardar evidencia
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: directorio-entidades-actualizacion-controlada-${{ github.run_id }}
+          path: reports/directorio-entidades/
+          if-no-files-found: error
+          retention-days: 30
