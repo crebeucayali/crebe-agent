@@ -10,6 +10,8 @@ on:
       - '.github/workflows/directory-entities-verify.yml'
       - 'docs/DIRECTORIO_ENTIDADES_ETAPA_3_VERIFICADOR.md'
       - 'tracking/directorio-entidades-etapa-3.json'
+      - 'docs/DIRECTORIO_ENTIDADES_ETAPA_4_VALIDACION.md'
+      - 'tracking/directorio-entidades-etapa-4.json'
 
 permissions:
   contents: read
