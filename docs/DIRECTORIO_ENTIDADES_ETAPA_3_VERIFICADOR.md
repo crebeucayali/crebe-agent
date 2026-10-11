@@ -1,6 +1,6 @@
 # Directorio de entidades - Etapa 3: verificador solo lectura
 
-Estado previsto al cierre: `VERIFICADOR_LECTURA_FUNCIONAL`.
+Estado final: `VERIFICADOR_LECTURA_FUNCIONAL`.
 
 ## Alcance
 
@@ -54,23 +54,38 @@ No existen pasos de commit, push, edición de archivos del repositorio objetivo,
 
 Los únicos archivos creados durante una ejecución se almacenan en `reports/directorio-entidades/` dentro del entorno temporal de GitHub Actions y se conservan como artefactos.
 
-## Validación
+## Validación ejecutada
 
-Se incluyen pruebas automáticas para:
+Workflow run: `38164383449`.
 
-- extracción segura del arreglo;
-- estabilidad del identificador técnico;
-- criterio mínimo de duplicados;
-- resumen de estados.
+Resultado: `success`.
 
-El workflow se ejecuta al abrir o actualizar el PR de esta etapa y queda disponible también mediante `workflow_dispatch` para verificaciones manuales posteriores. No se programa todavía una frecuencia automática; eso corresponde a la Etapa 6.
+Pruebas automáticas: 4 aprobadas, 0 fallidas.
 
-## Criterio de cierre
+Verificación real inicial:
 
-La Etapa 3 puede cerrarse cuando:
+- entidades revisadas: 55;
+- `VERIFICADO`: 13;
+- `REDIRECCION`: 2;
+- `ENLACE_ROTO`: 4;
+- `POSIBLE_DUPLICADO`: 36.
+
+Artefacto generado: `11711791571`, con `verificacion.json` e `Informe_directorio_entidades.md`.
+
+La cantidad elevada de `POSIBLE_DUPLICADO` no se interpreta como 36 duplicados reales. Es una salida preliminar del criterio técnico y debe contrastarse con casos reales en la Etapa 4. No se modifica ningún registro a partir de este resultado.
+
+## Programación
+
+El workflow queda disponible mediante `workflow_dispatch` y también se ejecuta en cambios relacionados con el verificador. No se programa todavía una frecuencia automática; eso corresponde a la Etapa 6.
+
+## Cierre
+
+Se cumplieron los criterios de cierre:
 
 - las pruebas automáticas pasan;
-- el workflow ejecuta una verificación real del directorio actual;
-- se genera el artefacto con JSON e informe Markdown;
-- no se modifica `crebeucayali/accesos-complementarios`;
-- no se habilita ninguna escritura automática.
+- el workflow ejecutó una verificación real del directorio actual;
+- se generó el artefacto con JSON e informe Markdown;
+- no se modificó `crebeucayali/accesos-complementarios`;
+- no se habilitó ninguna escritura automática.
+
+La Etapa 4 queda habilitada para validar y calibrar los resultados con casos reales.
