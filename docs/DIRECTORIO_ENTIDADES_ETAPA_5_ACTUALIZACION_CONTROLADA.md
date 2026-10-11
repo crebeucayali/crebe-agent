@@ -1,6 +1,6 @@
 # Directorio de entidades - Etapa 5: actualización controlada
 
-Estado previsto al cierre: `ACTUALIZACION_CONTROLADA_HABILITADA`.
+Estado final: `ACTUALIZACION_CONTROLADA_HABILITADA`.
 
 ## Objetivo
 
@@ -24,18 +24,34 @@ La Etapa 5 mantiene separación estricta entre diagnóstico, propuesta, aprobaci
 - `MANTENER_URL`: el registro actual funciona y no conviene cambiarlo automáticamente.
 - `REVISAR_MANUALMENTE`: no existe evidencia técnica suficiente para proponer sustitución.
 
-## Candidatos controlados de esta etapa
+## Resultado validado
 
-Se incorporan candidatos para los seis hallazgos de la Etapa 4:
+El workflow `38166438507` terminó correctamente sobre las 55 entidades reales.
 
-- Programa Contigo: conservar la URL actual; la redirección no justifica por sí sola un cambio.
-- Línea 100: proponer la orientación oficial vigente en `https://www.gob.pe/479`.
-- Bomberos: proponer `https://portal.bomberosperu.gob.pe/`.
-- Programa Nacional Warmi Ñan: proponer su sede institucional en gob.pe.
-- SUNAT: proponer el portal institucional directo `https://www.sunat.gob.pe/`.
-- Observatorio CONADIS: mantener en revisión manual por timeout sin respuesta HTTP definitiva.
+Pruebas aprobadas:
 
-Estas referencias son candidatas, no cambios autorizados.
+- verificador: 9/9;
+- actualización controlada: 6/6;
+- total: 15/15.
+
+Se procesaron los seis hallazgos no verificados de la Etapa 4 y el resultado fue:
+
+- `ACTUALIZAR_URL`: 4;
+- `MANTENER_URL`: 1;
+- `REVISAR_MANUALMENTE`: 1.
+
+Las cuatro propuestas de actualización quedaron pendientes de aprobación explícita:
+
+- Línea 100: `https://www.gob.pe/linea100` → `https://www.gob.pe/479`;
+- Bomberos: `https://www.gob.pe/bomberos` → `https://portal.bomberosperu.gob.pe/`;
+- Programa Nacional Warmi Ñan: `https://www.gob.pe/warminan` → `https://www.gob.pe/institucion/warmi%C3%B1an/institucional`;
+- SUNAT: `https://www.gob.pe/sunat` → `https://www.sunat.gob.pe/`.
+
+Programa Contigo quedó en `MANTENER_URL` porque su dirección actual funciona y una redirección válida no justifica por sí sola una modificación.
+
+Observatorio CONADIS quedó en `REVISAR_MANUALMENTE` por timeout sin una respuesta HTTP definitiva.
+
+Con el manifiesto de aprobaciones vacío, el mecanismo registró `aprobaciones_validas: 0`, aplicó cero cambios y generó un diff de 0 bytes. Por tanto, el directorio público permaneció intacto.
 
 ## Protección contra aprobaciones obsoletas
 
@@ -71,15 +87,8 @@ junto con un diff de revisión:
 
 `reports/directorio-entidades/cambios-aprobados.patch`
 
-## Criterio de cierre
+## Cierre
 
-La Etapa 5 puede cerrarse cuando:
+La Etapa 5 queda cerrada con el mecanismo de actualización controlada habilitado y validado. No se ha autorizado todavía ninguna de las cuatro modificaciones propuestas al Directorio ciudadano.
 
-- pasan las pruebas del verificador y del mecanismo de aprobación;
-- se ejecuta el workflow sobre las 55 entidades reales;
-- se generan propuestas controladas;
-- con el manifiesto de aprobaciones vacío se aplican cero cambios;
-- el archivo público permanece intacto;
-- las propuestas que requieren modificación quedan pendientes de aprobación explícita.
-
-El resultado final del workflow se registrará en `tracking/directorio-entidades-etapa-5.json`.
+La Etapa 6 queda habilitada para incorporar el mantenimiento periódico, manteniendo las mismas restricciones de aprobación para cambios institucionales.
