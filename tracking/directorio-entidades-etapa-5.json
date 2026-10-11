@@ -4,7 +4,7 @@
   "fuente_objetivo": "directorios/directorio-ciudadano.js",
   "etapa": 5,
   "nombre": "actualizacion_controlada",
-  "estado": "IMPLEMENTADA_PENDIENTE_VALIDACION_WORKFLOW",
+  "estado": "ACTUALIZACION_CONTROLADA_HABILITADA",
   "modo": "propuesta_y_aprobacion_controlada",
   "escritura_repositorio_objetivo": false,
   "escritura_supabase": false,
@@ -19,6 +19,35 @@
     "generacion_diff": true
   },
   "criterio_aplicacion": "id_valor_nuevo_y_huella_deben_coincidir_exactamente",
-  "resultado_final": null,
-  "etapa_6_habilitada": false
+  "validacion": {
+    "workflow_run_id": 38166438507,
+    "workflow_conclusion": "success",
+    "pruebas_verificador": 9,
+    "pruebas_control_etapa_5": 6,
+    "pruebas_totales": 15,
+    "pruebas_aprobadas": 15,
+    "entidades_revisadas": 55
+  },
+  "resultado_final": {
+    "hallazgos_procesados": 6,
+    "ACTUALIZAR_URL": 4,
+    "MANTENER_URL": 1,
+    "REVISAR_MANUALMENTE": 1,
+    "aprobaciones_validas": 0,
+    "cambios_aplicados": 0,
+    "tamano_diff_bytes": 0
+  },
+  "propuestas_pendientes_aprobacion": [
+    "Línea 100",
+    "Bomberos",
+    "Programa Nacional Warmi Ñan",
+    "SUNAT"
+  ],
+  "mantener_sin_cambio": [
+    "Programa Contigo"
+  ],
+  "revision_manual": [
+    "Observatorio CONADIS"
+  ],
+  "etapa_6_habilitada": true
 }
