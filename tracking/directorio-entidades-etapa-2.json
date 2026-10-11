@@ -1,0 +1,70 @@
+{
+  "componente": "directorio_entidades",
+  "repositorio_objetivo": "crebeucayali/accesos-complementarios",
+  "fuente_objetivo": "directorios/directorio-ciudadano.js",
+  "etapa": 2,
+  "nombre": "modelo_verificacion",
+  "estado": "MODELO_VERIFICACION_APROBADO",
+  "modo": "solo_diseno_sin_escritura_sobre_directorio_publico",
+  "estados_permitidos": [
+    "VERIFICADO",
+    "REDIRECCION",
+    "ENLACE_ROTO",
+    "CAMBIO_DETECTADO",
+    "POSIBLE_DUPLICADO",
+    "REQUIERE_REVISION"
+  ],
+  "niveles_confianza": [
+    "ALTA",
+    "MEDIA",
+    "BAJA"
+  ],
+  "campos_origen": [
+    "nombre",
+    "sigla",
+    "categoria",
+    "ambito",
+    "servicio",
+    "direccion",
+    "telefono",
+    "correo",
+    "horario",
+    "web",
+    "observacion"
+  ],
+  "metadatos_verificacion_previstos": [
+    "id",
+    "estado_verificacion",
+    "ultima_verificacion",
+    "http_status",
+    "url_final",
+    "tipo_cambio",
+    "nivel_confianza",
+    "observacion_verificacion"
+  ],
+  "prohibiciones": {
+    "eliminar_entidades_automaticamente": true,
+    "modificar_datos_institucionales_automaticamente": true,
+    "sustituir_url_por_redireccion_sin_aprobacion": true,
+    "usar_sigla_como_identificador_unico": true,
+    "decidir_duplicado_por_un_solo_campo": true
+  },
+  "duplicados": {
+    "requiere_revision_humana": true,
+    "minimo_senales_recomendadas": 2,
+    "senales": [
+      "nombre_normalizado",
+      "url",
+      "telefono",
+      "correo",
+      "direccion",
+      "ambito"
+    ]
+  },
+  "hallazgos_conservados": [
+    "desalineacion_entre_categorias_de_datos_y_selector_html",
+    "siglas_no_unicas"
+  ],
+  "modificaciones_repositorio_objetivo": 0,
+  "etapa_3_habilitada": true
+}
