@@ -1,0 +1,52 @@
+{
+  "componente": "directorio_entidades",
+  "repositorio_objetivo": "crebeucayali/accesos-complementarios",
+  "fuente_objetivo": "directorios/directorio-ciudadano.js",
+  "etapa": 6,
+  "nombre": "mantenimiento_periodico",
+  "estado": "MANTENIMIENTO_PERIODICO_ACTIVO",
+  "modo": "supervision_periodica_solo_lectura",
+  "frecuencia": {
+    "tipo": "quincenal_operativa",
+    "cron": "0 13 1,15 * *",
+    "dias": [1,15],
+    "hora_utc": "13:00",
+    "hora_peru": "08:00"
+  },
+  "referencia": "tracking/directorio-entidades-referencia.json",
+  "comparaciones": [
+    "entidades_nuevas",
+    "entidades_ausentes",
+    "url_modificada",
+    "estado_modificado",
+    "incidencias_nuevas",
+    "incidencias_resueltas",
+    "incidencias_sin_cambio"
+  ],
+  "validacion": {
+    "workflow_run_id": 38167892653,
+    "workflow_conclusion": "success",
+    "node": "24.21.0",
+    "pruebas_verificador": 9,
+    "pruebas_control_etapa_5": 6,
+    "pruebas_mantenimiento_etapa_6": 4,
+    "pruebas_totales": 19,
+    "pruebas_aprobadas": 19,
+    "entidades_revisadas": 55,
+    "cambios_relevantes": 0,
+    "requiere_atencion": false,
+    "aprobaciones_validas": 0,
+    "modificaciones_repositorio_objetivo": 0
+  },
+  "estado_actual_directorio": {
+    "VERIFICADO": 49,
+    "REQUIERE_REVISION": 1,
+    "REDIRECCION": 2,
+    "ENLACE_ROTO": 3
+  },
+  "escritura_repositorio_objetivo": false,
+  "escritura_supabase": false,
+  "commit_push_automatico": false,
+  "actualizacion_referencia_automatica": false,
+  "etapa_final": true
+}
