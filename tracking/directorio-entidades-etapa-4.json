@@ -4,7 +4,7 @@
   "fuente_objetivo": "directorios/directorio-ciudadano.js",
   "etapa": 4,
   "nombre": "validacion_controlada",
-  "estado": "IMPLEMENTADA_PENDIENTE_RESULTADO_WORKFLOW",
+  "estado": "VERIFICADOR_VALIDADO",
   "modo": "solo_lectura",
   "muestra_real": 55,
   "baseline_etapa_3": {
@@ -16,7 +16,8 @@
   "ajustes": {
     "ignorar_valores_genericos_en_duplicados": true,
     "similitud_nombre_minima": 0.75,
-    "requiere_senal_adicional": true,
+    "requiere_senal_fuerte_adicional_si_nombre_no_es_exacto": true,
+    "ambito_no_es_senal_fuerte": true,
     "timeout_sin_http": "REQUIERE_REVISION",
     "http_404_410": "ENLACE_ROTO"
   },
@@ -28,10 +29,24 @@
     "Programa Contigo",
     "SUNAT"
   ],
+  "validacion": {
+    "workflow_run_id": 38165375765,
+    "workflow_conclusion": "success",
+    "pruebas_totales": 9,
+    "pruebas_aprobadas": 9,
+    "entidades_revisadas": 55
+  },
+  "resultado_final": {
+    "VERIFICADO": 49,
+    "REDIRECCION": 2,
+    "ENLACE_ROTO": 3,
+    "REQUIERE_REVISION": 1,
+    "POSIBLE_DUPLICADO": 0,
+    "CAMBIO_DETECTADO": 0
+  },
   "escritura_repositorio_objetivo": false,
   "escritura_supabase": false,
   "eliminacion_automatica": false,
   "modificacion_datos_automatica": false,
-  "resultado_final": null,
-  "etapa_5_habilitada": false
+  "etapa_5_habilitada": true
 }
