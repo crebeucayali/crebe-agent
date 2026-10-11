@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "politica": "Solo se aplican propuestas con estado APROBADO, huella exacta y valor nuevo idéntico al propuesto. Este archivo inicia sin aprobaciones.",
+  "aprobaciones": []
+}
