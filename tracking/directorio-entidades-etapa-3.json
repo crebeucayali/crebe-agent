@@ -4,7 +4,7 @@
   "fuente_objetivo": "directorios/directorio-ciudadano.js",
   "etapa": 3,
   "nombre": "verificador_solo_lectura",
-  "estado": "IMPLEMENTADO_PENDIENTE_VALIDACION_WORKFLOW",
+  "estado": "VERIFICADOR_LECTURA_FUNCIONAL",
   "modo": "solo_lectura",
   "script": "directory_entities_verify.mjs",
   "workflow": ".github/workflows/directory-entities-verify.yml",
@@ -27,5 +27,21 @@
     "eliminacion_automatica": false,
     "modificacion_datos_automatica": false
   },
-  "criterio_cierre": "workflow_real_y_pruebas_aprobadas_sin_modificar_repositorio_objetivo"
+  "validacion": {
+    "workflow_run_id": 38164383449,
+    "resultado": "success",
+    "pruebas_aprobadas": 4,
+    "pruebas_fallidas": 0,
+    "entidades_revisadas": 55,
+    "conteo_inicial": {
+      "POSIBLE_DUPLICADO": 36,
+      "VERIFICADO": 13,
+      "ENLACE_ROTO": 4,
+      "REDIRECCION": 2
+    },
+    "artefacto_id": 11711791571,
+    "observacion": "El volumen de POSIBLE_DUPLICADO se conserva como salida preliminar y debe calibrarse con casos reales en la Etapa 4 antes de habilitar cualquier acción sobre datos."
+  },
+  "criterio_cierre": "workflow_real_y_pruebas_aprobadas_sin_modificar_repositorio_objetivo",
+  "etapa_4_habilitada": true
 }
