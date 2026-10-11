@@ -15,6 +15,7 @@ const MARCADORES_GENERICOS = [
   'canal municipal',
   'canales municipales',
   'atencion virtual',
+  'municipalidad',
   'no aplica',
   'sin dato',
   'sin informacion'
@@ -108,7 +109,10 @@ export function detectarDuplicados(entidades){
     if(igualInformativo('direccion',a.direccion,b.direccion)) senales.push('direccion');
     if(igualInformativo('ambito',a.ambito,b.ambito)) senales.push('ambito');
 
-    if(senales.length>=2){
+    const nombreExacto = similitud === 1;
+    const corroborantesFuertes = senales.filter(s => !['nombre_normalizado','nombre_similar','ambito'].includes(s));
+    const candidato = nombreExacto ? senales.length >= 2 : corroborantesFuertes.length >= 1;
+    if(candidato){
       resultado.get(i).push({indice:j,nombre:b.nombre,senales,similitud_nombre:Number(similitud.toFixed(3))});
       resultado.get(j).push({indice:i,nombre:a.nombre,senales,similitud_nombre:Number(similitud.toFixed(3))});
     }
