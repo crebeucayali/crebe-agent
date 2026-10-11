@@ -12,7 +12,7 @@ export function huellaPropuesta(p){
   })).digest('hex').slice(0,16);
 }
 
-export async function construirPropuestas(verificacion,catalogo){
+export async function construirPropuestas(verificacion,catalogo,{verificar=verificarUrl}={}){
   const candidatos=new Map((catalogo.candidatos||[]).map(c=>[c.id,c]));
   const propuestas=[];
   for(const r of verificacion.resultados||[]){
@@ -43,7 +43,7 @@ export async function construirPropuestas(verificacion,catalogo){
       });
       continue;
     }
-    const validacion=await verificarUrl(c.url_candidata,{reintentos:1,timeoutMs:8000});
+    const validacion=await verificar(c.url_candidata,{reintentos:1,timeoutMs:8000});
     const utilizable=['VERIFICADO','REDIRECCION'].includes(validacion.estado);
     const p={
       id:r.id,nombre:r.nombre,estado_origen:r.estado_verificacion,
