@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "actualizado": "2026-10-11",
+  "politica": "Los candidatos son propuestas. Ningún valor se aplica sin aprobación explícita y coincidencia exacta de huella.",
+  "candidatos": [
+    {
+      "id": "programa-contigo-8e768e24",
+      "nombre": "Programa Contigo",
+      "accion_sugerida": "MANTENER_URL",
+      "url_actual": "https://contigo.gob.pe/",
+      "url_candidata": "https://www.gob.pe/contigo",
+      "motivo": "La URL actual funciona y redirige. La sede digital oficial vigente también se identifica como https://www.gob.pe/contigo; no se requiere cambio automático.",
+      "evidencia": [
+        "https://www.gob.pe/institucion/contigo/normas-legales/7958266-d000074-2026-midis-pnpds-de"
+      ]
+    },
+    {
+      "id": "linea-100-13b01068",
+      "nombre": "Línea 100",
+      "accion_sugerida": "ACTUALIZAR_URL",
+      "url_actual": "https://www.gob.pe/linea100",
+      "url_candidata": "https://www.gob.pe/479",
+      "motivo": "La ruta actual devuelve 404. La orientación oficial vigente del Estado mantiene Línea 100 dentro de los servicios de atención a la violencia.",
+      "evidencia": [
+        "https://www.gob.pe/479",
+        "https://www.gob.pe/institucion/mimp/normas-legales/8434185-363-2026-mimp"
+      ]
+    },
+    {
+      "id": "bomberos-cf134023",
+      "nombre": "Bomberos",
+      "accion_sugerida": "ACTUALIZAR_URL",
+      "url_actual": "https://www.gob.pe/bomberos",
+      "url_candidata": "https://portal.bomberosperu.gob.pe/",
+      "motivo": "La ruta actual devuelve 404. El Cuerpo General de Bomberos Voluntarios del Perú mantiene un portal institucional activo.",
+      "evidencia": [
+        "https://portal.bomberosperu.gob.pe/"
+      ]
+    },
+    {
+      "id": "programa-nacional-warmi-nan-87ca30e8",
+      "nombre": "Programa Nacional Warmi Ñan",
+      "accion_sugerida": "ACTUALIZAR_URL",
+      "url_actual": "https://www.gob.pe/warminan",
+      "url_candidata": "https://www.gob.pe/institucion/warmi%C3%B1an/institucional",
+      "motivo": "La ruta actual devuelve 404. Existe una sede institucional vigente del Programa Nacional Warmi Ñan en la Plataforma del Estado Peruano.",
+      "evidencia": [
+        "https://www.gob.pe/institucion/warmi%C3%B1an/institucional"
+      ]
+    },
+    {
+      "id": "sunat-85135ad9",
+      "nombre": "SUNAT",
+      "accion_sugerida": "ACTUALIZAR_URL",
+      "url_actual": "https://www.gob.pe/sunat",
+      "url_candidata": "https://www.sunat.gob.pe/",
+      "motivo": "La URL actual redirige correctamente al portal institucional de SUNAT. Se propone el destino directo solo como mejora de mantenimiento.",
+      "evidencia": [
+        "https://www.sunat.gob.pe/"
+      ]
+    },
+    {
+      "id": "observatorio-conadis-dc34807b",
+      "nombre": "Observatorio CONADIS",
+      "accion_sugerida": "REVISAR_MANUALMENTE",
+      "url_actual": "https://observatorio.conadisperu.gob.pe/",
+      "url_candidata": null,
+      "motivo": "La verificación automática terminó en timeout sin respuesta HTTP definitiva. No se propone sustitución.",
+      "evidencia": []
+    }
+  ]
+}
