@@ -1,0 +1,62 @@
+{
+  "componente": "mapa_web",
+  "etapa": 2,
+  "estado": "MODELO_PUBLICACION_APROBADO",
+  "repositorio_mapa": "crebeucayali/accesos-complementarios",
+  "mapa_canonico": "mapa-web.html",
+  "modelo": {
+    "atributo": "data-mapa-web",
+    "valores": [
+      "publicar",
+      "no-publicar"
+    ],
+    "estados": [
+      "PUBLICAR_EN_MAPA",
+      "NO_PUBLICAR_EN_MAPA",
+      "PENDIENTE_CONFIRMACION",
+      "YA_REGISTRADO",
+      "CAMBIO_DETECTADO",
+      "RUTA_NO_DISPONIBLE"
+    ],
+    "regla_sin_marca": "PENDIENTE_CONFIRMACION",
+    "transicion_legado": "Las rutas existentes en mapa-web.html se consideran LEGADO_APROBADO para comparación, sin insertar marcas de forma masiva.",
+    "sitemap_como_fuente_unica": false,
+    "escritura_automatica": false,
+    "modificar_mapa_en_etapa_2": false,
+    "insertar_marcas_en_paginas_actuales": false
+  },
+  "exclusiones_tecnicas": [
+    "admin/",
+    "tests/",
+    ".github/",
+    "docs/",
+    "fixtures",
+    "autenticacion",
+    "activacion",
+    "archivos_temporales",
+    "recursos_no_navegables"
+  ],
+  "requisitos_pagina": [
+    "marca publicar",
+    "ruta publica valida",
+    "pagina accesible",
+    "titulo utilizable",
+    "fuera de exclusiones tecnicas",
+    "sin duplicacion canonica",
+    "grupo del mapa determinable"
+  ],
+  "requisitos_seccion": [
+    "marca publicar",
+    "id estable",
+    "encabezado visible significativo",
+    "unidad navegable real",
+    "pagina publica valida",
+    "ancla estable"
+  ],
+  "hallazgo_etapa_1_conservado": {
+    "recurso": "DUA 3.0",
+    "accion_etapa_2": "no modificar mapa; tratar como pendiente hasta regla/confirmacion posterior"
+  },
+  "repositorios_productivos_modificados": 0,
+  "etapa_3_habilitada": true
+}
