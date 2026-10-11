@@ -1,0 +1,37 @@
+{
+  "componente": "directorio_entidades",
+  "repositorio_objetivo": "crebeucayali/accesos-complementarios",
+  "fuente_objetivo": "directorios/directorio-ciudadano.js",
+  "etapa": 4,
+  "nombre": "validacion_controlada",
+  "estado": "IMPLEMENTADA_PENDIENTE_RESULTADO_WORKFLOW",
+  "modo": "solo_lectura",
+  "muestra_real": 55,
+  "baseline_etapa_3": {
+    "VERIFICADO": 13,
+    "REDIRECCION": 2,
+    "ENLACE_ROTO": 4,
+    "POSIBLE_DUPLICADO": 36
+  },
+  "ajustes": {
+    "ignorar_valores_genericos_en_duplicados": true,
+    "similitud_nombre_minima": 0.75,
+    "requiere_senal_adicional": true,
+    "timeout_sin_http": "REQUIERE_REVISION",
+    "http_404_410": "ENLACE_ROTO"
+  },
+  "casos_control": [
+    "Observatorio CONADIS",
+    "Línea 100",
+    "Bomberos",
+    "Programa Nacional Warmi Ñan",
+    "Programa Contigo",
+    "SUNAT"
+  ],
+  "escritura_repositorio_objetivo": false,
+  "escritura_supabase": false,
+  "eliminacion_automatica": false,
+  "modificacion_datos_automatica": false,
+  "resultado_final": null,
+  "etapa_5_habilitada": false
+}
