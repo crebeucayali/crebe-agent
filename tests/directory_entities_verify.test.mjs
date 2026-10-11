@@ -19,6 +19,7 @@ test('descarta marcadores genéricos como señales de duplicidad',()=>{
   assert.equal(esValorInformativo('correo','Canales oficiales en gob.pe'),false);
   assert.equal(esValorInformativo('telefono','Verificar en canal oficial'),false);
   assert.equal(esValorInformativo('direccion','Atención virtual'),false);
+  assert.equal(esValorInformativo('direccion','Municipalidad'),false);
   assert.equal(esValorInformativo('correo','contacto@entidad.gob.pe'),true);
 });
 
@@ -28,17 +29,28 @@ test('la similitud de nombre evita asociar servicios distintos por datos compart
   assert.equal(similitudNombre('Entidad Regional Ucayali','Entidad Regional de Ucayali') >= 0.75,true);
 });
 
-test('posible duplicado exige nombre suficientemente similar y otra señal',()=>{
+test('posible duplicado exige nombre suficientemente similar y otra señal fuerte',()=>{
   const base={categoria:'Educación',servicio:'x',horario:'x',observacion:'x'};
   const lista=[
     {...base,nombre:'Entidad Regional Ucayali',sigla:'A',ambito:'Regional',direccion:'Calle 1',telefono:'111',correo:'a@x.pe',web:'https://a.pe'},
-    {...base,nombre:'Entidad Regional de Ucayali',sigla:'B',ambito:'Regional',direccion:'Calle 2',telefono:'222',correo:'b@x.pe',web:'https://b.pe'},
+    {...base,nombre:'Entidad Regional de Ucayali',sigla:'B',ambito:'Regional',direccion:'Calle 2',telefono:'222',correo:'a@x.pe',web:'https://b.pe'},
     {...base,nombre:'Otra Entidad',sigla:'C',ambito:'Regional',direccion:'Calle 1',telefono:'111',correo:'a@x.pe',web:'https://a.pe'}
   ];
   const d=detectarDuplicados(lista);
   assert.equal(d.get(0).length,1);
   assert.equal(d.get(0)[0].nombre,'Entidad Regional de Ucayali');
   assert.deepEqual(d.get(2),[]);
+});
+
+test('nombres parecidos y mismo ámbito no bastan para declarar duplicado',()=>{
+  const base={categoria:'Gobierno y trámites',servicio:'x',horario:'x',observacion:'x',telefono:'Verificar en canal oficial',correo:'Canales oficiales',direccion:'Municipalidad'};
+  const lista=[
+    {...base,nombre:'Municipalidad Distrital de Yarinacocha',sigla:'MDY',ambito:'Municipal',web:'https://www.gob.pe/muniyarinacocha'},
+    {...base,nombre:'Municipalidad Distrital de Masisea',sigla:'MDM',ambito:'Municipal',web:'https://www.gob.pe/munimasisea'}
+  ];
+  const d=detectarDuplicados(lista);
+  assert.deepEqual(d.get(0),[]);
+  assert.deepEqual(d.get(1),[]);
 });
 
 test('un timeout persistente requiere revisión y no se declara enlace roto',async()=>{
