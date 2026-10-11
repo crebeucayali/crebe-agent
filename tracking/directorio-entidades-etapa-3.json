@@ -1,0 +1,31 @@
+{
+  "componente": "directorio_entidades",
+  "repositorio_objetivo": "crebeucayali/accesos-complementarios",
+  "fuente_objetivo": "directorios/directorio-ciudadano.js",
+  "etapa": 3,
+  "nombre": "verificador_solo_lectura",
+  "estado": "IMPLEMENTADO_PENDIENTE_VALIDACION_WORKFLOW",
+  "modo": "solo_lectura",
+  "script": "directory_entities_verify.mjs",
+  "workflow": ".github/workflows/directory-entities-verify.yml",
+  "pruebas": "tests/directory_entities_verify.test.mjs",
+  "salidas": [
+    "reports/directorio-entidades/verificacion.json",
+    "reports/directorio-entidades/Informe_directorio_entidades.md"
+  ],
+  "permisos_workflow": "contents_read",
+  "persist_credentials": false,
+  "escritura_repositorio_objetivo": false,
+  "escritura_supabase": false,
+  "commit_push_automatico": false,
+  "programacion_periodica": false,
+  "reglas": {
+    "reintentos_url": 2,
+    "timeout_ms": 8000,
+    "concurrencia": 6,
+    "duplicados_minimo_senales": 2,
+    "eliminacion_automatica": false,
+    "modificacion_datos_automatica": false
+  },
+  "criterio_cierre": "workflow_real_y_pruebas_aprobadas_sin_modificar_repositorio_objetivo"
+}
