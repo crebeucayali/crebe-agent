@@ -2,17 +2,24 @@ name: Directorio de entidades - Actualización controlada
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 13 1,15 * *'
   pull_request:
     branches: [main]
     paths:
       - 'directory_entities_proposals.mjs'
       - 'directory_entities_apply_approved.mjs'
+      - 'directory_entities_maintenance_summary.mjs'
       - 'tests/directory_entities_stage5.test.mjs'
+      - 'tests/directory_entities_stage6.test.mjs'
       - 'config/directorio-entidades-candidatos.json'
       - 'config/directorio-entidades-aprobaciones.json'
+      - 'tracking/directorio-entidades-referencia.json'
       - '.github/workflows/directory-entities-controlled-update.yml'
       - 'docs/DIRECTORIO_ENTIDADES_ETAPA_5_ACTUALIZACION_CONTROLADA.md'
+      - 'docs/DIRECTORIO_ENTIDADES_ETAPA_6_MANTENIMIENTO_PERIODICO.md'
       - 'tracking/directorio-entidades-etapa-5.json'
+      - 'tracking/directorio-entidades-etapa-6.json'
 
 permissions:
   contents: read
@@ -23,7 +30,7 @@ concurrency:
 
 jobs:
   controlled-update:
-    name: Generar propuestas sin modificar el directorio
+    name: Verificar y mantener directorio sin modificar datos
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -43,15 +50,19 @@ jobs:
       - name: Preparar Node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Ejecutar pruebas de verificación y control
         run: |
           node --test tests/directory_entities_verify.test.mjs
           node --test tests/directory_entities_stage5.test.mjs
+          node --test tests/directory_entities_stage6.test.mjs
 
       - name: Verificar directorio actual
         run: node directory_entities_verify.mjs --source target/directorios/directorio-ciudadano.js --output reports/directorio-entidades --concurrency 6
+
+      - name: Comparar con referencia aprobada
+        run: node directory_entities_maintenance_summary.mjs --verification reports/directorio-entidades/verificacion.json --reference tracking/directorio-entidades-referencia.json --output reports/directorio-entidades
 
       - name: Generar propuestas controladas
         run: node directory_entities_proposals.mjs --verification reports/directorio-entidades/verificacion.json --candidates config/directorio-entidades-candidatos.json --output reports/directorio-entidades
@@ -63,11 +74,15 @@ jobs:
         shell: bash
         run: diff -u target/directorios/directorio-ciudadano.js reports/directorio-entidades/directorio-ciudadano.propuesto.js > reports/directorio-entidades/cambios-aprobados.patch || true
 
-      - name: Mostrar propuestas
+      - name: Mostrar mantenimiento
         if: always()
         shell: bash
         run: |
-          if [ -f reports/directorio-entidades/Propuestas_directorio_entidades.md ]; then
+          if [ -f reports/directorio-entidades/Mantenimiento_periodico_directorio.md ]; then
+            cat reports/directorio-entidades/Mantenimiento_periodico_directorio.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ -f reports/directorio-entidades/mantenimiento-periodico.json ] && node -e "const x=require('./reports/directorio-entidades/mantenimiento-periodico.json'); process.exit(x.requiere_atencion?0:1)"; then
+            printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
             cat reports/directorio-entidades/Propuestas_directorio_entidades.md >> "$GITHUB_STEP_SUMMARY"
           fi
 
@@ -75,7 +90,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: directorio-entidades-actualizacion-controlada-${{ github.run_id }}
+          name: directorio-entidades-mantenimiento-${{ github.run_id }}
           path: reports/directorio-entidades/
           if-no-files-found: error
           retention-days: 30
