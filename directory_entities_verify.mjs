@@ -4,6 +4,21 @@ import vm from 'node:vm';
 import crypto from 'node:crypto';
 
 const ESTADOS = new Set(['VERIFICADO','REDIRECCION','ENLACE_ROTO','CAMBIO_DETECTADO','POSIBLE_DUPLICADO','REQUIERE_REVISION']);
+const MARCADORES_GENERICOS = [
+  'verificar',
+  'canal oficial',
+  'canales oficiales',
+  'canal minedu',
+  'canales minedu',
+  'canal conadis',
+  'canales conadis',
+  'canal municipal',
+  'canales municipales',
+  'atencion virtual',
+  'no aplica',
+  'sin dato',
+  'sin informacion'
+];
 
 export function extraerEntidades(texto){
   const inicio = texto.indexOf('const entidades=[');
@@ -36,27 +51,66 @@ export function normalizarTexto(valor=''){
   return String(valor).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
 }
 
+export function esValorInformativo(campo, valor){
+  const texto = normalizarTexto(valor);
+  if(!texto) return false;
+  if(campo === 'url'){
+    try{
+      const u = new URL(String(valor));
+      return u.protocol === 'http:' || u.protocol === 'https:';
+    }catch{
+      return false;
+    }
+  }
+  if(campo === 'ambito') return true;
+  if(MARCADORES_GENERICOS.some(m => texto === m || texto.startsWith(`${m} `))) return false;
+  return texto.length >= 3;
+}
+
+function tokensNombre(valor){
+  return new Set(normalizarTexto(valor).split(' ').filter(t => t.length > 1));
+}
+
+export function similitudNombre(a,b){
+  const na = normalizarTexto(a), nb = normalizarTexto(b);
+  if(!na || !nb) return 0;
+  if(na === nb) return 1;
+  const A=tokensNombre(a), B=tokensNombre(b);
+  if(!A.size || !B.size) return 0;
+  let inter=0;
+  for(const t of A) if(B.has(t)) inter++;
+  return (2*inter)/(A.size+B.size);
+}
+
 export function crearId(entidad){
   const base = normalizarTexto(entidad.nombre).replace(/ /g,'-').slice(0,64) || 'entidad';
   const huella = crypto.createHash('sha1').update(`${entidad.nombre}|${entidad.ambito}|${entidad.web}`).digest('hex').slice(0,8);
   return `${base}-${huella}`;
 }
 
+function igualInformativo(campo,a,b){
+  if(!esValorInformativo(campo,a) || !esValorInformativo(campo,b)) return false;
+  if(campo === 'url') return String(a).replace(/\/$/,'') === String(b).replace(/\/$/,'');
+  return normalizarTexto(a) === normalizarTexto(b);
+}
+
 export function detectarDuplicados(entidades){
   const resultado = new Map(entidades.map((_,i)=>[i,[]]));
   for(let i=0;i<entidades.length;i++) for(let j=i+1;j<entidades.length;j++){
     const a=entidades[i], b=entidades[j];
-    const senales=[];
-    if(normalizarTexto(a.nombre) && normalizarTexto(a.nombre)===normalizarTexto(b.nombre)) senales.push('nombre_normalizado');
-    if(a.web && b.web && String(a.web).replace(/\/$/,'')===String(b.web).replace(/\/$/,'')) senales.push('url');
-    if(a.telefono && b.telefono && normalizarTexto(a.telefono)===normalizarTexto(b.telefono)) senales.push('telefono');
-    if(a.correo && b.correo && normalizarTexto(a.correo)===normalizarTexto(b.correo)) senales.push('correo');
-    if(a.direccion && b.direccion && normalizarTexto(a.direccion)===normalizarTexto(b.direccion)) senales.push('direccion');
-    if(a.ambito && b.ambito && normalizarTexto(a.ambito)===normalizarTexto(b.ambito)) senales.push('ambito');
-    const fuertes = senales.filter(s=>s!=='ambito');
-    if(senales.length>=2 && fuertes.length>=1){
-      resultado.get(i).push({indice:j,nombre:b.nombre,senales});
-      resultado.get(j).push({indice:i,nombre:a.nombre,senales});
+    const similitud = similitudNombre(a.nombre,b.nombre);
+    if(similitud < 0.75) continue;
+
+    const senales=[similitud===1?'nombre_normalizado':'nombre_similar'];
+    if(igualInformativo('url',a.web,b.web)) senales.push('url');
+    if(igualInformativo('telefono',a.telefono,b.telefono)) senales.push('telefono');
+    if(igualInformativo('correo',a.correo,b.correo)) senales.push('correo');
+    if(igualInformativo('direccion',a.direccion,b.direccion)) senales.push('direccion');
+    if(igualInformativo('ambito',a.ambito,b.ambito)) senales.push('ambito');
+
+    if(senales.length>=2){
+      resultado.get(i).push({indice:j,nombre:b.nombre,senales,similitud_nombre:Number(similitud.toFixed(3))});
+      resultado.get(j).push({indice:i,nombre:a.nombre,senales,similitud_nombre:Number(similitud.toFixed(3))});
     }
   }
   return resultado;
@@ -91,7 +145,7 @@ export async function verificarUrl(url,{reintentos=2,timeoutMs=8000}={}){
       return {estado:'REQUIERE_REVISION',http_status:status,url_final:finalUrl,nivel_confianza:'MEDIA',observacion:`Respuesta HTTP ${status} requiere revisión.`};
     }catch(e){ ultimoError=e?.name==='AbortError'?'timeout':String(e?.message||e); if(intento<reintentos) continue; }
   }
-  return {estado:'ENLACE_ROTO',http_status:null,url_final:null,nivel_confianza:'MEDIA',observacion:`Sin respuesta válida tras ${reintentos+1} intentos: ${ultimoError}`};
+  return {estado:'REQUIERE_REVISION',http_status:null,url_final:null,nivel_confianza:'BAJA',observacion:`Sin respuesta válida tras ${reintentos+1} intentos: ${ultimoError}. No se clasifica como enlace roto sin una respuesta HTTP definitiva.`};
 }
 
 export async function ejecutar(entidades,{concurrencia=6}={}){
@@ -111,7 +165,7 @@ export async function ejecutar(entidades,{concurrencia=6}={}){
         observacion += ` Posible duplicado con: ${posibles.map(x=>x.nombre).join('; ')}.`;
       }
       if(!ESTADOS.has(estado)) throw new Error(`Estado no permitido: ${estado}`);
-      resultados[i]={id:crearId(e),nombre:e.nombre,estado_verificacion:estado,ultima_verificacion:new Date().toISOString(),http_status:ver.http_status,url_original:e.web||null,url_final:ver.url_final,tipo_cambio:estado==='REDIRECCION'?'URL_REDIRECCION':(posibles.length?'POSIBLE_DUPLICADO':null),nivel_confianza:ver.nivel_confianza,observacion_verificacion:observacion,duplicados_posibles:posibles.map(x=>({nombre:x.nombre,senales:x.senales}))};
+      resultados[i]={id:crearId(e),nombre:e.nombre,estado_verificacion:estado,ultima_verificacion:new Date().toISOString(),http_status:ver.http_status,url_original:e.web||null,url_final:ver.url_final,tipo_cambio:estado==='REDIRECCION'?'URL_REDIRECCION':(estado==='POSIBLE_DUPLICADO'?'POSIBLE_DUPLICADO':null),nivel_confianza:ver.nivel_confianza,observacion_verificacion:observacion,duplicados_posibles:posibles.map(x=>({nombre:x.nombre,senales:x.senales,similitud_nombre:x.similitud_nombre}))};
     }
   }
   await Promise.all(Array.from({length:Math.max(1,Math.min(concurrencia,entidades.length||1))},worker));
