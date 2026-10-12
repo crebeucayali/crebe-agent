@@ -11,11 +11,8 @@ on:
       - 'state/current.json'
       - 'config/security-monitor.json'
       - 'tests/test_security_monitor.py'
-      - '.github/workflows/security-monitor.yml'
-      - 'docs/FASE_7_ETAPA_8_MONITOREO_SEGURIDAD.md'
-      - 'tracking/fase-7-etapa-8.json'
-      - 'tracking/fase-7-etapa-7.json'
       - 'reports/fase-7-etapa-7-correccion-seguridad.json'
+      - '.github/workflows/security-monitor.yml'
 
 permissions:
   contents: read
