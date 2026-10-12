@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "fase": 9,
+  "etapa": 2,
+  "nombre": "Arquitectura de indexacion",
+  "estado": "ETAPA_2_COMPLETADA_ARQUITECTURA_INDEXACION",
+  "fecha": "2026-10-12",
+  "zona_horaria": "America/Lima",
+  "objetivo": "Centralizar el descubrimiento de URLs oficiales de EVA mediante un indice de sitemaps y sitemaps de modulo completos, sin modificar metadata HTML, contenido visible ni funcionalidades.",
+  "arquitectura": {
+    "robots_raiz": "https://crebeucayali.github.io/robots.txt",
+    "indice_central": "https://crebeucayali.github.io/sitemap-v2.xml",
+    "sitemaps_hijos": 8,
+    "urls_oficiales": 56,
+    "urls_duplicadas": 0,
+    "rutas_sin_archivo_fuente": 0,
+    "lastmod_omitido_sin_evidencia_fiable": true
+  },
+  "repositorios_eva_modificados": [
+    "crebeucayali/crebeucayali.github.io",
+    "crebeucayali/accesos-complementarios",
+    "crebeucayali/capacitaciones",
+    "crebeucayali/banco-digital-accesible",
+    "crebeucayali/materiales-educativos-accesibles",
+    "crebeucayali/noti-inclusivos",
+    "crebeucayali/DUA-3.0"
+  ],
+  "repositorios_sin_cambio_por_no_requerirlo": [
+    "crebeucayali/repositorio-accesible"
+  ],
+  "pull_requests_producto": [
+    {"repo":"crebeucayali/crebeucayali.github.io","pr":20,"merge_commit":"6a5a2c41d27d2c79800253b39deb9143784cd533"},
+    {"repo":"crebeucayali/accesos-complementarios","pr":9,"merge_commit":"c5af2fdb8a9e7135d10b98a492082580b0e165e7"},
+    {"repo":"crebeucayali/capacitaciones","pr":4,"merge_commit":"b3ab0521738151cdaaaa0794a4a55adb2a9b21b7"},
+    {"repo":"crebeucayali/banco-digital-accesible","pr":4,"merge_commit":"752ef50e0ed87ec47b54cca19dde8e3394c25020"},
+    {"repo":"crebeucayali/materiales-educativos-accesibles","pr":6,"merge_commit":"3b6dba1d1a619187700f7a1c35ee72e031c61040"},
+    {"repo":"crebeucayali/noti-inclusivos","pr":6,"merge_commit":"da84b2e9a9965db35edb711d92adee2a1d3f6c98"},
+    {"repo":"crebeucayali/DUA-3.0","pr":4,"merge_commit":"75b34292312e768a3624a813fac1406170748be1"}
+  ],
+  "exclusiones_controladas": [
+    "archivos de verificacion de buscadores",
+    "panel administrativo noindex",
+    "rutas bajo /pruebas/",
+    "rutas de compatibilidad o redireccion",
+    "plantilla dinamica biblioteca/recurso.html",
+    "referencias tecnicas bajo docs/referencias",
+    "ruta duplicada noti-inclusivos/blog/"
+  ],
+  "guardrails": {
+    "html_modificado": false,
+    "css_modificado": false,
+    "javascript_modificado": false,
+    "supabase_modificado": false,
+    "panel_administrativo_modificado": false,
+    "robots_raiz_modificado": false,
+    "etapa_3_iniciada": false
+  },
+  "workflow_run_id": 38312902596,
+  "artifact_id": 11775666085,
+  "validacion_ci": "SUCCESS"
+}

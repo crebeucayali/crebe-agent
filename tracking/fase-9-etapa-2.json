@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "fase": 9,
+  "etapa": 2,
+  "nombre": "Arquitectura de indexacion",
+  "estado": "ETAPA_2_COMPLETADA_ARQUITECTURA_INDEXACION",
+  "fecha_inicio": "2026-10-12",
+  "fecha_cierre": "2026-10-12",
+  "zona_horaria": "America/Lima",
+  "modo_verificacion": "READ_ONLY_INDEXATION_VERIFY",
+  "repositorios": 8,
+  "repositorios_eva_modificados": 7,
+  "repositorio_sin_cambio": "crebeucayali/repositorio-accesible",
+  "sitemaps_hijos": 8,
+  "urls_oficiales": 56,
+  "urls_duplicadas": 0,
+  "rutas_sin_archivo_fuente": 0,
+  "workflow": ".github/workflows/seo-indexation-verify.yml",
+  "script": "seo_indexation_verify.mjs",
+  "pruebas": "tests/seo_indexation_verify.test.mjs",
+  "reporte": "reports/fase-9-etapa-2-arquitectura-indexacion.json",
+  "workflow_run_id": 38312902596,
+  "artifact_id": 11775666085,
+  "validacion_ci": "SUCCESS",
+  "guardrails": {
+    "html_modificado": false,
+    "css_modificado": false,
+    "javascript_modificado": false,
+    "supabase_modificado": false,
+    "panel_administrativo_modificado": false,
+    "etapa_3_iniciada": false
+  }
+}
