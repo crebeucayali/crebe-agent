@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "kind": "CREBE_AGENT_CURRENT_STATE",
+  "mode": "TRANSITIONAL_CANONICAL_VIEW",
+  "canonical_path": "state/current.json",
+  "sources": [
+    "tracking/phases.json",
+    "tracking/directorio-entidades-etapa-6.json",
+    "tracking/mapa-web-etapa-5.json"
+  ],
+  "phases": {
+    "fase_4": {
+      "status": "COMPLETADA_CON_PENDIENTES_DOCUMENTADOS",
+      "current_stage": null,
+      "source": "tracking/phases.json"
+    },
+    "fase_5": {
+      "status": "MONITOREO_FUNCIONAL_ACTIVO",
+      "current_stage": 8,
+      "source": "tracking/phases.json"
+    },
+    "fase_6": {
+      "status": "MONITOREO_INTEGRIDAD_ACTIVO",
+      "current_stage": 8,
+      "source": "tracking/phases.json"
+    },
+    "fase_7": {
+      "status": "MONITOREO_SEGURIDAD_ACTIVO",
+      "current_stage": 8,
+      "source": "tracking/phases.json"
+    },
+    "fase_8": {
+      "status": "EN_CURSO",
+      "current_stage": 7,
+      "source": "tracking/phases.json"
+    }
+  },
+  "modules": {
+    "directory_entities": {
+      "status": "MANTENIMIENTO_PERIODICO_ACTIVO",
+      "stage": 6,
+      "mode": "supervision_periodica_solo_lectura",
+      "source": "tracking/directorio-entidades-etapa-6.json"
+    },
+    "mapa_web": {
+      "status": "AJUSTE_VERIFICADOR_Y_PROPUESTA_COMPLETADOS",
+      "stage": 5,
+      "scope": "crebe-agent-only",
+      "source": "tracking/mapa-web-etapa-5.json"
+    }
+  },
+  "guardrails": {
+    "legacy_tracking_preserved": true,
+    "legacy_tracking_modified_by_builder": false,
+    "existing_modules_moved": false,
+    "existing_modules_deleted": false,
+    "eva_repositories_modified": false,
+    "supabase_modified": false
+  }
+}
