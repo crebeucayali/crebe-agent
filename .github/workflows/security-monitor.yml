@@ -11,6 +11,8 @@ on:
       - 'state/current.json'
       - 'config/security-monitor.json'
       - 'tests/test_security_monitor.py'
+      - 'security_correction_validate.py'
+      - 'tests/test_security_correction.py'
       - 'reports/fase-7-etapa-7-correccion-seguridad.json'
       - '.github/workflows/security-monitor.yml'
 
@@ -37,7 +39,12 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Ejecutar pruebas
+      - name: Validar cierre de la Etapa 7
+        run: |
+          python -m unittest tests.test_security_correction -v
+          python security_correction_validate.py
+
+      - name: Ejecutar pruebas del monitor
         run: python -m unittest tests.test_security_monitor -v
 
       - name: Ejecutar monitoreo
