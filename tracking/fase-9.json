@@ -9,7 +9,7 @@
   "etapa_actual": 2,
   "etapas": [
     {"etapa": 1, "nombre": "Auditoria e inventario SEO", "estado": "ETAPA_1_COMPLETADA_AUDITORIA_SEO"},
-    {"etapa": 2, "nombre": "Arquitectura de indexacion", "estado": "ETAPA_2_EN_VALIDACION_ARQUITECTURA_INDEXACION"},
+    {"etapa": 2, "nombre": "Arquitectura de indexacion", "estado": "ETAPA_2_COMPLETADA_ARQUITECTURA_INDEXACION"},
     {"etapa": 3, "nombre": "Canonical y metadata", "estado": "NO_INICIADA"},
     {"etapa": 4, "nombre": "Identidad semantica y datos estructurados", "estado": "NO_INICIADA"},
     {"etapa": 5, "nombre": "SEO de contenidos", "estado": "NO_INICIADA"},
@@ -30,14 +30,17 @@
     "etapa_2_iniciada": true
   },
   "etapa_2": {
-    "estado": "ETAPA_2_EN_VALIDACION_ARQUITECTURA_INDEXACION",
+    "estado": "ETAPA_2_COMPLETADA_ARQUITECTURA_INDEXACION",
     "fuente": "tracking/fase-9-etapa-2.json",
     "repositorios": 8,
     "repositorios_eva_modificados": 7,
-    "sitemaps_hijos_esperados": 8,
-    "urls_oficiales_esperadas": 56,
-    "workflow_run_id": null,
-    "artifact_id": null,
+    "sitemaps_hijos": 8,
+    "urls_oficiales": 56,
+    "urls_duplicadas": 0,
+    "rutas_sin_archivo_fuente": 0,
+    "workflow_run_id": 38312902596,
+    "artifact_id": 11775666085,
+    "validacion_ci": "SUCCESS",
     "modo_verificacion": "READ_ONLY_INDEXATION_VERIFY",
     "etapa_3_iniciada": false
   },
