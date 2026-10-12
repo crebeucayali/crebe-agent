@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "fase": 9,
+  "etapa": 1,
+  "nombre": "Auditoria e inventario SEO",
+  "estado": "ETAPA_1_COMPLETADA_AUDITORIA_SEO",
+  "fecha": "2026-10-12",
+  "zona_horaria": "America/Lima",
+  "modo": "READ_ONLY_SEO_AUDIT",
+  "validacion": {
+    "workflow_run_id": 38306787069,
+    "artifact_id": 11772948577,
+    "resultado": "SUCCESS",
+    "node": "24.21.0",
+    "pruebas": "4/4"
+  },
+  "alcance": {
+    "repositorios_eva": 8,
+    "paginas_html": 66,
+    "candidatas_indexables": 63,
+    "motores_objetivo": [
+      "Brave Search",
+      "Google",
+      "Bing",
+      "otros rastreadores compatibles con estandares web"
+    ],
+    "criterio": "SEO tecnico general con comprobaciones de descubribilidad; no se implementa una variante exclusiva para Brave."
+  },
+  "resumen_automatizado": {
+    "missing_title": 3,
+    "missing_description": 6,
+    "missing_canonical": 23,
+    "missing_h1": 4,
+    "invalid_canonical_host": 0,
+    "root_robots_exists": true,
+    "root_sitemap_file": "sitemap-v2.xml",
+    "root_sitemap_urls": 1,
+    "hallazgos_generados": 16
+  },
+  "hallazgos_prioritarios": [
+    {
+      "prioridad": "MUY_ALTA",
+      "codigo": "ROOT_SITEMAP_LIMITED",
+      "evidencia": "El sitemap-v2.xml del portal principal contiene una sola URL: la portada."
+    },
+    {
+      "prioridad": "MUY_ALTA",
+      "codigo": "MODULE_SITEMAPS_PARTIAL",
+      "evidencia": "Los sitemaps de varios módulos requieren ampliar o revisar su cobertura frente a las rutas públicas actuales."
+    },
+    {
+      "prioridad": "ALTA",
+      "codigo": "CANONICAL_GAPS",
+      "evidencia": "El auditor detectó 23 páginas candidatas indexables sin canonical explícito."
+    },
+    {
+      "prioridad": "ALTA",
+      "codigo": "META_DESCRIPTION_GAPS",
+      "evidencia": "El auditor detectó 6 páginas candidatas indexables sin meta description estándar."
+    },
+    {
+      "prioridad": "ALTA",
+      "codigo": "TITLE_GAPS",
+      "evidencia": "El auditor detectó 3 páginas candidatas indexables sin title."
+    },
+    {
+      "prioridad": "MEDIA",
+      "codigo": "H1_GAPS",
+      "evidencia": "El auditor detectó 4 páginas candidatas indexables sin H1."
+    },
+    {
+      "prioridad": "MEDIA",
+      "codigo": "SEO_IDENTITY_INCONSISTENCY",
+      "evidencia": "Los títulos y señales institucionales requieren normalización controlada en etapas posteriores."
+    },
+    {
+      "prioridad": "MEDIA",
+      "codigo": "SUBDIRECTORY_ROBOTS_INFORMATIONAL",
+      "evidencia": "Los robots.txt ubicados bajo subrutas no sustituyen al robots.txt del host raíz crebeucayali.github.io."
+    }
+  ],
+  "terminos_semanticos_inventariados": [
+    "inclusion educativa",
+    "educacion inclusiva",
+    "accesibilidad",
+    "discapacidad",
+    "atencion a la diversidad",
+    "Lengua de Senas Peruana",
+    "LSP",
+    "Braille",
+    "Diseno Universal para el Aprendizaje",
+    "DUA",
+    "pictogramas",
+    "TEA"
+  ],
+  "guardrails": {
+    "repositorios_eva_modificados": false,
+    "supabase_modificado": false,
+    "panel_administrativo_modificado": false,
+    "correcciones_aplicadas": 0,
+    "indexacion_forzada": false
+  },
+  "siguiente_etapa": "ETAPA_2_ARQUITECTURA_INDEXACION",
+  "etapa_2_iniciada": false
+}

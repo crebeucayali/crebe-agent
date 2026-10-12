@@ -42,6 +42,11 @@
       "status": "MONITOREO_ACCESIBILIDAD_ACTIVO",
       "current_stage": 8,
       "source": "tracking/phases.json"
+    },
+    "fase_9": {
+      "status": "EN_CURSO",
+      "current_stage": 1,
+      "source": "tracking/phases.json"
     }
   },
   "modules": {

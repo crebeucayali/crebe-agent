@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "fase": 9,
+  "etapa": 1,
+  "nombre": "Auditoria e inventario SEO",
+  "estado": "ETAPA_1_COMPLETADA_AUDITORIA_SEO",
+  "fecha_inicio": "2026-10-12",
+  "fecha_cierre": "2026-10-12",
+  "zona_horaria": "America/Lima",
+  "modo": "READ_ONLY_SEO_AUDIT",
+  "repositorios": 8,
+  "paginas_html": 66,
+  "candidatas_indexables": 63,
+  "workflow": ".github/workflows/seo-audit.yml",
+  "script": "seo_audit.mjs",
+  "pruebas": "tests/seo_audit.test.mjs",
+  "reporte_base": "reports/fase-9-etapa-1-auditoria-seo.json",
+  "workflow_run_id": 38306787069,
+  "artifact_id": 11772948577,
+  "validacion_ci": "SUCCESS",
+  "pruebas_resultado": "4/4",
+  "hallazgos_generados": 16,
+  "resumen": {
+    "missing_title": 3,
+    "missing_description": 6,
+    "missing_canonical": 23,
+    "missing_h1": 4,
+    "invalid_canonical_host": 0,
+    "root_sitemap_urls": 1
+  },
+  "guardrails": {
+    "repositorios_eva_modificados": false,
+    "supabase_modificado": false,
+    "panel_administrativo_modificado": false,
+    "correcciones_aplicadas": 0
+  },
+  "etapa_2_iniciada": false
+}
