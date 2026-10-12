@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "fase": 9,
+  "etapa": 3,
+  "nombre": "Canonical y metadata",
+  "estado": "ETAPA_3_COMPLETADA_CANONICAL_METADATA",
+  "fecha": "2026-10-12",
+  "zona_horaria": "America/Lima",
+  "modo_verificacion": "READ_ONLY_METADATA_VERIFY",
+  "totals": {
+    "repositories": 8,
+    "official_urls": 56,
+    "indexable_urls": 56,
+    "missing_title": 0,
+    "missing_description": 0,
+    "missing_canonical": 0,
+    "duplicate_canonical": 0,
+    "canonical_mismatch": 0,
+    "invalid_canonical_host": 0
+  },
+  "intervencion": {
+    "repositorios_eva_modificados": 4,
+    "archivos_html_modificados": 19,
+    "canonical_anadidos": 18,
+    "meta_description_anadidas": 1,
+    "title_modificados": 0,
+    "repositorios_modificados": [
+      "crebeucayali/crebeucayali.github.io",
+      "crebeucayali/accesos-complementarios",
+      "crebeucayali/materiales-educativos-accesibles",
+      "crebeucayali/noti-inclusivos"
+    ],
+    "repositorios_sin_cambio_por_no_requerirlo": [
+      "crebeucayali/capacitaciones",
+      "crebeucayali/banco-digital-accesible",
+      "crebeucayali/repositorio-accesible",
+      "crebeucayali/DUA-3.0"
+    ]
+  },
+  "pull_requests_producto": [
+    {"repo":"crebeucayali/crebeucayali.github.io","pr":21,"merge_commit":"11b2ba58eee0939aa0272a2e5699e4214b6e9943"},
+    {"repo":"crebeucayali/accesos-complementarios","pr":10,"merge_commit":"f11f064d43f29382537210ada17cc404b289605a"},
+    {"repo":"crebeucayali/materiales-educativos-accesibles","pr":7,"merge_commit":"986047025a46057cda230c64f8c7688b75a978d8"},
+    {"repo":"crebeucayali/noti-inclusivos","pr":7,"merge_commit":"460e9630fe3a806a4e39dfe601db69755bacec1e"}
+  ],
+  "workflow_run_id": 38316510691,
+  "artifact_id": 11777160710,
+  "validacion_ci": "SUCCESS",
+  "guardrails": {
+    "contenido_visible_modificado": false,
+    "css_modificado": false,
+    "javascript_modificado": false,
+    "supabase_modificado": false,
+    "panel_administrativo_modificado": false,
+    "etapa_4_iniciada": false
+  }
+}
