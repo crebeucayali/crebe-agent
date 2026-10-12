@@ -2,8 +2,9 @@
   "schema_version": 1,
   "fase": 8,
   "nombre": "Accesibilidad integral de EVA",
-  "estado": "EN_CURSO",
+  "estado": "MONITOREO_ACCESIBILIDAD_ACTIVO",
   "fecha_inicio": "2026-10-08",
+  "fecha_activacion_monitoreo": "2026-10-12",
   "zona_horaria": "America/Lima",
   "objetivo": "Inventariar, auditar, priorizar, corregir y monitorear la accesibilidad de EVA sin introducir cambios sin evidencia ni romper funcionalidad existente.",
   "etapas": [
@@ -14,7 +15,7 @@
     {"numero":5,"nombre":"Pruebas controladas","estado":"ETAPA_5_COMPLETADA_PRUEBAS_CONTROLADAS_ACCESIBILIDAD","fecha_cierre":"2026-10-08"},
     {"numero":6,"nombre":"Diagnostico tecnico","estado":"ETAPA_6_COMPLETADA_DIAGNOSTICO_ACCESIBILIDAD","fecha_cierre":"2026-10-08"},
     {"numero":7,"nombre":"Correccion controlada","estado":"ETAPA_7_COMPLETADA_CORRECCION_CONTROLADA_ACCESIBILIDAD","fecha_cierre":"2026-10-08"},
-    {"numero":8,"nombre":"Verificacion y monitoreo","estado":"NO_INICIADA"}
+    {"numero":8,"nombre":"Verificacion y monitoreo","estado":"MONITOREO_ACCESIBILIDAD_ACTIVO","fecha_activacion":"2026-10-12"}
   ],
   "criterios": {
     "lectura_primero": true,
@@ -113,7 +114,25 @@
     "verificacion_post_correccion":{"workflow_run_id":37821334263,"artifact_id":11571817492,"paginas_verificadas":63,"fallos_carga":0,"nodos_contraste":0,"urls_objetivo_reflujo":4,"fallos_overflow_320":0},
     "supabase_modificado":false,
     "criterios_cierre_cumplidos":true,
-    "etapa_8_iniciada":false
+    "etapa_8_iniciada":true
+  },
+  "etapa_8_iniciada": true,
+  "etapa_8": {
+    "estado":"MONITOREO_ACCESIBILIDAD_ACTIVO",
+    "tracking":"tracking/fase-8-etapa-8.json",
+    "reporte":"reports/fase-8-etapa-8-verificacion.json",
+    "documentacion":"docs/FASE_8_ETAPA_8_VERIFICACION_MONITOREO.md",
+    "modo":"READ_ONLY_RECURRENT_MONITOR",
+    "workflow_run_id":38283434340,
+    "artifact_id":11761884219,
+    "resultado":{"paginas_funcionales_observadas":63,"fallos_carga":0,"nodos_contraste_regresion":0,"urls_objetivo_reflujo":4,"fallos_overflow_320":0,"alertas_iniciales":0,"regresiones_iniciales":0},
+    "pendientes_revision_manual_sin_fallo_confirmado":22,
+    "certificacion_wcag_integral":false,
+    "cron_utc":"45 11 * * *",
+    "referencia_lima":"06:45 diaria",
+    "supabase_modificado":false,
+    "repositorios_eva_modificados":false,
+    "criterios_cierre_cumplidos":true
   },
   "repositorios_eva_modificados": true,
   "repositorios_eva_modificados_lista": ["crebeucayali/crebeucayali.github.io","crebeucayali/accesos-complementarios","crebeucayali/capacitaciones","crebeucayali/banco-digital-accesible","crebeucayali/materiales-educativos-accesibles","crebeucayali/noti-inclusivos","crebeucayali/repositorio-accesible","crebeucayali/DUA-3.0"],
