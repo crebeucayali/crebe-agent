@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "fase": 9,
+  "etapa": 1,
+  "nombre": "Auditoria e inventario SEO",
+  "estado": "ETAPA_1_EN_VALIDACION_AUDITORIA_SEO",
+  "fecha_inicio": "2026-10-12",
+  "zona_horaria": "America/Lima",
+  "modo": "READ_ONLY_SEO_AUDIT",
+  "repositorios": 8,
+  "workflow": ".github/workflows/seo-audit.yml",
+  "script": "seo_audit.mjs",
+  "pruebas": "tests/seo_audit.test.mjs",
+  "reporte_base": "reports/fase-9-etapa-1-auditoria-seo.json",
+  "workflow_run_id": null,
+  "artifact_id": null,
+  "validacion_ci": "PENDIENTE",
+  "guardrails": {
+    "repositorios_eva_modificados": false,
+    "supabase_modificado": false,
+    "panel_administrativo_modificado": false,
+    "correcciones_aplicadas": 0
+  },
+  "etapa_2_iniciada": false
+}
