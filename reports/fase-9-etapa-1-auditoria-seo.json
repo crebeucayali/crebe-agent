@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "fase": 9,
+  "etapa": 1,
+  "nombre": "Auditoria e inventario SEO",
+  "estado": "ETAPA_1_EN_VALIDACION_AUDITORIA_SEO",
+  "fecha": "2026-10-12",
+  "zona_horaria": "America/Lima",
+  "modo": "READ_ONLY_SEO_AUDIT",
+  "alcance": {
+    "repositorios_eva": 8,
+    "motores_objetivo": [
+      "Brave Search",
+      "Google",
+      "Bing",
+      "otros rastreadores compatibles con estandares web"
+    ],
+    "criterio": "SEO tecnico general con comprobaciones de descubribilidad; no se implementa una variante exclusiva para Brave."
+  },
+  "hallazgos_confirmados_previos_a_la_ejecucion_automatizada": [
+    {
+      "prioridad": "MUY_ALTA",
+      "codigo": "ROOT_SITEMAP_LIMITED",
+      "evidencia": "El sitemap-v2.xml del portal principal contiene una sola URL: la portada."
+    },
+    {
+      "prioridad": "MUY_ALTA",
+      "codigo": "MODULE_SITEMAPS_PARTIAL",
+      "evidencia": "Los sitemaps revisados de módulos no representan de forma completa todas las rutas públicas actuales."
+    },
+    {
+      "prioridad": "ALTA",
+      "codigo": "CANONICAL_GAPS_CONFIRMED",
+      "evidencia": "Se confirmaron portadas sin canonical explícito, entre ellas Accesos Complementarios y Lecturas Inclusivas."
+    },
+    {
+      "prioridad": "ALTA",
+      "codigo": "ROOT_META_DESCRIPTION_GAP",
+      "evidencia": "La portada principal dispone de og:description, pero no de meta description estándar."
+    },
+    {
+      "prioridad": "MEDIA",
+      "codigo": "SEO_IDENTITY_INCONSISTENCY",
+      "evidencia": "Los títulos de módulos no aplican de forma uniforme el patrón de identidad CREBE Ucayali."
+    },
+    {
+      "prioridad": "MEDIA",
+      "codigo": "SUBDIRECTORY_ROBOTS_INFORMATIONAL",
+      "evidencia": "Los robots.txt ubicados bajo subrutas no sustituyen al robots.txt del host raíz crebeucayali.github.io."
+    }
+  ],
+  "terminos_semanticos_a_inventariar": [
+    "inclusion educativa",
+    "educacion inclusiva",
+    "accesibilidad",
+    "discapacidad",
+    "atencion a la diversidad",
+    "Lengua de Senas Peruana",
+    "LSP",
+    "Braille",
+    "Diseno Universal para el Aprendizaje",
+    "DUA",
+    "pictogramas",
+    "TEA"
+  ],
+  "guardrails": {
+    "repositorios_eva_modificados": false,
+    "supabase_modificado": false,
+    "panel_administrativo_modificado": false,
+    "correcciones_aplicadas": 0,
+    "indexacion_forzada": false
+  },
+  "siguiente_etapa": "ETAPA_2_ARQUITECTURA_INDEXACION",
+  "etapa_2_iniciada": false
+}
