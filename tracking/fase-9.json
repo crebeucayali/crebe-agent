@@ -6,12 +6,12 @@
   "fecha_inicio": "2026-10-12",
   "zona_horaria": "America/Lima",
   "objetivo": "Mejorar la indexacion, descubribilidad y autoridad de las paginas oficiales de EVA frente a resultados secundarios como repositorios GitHub, con SEO tecnico general aplicable a Brave Search, Google, Bing y otros motores compatibles.",
-  "etapa_actual": 3,
+  "etapa_actual": 4,
   "etapas": [
     {"etapa": 1, "nombre": "Auditoria e inventario SEO", "estado": "ETAPA_1_COMPLETADA_AUDITORIA_SEO"},
     {"etapa": 2, "nombre": "Arquitectura de indexacion", "estado": "ETAPA_2_COMPLETADA_ARQUITECTURA_INDEXACION"},
     {"etapa": 3, "nombre": "Canonical y metadata", "estado": "ETAPA_3_COMPLETADA_CANONICAL_METADATA"},
-    {"etapa": 4, "nombre": "Identidad semantica y datos estructurados", "estado": "NO_INICIADA"},
+    {"etapa": 4, "nombre": "Identidad semantica y datos estructurados", "estado": "ETAPA_4_COMPLETADA_IDENTIDAD_SEMANTICA"},
     {"etapa": 5, "nombre": "SEO de contenidos", "estado": "NO_INICIADA"},
     {"etapa": 6, "nombre": "Enlazado interno", "estado": "NO_INICIADA"},
     {"etapa": 7, "nombre": "Buscadores y repositorios", "estado": "NO_INICIADA"},
@@ -65,7 +65,28 @@
     "artifact_id": 11777160710,
     "validacion_ci": "SUCCESS",
     "modo_verificacion": "READ_ONLY_METADATA_VERIFY",
-    "etapa_4_iniciada": false
+    "etapa_4_iniciada": true
+  },
+  "etapa_4": {
+    "estado": "ETAPA_4_COMPLETADA_IDENTIDAD_SEMANTICA",
+    "fuente": "tracking/fase-9-etapa-4.json",
+    "repositorios": 8,
+    "paginas_entrada": 8,
+    "datos_estructurados_preexistentes_portal": 1,
+    "portadas_modulo_enriquecidas": 7,
+    "paginas_con_datos_estructurados": 8,
+    "repositorios_eva_modificados": 7,
+    "archivos_html_modificados": 7,
+    "invalid_jsonld": 0,
+    "identity_mismatch": 0,
+    "page_metadata_mismatch": 0,
+    "csp_hash_mismatch": 0,
+    "paginas_con_fallo": 0,
+    "workflow_run_id": null,
+    "artifact_id": null,
+    "validacion_ci": "PENDIENTE_PR",
+    "modo_verificacion": "READ_ONLY_SEMANTIC_VERIFY",
+    "etapa_5_iniciada": false
   },
   "repositorios_eva_modificados": true,
   "repositorios_eva_modificados_lista": [
@@ -75,6 +96,7 @@
     "crebeucayali/banco-digital-accesible",
     "crebeucayali/materiales-educativos-accesibles",
     "crebeucayali/noti-inclusivos",
+    "crebeucayali/repositorio-accesible",
     "crebeucayali/DUA-3.0"
   ],
   "supabase_modificado": false,
