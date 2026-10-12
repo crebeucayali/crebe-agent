@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "fase": 8,
+  "etapa": 8,
+  "nombre": "Verificacion independiente final y activacion de monitoreo de accesibilidad",
+  "estado": "SIN_REGRESIONES_AUTOMATIZADAS",
+  "modo": "READ_ONLY_RECURRENT_MONITOR",
+  "workflow_run_id": 38283434340,
+  "artifact_id": 11761884219,
+  "fecha": "2026-10-12",
+  "zona_horaria": "America/Lima",
+  "paginas_funcionales_observadas": 63,
+  "paginas_no_cargadas": 0,
+  "contraste": {
+    "nodos_regresion": 0,
+    "paginas_afectadas": 0
+  },
+  "reflujo": {
+    "targets_esperados": 4,
+    "targets_verificados": 4,
+    "targets_con_overflow": 0
+  },
+  "revision_manual": {
+    "contratos_sin_fallo_confirmado_pendientes": 22,
+    "certificacion_wcag_completa": false,
+    "criterio": "Los contratos pendientes de revision manual permanecen sin fallo confirmado y fuera de la cobertura automatizada del monitor."
+  },
+  "monitoreo": {
+    "workflow": ".github/workflows/accessibility-monitor.yml",
+    "script": "accessibility_monitor.mjs",
+    "cadencia_cron_utc": "45 11 * * *",
+    "cadencia_referencia_lima": "06:45 diaria",
+    "permisos": "contents: read"
+  },
+  "guardrails": {
+    "repositorios_eva_modificados_por_etapa_8": false,
+    "supabase_modificado": false,
+    "solo_lectura": true
+  }
+}
