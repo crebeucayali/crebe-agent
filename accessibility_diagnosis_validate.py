@@ -40,7 +40,10 @@ def main():
         assert phase['etapa_6']['etapa_7_iniciada'] is True
         assert 'etapa_7' in phase
         assert phase['etapa_7']['estado'] == 'ETAPA_7_COMPLETADA_CORRECCION_CONTROLADA_ACCESIBILIDAD'
-        assert phase['etapa_7']['etapa_8_iniciada'] is False
+        assert isinstance(phase['etapa_7'].get('etapa_8_iniciada'), bool)
+        if phase['etapa_7']['etapa_8_iniciada']:
+            assert phase.get('etapa_8_iniciada') is True
+            assert phase.get('etapa_8', {}).get('estado') == 'MONITOREO_ACCESIBILIDAD_ACTIVO'
     else:
         assert report['guardrails']['etapa_7_iniciada'] is False
         assert track['etapa_7_iniciada'] is False
@@ -60,7 +63,7 @@ def main():
         else:
             assert generated['contraste']['nodos'] == 77
 
-    print('Validacion Fase 8 Etapa 6 / progresion Etapa 7: OK')
+    print('Validacion Fase 8 Etapa 6 / progresion Etapas 7-8: OK')
 
 
 if __name__ == '__main__':

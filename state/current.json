@@ -39,8 +39,8 @@
       "detail_source": "tracking/fase-7-etapa-7.json"
     },
     "fase_8": {
-      "status": "EN_CURSO",
-      "current_stage": 7,
+      "status": "MONITOREO_ACCESIBILIDAD_ACTIVO",
+      "current_stage": 8,
       "source": "tracking/phases.json"
     }
   },
