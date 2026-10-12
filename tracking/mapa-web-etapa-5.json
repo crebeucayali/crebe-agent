@@ -1,0 +1,15 @@
+{
+  "stage": 5,
+  "status": "AJUSTE_VERIFICADOR_Y_PROPUESTA_COMPLETADOS",
+  "scope": "crebe-agent-only",
+  "verifier_updated": true,
+  "compatibility_redirect_detection": true,
+  "compatibility_false_positives_resolved": 2,
+  "approved_candidates_prepared": 8,
+  "test_routes_excluded": true,
+  "mapa_web_modified": false,
+  "eva_productive_repositories_modified": false,
+  "supabase_modified": false,
+  "automatic_publication_enabled": false,
+  "next_stage": "CONTROLLED_MAP_UPDATE"
+}
