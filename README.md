@@ -1,6 +1,6 @@
 # CREBE Agent
 
-Agente de auditoría, monitoreo y mantenimiento controlado de EVA para los ocho repositorios de CREBE Ucayali. El estado operativo actual mantiene los monitores de Funcionamiento (Fase 5), Integridad (Fase 6) y Seguridad (Fase 7), el estado canónico y el mantenimiento del Directorio de Entidades; el Mapa Web está actualizado a su Etapa 6 y la Fase 8 de Accesibilidad continúa en curso.
+Agente de auditoría, monitoreo y mantenimiento controlado de EVA para los ocho repositorios de CREBE Ucayali. El estado operativo actual mantiene los monitores de Funcionamiento (Fase 5), Integridad (Fase 6), Seguridad (Fase 7) y Accesibilidad (Fase 8), el estado canónico y el mantenimiento del Directorio de Entidades; el Mapa Web está actualizado a su Etapa 6.
 
 Las secciones siguientes conservan la documentación de las herramientas históricas de las Fases 1–3 para ejecuciones controladas.
 
