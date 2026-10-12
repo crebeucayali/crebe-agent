@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "fase": 9,
+  "nombre": "SEO y descubribilidad institucional de EVA",
+  "estado": "EN_CURSO",
+  "fecha_inicio": "2026-10-12",
+  "zona_horaria": "America/Lima",
+  "objetivo": "Mejorar la indexacion, descubribilidad y autoridad de las paginas oficiales de EVA frente a resultados secundarios como repositorios GitHub, con SEO tecnico general aplicable a Brave Search, Google, Bing y otros motores compatibles.",
+  "etapa_actual": 1,
+  "etapas": [
+    {"etapa": 1, "nombre": "Auditoria e inventario SEO", "estado": "ETAPA_1_EN_VALIDACION_AUDITORIA_SEO"},
+    {"etapa": 2, "nombre": "Arquitectura de indexacion", "estado": "NO_INICIADA"},
+    {"etapa": 3, "nombre": "Canonical y metadata", "estado": "NO_INICIADA"},
+    {"etapa": 4, "nombre": "Identidad semantica y datos estructurados", "estado": "NO_INICIADA"},
+    {"etapa": 5, "nombre": "SEO de contenidos", "estado": "NO_INICIADA"},
+    {"etapa": 6, "nombre": "Enlazado interno", "estado": "NO_INICIADA"},
+    {"etapa": 7, "nombre": "Buscadores y repositorios", "estado": "NO_INICIADA"},
+    {"etapa": 8, "nombre": "Monitoreo SEO", "estado": "NO_INICIADA"}
+  ],
+  "etapa_1": {
+    "estado": "ETAPA_1_EN_VALIDACION_AUDITORIA_SEO",
+    "fuente": "tracking/fase-9-etapa-1.json",
+    "repositorios": 8,
+    "modo": "READ_ONLY_SEO_AUDIT",
+    "etapa_2_iniciada": false
+  },
+  "repositorios_eva_modificados": false,
+  "supabase_modificado": false,
+  "panel_administrativo_modificado": false
+}
