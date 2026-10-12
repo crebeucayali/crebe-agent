@@ -35,24 +35,24 @@ Ejecutar las comprobaciones:
 python -m unittest discover -s tests
 ```
 
-## Ejecutar en GitHub Actions
+## Inventario histórico y ejecución controlada
 
-Abrir Actions, seleccionar "Inventario CREBE - Fase 1" y pulsar "Run workflow" sobre la rama main. Al terminar, el resumen muestra el informe y la sección Artifacts permite descargar el inventario completo.
+El workflow histórico "Inventario CREBE - Fase 1" fue retirado de `.github/workflows/` una vez concluida la etapa de construcción inicial del agente. `inventory.py`, sus pruebas y el inventario histórico se conservan para ejecuciones controladas cuando sea necesario actualizar o reproducir la evidencia.
 
-La primera ejecución se inicia al incorporar la configuración. También se verifica cuando cambia únicamente el archivo del workflow. No hay ejecución periódica ni activación por cambios en los ocho repositorios de EVA.
+No hay ejecución periódica ni activación automática por cambios en los ocho repositorios de EVA. Una ejecución nueva del inventario debe iniciarse de forma deliberada mediante el comando local indicado arriba o desde un entorno controlado con permisos de solo lectura.
 
-El workflow utiliza el token temporal de GitHub con contents: read. No guarda credenciales, realiza commits, cambia páginas ni consulta Supabase. Cada ejecución lee los ocho repositorios públicos y conserva sus resultados como artefactos durante 30 días. El inventario inicial en inventory/ permanece como referencia histórica; los informes nuevos se generan en reports/inventory/ dentro de la ejecución.
+El programa puede utilizar un token temporal de GitHub con `contents: read`. No guarda credenciales, realiza commits, cambia páginas ni consulta Supabase. El inventario inicial en `inventory/` permanece como referencia histórica; los informes nuevos pueden generarse en `reports/inventory/`.
 
 El siguiente paso es definir reglas de consistencia por tipo de página y contrastarlas con el resultado visual.
 
 
 ## Fase 2: auditoría de consistencia
 
-El workflow "Consistencia CREBE - Fase 2" genera un inventario nuevo, ejecuta las reglas estáticas y mide las ocho portadas en Chromium a 1440 × 900 y 390 × 844 px. Las páginas auxiliares y administrativas tienen reglas distintas. No se igualan contenidos, colores ni módulos.
+Las herramientas de la Fase 2 generan un inventario nuevo, ejecutan las reglas estáticas y pueden medir las ocho portadas en Chromium a 1440 × 900 y 390 × 844 px. Las páginas auxiliares y administrativas tienen reglas distintas. No se igualan contenidos, colores ni módulos.
 
-Abrir Actions, seleccionar "Consistencia CREBE - Fase 2" y pulsar "Run workflow". También se verifica al cambiar sus reglas, programa, pruebas o configuración. Los cambios en los ocho repositorios de EVA no lo activan automáticamente.
+El workflow histórico "Consistencia CREBE - Fase 2" fue retirado de `.github/workflows/`. Se conservan `audit.py`, `visual_audit.py`, `rules/`, las pruebas y las dependencias necesarias para ejecutar esta auditoría de forma controlada cuando corresponda. Los cambios en los ocho repositorios de EVA no disparan automáticamente esta auditoría.
 
-Los artefactos contienen el inventario, `consistency/Informe_fase_2.md`, `consistency/consistency.json`, `consistency/visual.json` y 16 capturas de pantalla. Los resultados nuevos se conservan 30 días. Un workflow exitoso indica que terminó la auditoría; el informe puede contener inconsistencias.
+Los resultados pueden contener el inventario, `consistency/Informe_fase_2.md`, `consistency/consistency.json`, `consistency/visual.json` y 16 capturas de pantalla. Una ejecución correcta indica que terminó la auditoría; el informe puede contener inconsistencias.
 
 Reglas en `rules/consistency.json`: tipografía NAV 15 px en escritorio / 14 px en móvil, franja de peso 500–700, referencia de 74 px para la navegación, etiqueta Compartir, componentes comunes y exclusiones por tipo de página. La altura total del hero no se compara con 74 px. Las variaciones del footer y de código compartido requieren revisión contextual.
 
@@ -72,9 +72,9 @@ La fase 2 solo informa. No modifica los ocho repositorios ni genera correcciones
 
 ## Fase 3: diagnóstico de hallazgos
 
-En Actions, seleccionar "Diagnostico CREBE - Fase 3" y pulsar "Run workflow". También se verifica cuando cambia su programa o configuración. No hay ejecución periódica ni acciones automáticas sobre EVA.
+El workflow histórico "Diagnostico CREBE - Fase 3" fue retirado de `.github/workflows/`. Se conserva `diagnose.py` y la lógica asociada para diagnósticos controlados cuando exista una necesidad concreta. No hay ejecución periódica ni acciones automáticas sobre EVA.
 
-La ejecución actualiza el inventario, repite la auditoría de consistencia y contrasta los hallazgos con fuentes Git y reglas CSS aplicables obtenidas desde Chromium. Prueba hipótesis con estilos temporales únicamente en un contexto de navegador aislado y restaura cada ensayo. No publica esas modificaciones.
+La ejecución controlada actualiza el inventario, repite la auditoría de consistencia y contrasta los hallazgos con fuentes Git y reglas CSS aplicables obtenidas desde Chromium. Prueba hipótesis con estilos temporales únicamente en un contexto de navegador aislado y restaura cada ensayo. No publica esas modificaciones.
 
 Los resultados se guardan en `diagnosis/Informe_fase_3.md` y `diagnosis/diagnosis.json`, junto al inventario, auditoría y capturas. Incluyen elementos que sobresalen del viewport, reglas CSS con archivo/línea/huella, medidas antes/después/restauradas, causas de etiquetas y accesibilidad, y características de las variantes de Compartir.
 
