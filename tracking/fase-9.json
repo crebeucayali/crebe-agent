@@ -6,10 +6,10 @@
   "fecha_inicio": "2026-10-12",
   "zona_horaria": "America/Lima",
   "objetivo": "Mejorar la indexacion, descubribilidad y autoridad de las paginas oficiales de EVA frente a resultados secundarios como repositorios GitHub, con SEO tecnico general aplicable a Brave Search, Google, Bing y otros motores compatibles.",
-  "etapa_actual": 1,
+  "etapa_actual": 2,
   "etapas": [
     {"etapa": 1, "nombre": "Auditoria e inventario SEO", "estado": "ETAPA_1_COMPLETADA_AUDITORIA_SEO"},
-    {"etapa": 2, "nombre": "Arquitectura de indexacion", "estado": "NO_INICIADA"},
+    {"etapa": 2, "nombre": "Arquitectura de indexacion", "estado": "ETAPA_2_EN_VALIDACION_ARQUITECTURA_INDEXACION"},
     {"etapa": 3, "nombre": "Canonical y metadata", "estado": "NO_INICIADA"},
     {"etapa": 4, "nombre": "Identidad semantica y datos estructurados", "estado": "NO_INICIADA"},
     {"etapa": 5, "nombre": "SEO de contenidos", "estado": "NO_INICIADA"},
@@ -27,9 +27,30 @@
     "workflow_run_id": 38306787069,
     "artifact_id": 11772948577,
     "modo": "READ_ONLY_SEO_AUDIT",
-    "etapa_2_iniciada": false
+    "etapa_2_iniciada": true
   },
-  "repositorios_eva_modificados": false,
+  "etapa_2": {
+    "estado": "ETAPA_2_EN_VALIDACION_ARQUITECTURA_INDEXACION",
+    "fuente": "tracking/fase-9-etapa-2.json",
+    "repositorios": 8,
+    "repositorios_eva_modificados": 7,
+    "sitemaps_hijos_esperados": 8,
+    "urls_oficiales_esperadas": 56,
+    "workflow_run_id": null,
+    "artifact_id": null,
+    "modo_verificacion": "READ_ONLY_INDEXATION_VERIFY",
+    "etapa_3_iniciada": false
+  },
+  "repositorios_eva_modificados": true,
+  "repositorios_eva_modificados_lista": [
+    "crebeucayali/crebeucayali.github.io",
+    "crebeucayali/accesos-complementarios",
+    "crebeucayali/capacitaciones",
+    "crebeucayali/banco-digital-accesible",
+    "crebeucayali/materiales-educativos-accesibles",
+    "crebeucayali/noti-inclusivos",
+    "crebeucayali/DUA-3.0"
+  ],
   "supabase_modificado": false,
   "panel_administrativo_modificado": false
 }
