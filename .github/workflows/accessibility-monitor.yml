@@ -1,0 +1,90 @@
+name: Accesibilidad EVA - Fase 8 Etapa 8
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '45 11 * * *'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'accessibility_monitor.mjs'
+      - 'tests/accessibility_monitor.test.mjs'
+      - '.github/workflows/accessibility-monitor.yml'
+      - 'tracking/fase-8-etapa-8.json'
+      - 'tracking/fase-8.json'
+      - 'tracking/phases.json'
+      - 'state/current.json'
+      - 'docs/FASE_8_ETAPA_8_VERIFICACION_MONITOREO.md'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: crebe-accessibility-monitor-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  monitor:
+    name: Verificar regresiones de accesibilidad sin modificar EVA
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Preparar Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+
+      - name: Instalar dependencias temporales
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-save playwright@1.55.0 axe-core@4.10.3
+          npx playwright install --with-deps chromium
+
+      - name: Ejecutar pruebas del monitor
+        run: node --test tests/accessibility_monitor.test.mjs
+
+      - name: Obtener repositorios EVA en solo lectura
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _eva
+          cd _eva
+          for repo in crebeucayali.github.io accesos-complementarios capacitaciones banco-digital-accesible materiales-educativos-accesibles noti-inclusivos repositorio-accesible DUA-3.0; do
+            git clone --depth 1 --filter=blob:none "https://github.com/crebeucayali/${repo}.git" "$repo"
+          done
+
+      - name: Ejecutar monitoreo de accesibilidad
+        id: monitor
+        continue-on-error: true
+        run: node accessibility_monitor.mjs _eva reports/accessibility-monitor/resultado.json
+
+      - name: Mostrar resumen
+        if: always()
+        shell: bash
+        run: |
+          if [ -f reports/accessibility-monitor/resultado.json ]; then
+            echo '## Monitoreo de accesibilidad EVA' >> "$GITHUB_STEP_SUMMARY"
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            cat reports/accessibility-monitor/resultado.json >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Guardar evidencia
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: fase-8-accesibilidad-monitor-${{ github.run_id }}
+          path: reports/accessibility-monitor/resultado.json
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Marcar alerta
+        if: steps.monitor.outcome == 'failure'
+        run: |
+          echo 'Se detectó una posible regresión automatizada de accesibilidad. Revise el resumen y el artefacto.'
+          exit 1
