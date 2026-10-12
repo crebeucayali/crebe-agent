@@ -45,7 +45,7 @@
     },
     "fase_9": {
       "status": "EN_CURSO",
-      "current_stage": 1,
+      "current_stage": 2,
       "source": "tracking/phases.json"
     }
   },
