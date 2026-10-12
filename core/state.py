@@ -9,7 +9,7 @@ CURRENT_STATE = ROOT / "state" / "current.json"
 PHASES = ROOT / "tracking" / "phases.json"
 SECURITY_STAGE_7 = ROOT / "tracking" / "fase-7-etapa-7.json"
 DIRECTORY_ENTITIES = ROOT / "tracking" / "directorio-entidades-etapa-6.json"
-MAPA_WEB = ROOT / "tracking" / "mapa-web-etapa-5.json"
+MAPA_WEB = ROOT / "tracking" / "mapa-web-etapa-6.json"
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -25,7 +25,7 @@ def build_current_state(root: Path = ROOT) -> dict[str, Any]:
     phases_path = root / "tracking" / "phases.json"
     security_stage_7_path = root / "tracking" / "fase-7-etapa-7.json"
     directory_path = root / "tracking" / "directorio-entidades-etapa-6.json"
-    mapa_path = root / "tracking" / "mapa-web-etapa-5.json"
+    mapa_path = root / "tracking" / "mapa-web-etapa-6.json"
 
     phases = read_json(phases_path)
     security_stage_7 = read_json(security_stage_7_path)
@@ -57,7 +57,7 @@ def build_current_state(root: Path = ROOT) -> dict[str, Any]:
             "tracking/phases.json",
             "tracking/fase-7-etapa-7.json",
             "tracking/directorio-entidades-etapa-6.json",
-            "tracking/mapa-web-etapa-5.json",
+            "tracking/mapa-web-etapa-6.json",
         ],
         "phases": phase_state,
         "modules": {
@@ -71,7 +71,7 @@ def build_current_state(root: Path = ROOT) -> dict[str, Any]:
                 "status": mapa.get("status"),
                 "stage": mapa.get("stage"),
                 "scope": mapa.get("scope"),
-                "source": "tracking/mapa-web-etapa-5.json",
+                "source": "tracking/mapa-web-etapa-6.json",
             },
         },
         "guardrails": {

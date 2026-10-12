@@ -11,7 +11,7 @@ on:
       - 'tracking/phases.json'
       - 'tracking/fase-7-etapa-7.json'
       - 'tracking/directorio-entidades-etapa-6.json'
-      - 'tracking/mapa-web-etapa-5.json'
+      - 'tracking/mapa-web-etapa-6.json'
       - '.github/workflows/state-consistency.yml'
 
 permissions:
