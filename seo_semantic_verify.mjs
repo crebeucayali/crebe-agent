@@ -28,8 +28,8 @@ export function jsonLdBodies(html) {
 export function cspContent(html) {
   for (const tag of html.match(/<meta\b[^>]*>/gi) || []) {
     if (!/http-equiv\s*=\s*["']Content-Security-Policy["']/i.test(tag)) continue;
-    const m = tag.match(/content\s*=\s*["']([^"']*)["']/i);
-    if (m) return m[1];
+    const m = tag.match(/content\s*=\s*(["'])([\s\S]*?)\1/i);
+    if (m) return m[2];
   }
   return '';
 }
