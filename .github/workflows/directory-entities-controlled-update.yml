@@ -7,6 +7,8 @@ on:
   pull_request:
     branches: [main]
     paths:
+      - 'directory_entities_verify.mjs'
+      - 'tests/directory_entities_verify.test.mjs'
       - 'directory_entities_proposals.mjs'
       - 'directory_entities_apply_approved.mjs'
       - 'directory_entities_maintenance_summary.mjs'
