@@ -1,8 +1,14 @@
-# CREBE Agent, fase 1
+# CREBE Agent
 
-Inventario estático de los ocho repositorios de CREBE Ucayali. Python 3.10 o superior, sin dependencias adicionales.
+Agente de auditoría, monitoreo y mantenimiento controlado de EVA para los ocho repositorios de CREBE Ucayali. El estado operativo actual mantiene los monitores de Funcionamiento (Fase 5), Integridad (Fase 6) y Seguridad (Fase 7), el estado canónico y el mantenimiento del Directorio de Entidades; el Mapa Web está actualizado a su Etapa 6 y la Fase 8 de Accesibilidad continúa en curso.
 
-Ejecutar desde esta carpeta:
+Las secciones siguientes conservan la documentación de las herramientas históricas de las Fases 1–3 para ejecuciones controladas.
+
+## Fase 1: inventario histórico
+
+Python 3.10 o superior, sin dependencias adicionales.
+
+Para ejecutar el inventario desde esta carpeta:
 
 ```bash
 python inventory.py --output inventory
