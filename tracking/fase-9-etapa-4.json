@@ -24,9 +24,9 @@
   "script": "seo_semantic_verify.mjs",
   "pruebas": "tests/seo_semantic_verify.test.mjs",
   "reporte": "reports/fase-9-etapa-4-identidad-semantica.json",
-  "workflow_run_id": null,
-  "artifact_id": null,
-  "validacion_ci": "PENDIENTE_PR",
+  "workflow_run_id": 38323449093,
+  "artifact_id": 11779975650,
+  "validacion_ci": "SUCCESS",
   "pull_requests_producto": [
     {"repo":"crebeucayali/accesos-complementarios","pr":11,"merge_commit":"4efb5959045d78128b20dcbda652c3ccc145303c"},
     {"repo":"crebeucayali/capacitaciones","pr":5,"merge_commit":"be0b93208540302cd5be441abacea7134d56ea3b"},
