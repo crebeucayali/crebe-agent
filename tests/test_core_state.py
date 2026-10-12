@@ -16,7 +16,7 @@ class CurrentStateTests(unittest.TestCase):
             ROOT / "tracking" / "phases.json",
             ROOT / "tracking" / "fase-7-etapa-7.json",
             ROOT / "tracking" / "directorio-entidades-etapa-6.json",
-            ROOT / "tracking" / "mapa-web-etapa-5.json",
+            ROOT / "tracking" / "mapa-web-etapa-6.json",
         ]
         before = {path: path.read_bytes() for path in sources}
         state = build_current_state(ROOT)
@@ -46,6 +46,13 @@ class CurrentStateTests(unittest.TestCase):
             "AUTHENTICATED_PLUS_AAL2_MFA",
         )
         self.assertFalse(phase["authentication"]["mfa_obligatorio_editores"])
+
+    def test_mapa_web_stage_6_is_projected_into_current_state(self):
+        state = build_current_state(ROOT)
+        module = state["modules"]["mapa_web"]
+        self.assertEqual(module["stage"], 6)
+        self.assertEqual(module["status"], "ACTUALIZACION_CONTROLADA_MAPA_WEB_COMPLETADA")
+        self.assertEqual(module["source"], "tracking/mapa-web-etapa-6.json")
 
 
 if __name__ == "__main__":
