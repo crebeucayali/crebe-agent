@@ -82,9 +82,9 @@
     "page_metadata_mismatch": 0,
     "csp_hash_mismatch": 0,
     "paginas_con_fallo": 0,
-    "workflow_run_id": null,
-    "artifact_id": null,
-    "validacion_ci": "PENDIENTE_PR",
+    "workflow_run_id": 38323449093,
+    "artifact_id": 11779975650,
+    "validacion_ci": "SUCCESS",
     "modo_verificacion": "READ_ONLY_SEMANTIC_VERIFY",
     "etapa_5_iniciada": false
   },
