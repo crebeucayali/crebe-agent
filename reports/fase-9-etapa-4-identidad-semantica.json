@@ -42,9 +42,9 @@
     {"repo":"crebeucayali/repositorio-accesible","pr":5,"merge_commit":"efa3203369c47e96fa71e485da368efc25bc60ef"},
     {"repo":"crebeucayali/DUA-3.0","pr":5,"merge_commit":"f7c84f3aa7b756e6b307a9aeb325925a17a482df"}
   ],
-  "workflow_run_id": null,
-  "artifact_id": null,
-  "validacion_ci": "PENDIENTE_PR",
+  "workflow_run_id": 38323449093,
+  "artifact_id": 11779975650,
+  "validacion_ci": "SUCCESS",
   "guardrails": {
     "contenido_visible_modificado": false,
     "css_modificado": false,
