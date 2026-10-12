@@ -14,6 +14,7 @@ class CurrentStateTests(unittest.TestCase):
     def test_builder_keeps_legacy_sources_read_only(self):
         sources = [
             ROOT / "tracking" / "phases.json",
+            ROOT / "tracking" / "fase-7-etapa-7.json",
             ROOT / "tracking" / "directorio-entidades-etapa-6.json",
             ROOT / "tracking" / "mapa-web-etapa-5.json",
         ]
@@ -35,6 +36,16 @@ class CurrentStateTests(unittest.TestCase):
             {"directory_entities", "mapa_web"},
         )
         self.assertEqual(state["canonical_path"], "state/current.json")
+
+    def test_security_authentication_is_projected_into_current_state(self):
+        state = build_current_state(ROOT)
+        phase = state["phases"]["fase_7"]
+        self.assertEqual(phase["detail_source"], "tracking/fase-7-etapa-7.json")
+        self.assertEqual(
+            phase["authentication"]["master"],
+            "AUTHENTICATED_PLUS_AAL2_MFA",
+        )
+        self.assertFalse(phase["authentication"]["mfa_obligatorio_editores"])
 
 
 if __name__ == "__main__":

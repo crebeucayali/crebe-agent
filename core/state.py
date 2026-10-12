@@ -7,6 +7,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 CURRENT_STATE = ROOT / "state" / "current.json"
 PHASES = ROOT / "tracking" / "phases.json"
+SECURITY_STAGE_7 = ROOT / "tracking" / "fase-7-etapa-7.json"
 DIRECTORY_ENTITIES = ROOT / "tracking" / "directorio-entidades-etapa-6.json"
 MAPA_WEB = ROOT / "tracking" / "mapa-web-etapa-5.json"
 
@@ -22,10 +23,12 @@ def write_json(path: Path, data: dict[str, Any]) -> None:
 
 def build_current_state(root: Path = ROOT) -> dict[str, Any]:
     phases_path = root / "tracking" / "phases.json"
+    security_stage_7_path = root / "tracking" / "fase-7-etapa-7.json"
     directory_path = root / "tracking" / "directorio-entidades-etapa-6.json"
     mapa_path = root / "tracking" / "mapa-web-etapa-5.json"
 
     phases = read_json(phases_path)
+    security_stage_7 = read_json(security_stage_7_path)
     directory = read_json(directory_path)
     mapa = read_json(mapa_path)
 
@@ -39,6 +42,12 @@ def build_current_state(root: Path = ROOT) -> dict[str, Any]:
             "source": "tracking/phases.json",
         }
 
+    if "fase_7" in phase_state:
+        phase_state["fase_7"]["authentication"] = security_stage_7.get(
+            "modelo_autenticacion_confirmado", {}
+        )
+        phase_state["fase_7"]["detail_source"] = "tracking/fase-7-etapa-7.json"
+
     return {
         "schema_version": 1,
         "kind": "CREBE_AGENT_CURRENT_STATE",
@@ -46,6 +55,7 @@ def build_current_state(root: Path = ROOT) -> dict[str, Any]:
         "canonical_path": "state/current.json",
         "sources": [
             "tracking/phases.json",
+            "tracking/fase-7-etapa-7.json",
             "tracking/directorio-entidades-etapa-6.json",
             "tracking/mapa-web-etapa-5.json",
         ],
