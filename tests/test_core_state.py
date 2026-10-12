@@ -29,7 +29,7 @@ class CurrentStateTests(unittest.TestCase):
         state = build_current_state(ROOT)
         self.assertEqual(
             set(state["phases"]),
-            {"fase_4", "fase_5", "fase_6", "fase_7", "fase_8"},
+            {"fase_4", "fase_5", "fase_6", "fase_7", "fase_8", "fase_9"},
         )
         self.assertEqual(
             set(state["modules"]),
