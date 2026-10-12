@@ -1,0 +1,21 @@
+{
+  "stage": 6,
+  "status": "ACTUALIZACION_CONTROLADA_MAPA_WEB_COMPLETADA",
+  "scope": "accesos-complementarios/mapa-web.html-only",
+  "target_repository": "crebeucayali/accesos-complementarios",
+  "target_file": "mapa-web.html",
+  "pull_request": 8,
+  "merge_commit_sha": "2980cee7f14652866d55643d1f354b977957d406",
+  "approved_candidates_published": 8,
+  "dua_group_added": true,
+  "test_routes_excluded": true,
+  "compatibility_routes_excluded": true,
+  "automatic_publication_enabled": false,
+  "supabase_modified": false,
+  "other_eva_repositories_modified": false,
+  "evidence": {
+    "pr_url": "https://github.com/crebeucayali/accesos-complementarios/pull/8",
+    "merged": true,
+    "changed_files": 1
+  }
+}
