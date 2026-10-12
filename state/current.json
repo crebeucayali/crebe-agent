@@ -5,6 +5,7 @@
   "canonical_path": "state/current.json",
   "sources": [
     "tracking/phases.json",
+    "tracking/fase-7-etapa-7.json",
     "tracking/directorio-entidades-etapa-6.json",
     "tracking/mapa-web-etapa-5.json"
   ],
@@ -27,7 +28,15 @@
     "fase_7": {
       "status": "MONITOREO_SEGURIDAD_ACTIVO",
       "current_stage": 8,
-      "source": "tracking/phases.json"
+      "source": "tracking/phases.json",
+      "authentication": {
+        "master": "AUTHENTICATED_PLUS_AAL2_MFA",
+        "editor": "AUTHENTICATED_AAL1_OR_AAL2_SCOPED_BY_MODULE",
+        "consulta": "AUTHENTICATED_AAL1_OR_AAL2_SCOPED_BY_MODULE",
+        "mfa_obligatorio_editores": false,
+        "decision": "NO_CAMBIAR_MODELO_AUTH_EN_ETAPA_7"
+      },
+      "detail_source": "tracking/fase-7-etapa-7.json"
     },
     "fase_8": {
       "status": "EN_CURSO",
