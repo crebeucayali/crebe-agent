@@ -9,8 +9,6 @@ on:
       - 'integrity_monitor.py'
       - 'tests/test_integrity_monitor.py'
       - '.github/workflows/supabase-integrity-monitor.yml'
-      - 'tracking/fase-6-etapa-8.json'
-      - 'reports/fase-6-etapa-8-verificacion.json'
 
 permissions:
   contents: read
