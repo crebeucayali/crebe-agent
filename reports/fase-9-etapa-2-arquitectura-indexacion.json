@@ -3,7 +3,7 @@
   "fase": 9,
   "etapa": 2,
   "nombre": "Arquitectura de indexacion",
-  "estado": "ETAPA_2_EN_VALIDACION_ARQUITECTURA_INDEXACION",
+  "estado": "ETAPA_2_COMPLETADA_ARQUITECTURA_INDEXACION",
   "fecha": "2026-10-12",
   "zona_horaria": "America/Lima",
   "objetivo": "Centralizar el descubrimiento de URLs oficiales de EVA mediante un indice de sitemaps y sitemaps de modulo completos, sin modificar metadata HTML, contenido visible ni funcionalidades.",
@@ -11,7 +11,9 @@
     "robots_raiz": "https://crebeucayali.github.io/robots.txt",
     "indice_central": "https://crebeucayali.github.io/sitemap-v2.xml",
     "sitemaps_hijos": 8,
-    "urls_oficiales_esperadas": 56,
+    "urls_oficiales": 56,
+    "urls_duplicadas": 0,
+    "rutas_sin_archivo_fuente": 0,
     "lastmod_omitido_sin_evidencia_fiable": true
   },
   "repositorios_eva_modificados": [
@@ -53,7 +55,7 @@
     "robots_raiz_modificado": false,
     "etapa_3_iniciada": false
   },
-  "workflow_run_id": null,
-  "artifact_id": null,
-  "validacion_ci": "PENDIENTE"
+  "workflow_run_id": 38312902596,
+  "artifact_id": 11775666085,
+  "validacion_ci": "SUCCESS"
 }
