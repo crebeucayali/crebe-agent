@@ -40,7 +40,7 @@ def main() -> int:
     require(generated.get("reflujo", {}).get("targets_con_overflow") == 0, "Persisten desbordamientos a 320 px")
     require(generated.get("guardrails", {}).get("repositorios_eva_modificados_por_verificador") is False, "El verificador no debe modificar EVA")
     require(generated.get("guardrails", {}).get("supabase_modificado") is False, "El verificador no debe modificar Supabase")
-    require(generated.get("guardrails", {}).get("etapa_8_iniciada") is False, "El verificador no debe iniciar Etapa 8")
+    require(generated.get("guardrails", {}).get("etapa_8_iniciada") is False, "La evidencia historica de Etapa 7 no debe iniciar Etapa 8")
 
     require(report.get("estado") == EXPECTED_STATE, "Estado de reporte de Etapa 7 inesperado")
     final = report.get("verificacion_final", {})
@@ -51,23 +51,31 @@ def main() -> int:
     require(final.get("urls_objetivo_reflujo") == generated.get("reflujo", {}).get("targets_verificados"), "No coincide el numero de URLs de reflujo")
     require(final.get("fallos_overflow_320") == generated.get("reflujo", {}).get("targets_con_overflow"), "No coincide el residuo de overflow")
     require(len(report.get("intervenciones", [])) == 9, "El cierre debe registrar 9 PRs/intervenciones EVA")
-    require(report.get("guardrails", {}).get("etapa_8_iniciada") is False, "El reporte no debe iniciar Etapa 8")
+    require(report.get("guardrails", {}).get("etapa_8_iniciada") is False, "El reporte historico de Etapa 7 no debe iniciar Etapa 8")
 
     require(tracking.get("estado") == EXPECTED_STATE, "Tracking de Etapa 7 inesperado")
     require(tracking.get("pull_requests_eva") == 9, "Tracking debe registrar 9 PRs EVA")
     tfinal = tracking.get("verificacion_final", {})
     require(tfinal.get("estado") == "APROBADA_POST_CORRECCION_ETAPA_7", "Tracking no registra aprobacion post-correccion")
     require(tfinal.get("nodos_contraste") == 0 and tfinal.get("fallos_overflow_320") == 0, "Tracking conserva residuos de accesibilidad")
-    require(tracking.get("etapa_8_iniciada") is False, "Tracking de Etapa 7 no debe iniciar Etapa 8")
+    require(tracking.get("etapa_8_iniciada") is False, "Tracking historico de Etapa 7 no debe iniciar Etapa 8")
 
     require(phase.get("etapa_7", {}).get("estado") == EXPECTED_STATE, "Fase 8 no registra Etapa 7 completada")
     require(phase.get("etapa_7", {}).get("resultado", {}).get("pull_requests_eva") == 9, "Fase 8 debe registrar 9 PRs EVA")
     require(phase.get("etapa_7", {}).get("verificacion_post_correccion", {}).get("nodos_contraste") == 0, "Fase 8 conserva contraste residual")
     require(phase.get("etapa_7", {}).get("verificacion_post_correccion", {}).get("fallos_overflow_320") == 0, "Fase 8 conserva overflow residual")
-    require(phase.get("etapa_7", {}).get("etapa_8_iniciada") is False, "Etapa 8 no debe estar iniciada")
-    require(phase.get("etapas", [])[7].get("estado") == "NO_INICIADA", "Etapa 8 debe permanecer NO_INICIADA")
 
-    print("Fase 8 Etapa 7: cierre formal y evidencia post-correccion coherentes (contraste=0, overflow=0).")
+    etapa_8_iniciada = bool(phase.get("etapa_8_iniciada", phase.get("etapa_7", {}).get("etapa_8_iniciada", False)))
+    require(isinstance(phase.get("etapa_7", {}).get("etapa_8_iniciada"), bool), "El indicador de Etapa 8 debe ser booleano")
+    if etapa_8_iniciada:
+        require(phase.get("etapa_7", {}).get("etapa_8_iniciada") is True, "Etapa 7 debe registrar la progresion a Etapa 8")
+        require(phase.get("etapa_8", {}).get("estado") == "MONITOREO_ACCESIBILIDAD_ACTIVO", "Etapa 8 iniciada debe registrar monitoreo activo")
+        require(phase.get("etapas", [])[7].get("estado") == "MONITOREO_ACCESIBILIDAD_ACTIVO", "La lista de etapas debe reflejar el monitoreo activo")
+    else:
+        require(phase.get("etapa_7", {}).get("etapa_8_iniciada") is False, "Etapa 8 no iniciada debe permanecer false")
+        require(phase.get("etapas", [])[7].get("estado") == "NO_INICIADA", "Etapa 8 debe permanecer NO_INICIADA")
+
+    print("Fase 8 Etapa 7: cierre historico coherente; progresion a Etapa 8 permitida.")
     return 0
 
 
