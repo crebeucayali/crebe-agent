@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - 'security_monitor.py'
+      - 'state/current.json'
       - 'config/security-monitor.json'
       - 'tests/test_security_monitor.py'
       - '.github/workflows/security-monitor.yml'
