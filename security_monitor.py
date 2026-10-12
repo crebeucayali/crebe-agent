@@ -5,6 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 CONFIG = ROOT / 'config/security-monitor.json'
+CURRENT_STATE = ROOT / 'state/current.json'
 TRACKING = ROOT / 'tracking/fase-7-etapa-7.json'
 REPORT = ROOT / 'reports/fase-7-etapa-7-correccion-seguridad.json'
 
@@ -34,13 +35,16 @@ def scan_for_literal_secrets():
 
 def run(output_dir='reports/security-monitor'):
     cfg = load(CONFIG)
+    current_state = load(CURRENT_STATE)
     tracking = load(TRACKING)
     report = load(REPORT)
     states = {h['id']: h['estado'] for h in report['hallazgos']}
+    security_phase = current_state.get('phases', {}).get('fase_7', {})
+    security_phase_status = security_phase.get('status')
     alerts = []
 
-    if tracking['estado'] != 'ETAPA_7_COMPLETADA_CORRECCION_SEGURIDAD':
-        alerts.append('Etapa 7 ya no figura como completada.')
+    if security_phase_status != 'MONITOREO_SEGURIDAD_ACTIVO':
+        alerts.append('El estado canónico ya no registra el monitoreo de seguridad como activo.')
     if states.get('F7S4-DEFAULT-PRIVILEGES-DATA-API') != 'CORREGIDO_VERIFICADO':
         alerts.append('Regresion documental en Default privileges/Data API.')
     if states.get('F7S4-GALERIA-GRANTS') != 'CORREGIDO_VERIFICADO':
@@ -63,6 +67,8 @@ def run(output_dir='reports/security-monitor'):
     result = {
         'estado': 'ALERTA' if alerts else 'SEGURO',
         'alertas': alerts,
+        'state_source': 'state/current.json',
+        'security_phase_status': security_phase_status,
         'secret_hits': secret_hits,
         'accepted_exceptions': cfg['accepted_exceptions'],
         'live_deep_checks': cfg['live_deep_checks']
@@ -72,6 +78,9 @@ def run(output_dir='reports/security-monitor'):
         '# Monitoreo de seguridad EVA',
         '',
         f"Estado: `{result['estado']}`",
+        '',
+        f"Fuente de estado: `{result['state_source']}`",
+        f"Estado de Fase 7: `{result['security_phase_status']}`",
         '',
         f"Alertas: {len(alerts)}",
         '',
