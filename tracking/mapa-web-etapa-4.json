@@ -1,0 +1,83 @@
+{
+  "stage": 4,
+  "status": "VALIDACION_CONTROLADA_COMPLETADA_CON_AJUSTES_PREVIOS_A_PUBLICACION",
+  "mode": "READ_ONLY_VALIDATION",
+  "map_repo": "crebeucayali/accesos-complementarios",
+  "map_path": "mapa-web.html",
+  "repositories_supervised": 8,
+  "baseline_stable": true,
+  "new_unmarked_pages_after_baseline": 0,
+  "data_mapa_web_marks_detected": 0,
+  "verified_exclusions": [
+    {
+      "repo": "crebeucayali/crebeucayali.github.io",
+      "path": "/pruebas/buscador-accesible/",
+      "classification": "NO_PUBLICAR_EN_MAPA"
+    },
+    {
+      "repo": "crebeucayali/crebeucayali.github.io",
+      "path": "/pruebas/tarjetas-educativas/",
+      "classification": "NO_PUBLICAR_EN_MAPA"
+    },
+    {
+      "repo": "crebeucayali/crebeucayali.github.io",
+      "path": "/pruebas/generador-por-pasos/",
+      "classification": "NO_PUBLICAR_EN_MAPA_REFERENCIA_OBSOLETA"
+    }
+  ],
+  "publish_candidates_confirmed": [
+    {
+      "group": "INICIO",
+      "url": "https://crebeucayali.github.io/buscar/"
+    },
+    {
+      "group": "CAP",
+      "url": "https://crebeucayali.github.io/capacitaciones/primera-jornada.html"
+    },
+    {
+      "group": "CAP",
+      "url": "https://crebeucayali.github.io/capacitaciones/segunda-jornada.html"
+    },
+    {
+      "group": "BDA",
+      "url": "https://crebeucayali.github.io/banco-digital-accesible/creditos.html"
+    },
+    {
+      "group": "MEA",
+      "url": "https://crebeucayali.github.io/materiales-educativos-accesibles/apoyos-lsp/generador-lsp.html"
+    },
+    {
+      "group": "DUA",
+      "url": "https://crebeucayali.github.io/DUA-3.0/"
+    },
+    {
+      "group": "DUA",
+      "url": "https://crebeucayali.github.io/DUA-3.0/evolucion.html"
+    },
+    {
+      "group": "DUA",
+      "url": "https://crebeucayali.github.io/DUA-3.0/recursos.html"
+    }
+  ],
+  "publish_candidates_count": 8,
+  "compatibility_false_positives": [
+    {
+      "repo": "crebeucayali/accesos-complementarios",
+      "path": "/paginas/mapa-web.html",
+      "canonical": "/mapa-web.html",
+      "action": "EXCLUIR_COMO_COMPATIBILIDAD"
+    },
+    {
+      "repo": "crebeucayali/accesos-complementarios",
+      "path": "/recursos/contacto.html",
+      "canonical": "/paginas/contacto.html",
+      "action": "EXCLUIR_COMO_COMPATIBILIDAD"
+    }
+  ],
+  "compatibility_false_positives_count": 2,
+  "map_modified": false,
+  "productive_repositories_modified": false,
+  "supabase_modified": false,
+  "automatic_publication_enabled": false,
+  "next_stage": "Ajustar el verificador para excluir redirecciones de compatibilidad y preparar una propuesta controlada de actualización del Mapa Web."
+}
