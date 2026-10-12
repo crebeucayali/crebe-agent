@@ -6,7 +6,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 CONFIG = ROOT / 'config/security-monitor.json'
 CURRENT_STATE = ROOT / 'state/current.json'
-TRACKING = ROOT / 'tracking/fase-7-etapa-7.json'
 REPORT = ROOT / 'reports/fase-7-etapa-7-correccion-seguridad.json'
 
 
@@ -36,11 +35,11 @@ def scan_for_literal_secrets():
 def run(output_dir='reports/security-monitor'):
     cfg = load(CONFIG)
     current_state = load(CURRENT_STATE)
-    tracking = load(TRACKING)
     report = load(REPORT)
     states = {h['id']: h['estado'] for h in report['hallazgos']}
     security_phase = current_state.get('phases', {}).get('fase_7', {})
     security_phase_status = security_phase.get('status')
+    auth = security_phase.get('authentication', {})
     alerts = []
 
     if security_phase_status != 'MONITOREO_SEGURIDAD_ACTIVO':
@@ -52,10 +51,9 @@ def run(output_dir='reports/security-monitor'):
     if states.get('F7S4-AUTH-LEAKED-PASSWORD') != 'ACEPTADO_NO_APLICABLE_EN_PLAN_FREE':
         alerts.append('Cambio no revisado en excepcion de Leaked Password Protection.')
 
-    auth = tracking['modelo_autenticacion_confirmado']
-    if auth['master'] != 'AUTHENTICATED_PLUS_AAL2_MFA':
+    if auth.get('master') != 'AUTHENTICATED_PLUS_AAL2_MFA':
         alerts.append('El master ya no conserva AAL2/MFA como requisito.')
-    if auth['mfa_obligatorio_editores'] is not False:
+    if auth.get('mfa_obligatorio_editores') is not False:
         alerts.append('Cambio no autorizado en MFA obligatorio de editores.')
 
     secret_hits = scan_for_literal_secrets() if cfg['checks']['forbid_literal_sb_secret'] else []
@@ -69,6 +67,7 @@ def run(output_dir='reports/security-monitor'):
         'alertas': alerts,
         'state_source': 'state/current.json',
         'security_phase_status': security_phase_status,
+        'security_auth_source': security_phase.get('detail_source'),
         'secret_hits': secret_hits,
         'accepted_exceptions': cfg['accepted_exceptions'],
         'live_deep_checks': cfg['live_deep_checks']
@@ -81,6 +80,7 @@ def run(output_dir='reports/security-monitor'):
         '',
         f"Fuente de estado: `{result['state_source']}`",
         f"Estado de Fase 7: `{result['security_phase_status']}`",
+        f"Detalle de autenticación: `{result['security_auth_source']}`",
         '',
         f"Alertas: {len(alerts)}",
         '',
