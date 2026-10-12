@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Verificador de solo lectura para el Mapa Web de EVA.
 
-Etapa 3. Compara el Mapa Web publicado con las rutas HTML reales de los
-repositorios EVA, respetando una línea base aprobada y exclusiones técnicas.
-No modifica repositorios EVA ni el Mapa Web.
+Compara el Mapa Web publicado con las rutas HTML reales de los repositorios EVA,
+respetando una línea base aprobada, exclusiones técnicas y redirecciones de
+compatibilidad. No modifica repositorios EVA ni el Mapa Web.
 """
 
 from __future__ import annotations
@@ -49,6 +49,7 @@ class Candidate:
     observacion: str
     id_seccion: str | None = None
     http_status: int | None = None
+    destino_compatibilidad: str | None = None
 
 
 class PageParser(HTMLParser):
@@ -57,6 +58,9 @@ class PageParser(HTMLParser):
         self.body_mark: str | None = None
         self.title_parts: list[str] = []
         self.h1_parts: list[str] = []
+        self.canonical_href: str | None = None
+        self.meta_refresh_target: str | None = None
+        self.robots: str | None = None
         self._in_title = False
         self._in_h1 = False
         self._sections: list[dict[str, Any]] = []
@@ -71,6 +75,20 @@ class PageParser(HTMLParser):
             mark = data.get("data-mapa-web", "").strip().lower()
             if mark in {"publicar", "no-publicar"}:
                 self.body_mark = mark
+        elif tag == "link" and "canonical" in data.get("rel", "").lower().split():
+            href = data.get("href", "").strip()
+            if href:
+                self.canonical_href = href
+        elif tag == "meta":
+            http_equiv = data.get("http-equiv", "").strip().lower()
+            name = data.get("name", "").strip().lower()
+            content = data.get("content", "").strip()
+            if http_equiv == "refresh" and content:
+                match = re.search(r"(?:^|;)\s*url\s*=\s*['\"]?([^'\";]+)", content, re.I)
+                if match:
+                    self.meta_refresh_target = match.group(1).strip()
+            elif name == "robots" and content:
+                self.robots = content.lower()
         elif tag == "title":
             self._in_title = True
         elif tag == "h1":
@@ -234,6 +252,23 @@ def parse_page(html: str) -> PageParser:
     return parser
 
 
+def compatibility_target(page: PageParser, page_url: str) -> str | None:
+    """Devuelve el destino canónico solo para redirecciones inequívocas de compatibilidad.
+
+    Se exige que exista meta refresh y canonical, que ambos resuelvan al mismo destino y
+    que ese destino sea distinto de la URL actual. Así se evitan falsos positivos por el
+    uso normal de canonical en páginas sustantivas.
+    """
+    if not page.meta_refresh_target or not page.canonical_href:
+        return None
+    redirect = canonical_url(urljoin(page_url, page.meta_refresh_target), keep_fragment=False)
+    canonical = canonical_url(urljoin(page_url, page.canonical_href), keep_fragment=False)
+    current = canonical_url(page_url, keep_fragment=False)
+    if redirect == canonical and canonical != current:
+        return canonical
+    return None
+
+
 def map_urls(html: str) -> set[str]:
     parser = LinkParser()
     parser.feed(html)
@@ -266,9 +301,10 @@ def classify_page(
     repo = repo_cfg["repo"]
     url = canonical_url(public_url(repo_cfg["base_url"], path))
     excluded, reason = is_excluded(path, cfg, repo_cfg)
+    compat_target = compatibility_target(page, url)
     mark = page.body_mark
     already = url in published_urls
-    legacy = in_baseline and not excluded
+    legacy = in_baseline and not excluded and not compat_target
 
     if mark == "no-publicar":
         state = "NO_PUBLICAR_EN_MAPA"
@@ -276,6 +312,9 @@ def classify_page(
     elif excluded:
         state = "NO_PUBLICAR_EN_MAPA"
         obs = f"Exclusión técnica: {reason}."
+    elif compat_target:
+        state = "NO_PUBLICAR_EN_MAPA"
+        obs = f"Ruta de compatibilidad: redirige y declara como canónica {compat_target}."
     elif already:
         state = "YA_REGISTRADO"
         obs = "La ruta ya está registrada en el Mapa Web."
@@ -304,12 +343,13 @@ def classify_page(
         legado_aprobado=legacy,
         observacion=obs,
         http_status=status,
+        destino_compatibilidad=compat_target,
     )
 
 
 def classify_sections(
     repo_cfg: dict[str, Any], path: str, page: PageParser, published_urls: set[str],
-    page_excluded: bool, do_http: bool,
+    page_excluded: bool, page_compatibility: bool, do_http: bool,
 ) -> list[Candidate]:
     out: list[Candidate] = []
     page_url = canonical_url(public_url(repo_cfg["base_url"], path), keep_fragment=False)
@@ -319,9 +359,9 @@ def classify_sections(
         title = section.get("titulo")
         url = f"{page_url}#{sid}" if sid else page_url
         already = canonical_url(url) in published_urls if sid else False
-        if mark == "no-publicar" or page_excluded:
+        if mark == "no-publicar" or page_excluded or page_compatibility:
             state = "NO_PUBLICAR_EN_MAPA"
-            obs = "Sección excluida explícitamente o contenida en una página técnicamente excluida."
+            obs = "Sección excluida explícitamente o contenida en una página excluida/compatibilidad."
         elif mark == "publicar" and sid and title:
             state = "YA_REGISTRADO" if already else "PUBLICAR_EN_MAPA"
             obs = "Sección navegable con marca publicar, id estable y encabezado visible."
@@ -372,6 +412,7 @@ def run(baseline_path: Path, output_path: Path, do_http: bool) -> dict[str, Any]
                 try:
                     html = raw_text(repo, current_sha, path)
                     page = parse_page(html)
+                    compat = compatibility_target(page, url) is not None
                 except Exception as exc:  # lectura parcial no debe provocar escrituras ni suposiciones
                     candidates.append(Candidate(
                         repositorio=repo,
@@ -392,13 +433,11 @@ def run(baseline_path: Path, output_path: Path, do_http: bool) -> dict[str, Any]
                     repo_cfg, path, path in baseline_paths, page, published_urls, cfg, do_http
                 ))
                 candidates.extend(classify_sections(
-                    repo_cfg, path, page, published_urls, excluded, do_http
+                    repo_cfg, path, page, published_urls, excluded, compat, do_http
                 ))
         except Exception as exc:
             errors.append({"repositorio": repo, "error": str(exc)})
 
-    # Solo se consideran rutas EVA del host institucional. Las rutas del mapa que ya no
-    # existen en los árboles actuales se reportan, nunca se eliminan automáticamente.
     registered_missing = sorted(
         url for url in published_urls
         if "crebeucayali.github.io" in url and "#" not in url and url not in current_urls
@@ -422,7 +461,7 @@ def run(baseline_path: Path, output_path: Path, do_http: bool) -> dict[str, Any]
 
     counts = Counter(item.estado for item in candidates)
     report = {
-        "schema_version": 1,
+        "schema_version": 2,
         "stage": 3,
         "mode": "READ_ONLY",
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -432,6 +471,7 @@ def run(baseline_path: Path, output_path: Path, do_http: bool) -> dict[str, Any]
             "baseline_html_outside_exclusions": "LEGADO_APROBADO",
             "future_unmarked_html": "PENDIENTE_CONFIRMACION",
             "pruebas": "NO_PUBLICAR_EN_MAPA",
+            "compatibility_redirects": "NO_PUBLICAR_EN_MAPA",
             "automatic_writes": False,
         },
         "summary": dict(sorted(counts.items())),
