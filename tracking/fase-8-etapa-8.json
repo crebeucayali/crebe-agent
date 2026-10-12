@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "fase": 8,
+  "etapa": 8,
+  "nombre": "Verificacion y monitoreo",
+  "estado": "MONITOREO_ACCESIBILIDAD_ACTIVO",
+  "fecha_activacion": "2026-10-12",
+  "zona_horaria": "America/Lima",
+  "modo": "READ_ONLY_RECURRENT_MONITOR",
+  "verificacion_inicial": {
+    "estado": "SIN_REGRESIONES_AUTOMATIZADAS",
+    "workflow_run_id": 38283434340,
+    "artifact_id": 11761884219,
+    "paginas_funcionales_observadas": 63,
+    "fallos_carga": 0,
+    "nodos_contraste_regresion": 0,
+    "urls_objetivo_reflujo": 4,
+    "fallos_overflow_320": 0
+  },
+  "monitoreo_recurrente": {
+    "workflow": ".github/workflows/accessibility-monitor.yml",
+    "script": "accessibility_monitor.mjs",
+    "pruebas": "tests/accessibility_monitor.test.mjs",
+    "cron_utc": "45 11 * * *",
+    "referencia_lima": "06:45 diaria",
+    "permisos": "contents: read",
+    "modifica_eva": false,
+    "modifica_supabase": false
+  },
+  "cobertura_automatizada": {
+    "carga_paginas_funcionales": true,
+    "contraste_color": true,
+    "reflujo_objetivos_diagnosticados": 4,
+    "certificacion_wcag_integral": false
+  },
+  "pendientes_revision_manual_sin_fallo_confirmado": 22,
+  "criterio_manual": "Los 22 contratos pendientes de revision manual no se convierten en fallos ni se declaran conformes por el monitor automatizado.",
+  "alertas_iniciales": 0,
+  "regresiones_iniciales": 0,
+  "criterios_cierre_cumplidos": true,
+  "fase_8_en_monitoreo": true
+}
