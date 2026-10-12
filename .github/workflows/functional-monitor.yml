@@ -11,8 +11,6 @@ on:
       - 'config/functional-monitor-targets.json'
       - 'tests/test_functional_monitor.py'
       - '.github/workflows/functional-monitor.yml'
-      - 'docs/FASE_5_ETAPA_8_MONITOREO_FUNCIONAL.md'
-      - 'tracking/fase-5-etapa-8.json'
 
 permissions:
   contents: read
