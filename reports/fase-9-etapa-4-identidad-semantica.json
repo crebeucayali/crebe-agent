@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "fase": 9,
+  "etapa": 4,
+  "nombre": "Identidad semantica y datos estructurados",
+  "estado": "ETAPA_4_COMPLETADA_IDENTIDAD_SEMANTICA",
+  "fecha": "2026-10-12",
+  "zona_horaria": "America/Lima",
+  "modo_verificacion": "READ_ONLY_SEMANTIC_VERIFY",
+  "totals": {
+    "repositories": 8,
+    "entry_pages": 8,
+    "root_preexisting_structured_data": 1,
+    "module_pages_enriched": 7,
+    "pages_with_structured_data": 8,
+    "invalid_jsonld": 0,
+    "identity_mismatch": 0,
+    "page_metadata_mismatch": 0,
+    "csp_hash_mismatch": 0,
+    "failing_pages": 0
+  },
+  "intervencion": {
+    "repositorios_eva_modificados": 7,
+    "archivos_html_modificados": 7,
+    "portal_principal_modificado": false,
+    "portadas_modulo_enriquecidas": [
+      "crebeucayali/accesos-complementarios",
+      "crebeucayali/capacitaciones",
+      "crebeucayali/banco-digital-accesible",
+      "crebeucayali/materiales-educativos-accesibles",
+      "crebeucayali/noti-inclusivos",
+      "crebeucayali/repositorio-accesible",
+      "crebeucayali/DUA-3.0"
+    ]
+  },
+  "pull_requests_producto": [
+    {"repo":"crebeucayali/accesos-complementarios","pr":11,"merge_commit":"4efb5959045d78128b20dcbda652c3ccc145303c"},
+    {"repo":"crebeucayali/capacitaciones","pr":5,"merge_commit":"be0b93208540302cd5be441abacea7134d56ea3b"},
+    {"repo":"crebeucayali/banco-digital-accesible","pr":5,"merge_commit":"8304d2b4d1a2ff8e668d676d0e3fcbce00d12217"},
+    {"repo":"crebeucayali/materiales-educativos-accesibles","pr":8,"merge_commit":"410a17abbc48c40d8f728dad41e900e68b0ffa95"},
+    {"repo":"crebeucayali/noti-inclusivos","pr":8,"merge_commit":"c7ea16415057fa3074df8f91d0d8474809ad9e99"},
+    {"repo":"crebeucayali/repositorio-accesible","pr":5,"merge_commit":"efa3203369c47e96fa71e485da368efc25bc60ef"},
+    {"repo":"crebeucayali/DUA-3.0","pr":5,"merge_commit":"f7c84f3aa7b756e6b307a9aeb325925a17a482df"}
+  ],
+  "workflow_run_id": 38323449093,
+  "artifact_id": 11779975650,
+  "validacion_ci": "SUCCESS",
+  "guardrails": {
+    "contenido_visible_modificado": false,
+    "css_modificado": false,
+    "javascript_funcional_modificado": false,
+    "supabase_modificado": false,
+    "panel_administrativo_modificado": false,
+    "accesibilidad_modificada": false,
+    "etapa_5_iniciada": false
+  }
+}
