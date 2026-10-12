@@ -1,0 +1,41 @@
+name: Estado canónico - Consistencia
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'core/state.py'
+      - 'state/current.json'
+      - 'tests/test_core_state.py'
+      - 'tracking/phases.json'
+      - 'tracking/fase-7-etapa-7.json'
+      - 'tracking/directorio-entidades-etapa-6.json'
+      - 'tracking/mapa-web-etapa-5.json'
+      - '.github/workflows/state-consistency.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: crebe-state-consistency-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validar estado canónico
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Preparar Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Validar coherencia del estado
+        run: python -m unittest tests.test_core_state -v
