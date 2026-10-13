@@ -1,0 +1,91 @@
+name: SEO EVA - Fase 9 Etapa 8
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 12 * * *'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'seo_monitor.mjs'
+      - 'tests/seo_monitor.test.mjs'
+      - '.github/workflows/seo-monitor.yml'
+      - 'tracking/fase-9-etapa-8.json'
+      - 'tracking/fase-9.json'
+      - 'tracking/phases.json'
+      - 'state/current.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: crebe-seo-monitor-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  monitor:
+    name: Verificar regresiones SEO sin modificar EVA
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Preparar Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+
+      - name: Ejecutar pruebas del monitor
+        run: node --test tests/seo_monitor.test.mjs
+
+      - name: Ejecutar monitoreo SEO
+        id: monitor
+        continue-on-error: true
+        run: node seo_monitor.mjs reports/seo-monitor/resultado.json
+
+      - name: Validar guardrails
+        if: always()
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          p='reports/seo-monitor/resultado.json'
+          d=json.load(open(p,encoding='utf-8'))
+          assert d['fase'] == 9 and d['etapa'] == 8
+          assert d['modo'] == 'READ_ONLY_SEO_MONITOR'
+          assert d['guardrails']['read_only'] is True
+          assert d['guardrails']['repositorios_eva_modificados'] is False
+          assert d['guardrails']['supabase_modificado'] is False
+          assert d['guardrails']['panel_administrativo_modificado'] is False
+          assert d['guardrails']['indexacion_forzada'] is False
+          print('Guardrails Fase 9 Etapa 8: OK')
+          PY
+
+      - name: Mostrar resumen
+        if: always()
+        shell: bash
+        run: |
+          if [ -f reports/seo-monitor/resultado.json ]; then
+            echo '## Monitoreo SEO EVA' >> "$GITHUB_STEP_SUMMARY"
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            cat reports/seo-monitor/resultado.json >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Guardar evidencia
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: fase-9-seo-monitor-${{ github.run_id }}
+          path: reports/seo-monitor/resultado.json
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Marcar alerta
+        if: steps.monitor.outcome == 'failure'
+        run: |
+          echo 'Se detectó una posible regresión SEO. Revise el resumen y el artefacto.'
+          exit 1
