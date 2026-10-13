@@ -1,0 +1,101 @@
+name: SEO EVA - Fase 9 Etapa 5
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'seo_content_verify.mjs'
+      - 'tests/seo_content_verify.test.mjs'
+      - '.github/workflows/seo-content-verify.yml'
+      - 'reports/fase-9-etapa-5-seo-contenidos.json'
+      - 'tracking/fase-9-etapa-5.json'
+      - 'tracking/fase-9.json'
+      - 'tracking/phases.json'
+      - 'state/current.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: crebe-seo-content-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Verificar SEO de contenidos sin modificar EVA
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Preparar Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+
+      - name: Ejecutar pruebas del verificador
+        run: node --test tests/seo_content_verify.test.mjs
+
+      - name: Obtener repositorios EVA en solo lectura
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _eva
+          cd _eva
+          for repo in crebeucayali.github.io accesos-complementarios capacitaciones banco-digital-accesible materiales-educativos-accesibles noti-inclusivos repositorio-accesible DUA-3.0; do
+            git clone --depth 1 --filter=blob:none "https://github.com/crebeucayali/${repo}.git" "$repo"
+          done
+
+      - name: Verificar contenido de las rutas oficiales
+        run: node seo_content_verify.mjs _eva reports/fase-9-etapa-5-seo-contenidos.generated.json
+
+      - name: Validar guardrails y cobertura
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          p='reports/fase-9-etapa-5-seo-contenidos.generated.json'
+          d=json.load(open(p,encoding='utf-8'))
+          assert d['fase'] == 9 and d['etapa'] == 5
+          assert d['modo'] == 'READ_ONLY_CONTENT_VERIFY'
+          assert d['totals']['repositories'] == 8
+          assert d['totals']['official_urls'] == 56
+          for key in ('missing_h1','multiple_h1','empty_h1','under_120_visible_chars','without_semantic_terms','failing_pages'):
+              assert d['totals'][key] == 0, (key, d['totals'][key])
+          assert d['guardrails']['read_only'] is True
+          assert d['guardrails']['repositorios_eva_modificados_por_verificador'] is False
+          assert d['guardrails']['contenido_reescrito_por_verificador'] is False
+          assert d['guardrails']['supabase_modificado'] is False
+          assert d['guardrails']['panel_administrativo_modificado'] is False
+          assert d['guardrails']['archivos_accesibilidad_modificados'] is False
+          assert d['guardrails']['etapa_6_iniciada'] is False
+          print('Validación Fase 9 Etapa 5: OK')
+          PY
+
+      - name: Mostrar resumen
+        if: always()
+        shell: bash
+        run: |
+          if [ -f reports/fase-9-etapa-5-seo-contenidos.generated.json ]; then
+            echo '## SEO EVA - Fase 9 Etapa 5' >> "$GITHUB_STEP_SUMMARY"
+            python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          d=json.load(open('reports/fase-9-etapa-5-seo-contenidos.generated.json',encoding='utf-8'))
+          print('```json')
+          print(json.dumps({'totals': d['totals'], 'guardrails': d['guardrails']}, ensure_ascii=False, indent=2))
+          print('```')
+          PY
+          fi
+
+      - name: Guardar evidencia
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: fase-9-etapa-5-seo-contenidos-${{ github.run_id }}
+          path: reports/fase-9-etapa-5-seo-contenidos.generated.json
+          if-no-files-found: warn
+          retention-days: 30
