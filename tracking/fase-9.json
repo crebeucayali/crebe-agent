@@ -2,11 +2,12 @@
   "schema_version": 1,
   "fase": 9,
   "nombre": "SEO y descubribilidad institucional de EVA",
-  "estado": "EN_CURSO",
+  "estado": "MONITOREO_SEO_ACTIVO",
   "fecha_inicio": "2026-10-12",
+  "fecha_activacion_monitoreo": "2026-10-13",
   "zona_horaria": "America/Lima",
   "objetivo": "Mejorar la indexacion, descubribilidad y autoridad de las paginas oficiales de EVA frente a resultados secundarios como repositorios GitHub, con SEO tecnico general aplicable a Brave Search, Google, Bing y otros motores compatibles.",
-  "etapa_actual": 7,
+  "etapa_actual": 8,
   "etapas": [
     {"etapa": 1, "nombre": "Auditoria e inventario SEO", "estado": "ETAPA_1_COMPLETADA_AUDITORIA_SEO"},
     {"etapa": 2, "nombre": "Arquitectura de indexacion", "estado": "ETAPA_2_COMPLETADA_ARQUITECTURA_INDEXACION"},
@@ -15,7 +16,7 @@
     {"etapa": 5, "nombre": "SEO de contenidos", "estado": "ETAPA_5_COMPLETADA_SEO_CONTENIDOS"},
     {"etapa": 6, "nombre": "Enlazado interno", "estado": "ETAPA_6_COMPLETADA_ENLAZADO_INTERNO"},
     {"etapa": 7, "nombre": "Buscadores y repositorios", "estado": "ETAPA_7_COMPLETADA_BUSCADORES_REPOSITORIOS"},
-    {"etapa": 8, "nombre": "Monitoreo SEO", "estado": "NO_INICIADA"}
+    {"etapa": 8, "nombre": "Monitoreo SEO", "estado": "MONITOREO_SEO_ACTIVO"}
   ],
   "etapa_1": {
     "estado": "ETAPA_1_COMPLETADA_AUDITORIA_SEO",
@@ -160,7 +161,21 @@
     "artifact_id": 11804302681,
     "validacion_ci": "SUCCESS",
     "modo_verificacion": "READ_ONLY_SEARCH_REPOSITORY_VERIFY",
-    "etapa_8_iniciada": false
+    "etapa_8_iniciada": true
+  },
+  "etapa_8": {
+    "estado": "MONITOREO_SEO_ACTIVO",
+    "fuente": "tracking/fase-9-etapa-8.json",
+    "workflow_run_id": 38385096115,
+    "artifact_id": 11805685089,
+    "validacion_ci": "SUCCESS",
+    "modo_verificacion": "READ_ONLY_SEO_MONITOR",
+    "sitemaps_hijos_esperados": 8,
+    "sitemaps_hijos_presentes": 8,
+    "urls_oficiales": 56,
+    "urls_oficiales_accesibles": 56,
+    "alertas_iniciales": 0,
+    "frecuencia": "DIARIA"
   },
   "repositorios_eva_modificados": true,
   "repositorios_eva_modificados_lista": [
