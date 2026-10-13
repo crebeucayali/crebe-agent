@@ -1,0 +1,102 @@
+name: SEO EVA - Fase 9 Etapa 7
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'seo_search_repositories_verify.mjs'
+      - 'tests/seo_search_repositories_verify.test.mjs'
+      - '.github/workflows/seo-search-repositories-verify.yml'
+      - 'tracking/fase-9-etapa-7.json'
+      - 'tracking/fase-9.json'
+      - 'tracking/phases.json'
+      - 'state/current.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: crebe-seo-search-repositories-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Verificar buscadores y repositorios sin modificar EVA
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Obtener agente
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Preparar Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+
+      - name: Ejecutar pruebas unitarias
+        run: node --test tests/seo_search_repositories_verify.test.mjs
+
+      - name: Verificar exposición pública, GitHub Pages y descubrimiento
+        run: node seo_search_repositories_verify.mjs reports/fase-9-etapa-7-buscadores-repositorios.generated.json
+
+      - name: Validar guardrails y cobertura
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          p='reports/fase-9-etapa-7-buscadores-repositorios.generated.json'
+          d=json.load(open(p,encoding='utf-8'))
+          assert d['fase'] == 9 and d['etapa'] == 7
+          assert d['modo'] == 'READ_ONLY_SEARCH_REPOSITORY_VERIFY'
+          assert d['totals']['repositories'] == 8
+          assert d['totals']['public_repositories'] == 8
+          assert d['totals']['pages_enabled'] == 8
+          assert d['totals']['pages_reachable'] == 8
+          assert d['totals']['required_failures'] == 0, d['required_failures']
+          assert d['robots']['http_status'] == 200
+          assert d['robots']['allows_root'] is True
+          assert d['robots']['sitemap_declared'] is True
+          assert d['sitemap']['http_status'] == 200
+          assert d['sitemap']['missing_entries'] == []
+          assert d['external_search_consoles']['indexation_forced'] is False
+          assert d['guardrails']['read_only'] is True
+          assert d['guardrails']['repositorios_eva_modificados_por_verificador'] is False
+          assert d['guardrails']['supabase_modificado'] is False
+          assert d['guardrails']['panel_administrativo_modificado'] is False
+          assert d['guardrails']['contenido_eva_modificado'] is False
+          assert d['guardrails']['etapa_8_iniciada'] is False
+          print('Validación Fase 9 Etapa 7: OK')
+          PY
+
+      - name: Mostrar resumen
+        if: always()
+        shell: bash
+        run: |
+          if [ -f reports/fase-9-etapa-7-buscadores-repositorios.generated.json ]; then
+            echo '## SEO EVA - Fase 9 Etapa 7' >> "$GITHUB_STEP_SUMMARY"
+            python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          d=json.load(open('reports/fase-9-etapa-7-buscadores-repositorios.generated.json',encoding='utf-8'))
+          print('```json')
+          print(json.dumps({
+            'totals': d['totals'],
+            'robots': d['robots'],
+            'sitemap': d['sitemap'],
+            'required_failures': d['required_failures'],
+            'external_search_consoles': d['external_search_consoles'],
+          }, ensure_ascii=False, indent=2))
+          print('```')
+          PY
+          fi
+
+      - name: Guardar evidencia
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: fase-9-etapa-7-buscadores-repositorios-${{ github.run_id }}
+          path: reports/fase-9-etapa-7-buscadores-repositorios.generated.json
+          if-no-files-found: warn
+          retention-days: 30
