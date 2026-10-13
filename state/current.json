@@ -7,8 +7,7 @@
     "tracking/phases.json",
     "tracking/fase-7-etapa-7.json",
     "tracking/directorio-entidades-etapa-6.json",
-    "tracking/mapa-web-etapa-6.json",
-    "tracking/fase-9-etapa-7.json"
+    "tracking/mapa-web-etapa-6.json"
   ],
   "phases": {
     "fase_4": {
@@ -47,8 +46,7 @@
     "fase_9": {
       "status": "EN_CURSO",
       "current_stage": 7,
-      "source": "tracking/phases.json",
-      "detail_source": "tracking/fase-9-etapa-7.json"
+      "source": "tracking/phases.json"
     }
   },
   "modules": {
