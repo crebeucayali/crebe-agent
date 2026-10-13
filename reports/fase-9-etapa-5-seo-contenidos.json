@@ -44,9 +44,9 @@
   "workflow": ".github/workflows/seo-content-verify.yml",
   "script": "seo_content_verify.mjs",
   "pruebas": "tests/seo_content_verify.test.mjs",
-  "workflow_run_id": null,
-  "artifact_id": null,
-  "validacion_ci": "PENDIENTE_PR",
+  "workflow_run_id": 38328868447,
+  "artifact_id": 11781677233,
+  "validacion_ci": "SUCCESS",
   "guardrails": {
     "contenido_textual_reescrito": false,
     "estructura_h1_corregida": true,
