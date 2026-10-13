@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "fase": 9,
+  "etapa": 6,
+  "nombre": "Enlazado interno",
+  "estado": "ETAPA_6_COMPLETADA_ENLAZADO_INTERNO",
+  "fecha": "2026-10-12",
+  "zona_horaria": "America/Lima",
+  "universo": {
+    "repositorios": 8,
+    "urls_oficiales": 56
+  },
+  "diagnostico_inicial": {
+    "workflow_run_id": 38337973152,
+    "artifact_id": 11785650629,
+    "official_edges": 414,
+    "missing_route_files": 0,
+    "orphan_pages": 2,
+    "unreachable_from_root": 2,
+    "pages_without_official_outgoing": 0,
+    "invalid_hrefs": 0,
+    "non_https_internal_links": 0,
+    "orphan_urls": [
+      "https://crebeucayali.github.io/noti-inclusivos/articulos/",
+      "https://crebeucayali.github.io/noti-inclusivos/articulos/transicion-vida-adulta/"
+    ]
+  },
+  "intervencion": {
+    "repositorios_eva_modificados": 1,
+    "repositorios": [
+      "crebeucayali/noti-inclusivos"
+    ],
+    "archivos_html_modificados": 2,
+    "correccion": "Conectar la portada de Lecturas Inclusivas con su índice de artículos y el índice con el artículo Transición a la vida adulta, sin modificar otros subsistemas.",
+    "pull_request_producto": 9,
+    "merge_commit_producto": "5076629ed9d19a80080d6083c66133fba7868e58"
+  },
+  "resultado_final": {
+    "official_edges": 416,
+    "missing_route_files": 0,
+    "orphan_pages": 0,
+    "unreachable_from_root": 0,
+    "pages_without_official_outgoing": 0,
+    "invalid_hrefs": 0,
+    "non_https_internal_links": 0
+  },
+  "workflow": ".github/workflows/seo-internal-links-verify.yml",
+  "script": "seo_internal_links_verify.mjs",
+  "pruebas": "tests/seo_internal_links_verify.test.mjs",
+  "workflow_run_id": 38338278100,
+  "artifact_id": 11785671168,
+  "validacion_ci": "SUCCESS",
+  "guardrails": {
+    "contenido_textual_reescrito": false,
+    "canonical_modificado": false,
+    "metadata_modificada": false,
+    "javascript_funcional_modificado": false,
+    "supabase_modificado": false,
+    "panel_administrativo_modificado": false,
+    "archivos_accesibilidad_modificados": false,
+    "etapa_7_iniciada": false
+  }
+}
