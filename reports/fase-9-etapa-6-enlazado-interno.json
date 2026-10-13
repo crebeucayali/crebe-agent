@@ -3,7 +3,7 @@
   "fase": 9,
   "etapa": 6,
   "nombre": "Enlazado interno",
-  "estado": "ETAPA_6_EN_VALIDACION",
+  "estado": "ETAPA_6_COMPLETADA_ENLAZADO_INTERNO",
   "fecha": "2026-10-12",
   "zona_horaria": "America/Lima",
   "universo": {
@@ -27,27 +27,29 @@
   },
   "intervencion": {
     "repositorios_eva_modificados": 1,
-    "repositorios": ["crebeucayali/noti-inclusivos"],
+    "repositorios": [
+      "crebeucayali/noti-inclusivos"
+    ],
     "archivos_html_modificados": 2,
     "correccion": "Conectar la portada de Lecturas Inclusivas con su índice de artículos y el índice con el artículo Transición a la vida adulta, sin modificar otros subsistemas.",
     "pull_request_producto": 9,
     "merge_commit_producto": "5076629ed9d19a80080d6083c66133fba7868e58"
   },
   "resultado_final": {
-    "official_edges": null,
-    "missing_route_files": null,
-    "orphan_pages": null,
-    "unreachable_from_root": null,
-    "pages_without_official_outgoing": null,
-    "invalid_hrefs": null,
-    "non_https_internal_links": null
+    "official_edges": 416,
+    "missing_route_files": 0,
+    "orphan_pages": 0,
+    "unreachable_from_root": 0,
+    "pages_without_official_outgoing": 0,
+    "invalid_hrefs": 0,
+    "non_https_internal_links": 0
   },
   "workflow": ".github/workflows/seo-internal-links-verify.yml",
   "script": "seo_internal_links_verify.mjs",
   "pruebas": "tests/seo_internal_links_verify.test.mjs",
-  "workflow_run_id": null,
-  "artifact_id": null,
-  "validacion_ci": "PENDIENTE_POST_INTERVENCION",
+  "workflow_run_id": 38338278100,
+  "artifact_id": 11785671168,
+  "validacion_ci": "SUCCESS",
   "guardrails": {
     "contenido_textual_reescrito": false,
     "canonical_modificado": false,
