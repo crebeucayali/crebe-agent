@@ -1,0 +1,27 @@
+name: SEO - diagnostico HTTP sitemap EVA
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/seo_http_audit.py'
+      - '.github/workflows/seo-http-audit.yml'
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Inspeccionar sitemaps y robots publicados
+        run: python scripts/seo_http_audit.py
+      - name: Guardar evidencia aunque falle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-http-sitemaps
+          path: reports/seo/http-sitemaps-latest.json
+          if-no-files-found: warn
