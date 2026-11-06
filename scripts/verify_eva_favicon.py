@@ -13,7 +13,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 
 BASE = "https://crebeucayali.github.io/"
-EXPECTED = BASE + "materiales-educativos-accesibles/logo-crebe.webp"
+EXPECTED = BASE + "materiales-educativos-accesibles/logo-crebe.webp?v=20261105"
 SITEMAP = BASE + "sitemap-v2.xml"
 UA = "CREBE-EVA-Favicon-Audit/1.0"
 ICON = re.compile(r'<link\b[^>]*\brel\s*=\s*["\'][^"\']*(?:shortcut\s+)?icon[^"\']*["\'][^>]*>', re.I)
