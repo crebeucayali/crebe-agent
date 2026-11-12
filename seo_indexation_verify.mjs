@@ -10,7 +10,6 @@ export const CHILD_SITEMAPS = [
   `${HOST}capacitaciones/sitemap.xml`,
   `${HOST}banco-digital-accesible/sitemap.xml`,
   `${HOST}materiales-educativos-accesibles/sitemap.xml`,
-  `${HOST}noti-inclusivos/sitemap.xml`,
   `${HOST}DUA-3.0/sitemap.xml`,
 ];
 
@@ -40,6 +39,15 @@ export const EXPECTED = {
       `${HOST}accesos-complementarios/paginas/aviso-legal.html`,
       `${HOST}accesos-complementarios/paginas/politica-privacidad.html`,
       `${HOST}accesos-complementarios/paginas/politica-cookies.html`,
+      `${HOST}accesos-complementarios/lecturas-inclusivas/`,
+      `${HOST}accesos-complementarios/lecturas-inclusivas/articulos/`,
+      `${HOST}accesos-complementarios/lecturas-inclusivas/articulos/cuentos-inclusion-discapacidad/`,
+      `${HOST}accesos-complementarios/lecturas-inclusivas/articulos/lanzamiento-eva/`,
+      `${HOST}accesos-complementarios/lecturas-inclusivas/articulos/natacion-inclusiva-sin-barreras/`,
+      `${HOST}accesos-complementarios/lecturas-inclusivas/articulos/neurodiversidad-del-reconocimiento-a-los-apoyos/`,
+      `${HOST}accesos-complementarios/lecturas-inclusivas/articulos/salud-emergencias-inclusion/`,
+      `${HOST}accesos-complementarios/lecturas-inclusivas/articulos/sindrome-down-y-bioetica/`,
+      `${HOST}accesos-complementarios/lecturas-inclusivas/articulos/transicion-vida-adulta/`,
     ],
   },
   capacitaciones: {
@@ -85,20 +93,6 @@ export const EXPECTED = {
       `${HOST}materiales-educativos-accesibles/practica-braille-opciones/`,
       `${HOST}materiales-educativos-accesibles/practica-braille-v2/`,
       `${HOST}materiales-educativos-accesibles/paginas/privacidad-seguimiento-braille.html`,
-    ],
-  },
-  'noti-inclusivos': {
-    sitemap: 'sitemap.xml',
-    urls: [
-      `${HOST}noti-inclusivos/`,
-      `${HOST}noti-inclusivos/articulos/`,
-      `${HOST}noti-inclusivos/articulos/cuentos-inclusion-discapacidad/`,
-      `${HOST}noti-inclusivos/articulos/lanzamiento-eva/`,
-      `${HOST}noti-inclusivos/articulos/natacion-inclusiva-sin-barreras/`,
-      `${HOST}noti-inclusivos/articulos/neurodiversidad-del-reconocimiento-a-los-apoyos/`,
-      `${HOST}noti-inclusivos/articulos/salud-emergencias-inclusion/`,
-      `${HOST}noti-inclusivos/articulos/sindrome-down-y-bioetica/`,
-      `${HOST}noti-inclusivos/articulos/transicion-vida-adulta/`,
     ],
   },
   'DUA-3.0': {
