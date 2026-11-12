@@ -34,7 +34,7 @@ test('extrae URLs de sitemap', () => {
   assert.deepEqual(urls, ['https://crebeucayali.github.io/', 'https://crebeucayali.github.io/capacitaciones/']);
 });
 
-test('audita exactamente los ocho repositorios sin escribir sobre ellos', () => {
+test('audita los repositorios vigentes sin escribir sobre ellos', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crebe-seo-'));
   try {
     for (const repo of EXPECTED_REPOS) {
@@ -49,7 +49,7 @@ test('audita exactamente los ocho repositorios sin escribir sobre ellos', () => 
       }
     }
     const report = auditWorkspace(root);
-    assert.equal(report.totals.repositories, 8);
+    assert.equal(report.totals.repositories, EXPECTED_REPOS.length);
     assert.equal(report.guardrails.read_only, true);
     assert.equal(report.guardrails.repositorios_eva_modificados, false);
     assert.equal(report.root_discovery.root_sitemap_urls, 1);
