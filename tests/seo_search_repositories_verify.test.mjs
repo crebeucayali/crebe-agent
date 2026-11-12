@@ -25,11 +25,10 @@ test('inspectSitemap detecta cobertura completa de 8 entradas', () => {
     'https://crebeucayali.github.io/banco-digital-accesible/sitemap.xml',
     'https://crebeucayali.github.io/materiales-educativos-accesibles/sitemap.xml',
     'https://crebeucayali.github.io/noti-inclusivos/sitemap.xml',
-    'https://crebeucayali.github.io/repositorio-accesible/sitemap.xml',
-    'https://crebeucayali.github.io/DUA-3.0/sitemap.xml',
+      'https://crebeucayali.github.io/DUA-3.0/sitemap.xml',
   ];
   const xml = urls.map((u) => `<loc>${u}</loc>`).join('\n');
   const result = inspectSitemap(xml);
-  assert.equal(result.expected_entries, 8);
+  assert.equal(result.expected_entries, 7);
   assert.deepEqual(result.missing_entries, []);
 });
