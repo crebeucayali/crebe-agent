@@ -7,7 +7,6 @@ export const TARGETS = [
   ['banco-digital-accesible', 'https://crebeucayali.github.io/banco-digital-accesible/'],
   ['materiales-educativos-accesibles', 'https://crebeucayali.github.io/materiales-educativos-accesibles/'],
   ['noti-inclusivos', 'https://crebeucayali.github.io/noti-inclusivos/'],
-  ['repositorio-accesible', 'https://crebeucayali.github.io/repositorio-accesible/'],
   ['DUA-3.0', 'https://crebeucayali.github.io/DUA-3.0/'],
 ];
 
@@ -41,7 +40,6 @@ export function inspectSitemap(text) {
     'https://crebeucayali.github.io/banco-digital-accesible/sitemap.xml',
     'https://crebeucayali.github.io/materiales-educativos-accesibles/sitemap.xml',
     'https://crebeucayali.github.io/noti-inclusivos/sitemap.xml',
-    'https://crebeucayali.github.io/repositorio-accesible/sitemap.xml',
     'https://crebeucayali.github.io/DUA-3.0/sitemap.xml',
   ];
   const missing = expected.filter((url) => !value.includes(`<loc>${url}</loc>`));
