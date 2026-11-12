@@ -42,8 +42,8 @@
     {
       "id": "ni-principal",
       "name": "Noti Inclusivos",
-      "repo": "crebeucayali/noti-inclusivos",
-      "url": "https://crebeucayali.github.io/noti-inclusivos/",
+      "repo": "crebeucayali/accesos-complementarios",
+      "url": "https://crebeucayali.github.io/accesos-complementarios/lecturas-inclusivas/",
       "criticality": "ALTA",
       "must_not_contain": [
         "accesos-complementarios/institucional/contacto.html"
@@ -72,9 +72,9 @@
     },
     {
       "id": "noti-blog-compat",
-      "name": "Compatibilidad /noti-inclusivos/blog/",
-      "repo": "crebeucayali/noti-inclusivos",
-      "url": "https://crebeucayali.github.io/noti-inclusivos/blog/",
+      "name": "Compatibilidad Lecturas inclusivas /blog/",
+      "repo": "crebeucayali/accesos-complementarios",
+      "url": "https://crebeucayali.github.io/accesos-complementarios/lecturas-inclusivas/blog/",
       "criticality": "MEDIA",
       "must_contain": [
         "url=../articulos/",
@@ -84,15 +84,15 @@
     {
       "id": "noti-articulos",
       "name": "Índice vigente de artículos",
-      "repo": "crebeucayali/noti-inclusivos",
-      "url": "https://crebeucayali.github.io/noti-inclusivos/articulos/",
+      "repo": "crebeucayali/accesos-complementarios",
+      "url": "https://crebeucayali.github.io/accesos-complementarios/lecturas-inclusivas/articulos/",
       "criticality": "MEDIA"
     },
     {
       "id": "noti-lanzamiento",
       "name": "Artículo lanzamiento EVA",
-      "repo": "crebeucayali/noti-inclusivos",
-      "url": "https://crebeucayali.github.io/noti-inclusivos/articulos/lanzamiento-eva/",
+      "repo": "crebeucayali/accesos-complementarios",
+      "url": "https://crebeucayali.github.io/accesos-complementarios/lecturas-inclusivas/articulos/lanzamiento-eva/",
       "criticality": "MEDIA",
       "must_not_contain": [
         "accesos-complementarios/institucional/contacto.html"
@@ -101,8 +101,8 @@
     {
       "id": "noti-transicion",
       "name": "Artículo transición vida adulta",
-      "repo": "crebeucayali/noti-inclusivos",
-      "url": "https://crebeucayali.github.io/noti-inclusivos/articulos/transicion-vida-adulta/",
+      "repo": "crebeucayali/accesos-complementarios",
+      "url": "https://crebeucayali.github.io/accesos-complementarios/lecturas-inclusivas/articulos/transicion-vida-adulta/",
       "criticality": "MEDIA",
       "must_not_contain": [
         "accesos-complementarios/institucional/contacto.html"
@@ -111,8 +111,8 @@
     {
       "id": "noti-salud",
       "name": "Artículo salud y emergencias",
-      "repo": "crebeucayali/noti-inclusivos",
-      "url": "https://crebeucayali.github.io/noti-inclusivos/articulos/salud-emergencias-inclusion/",
+      "repo": "crebeucayali/accesos-complementarios",
+      "url": "https://crebeucayali.github.io/accesos-complementarios/lecturas-inclusivas/articulos/salud-emergencias-inclusion/",
       "criticality": "MEDIA",
       "must_not_contain": [
         "accesos-complementarios/institucional/contacto.html"
@@ -121,8 +121,8 @@
     {
       "id": "noti-cuentos",
       "name": "Artículo cuentos e inclusión",
-      "repo": "crebeucayali/noti-inclusivos",
-      "url": "https://crebeucayali.github.io/noti-inclusivos/articulos/cuentos-inclusion-discapacidad/",
+      "repo": "crebeucayali/accesos-complementarios",
+      "url": "https://crebeucayali.github.io/accesos-complementarios/lecturas-inclusivas/articulos/cuentos-inclusion-discapacidad/",
       "criticality": "MEDIA",
       "must_not_contain": [
         "accesos-complementarios/institucional/contacto.html"
@@ -131,8 +131,8 @@
     {
       "id": "noti-natacion",
       "name": "Artículo natación inclusiva",
-      "repo": "crebeucayali/noti-inclusivos",
-      "url": "https://crebeucayali.github.io/noti-inclusivos/articulos/natacion-inclusiva-sin-barreras/",
+      "repo": "crebeucayali/accesos-complementarios",
+      "url": "https://crebeucayali.github.io/accesos-complementarios/lecturas-inclusivas/articulos/natacion-inclusiva-sin-barreras/",
       "criticality": "MEDIA",
       "must_not_contain": [
         "accesos-complementarios/institucional/contacto.html"
@@ -141,8 +141,8 @@
     {
       "id": "noti-down",
       "name": "Artículo síndrome de Down y bioética",
-      "repo": "crebeucayali/noti-inclusivos",
-      "url": "https://crebeucayali.github.io/noti-inclusivos/articulos/sindrome-down-y-bioetica/",
+      "repo": "crebeucayali/accesos-complementarios",
+      "url": "https://crebeucayali.github.io/accesos-complementarios/lecturas-inclusivas/articulos/sindrome-down-y-bioetica/",
       "criticality": "MEDIA",
       "must_not_contain": [
         "accesos-complementarios/institucional/contacto.html"
@@ -151,8 +151,8 @@
     {
       "id": "noti-neurodiversidad",
       "name": "Artículo neurodiversidad",
-      "repo": "crebeucayali/noti-inclusivos",
-      "url": "https://crebeucayali.github.io/noti-inclusivos/articulos/neurodiversidad-del-reconocimiento-a-los-apoyos/",
+      "repo": "crebeucayali/accesos-complementarios",
+      "url": "https://crebeucayali.github.io/accesos-complementarios/lecturas-inclusivas/articulos/neurodiversidad-del-reconocimiento-a-los-apoyos/",
       "criticality": "MEDIA",
       "must_not_contain": [
         "accesos-complementarios/institucional/contacto.html"
