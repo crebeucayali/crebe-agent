@@ -10,7 +10,6 @@ const REPOS = [
   'banco-digital-accesible',
   'materiales-educativos-accesibles',
   'noti-inclusivos',
-  'repositorio-accesible',
   'DUA-3.0'
 ];
 const OVERFLOW_TARGETS = new Set([
