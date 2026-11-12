@@ -17,18 +17,17 @@ test('inspectRobots exige apertura raíz y sitemap institucional', () => {
   assert.deepEqual(result, { allows_root: true, sitemap_declared: true });
 });
 
-test('inspectSitemap detecta cobertura completa de 8 entradas', () => {
+test('inspectSitemap detecta cobertura completa del índice vigente', () => {
   const urls = [
     'https://crebeucayali.github.io/sitemap-main.xml',
     'https://crebeucayali.github.io/accesos-complementarios/sitemap.xml',
     'https://crebeucayali.github.io/capacitaciones/sitemap.xml',
     'https://crebeucayali.github.io/banco-digital-accesible/sitemap.xml',
     'https://crebeucayali.github.io/materiales-educativos-accesibles/sitemap.xml',
-    'https://crebeucayali.github.io/noti-inclusivos/sitemap.xml',
       'https://crebeucayali.github.io/DUA-3.0/sitemap.xml',
   ];
   const xml = urls.map((u) => `<loc>${u}</loc>`).join('\n');
   const result = inspectSitemap(xml);
-  assert.equal(result.expected_entries, 7);
+  assert.equal(result.expected_entries, 6);
   assert.deepEqual(result.missing_entries, []);
 });
