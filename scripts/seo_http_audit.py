@@ -16,7 +16,6 @@ PATHS = [
     "/banco-digital-accesible/sitemap.xml",
     "/materiales-educativos-accesibles/sitemap.xml",
     "/noti-inclusivos/sitemap.xml",
-    "/repositorio-accesible/sitemap.xml",
     "/DUA-3.0/sitemap.xml",
 ]
 NS = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
