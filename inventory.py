@@ -14,7 +14,7 @@ from urllib.request import Request, urlopen
 OWNER = 'crebeucayali'
 REPOS = ['crebeucayali.github.io', 'accesos-complementarios', 'capacitaciones',
          'banco-digital-accesible', 'materiales-educativos-accesibles',
-         'noti-inclusivos', 'repositorio-accesible', 'DUA-3.0']
+         'noti-inclusivos', 'DUA-3.0']
 RULES = {
     'header': r'<header\b', 'footer': r'<footer\b', 'navegacion': r'<nav\b',
     'compartir': r'data-compartir|compartir-facebook|compartir-eva',
