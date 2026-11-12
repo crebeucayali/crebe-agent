@@ -9,7 +9,6 @@ const REPOS = [
   'capacitaciones',
   'banco-digital-accesible',
   'materiales-educativos-accesibles',
-  'noti-inclusivos',
   'DUA-3.0'
 ];
 
