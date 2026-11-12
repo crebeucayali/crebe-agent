@@ -18,7 +18,7 @@ class AccessibilityBaselineTests(unittest.TestCase):
                 )
             data = baseline(root)
             self.assertEqual(data["universo"]["repositorios"], len(REPOS))
-            self.assertEqual(data["universo"]["paginas_html_observadas_actualmente"], 8)
+            self.assertEqual(data["universo"]["paginas_html_observadas_actualmente"], len(REPOS))
             by_id = {c["id"]: c for c in data["contratos"]}
             self.assertEqual(by_id["A11Y-CON-001"]["estado"], "INCUMPLIMIENTO_CONFIRMADO")
             self.assertEqual(by_id["A11Y-CON-003"]["estado"], "INCUMPLIMIENTO_CONFIRMADO")
