@@ -11,7 +11,6 @@ export const REPOS = [
   'banco-digital-accesible',
   'materiales-educativos-accesibles',
   'noti-inclusivos',
-  'repositorio-accesible',
   'DUA-3.0'
 ];
 
