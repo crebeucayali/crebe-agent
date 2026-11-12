@@ -53,7 +53,7 @@ jobs:
           set -euo pipefail
           mkdir -p _eva
           cd _eva
-          for repo in crebeucayali.github.io accesos-complementarios capacitaciones banco-digital-accesible materiales-educativos-accesibles noti-inclusivos DUA-3.0; do
+          for repo in crebeucayali.github.io accesos-complementarios capacitaciones banco-digital-accesible materiales-educativos-accesibles DUA-3.0; do
             git clone --depth 1 --filter=blob:none "https://github.com/crebeucayali/${repo}.git" "$repo"
           done
       - name: Verificar contraste y reflujo corregidos
