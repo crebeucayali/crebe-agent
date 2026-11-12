@@ -16,7 +16,6 @@ export const ENTRY_PAGES = {
   capacitaciones: `${ROOT_URL}capacitaciones/`,
   'banco-digital-accesible': `${ROOT_URL}banco-digital-accesible/`,
   'materiales-educativos-accesibles': `${ROOT_URL}materiales-educativos-accesibles/`,
-  'noti-inclusivos': `${ROOT_URL}noti-inclusivos/`,
   'DUA-3.0': `${ROOT_URL}DUA-3.0/`,
 };
 
