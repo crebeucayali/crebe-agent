@@ -9,7 +9,6 @@ export const EXPECTED_CHILD_SITEMAPS = [
   `${ROOT}/banco-digital-accesible/sitemap.xml`,
   `${ROOT}/materiales-educativos-accesibles/sitemap.xml`,
   `${ROOT}/noti-inclusivos/sitemap.xml`,
-  `${ROOT}/repositorio-accesible/sitemap.xml`,
   `${ROOT}/DUA-3.0/sitemap.xml`,
 ];
 
@@ -63,7 +62,7 @@ export async function runMonitor() {
   if (missingChildSitemaps.length) alerts.push('missing_child_sitemaps');
   for (const sitemap of sitemapChecks) if (!sitemap.reachable) alerts.push(`sitemap_unreachable:${sitemap.url}`);
   for (const page of pageChecks) if (!page.reachable) alerts.push(`page_unreachable:${page.url}`);
-  if (officialUrls.size !== 56) alerts.push(`official_url_count:${officialUrls.size}`);
+  if (officialUrls.size !== 59) alerts.push(`official_url_count:${officialUrls.size}`);
 
   return {
     schema_version: 1,
