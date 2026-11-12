@@ -52,7 +52,7 @@ test('valida la arquitectura completa con ocho sitemaps y 56 URLs oficiales', ()
   const base = makeFixture();
   try {
     const report = auditIndexation(base);
-    assert.equal(report.totals.repositories, 8);
+    assert.equal(report.totals.repositories, Object.keys(EXPECTED).length);
     assert.equal(report.totals.child_sitemaps, 8);
     assert.equal(report.totals.indexed_urls, 56);
     assert.equal(report.totals.duplicate_urls, 0);
