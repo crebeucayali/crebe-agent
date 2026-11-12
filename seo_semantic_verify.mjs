@@ -17,7 +17,6 @@ export const ENTRY_PAGES = {
   'banco-digital-accesible': `${ROOT_URL}banco-digital-accesible/`,
   'materiales-educativos-accesibles': `${ROOT_URL}materiales-educativos-accesibles/`,
   'noti-inclusivos': `${ROOT_URL}noti-inclusivos/`,
-  'repositorio-accesible': `${ROOT_URL}repositorio-accesible/`,
   'DUA-3.0': `${ROOT_URL}DUA-3.0/`,
 };
 
@@ -121,10 +120,10 @@ export function auditSemantic(baseDir) {
     nombre: 'Identidad semantica y datos estructurados',
     modo: 'READ_ONLY_SEMANTIC_VERIFY',
     totals: {
-      repositories: 8,
-      entry_pages: 8,
+      repositories: Object.keys(ENTRY_PAGES).length,
+      entry_pages: Object.keys(ENTRY_PAGES).length,
       root_preexisting_structured_data: 1,
-      module_pages_enriched: 7,
+      module_pages_enriched: Object.keys(ENTRY_PAGES).length - 1,
       pages_with_structured_data: entries.filter((item) => item.jsonld_blocks > 0).length,
       invalid_jsonld: sum('invalid_jsonld'),
       identity_mismatch: sum('identity_mismatch'),
