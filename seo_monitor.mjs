@@ -8,7 +8,6 @@ export const EXPECTED_CHILD_SITEMAPS = [
   `${ROOT}/capacitaciones/sitemap.xml`,
   `${ROOT}/banco-digital-accesible/sitemap.xml`,
   `${ROOT}/materiales-educativos-accesibles/sitemap.xml`,
-  `${ROOT}/noti-inclusivos/sitemap.xml`,
   `${ROOT}/DUA-3.0/sitemap.xml`,
 ];
 
