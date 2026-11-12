@@ -51,9 +51,9 @@
     },
     {
       "id": "ra-principal",
-      "name": "Repositorio Accesible",
-      "repo": "crebeucayali/repositorio-accesible",
-      "url": "https://crebeucayali.github.io/repositorio-accesible/",
+      "name": "Repositorio Accesible integrado en BDA",
+      "repo": "crebeucayali/banco-digital-accesible",
+      "url": "https://crebeucayali.github.io/banco-digital-accesible/repositorio-accesible/",
       "criticality": "ALTA"
     },
     {
