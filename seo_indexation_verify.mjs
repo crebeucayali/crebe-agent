@@ -11,7 +11,6 @@ export const CHILD_SITEMAPS = [
   `${HOST}banco-digital-accesible/sitemap.xml`,
   `${HOST}materiales-educativos-accesibles/sitemap.xml`,
   `${HOST}noti-inclusivos/sitemap.xml`,
-  `${HOST}repositorio-accesible/sitemap.xml`,
   `${HOST}DUA-3.0/sitemap.xml`,
 ];
 
@@ -66,6 +65,10 @@ export const EXPECTED = {
       `${HOST}banco-digital-accesible/biblioteca/`,
       `${HOST}banco-digital-accesible/biblioteca/criterios.html`,
       `${HOST}banco-digital-accesible/creditos.html`,
+      `${HOST}banco-digital-accesible/repositorio-accesible/`,
+      `${HOST}banco-digital-accesible/repositorio-accesible/materiales-disponibles/`,
+      `${HOST}banco-digital-accesible/repositorio-accesible/equipos-tecnologicos/`,
+      `${HOST}banco-digital-accesible/repositorio-accesible/materiales-elaborados/`,
     ],
   },
   'materiales-educativos-accesibles': {
@@ -96,12 +99,6 @@ export const EXPECTED = {
       `${HOST}noti-inclusivos/articulos/salud-emergencias-inclusion/`,
       `${HOST}noti-inclusivos/articulos/sindrome-down-y-bioetica/`,
       `${HOST}noti-inclusivos/articulos/transicion-vida-adulta/`,
-    ],
-  },
-  'repositorio-accesible': {
-    sitemap: 'sitemap.xml',
-    urls: [
-      `${HOST}repositorio-accesible/`,
     ],
   },
   'DUA-3.0': {
@@ -167,7 +164,7 @@ export function auditIndexation(baseDir) {
   if (!/<sitemapindex\b/i.test(indexXml)) throw new Error('sitemap-v2.xml no es sitemapindex');
   const childLocs = parseLocs(indexXml);
   if (JSON.stringify(sorted(childLocs)) !== JSON.stringify(sorted(CHILD_SITEMAPS))) {
-    throw new Error('El índice central no contiene exactamente los ocho sitemaps esperados');
+    throw new Error('El índice central no contiene el conjunto de sitemaps esperados');
   }
 
   const repositoryResults = [];
