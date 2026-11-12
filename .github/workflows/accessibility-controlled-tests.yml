@@ -63,7 +63,6 @@ jobs:
             banco-digital-accesible \
             materiales-educativos-accesibles \
             noti-inclusivos \
-            repositorio-accesible \
             DUA-3.0
           do
             git clone --depth 1 --filter=blob:none "https://github.com/crebeucayali/${repo}.git" "$repo"
