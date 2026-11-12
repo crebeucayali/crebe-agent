@@ -45,16 +45,16 @@ test('resuelve URLs oficiales al archivo fuente esperado', () => {
   assert.equal(routeFileForUrl('crebeucayali.github.io', `${HOST}`), 'index.html');
   assert.equal(routeFileForUrl('crebeucayali.github.io', `${HOST}buscar/`), 'buscar/index.html');
   assert.equal(routeFileForUrl('DUA-3.0', `${HOST}DUA-3.0/recursos.html`), 'recursos.html');
-  assert.equal(routeFileForUrl('noti-inclusivos', `${HOST}noti-inclusivos/articulos/`), 'articulos/index.html');
+  assert.equal(routeFileForUrl('accesos-complementarios', `${HOST}accesos-complementarios/lecturas-inclusivas/articulos/`), 'lecturas-inclusivas/articulos/index.html');
 });
 
-test('valida la arquitectura completa con ocho sitemaps y 56 URLs oficiales', () => {
+test('valida la arquitectura consolidada y sus 59 URLs oficiales', () => {
   const base = makeFixture();
   try {
     const report = auditIndexation(base);
     assert.equal(report.totals.repositories, Object.keys(EXPECTED).length);
-    assert.equal(report.totals.child_sitemaps, 8);
-    assert.equal(report.totals.indexed_urls, 56);
+    assert.equal(report.totals.child_sitemaps, CHILD_SITEMAPS.length);
+    assert.equal(report.totals.indexed_urls, 59);
     assert.equal(report.totals.duplicate_urls, 0);
     assert.equal(report.totals.missing_route_files, 0);
     assert.equal(report.root_discovery.robots_declares_central_index, true);
